@@ -835,6 +835,13 @@ nav .mainMenu .closeMenu, .icons i {
     opacity: 1;
 }
 
+/* @media screen and (max-width:450px){
+    #MyPicLarge img{
+        width: 330px;
+        height: 390px;
+    }
+} */
+
 @media (max-width: 1200px) {
     #AboutMe-image img {
         margin-top: 155px;
