@@ -1174,13 +1174,13 @@ nav .mainMenu .closeMenu, .icons i {
 }
 
 #Resume-items li:hover:nth-child(3) .CustomTooltip{
-    top: -80px;
-    right: -50px;
+    top: -135px;
+    right: -180px;
 }
 
 #Resume-items li:hover:nth-child(4) .CustomTooltip{
-    top: -80px;
-    left: -50px;
+    top: -120px;
+    left: -180px;
 }
 
 #Resume-items li:hover:nth-child(5) .CustomTooltip{
@@ -1248,7 +1248,7 @@ nav .mainMenu .closeMenu, .icons i {
 #accordion {
     opacity: 0;
     transition: opacity 1.3s ease-out;
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
 #accordion.appear {
@@ -1313,6 +1313,16 @@ nav .mainMenu .closeMenu, .icons i {
 @media (max-width: 1200px) {
     .padding-top-5 {
         padding-top: 0;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .Resume-click-open video{
+        max-width: 85%;
+    }
+
+    .Resume-click-open{
+        max-width: 100%;
     }
 }
 
