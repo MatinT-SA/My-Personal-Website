@@ -795,6 +795,10 @@ nav .mainMenu .closeMenu, .icons i {
     color: blue;
 }
 
+.section-1 h3 span{
+    font-weight: bold;
+}
+
 .section-1 p {
     color: var(--our-dark-color);
 }
@@ -834,13 +838,6 @@ nav .mainMenu .closeMenu, .icons i {
     transform: translateY(0);
     opacity: 1;
 }
-
-/* @media screen and (max-width:450px){
-    #MyPicLarge img{
-        width: 330px;
-        height: 390px;
-    }
-} */
 
 @media (max-width: 1200px) {
     #AboutMe-image img {
@@ -915,6 +912,32 @@ nav .mainMenu .closeMenu, .icons i {
         transform: scale(1);
         cursor: pointer;
     }
+
+    .profile{
+        width: 110px;
+    }
+}
+
+@media (max-width: 316px){
+    .section-1 h3{
+        font-size: 1.6rem!important;
+    }
+
+    .section-1 p{
+        font-size: 1.3rem;
+        line-height: 2;
+    }
+}
+
+@media (max-width: 265px){
+    .section-1 h3{
+        font-size: 1.2rem!important;
+    }
+
+    .section-1 p{
+        font-size: 1.1rem;
+        line-height: 1.5;
+    }
 }
 
 @media (max-width: 450px) {
@@ -932,6 +955,14 @@ nav .mainMenu .closeMenu, .icons i {
         width: 190px;
     }
 
+    .section-1 h3{
+        font-size: 2rem;
+    }
+
+    .section-1 p{
+        font-size: 1.4rem;
+        line-height: 2.2;
+    }
 }
 
 @media (max-width: 300px) {
