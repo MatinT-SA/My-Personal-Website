@@ -7,6 +7,7 @@
         url('../fonts/Shabnam-FD.woff') format('woff'),
         url('../fonts/Shabnam-FD.ttf') format('truetype');
     font-weight: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -16,6 +17,7 @@
         url('../fonts/Shabnam-Bold.woff') format('woff'),
         url('../fonts/Shabnam-Bold.ttf') format('truetype');
     font-weight: bold;
+    font-display: swap;
 }
 
 @font-face {
@@ -25,6 +27,7 @@
         url('../fonts/Shabnam-Thin.woff') format('woff'),
         url('../fonts/Shabnam-Thin.ttf') format('truetype');
     font-weight: 100;
+    font-display: swap;
 }
 
 @font-face {
@@ -34,6 +37,7 @@
         url('../fonts/Shabnam-Light.woff') format('woff'),
         url('../fonts/Shabnam-Light.ttf') format('truetype');
     font-weight: 300;
+    font-display: swap;
 }
 
 @font-face {
@@ -43,52 +47,62 @@
         url('../fonts/Shabnam-Medium.woff') format('woff'),
         url('../fonts/Shabnam-Medium.ttf') format('truetype');
     font-weight: 500;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'B Mitra';
     src: url('../fonts/B Mitra_0.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'B Morvarid';
     src: url('../fonts/B Morvarid_0.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'B Narm';
     src: url('../fonts/B Narm_0.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'B Nazanin';
     src: url('../fonts/B Nazanin Bold_0.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'B Sepideh';
     src: url('../fonts/B Sepideh_0.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'IRANSans-web';
     src: url('../fonts/IRANSans-web.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'B Titr';
     src: url('../fonts/B Titr Bold.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'IRANSans-web';
     src: url('../fonts/Byekan.ttf') format('ttf');
     font-weight: bold;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Byekan';
     src: url('../fonts/Byekan.ttf');
+    font-display: swap;
 
 }
 
@@ -98,6 +112,7 @@
     src: url('../fonts/Byekan.ttf');
 
     font-weight: 200;
+    font-display: swap;
 }
 
 
@@ -106,6 +121,7 @@
     src: url('../fonts/Byekan.ttf');
 
     font-weight: 300;
+    font-display: swap;
 }
 
 
@@ -114,6 +130,7 @@
     src: url('../fonts/Byekan.ttf');
 
     font-weight: normal;
+    font-display: swap;
 }
 
 .IRANSansBold {
@@ -124,6 +141,7 @@
     border-bottom-style: solid;
     border-bottom-color: #FFF;
     font-weight: bold;
+    font-display: swap;
 }
 
 .IRANSansMedium {
@@ -134,6 +152,7 @@
     border-bottom-style: solid;
     border-bottom-color: #FFF;
     font-weight: 500;
+    font-display: swap;
 }
 
 
@@ -145,6 +164,7 @@
     border-bottom-style: solid;
     border-bottom-color: #FFF;
     font-weight: 200;
+    font-display: swap;
 }
 
 .IRANSansLight {
@@ -155,6 +175,7 @@
     border-bottom-style: solid;
     border-bottom-color: #FFF;
     font-weight: 300;
+    font-display: swap;
 }
 
 .IRANSans {
@@ -203,6 +224,83 @@ html {
     scrollbar-color: #cccc00 rgba(168, 198, 222, .6);
     scrollbar-width: thin;
 }
+
+/*loading page*/
+.centerLoading{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background: rgba(204, 230, 255,.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.ring{
+    position:absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    animation: ringLoadingPage 2s linear infinite;
+}
+
+@keyframes ringLoadingPage {
+    0%{
+        transform: rotate(0deg);
+        box-shadow: 2px 8px 4px #0456c8;
+    }
+    50%{
+        transform: rotate(180deg);
+        box-shadow: 2px 8px 4px #e65c00;
+    }
+    100%{
+        transform: rotate(360deg);
+        box-shadow: 2px 8px 4px #18b201;
+    }
+}
+
+.ring::before{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(255,255,255,.3);
+}
+
+.centerLoading span{
+    color: #737373;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 200px;
+    animation: textLoadingPage 3s ease-in-out linear infinite;
+}
+
+@keyframes textLoadingPage {
+    50%{
+        color:#ffff66;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .ring{
+        width: 150px;
+        height: 150px;
+    }
+
+    .centerLoading span{
+        font-size: 16px;
+    }
+}
+
+/*end of loading page*/
 
 a:focus, a:hover {
     color: var(--our-dark-color);
