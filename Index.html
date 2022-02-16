@@ -47,8 +47,10 @@
         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <link rel="stylesheet" href="Content/css/MatinTaherzadeh.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
-        integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <link rel="preload" as="style" onload="this.rel='stylesheet'"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!--scripts-->
 
@@ -62,6 +64,12 @@
 
 <body>
 
+    <!--loading page-->
+    <div class="centerLoading">
+        <div class="ring"></div>
+        <span>...Loading</span>
+    </div>
+
     <!-- ***** Home section and header ***** -->
     <section id="Home">
         <div class="container-fluid">
@@ -72,7 +80,8 @@
                         <p>Taherzadeh</p>
                     </div>
                     <div id="logo-header" class="col-lg-4 col-md-4 col-sm-4">
-                        <a href="#Home"><img alt="Logo" src="Content/images/logo192-192.webp"></a>
+                        <a href="#Home"><img width="192" height="192" alt="Logo"
+                                src="Content/images/logo192-192.webp"></a>
                     </div>
                     <div class="header-top-p col-lg-4 col-md-4 col-sm-4">
                         <p>متین</p>
@@ -214,8 +223,8 @@
                         </ul>
                     </div>
                     <div class="col-lg-2">
-                        <img alt="My Skills Gif" src="Content/images/MySkills3Ed.webp"
-                            class="img-responsive center-block fade-in-skills slide-in-skills">
+                        <img width="173" height="540" alt="My Skills Gif" src="Content/images/MySkills3Ed.webp"
+                            class="center-block fade-in-skills slide-in-skills">
                     </div>
                     <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 section-2-right">
                         <ul>
@@ -428,7 +437,8 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 quotes-test">
                     <div class="cards fade-in-entrepreneur slide-in-entrepreneur">
                         <div class="imgBx">
-                            <img src="Content/images/ElonMusk1.webp" alt="Elon Musk" class="img-responsive">
+                            <img width="265" height="400" src="Content/images/ElonMusk1.webp" alt="Elon Musk"
+                                class="img-responsive">
 
                         </div>
                         <div class="overlay"></div>
@@ -443,7 +453,8 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 quotes-test">
                     <div class="cards fade-in-entrepreneur slide-in-entrepreneu">
                         <div class="imgBx">
-                            <img src="Content/images/BillGates1.webp" alt="Bill Gates" class="img-responsive">
+                            <img width="300" height="400" src="Content/images/BillGates1.webp" alt="Bill Gates"
+                                class="img-responsive">
 
                         </div>
                         <div class="overlay"></div>
@@ -457,7 +468,8 @@
                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 quotes-test">
                     <div class="cards fade-in-entrepreneur slide-in-entrepreneu">
                         <div class="imgBx">
-                            <img src="Content/images/MarkZuckerberg6.webp" alt="Mark Zuckerberg" class="img-responsive">
+                            <img width="291" height="400" src="Content/images/MarkZuckerberg6.webp"
+                                alt="Mark Zuckerberg" class="img-responsive">
 
                         </div>
                         <div class="overlay"></div>
@@ -664,7 +676,7 @@
                     <li><a href="tel:+98-9334363774"><span class="fas fa-phone"></span></a></li>
                 </ul>
                 <div class="copyright-matin">
-                    2021 &copy - تمامی حقوق این سایت به <a href="/">matintaherzadeh.ir </a>تعلق دارد.
+                    2022 &copy - تمامی حقوق این سایت به <a href="/">matintaherzadeh.ir </a>تعلق دارد.
                 </div>
             </div>
         </div>
