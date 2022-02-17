@@ -606,7 +606,7 @@ nav .mainMenu .closeMenu, .icons i {
     }
 
     .icons{
-        display: block;
+        display: inline-flex;
     }
 
     .icons i {
@@ -617,6 +617,13 @@ nav .mainMenu .closeMenu, .icons i {
 
     nav .mainMenu li a {
         color: #fff;
+    }
+}
+
+@media screen and (max-width: 310px){
+    .icons{
+        display: flex;
+        flex-direction: column;
     }
 }
 
