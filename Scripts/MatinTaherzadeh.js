@@ -213,11 +213,17 @@ $(document).ready(function () {
 
 const fadersSkills = document.querySelectorAll('.fade-in-skills');
 const slidersSkills = document.querySelectorAll('.slide-in-skills');
+const fadersSkillsLE = document.querySelectorAll('.fade-in-skills-le');
+const slidersSkillsLE = document.querySelectorAll('.slide-in-skills-le');
 const appearOptionsSkills = {
     threshold: 0,
     rootMargin: "0px 0px -120px 0px"
-}
-    ;
+};
+
+const appearOptionsSkillsLE = {
+    threshold: 0,
+    rootMargin: "0px 0px -50px 0px"
+};
 
 const appearOnScrollSkills = new IntersectionObserver(function (entries, appearOnScrollSkills) {
     entries.forEach(entry => {
@@ -230,12 +236,31 @@ const appearOnScrollSkills = new IntersectionObserver(function (entries, appearO
     });
 }, appearOptionsSkills);
 
+const appearOnScrollSkillsLE = new IntersectionObserver(function (entries, appearOnScrollSkillsLE) {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            return;
+        } else {
+            entry.target.classList.add("appear");
+            appearOnScrollSkillsLE.unobserve(entry.target);
+        }
+    });
+}, appearOptionsSkillsLE);
+
 fadersSkills.forEach(Fader => {
     appearOnScrollSkills.observe(Fader);
 });
 
 slidersSkills.forEach(Slider => {
     appearOnScrollSkills.observe(Slider);
+});
+
+fadersSkillsLE.forEach(Fader => {
+    appearOnScrollSkillsLE.observe(Fader);
+});
+
+slidersSkillsLE.forEach(Slider => {
+    appearOnScrollSkillsLE.observe(Slider);
 });
 
 // End of Skills
@@ -329,8 +354,12 @@ const slidersContact = document.querySelectorAll('.slide-in-contact');
 const appearOptionsContact = {
     threshold: 0,
     rootMargin: "0px 0px -150px 0px"
-}
-    ;
+};
+
+const appearOptionsContactLE = {
+    threshold: 0,
+    rootMargin: "0px 0px -80px 0px"
+};
 
 const appearOnScrollContact = new IntersectionObserver(function (entries, appearOnScrollContact) {
     entries.forEach(entry => {
@@ -343,12 +372,31 @@ const appearOnScrollContact = new IntersectionObserver(function (entries, appear
     });
 }, appearOptionsContact);
 
+const appearOnScrollContactLE = new IntersectionObserver(function (entries, appearOnScrollContactLE) {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            return;
+        } else {
+            entry.target.classList.add("appear");
+            appearOnScrollContactLE.unobserve(entry.target);
+        }
+    });
+}, appearOptionsContactLE);
+
 fadersContact.forEach(fader => {
     appearOnScrollContact.observe(fader);
 });
 
 slidersContact.forEach(slider => {
     appearOnScrollContact.observe(slider);
+});
+
+fadersContact.forEach(fader => {
+    appearOnScrollContactLE.observe(fader);
+});
+
+slidersContact.forEach(slider => {
+    appearOnScrollContactLE.observe(slider);
 });
 
 // End of Contact
