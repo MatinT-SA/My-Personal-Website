@@ -430,4 +430,29 @@ slidersComment.forEach(slider => {
     appearOnScrollComment.observe(slider);
 });
 
+//email validation
+
+// const validateEmail = (email) => {
+//     return email.match(
+//         /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+//     );
+// };
+
+// const validate = () => {
+//     const $result = $('#resultEmail');
+//     const email = $('#CommentEmail').val();
+//     $result.text('');
+
+//     if (validateEmail(email)) {
+//         $result.text(email + ' is valid :)');
+//         $result.css('color', 'green');
+//     } else {
+//         $result.text(email + ' is not valid :(');
+//         $result.css('color', 'red').add.css('margin', '40px');
+//     }
+//     return false;
+// }
+
+// $('#CommentEmail').on('input', validate);
+
 // End of Comment

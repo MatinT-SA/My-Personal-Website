@@ -616,15 +616,18 @@
                         <div class="Comment-form">
                             <div class="Comment-InputBox">
                                 <input id="CommentEmail" type="email" name="email" required autocomplete="on"
-                                    oninvalid="this.setCustomValidity('برای دریافت پاسخ، باید ایمیل وارد شود')"
-                                    oninput="this.setCustomValidity('')">
+                                    oninvalid="this.setCustomValidity('برای دریافت پاسخ، باید ایمیل معتبر وارد شود')"
+                                    onchange="try{setCustomValidity('')}catch(e){}">
                                 <label for="CommentEmail" class="Comment-text">ایمیل*</label>
                                 <span class="Comment-Line"></span>
                             </div>
                         </div>
                         <div class="Comment-form">
                             <div class="Comment-InputBox">
-                                <input id=phonenumber type="text" name="phoneNumber" placeholder=" ">
+                                <input id=phonenumber type="tel" name="phoneNumber"
+                                    pattern="^([0|\+[0-9]{1,5})?([1-9][0-9]{9})$"
+                                    onchange="try{setCustomValidity('')}catch(e){}"
+                                    oninvalid="this.setCustomValidity('شماره تلفن معتبر وارد نمایید')" placeholder=" ">
                                 <label for="phonenumber" class="Comment-text">شماره تلفن</label>
                                 <span class="Comment-Line"></span>
                             </div>

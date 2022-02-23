@@ -444,6 +444,19 @@ a {
     animation: nav-load var(--nav-load-time) ease-in;
     align-items: center;
     z-index: 10000;
+    box-shadow: 0 8px 15px #ffdb4d;
+}
+
+@media screen and (max-width:500px){
+    #header-nav{
+        box-shadow: 0 6px 12px #ffdb4d;
+    }
+}
+
+@media screen and (max-width:350px){
+    #header-nav{
+        box-shadow: 0 4px 10px #ffdb4d;
+    }
 }
 
 nav .openMenu .fa-bars {
@@ -736,7 +749,7 @@ nav .mainMenu .closeMenu, .icons i {
     text-align: center;
     border-radius: 5px;
     box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.75);
-    animation: float-lg-cardProfile 25s ease-in-out infinite;
+    animation: float-lg-cardProfile 35s ease-in-out infinite;
 }
 
 .cover-photo {
@@ -2036,7 +2049,9 @@ nav .mainMenu .closeMenu, .icons i {
 
 .Comment-rows .Comment-form .Comment-InputBox input:not([required]):not(:placeholder-shown) ~ .Comment-Line,
 .Comment-rows .Comment-form .Comment-InputBox input:focus ~ .Comment-Line,
-.Comment-rows .Comment-form .Comment-InputBox input[required]:valid ~ .Comment-Line {
+.Comment-rows .Comment-form .Comment-InputBox input[required]:valid ~ .Comment-Line
+/* .Comment-rows .Comment-form .Comment-InputBox input[name=email]:focus ~ .Comment-Line */
+ {
     height: 100%;
 }
 
