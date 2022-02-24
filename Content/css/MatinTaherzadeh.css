@@ -2029,7 +2029,8 @@ nav .mainMenu .closeMenu, .icons i {
 
 .Comment-rows .Comment-form .Comment-InputBox input:not([required]):not(:placeholder-shown) + .Comment-text,
 .Comment-rows .Comment-form .Comment-InputBox input:focus + .Comment-text,
-.Comment-rows .Comment-form .Comment-InputBox input[required]:valid + .Comment-text {
+.Comment-rows .Comment-form .Comment-InputBox input[required]:valid + .Comment-text,
+.Comment-rows .Comment-form .Comment-InputBox input[type=email]:not(:placeholder-shown) + .Comment-text {
     top: -35px;
     right: -10px;
 }
@@ -2049,9 +2050,8 @@ nav .mainMenu .closeMenu, .icons i {
 
 .Comment-rows .Comment-form .Comment-InputBox input:not([required]):not(:placeholder-shown) ~ .Comment-Line,
 .Comment-rows .Comment-form .Comment-InputBox input:focus ~ .Comment-Line,
-.Comment-rows .Comment-form .Comment-InputBox input[required]:valid ~ .Comment-Line
-/* .Comment-rows .Comment-form .Comment-InputBox input[name=email]:focus ~ .Comment-Line */
- {
+.Comment-rows .Comment-form .Comment-InputBox input[required]:valid ~ .Comment-Line,
+.Comment-rows .Comment-form .Comment-InputBox input[type=email]:not(:placeholder-shown) ~ .Comment-Line {
     height: 100%;
 }
 
