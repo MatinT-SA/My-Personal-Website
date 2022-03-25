@@ -1324,8 +1324,8 @@ nav .mainMenu .closeMenu, .icons i {
 }
 
 #Resume-items li:hover:nth-child(2) .CustomTooltip{
-    top: -80px;
-    right: -50px;
+    top: -120px;
+    right: -180px;
 }
 
 #Resume-items li:hover:nth-child(3) .CustomTooltip{
@@ -1408,6 +1408,10 @@ nav .mainMenu .closeMenu, .icons i {
 
 #accordion.appear {
     opacity: 1;
+}
+
+#accordion .panel{
+    box-shadow: -6px 6px 10px rgba(168, 198, 222,0.3);
 }
 
 .Resume-click-open {
