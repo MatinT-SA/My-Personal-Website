@@ -198,7 +198,8 @@
     direction: rtl;
 }
 
-body, html {
+body,
+html {
     overflow-x: hidden;
     width: 100vw;
 }
@@ -225,12 +226,12 @@ html {
 }
 
 /*loading page*/
-.centerLoading{
+.centerLoading {
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
-    background: rgba(204, 230, 255,.5);
+    background: rgba(204, 230, 255, .5);
     position: fixed;
     top: 0;
     left: 0;
@@ -240,8 +241,8 @@ html {
     overflow: hidden;
 }
 
-.ring{
-    position:absolute;
+.ring {
+    position: absolute;
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -249,31 +250,33 @@ html {
 }
 
 @keyframes ringLoadingPage {
-    0%{
+    0% {
         transform: rotate(0deg);
         box-shadow: 2px 8px 4px #0456c8;
     }
-    50%{
+
+    50% {
         transform: rotate(180deg);
         box-shadow: 2px 8px 4px #e65c00;
     }
-    100%{
+
+    100% {
         transform: rotate(360deg);
         box-shadow: 2px 8px 4px #18b201;
     }
 }
 
-.ring::before{
+.ring::before {
     position: absolute;
     content: '';
     left: 0;
     top: 0;
     height: 100%;
     width: 100%;
-    box-shadow: 0 0 5px rgba(255,255,255,.3);
+    box-shadow: 0 0 5px rgba(255, 255, 255, .3);
 }
 
-.centerLoading span{
+.centerLoading span {
     color: #737373;
     font-size: 20px;
     text-transform: uppercase;
@@ -283,25 +286,26 @@ html {
 }
 
 @keyframes textLoadingPage {
-    50%{
-        color:#ffff66;
+    50% {
+        color: #ffff66;
     }
 }
 
-@media screen and (max-width: 550px){
-    .ring{
+@media screen and (max-width: 550px) {
+    .ring {
         width: 150px;
         height: 150px;
     }
 
-    .centerLoading span{
+    .centerLoading span {
         font-size: 16px;
     }
 }
 
 /*end of loading page*/
 
-a:focus, a:hover {
+a:focus,
+a:hover {
     color: var(--our-dark-color);
 }
 
@@ -447,14 +451,14 @@ a {
     box-shadow: 0 8px 15px #ffdb4d;
 }
 
-@media screen and (max-width:500px){
-    #header-nav{
+@media screen and (max-width:500px) {
+    #header-nav {
         box-shadow: 0 6px 12px #ffdb4d;
     }
 }
 
-@media screen and (max-width:350px){
-    #header-nav{
+@media screen and (max-width:350px) {
+    #header-nav {
         box-shadow: 0 4px 10px #ffdb4d;
     }
 }
@@ -514,7 +518,7 @@ nav .openMenu {
     transform: translateY(-1000%);
 }
 
-#header-nav ul .icons{
+#header-nav ul .icons {
     animation: none;
 }
 
@@ -529,8 +533,10 @@ nav .mainMenu li a {
 
 .anchor {
     display: block;
-    height: 70px; /*same height as header*/
-    margin-top: -70px; /*same height as header*/
+    height: 70px;
+    /*same height as header*/
+    margin-top: -70px;
+    /*same height as header*/
     visibility: hidden;
 }
 
@@ -556,7 +562,8 @@ nav .mainMenu li a {
     }
 }
 
-nav .mainMenu .closeMenu, .icons i {
+nav .mainMenu .closeMenu,
+.icons i {
     font-size: 2rem;
     display: none;
     cursor: pointer;
@@ -578,7 +585,7 @@ nav .mainMenu .closeMenu, .icons i {
     color: rgb(255, 123, 0) !important;
 }
 
-.icons{
+.icons {
     display: none;
 }
 
@@ -617,7 +624,7 @@ nav .mainMenu .closeMenu, .icons i {
         color: #ffdb4d;
     }
 
-    .icons{
+    .icons {
         display: inline-flex;
     }
 
@@ -632,8 +639,8 @@ nav .mainMenu .closeMenu, .icons i {
     }
 }
 
-@media screen and (max-width: 310px){
-    .icons{
+@media screen and (max-width: 310px) {
+    .icons {
         display: flex;
         flex-direction: column;
     }
@@ -659,6 +666,7 @@ nav .mainMenu .closeMenu, .icons i {
     0% {
         transform: translateY(-100%);
     }
+
     100% {
         transform: translateY(0);
     }
@@ -668,6 +676,7 @@ nav .mainMenu .closeMenu, .icons i {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -677,9 +686,11 @@ nav .mainMenu .closeMenu, .icons i {
     0% {
         transform: scale(0);
     }
+
     80% {
         transform: scale(1.2);
     }
+
     100% {
         transform: scale(1);
     }
@@ -689,9 +700,11 @@ nav .mainMenu .closeMenu, .icons i {
     0% {
         transform: translateY(10000%);
     }
+
     90% {
         transform: translateY(-50%);
     }
+
     100% {
         transform: translateY(0);
     }
@@ -701,9 +714,11 @@ nav .mainMenu .closeMenu, .icons i {
     0% {
         transform: translateY(-1000%);
     }
+
     90% {
         transform: translateY(50%);
     }
+
     100% {
         transform: translateY(0);
     }
@@ -713,6 +728,7 @@ nav .mainMenu .closeMenu, .icons i {
     0% {
         transform: translateY(100%);
     }
+
     100% {
         transform: translateY(0);
     }
@@ -722,6 +738,7 @@ nav .mainMenu .closeMenu, .icons i {
     0% {
         transform: translateY(-1000%);
     }
+
     100% {
         transform: translateY(0);
     }
@@ -796,7 +813,8 @@ nav .mainMenu .closeMenu, .icons i {
     margin: 15px 10px 30px;
 }
 
-.msg-btn, .follow-btn {
+.msg-btn,
+.follow-btn {
     border-radius: 3px;
     cursor: pointer;
     background: var(--our-blue-color);
@@ -891,7 +909,7 @@ nav .mainMenu .closeMenu, .icons i {
 #AboutMe-image img:nth-child(1) {
     box-shadow: -5px -5px 10px blue;
     display: block;
-    animation:float-lg 6s ease-in-out infinite;
+    animation: float-lg 6s ease-in-out infinite;
 }
 
 #AboutMe-image img:nth-child(2) {
@@ -912,7 +930,7 @@ nav .mainMenu .closeMenu, .icons i {
     color: blue;
 }
 
-.section-1 h3 span{
+.section-1 h3 span {
     font-weight: bold;
 }
 
@@ -966,12 +984,12 @@ nav .mainMenu .closeMenu, .icons i {
     #AboutMe-image img:nth-child(2) {
         display: block;
         margin: 50px auto;
-        animation:float-md-2 5s ease-in-out infinite;
+        animation: float-md-2 5s ease-in-out infinite;
     }
 
     #AboutMe-image img:nth-child(1) {
         margin-top: 160px;
-        animation:float-md-1 5s ease-in-out infinite;
+        animation: float-md-1 5s ease-in-out infinite;
     }
 }
 
@@ -991,13 +1009,13 @@ nav .mainMenu .closeMenu, .icons i {
         display: none;
     }
 
-    .Matin-Picture{
+    .Matin-Picture {
         animation: none;
     }
 }
 
-@media (min-width:768px) and (max-width:1024px){
-    .Matin-Picture{
+@media (min-width:768px) and (max-width:1024px) {
+    .Matin-Picture {
         animation: float-md-cardProfile 10s ease-in-out infinite;
     }
 }
@@ -1030,28 +1048,28 @@ nav .mainMenu .closeMenu, .icons i {
         cursor: pointer;
     }
 
-    .profile{
+    .profile {
         width: 110px;
     }
 }
 
-@media (max-width: 316px){
-    .section-1 h3{
-        font-size: 1.6rem!important;
+@media (max-width: 316px) {
+    .section-1 h3 {
+        font-size: 1.6rem !important;
     }
 
-    .section-1 p{
+    .section-1 p {
         font-size: 1.3rem;
         line-height: 2;
     }
 }
 
-@media (max-width: 265px){
-    .section-1 h3{
-        font-size: 1.2rem!important;
+@media (max-width: 265px) {
+    .section-1 h3 {
+        font-size: 1.2rem !important;
     }
 
-    .section-1 p{
+    .section-1 p {
         font-size: 1.1rem;
         line-height: 1.5;
     }
@@ -1059,7 +1077,7 @@ nav .mainMenu .closeMenu, .icons i {
 
 @media (max-width: 450px) {
     #MyPicLarge .modal-content {
-        height: 400px;
+        height: 395px;
         width: 280px;
         margin: 0 auto;
         display: block;
@@ -1072,19 +1090,28 @@ nav .mainMenu .closeMenu, .icons i {
         width: 205px;
     }
 
-    .section-1 h3{
+    .section-1 h3 {
         font-size: 2rem;
     }
 
-    .section-1 p{
+    .section-1 p {
         font-size: 1.4rem;
         line-height: 2.2;
+    }
+
+    #MyPicLarge h4 {
+        font-weight: normal;
+        font-size: 1.2rem;
     }
 }
 
 @media (max-width: 300px) {
     #MyPicLarge .modal-content {
         display: none;
+    }
+
+    #Matin-Pic a[href*="MyPicLarge"] {
+        pointer-events: none;
     }
 }
 
@@ -1099,6 +1126,7 @@ nav .mainMenu .closeMenu, .icons i {
         transform: translate(-45%, 45%);
         opacity: 0;
     }
+
     100% {
         transform: translate(0, 0);
         opacity: 1;
@@ -1106,61 +1134,71 @@ nav .mainMenu .closeMenu, .icons i {
 }
 
 @keyframes float-lg {
-    0%{
+    0% {
         transform: translateY(30px);
     }
-    50%{
+
+    50% {
         transform: translateY(-50px);
     }
-    100%{
+
+    100% {
         transform: translateY(30px);
     }
 }
 
 @keyframes float-md-1 {
-    0%{
+    0% {
         transform: translateY(5px);
     }
-    50%{
+
+    50% {
         transform: translateY(-10px);
     }
-    100%{
+
+    100% {
         transform: translateY(5px);
     }
 }
 
 @keyframes float-md-2 {
-    0%{
+    0% {
         transform: translateY(-5px);
     }
-    50%{
+
+    50% {
         transform: translateY(10px);
     }
-    100%{
+
+    100% {
         transform: translateY(-5px);
     }
 }
 
 @keyframes float-lg-cardProfile {
-    0%{
+    0% {
         transform: translateX(-80%);
     }
-    50%{
+
+    50% {
         transform: translateX(80%);
     }
-    100%{
+
+    100% {
         transform: translateX(-80%);
     }
 }
 
 @keyframes float-md-cardProfile {
-    0%{
+    0% {
         transform: translateX(-40%);
     }
-    50%{
+
+    50% {
         transform: translateX(40%);
     }
-    100%{
+
+    100% {
         transform: translateX(-40%);
     }
 }
@@ -1298,7 +1336,7 @@ nav .mainMenu .closeMenu, .icons i {
 
 /* CustomTooltip start */
 
-#Resume-items .CustomTooltip{
+#Resume-items .CustomTooltip {
     background: #fff;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
     font-size: 13px;
@@ -1310,41 +1348,41 @@ nav .mainMenu .closeMenu, .icons i {
     opacity: 0;
     pointer-events: none;
     position: absolute;
-    color:var(--our-purple-color);
+    color: var(--our-purple-color);
 }
 
-#Resume-items li:hover .CustomTooltip{
+#Resume-items li:hover .CustomTooltip {
     opacity: 1;
     pointer-events: auto;
 }
 
-#Resume-items li:hover:nth-child(1) .CustomTooltip{
+#Resume-items li:hover:nth-child(1) .CustomTooltip {
     top: -135px;
     right: -195px;
 }
 
-#Resume-items li:hover:nth-child(2) .CustomTooltip{
-    top: -120px;
-    right: -180px;
+#Resume-items li:hover:nth-child(2) .CustomTooltip {
+    top: -135px;
+    right: -215px;
 }
 
-#Resume-items li:hover:nth-child(3) .CustomTooltip{
+#Resume-items li:hover:nth-child(3) .CustomTooltip {
     top: -135px;
     right: -180px;
 }
 
-#Resume-items li:hover:nth-child(4) .CustomTooltip{
+#Resume-items li:hover:nth-child(4) .CustomTooltip {
     top: -120px;
     left: -180px;
 }
 
-#Resume-items li:hover:nth-child(5) .CustomTooltip{
+#Resume-items li:hover:nth-child(5) .CustomTooltip {
     top: -120px;
     left: -180px;
 }
 
 #Resume-items li:hover .CustomTooltip,
-#Resume-items li:hover button{
+#Resume-items li:hover button {
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
 }
 
@@ -1410,8 +1448,8 @@ nav .mainMenu .closeMenu, .icons i {
     opacity: 1;
 }
 
-#accordion .panel{
-    box-shadow: -6px 6px 10px rgba(168, 198, 222,0.3);
+#accordion .panel {
+    box-shadow: -6px 6px 10px rgba(168, 198, 222, 0.3);
 }
 
 .Resume-click-open {
@@ -1475,12 +1513,12 @@ nav .mainMenu .closeMenu, .icons i {
     }
 }
 
-@media screen and (max-width: 550px){
-    .Resume-click-open video{
+@media screen and (max-width: 550px) {
+    .Resume-click-open video {
         max-width: 85%;
     }
 
-    .Resume-click-open{
+    .Resume-click-open {
         max-width: 100%;
     }
 }
@@ -1628,7 +1666,7 @@ nav .mainMenu .closeMenu, .icons i {
     font-size: 1.7rem;
 }
 
-#entrepreneur-quotes-container .cards .overlay:hover ~ .content {
+#entrepreneur-quotes-container .cards .overlay:hover~.content {
     opacity: 1;
     visibility: visible;
     transition: .2s;
@@ -1674,7 +1712,7 @@ nav .mainMenu .closeMenu, .icons i {
         font-size: 1.5rem;
     }
 
-    #entrepreneur-quotes-container .cards .overlay:hover ~ .content {
+    #entrepreneur-quotes-container .cards .overlay:hover~.content {
         transition-delay: 0.5s;
     }
 }
@@ -2000,7 +2038,7 @@ nav .mainMenu .closeMenu, .icons i {
     color: yellow;
 }
 
-.Comment-rows .Comment-form .Comment-InputBox label{
+.Comment-rows .Comment-form .Comment-InputBox label {
     font-weight: normal;
 }
 
@@ -2031,10 +2069,10 @@ nav .mainMenu .closeMenu, .icons i {
     pointer-events: none;
 }
 
-.Comment-rows .Comment-form .Comment-InputBox input:not([required]):not(:placeholder-shown) + .Comment-text,
-.Comment-rows .Comment-form .Comment-InputBox input:focus + .Comment-text,
-.Comment-rows .Comment-form .Comment-InputBox input[required]:valid + .Comment-text,
-.Comment-rows .Comment-form .Comment-InputBox input[type=email]:not(:placeholder-shown) + .Comment-text {
+.Comment-rows .Comment-form .Comment-InputBox input:not([required]):not(:placeholder-shown)+.Comment-text,
+.Comment-rows .Comment-form .Comment-InputBox input:focus+.Comment-text,
+.Comment-rows .Comment-form .Comment-InputBox input[required]:valid+.Comment-text,
+.Comment-rows .Comment-form .Comment-InputBox input[type=email]:not(:placeholder-shown)+.Comment-text {
     top: -35px;
     right: -10px;
 }
@@ -2052,10 +2090,10 @@ nav .mainMenu .closeMenu, .icons i {
     pointer-events: none;
 }
 
-.Comment-rows .Comment-form .Comment-InputBox input:not([required]):not(:placeholder-shown) ~ .Comment-Line,
-.Comment-rows .Comment-form .Comment-InputBox input:focus ~ .Comment-Line,
-.Comment-rows .Comment-form .Comment-InputBox input[required]:valid ~ .Comment-Line,
-.Comment-rows .Comment-form .Comment-InputBox input[type=email]:not(:placeholder-shown) ~ .Comment-Line {
+.Comment-rows .Comment-form .Comment-InputBox input:not([required]):not(:placeholder-shown)~.Comment-Line,
+.Comment-rows .Comment-form .Comment-InputBox input:focus~.Comment-Line,
+.Comment-rows .Comment-form .Comment-InputBox input[required]:valid~.Comment-Line,
+.Comment-rows .Comment-form .Comment-InputBox input[type=email]:not(:placeholder-shown)~.Comment-Line {
     height: 100%;
 }
 
@@ -2074,14 +2112,14 @@ nav .mainMenu .closeMenu, .icons i {
     right: 0;
 }
 
-.Comment-rows .Comment-form .Comment-InputBox textarea:focus + .Comment-text,
-.Comment-rows .Comment-form .Comment-InputBox textarea:valid + .Comment-text {
+.Comment-rows .Comment-form .Comment-InputBox textarea:focus+.Comment-text,
+.Comment-rows .Comment-form .Comment-InputBox textarea:valid+.Comment-text {
     top: -35px;
     right: -10px;
 }
 
-.Comment-rows .Comment-form .Comment-InputBox textarea:focus ~ .Comment-Line,
-.Comment-rows .Comment-form .Comment-InputBox textarea:valid ~ .Comment-Line {
+.Comment-rows .Comment-form .Comment-InputBox textarea:focus~.Comment-Line,
+.Comment-rows .Comment-form .Comment-InputBox textarea:valid~.Comment-Line {
     height: 100%;
 }
 
@@ -2186,6 +2224,7 @@ nav .mainMenu .closeMenu, .icons i {
     0% {
         transform: translate(-50%, -75%) rotate(0deg);
     }
+
     100% {
         transform: translate(-50%, -75%) rotate(360deg);
     }
