@@ -1486,6 +1486,25 @@ nav .mainMenu .closeMenu,
     background-color: #e6e600;
 }
 
+@media (max-width: 445px) {
+    #Resume-items .btn {
+        width: 200px;
+    }
+}
+
+@media (max-width:280px) {
+    #Resume-items .btn {
+        width: 150px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 220px) {
+    #Resume-items .btn {
+        width: auto;
+    }
+}
+
 @media (max-width: 234px) {
     #Resume-items .btn {
         padding: .6rem 1.4rem;
