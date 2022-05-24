@@ -10,180 +10,19 @@
 }
 
 @font-face {
-    font-family: Shabnam-Bold;
-    src: url('/Content/fonts/Shabnam-Bold.ttf'),
-        url('../fonts/Shabnam-Bold.woff2') format('woff2'),
-        url('../fonts/Shabnam-Bold.woff') format('woff'),
-        url('../fonts/Shabnam-Bold.ttf') format('truetype');
-    font-weight: bold;
+    font-family: 'IRANSans-web';
+    src: url('../fonts/IRANSans-web.ttf'),
+        url('../fonts/IRANSans-web.woff2') format('woff2'),
+        url('../fonts/IRANSans-web.woff') format('woff'),
+        url('../fonts/IRANSans-web.ttf') format('truetype');
     font-display: swap;
-}
-
-@font-face {
-    font-family: Shabnam-Thin;
-    src: url('/Content/fonts/Shabnam-Thin.ttf'),
-        url('../fonts/Shabnam-Thin.woff2') format('woff2'),
-        url('../fonts/Shabnam-Thin.woff') format('woff'),
-        url('../fonts/Shabnam-Thin.ttf') format('truetype');
-    font-weight: 100;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: Shabnam-Light;
-    src: url('/Content/fonts/Shabnam-Light.ttf'),
-        url('../fonts/Shabnam-Light.woff2') format('woff2'),
-        url('../fonts/Shabnam-Light.woff') format('woff'),
-        url('../fonts/Shabnam-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: Shabnam-Medium;
-    src: url('/Content/fonts/Shabnam-Medium.ttf'),
-        url('../fonts/Shabnam-Medium.woff2') format('woff2'),
-        url('../fonts/Shabnam-Medium.woff') format('woff'),
-        url('../fonts/Shabnam-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'B Mitra';
-    src: url('../fonts/B Mitra_0.ttf') format('truetype');
-    font-display: swap;
+    font-weight: normal;
 }
 
 @font-face {
     font-family: 'B Morvarid';
-    src: url('../fonts/B Morvarid_0.ttf') format('truetype');
+    src: url('../fonts/B\ Morvarid_0.ttf');
     font-display: swap;
-}
-
-@font-face {
-    font-family: 'B Narm';
-    src: url('../fonts/B Narm_0.ttf') format('truetype');
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'B Nazanin';
-    src: url('../fonts/B Nazanin Bold_0.ttf') format('truetype');
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'B Sepideh';
-    src: url('../fonts/B Sepideh_0.ttf') format('truetype');
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'IRANSans-web';
-    src: url('../fonts/IRANSans-web.ttf') format('truetype');
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'B Titr';
-    src: url('../fonts/B Titr Bold.ttf') format('truetype');
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'IRANSans-web';
-    src: url('../fonts/Byekan.ttf') format('ttf');
-    font-weight: bold;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Byekan';
-    src: url('../fonts/Byekan.ttf');
-    font-display: swap;
-
-}
-
-
-@font-face {
-    font-family: 'Byekan';
-    src: url('../fonts/Byekan.ttf');
-
-    font-weight: 200;
-    font-display: swap;
-}
-
-
-@font-face {
-    font-family: 'Byekan';
-    src: url('../fonts/Byekan.ttf');
-
-    font-weight: 300;
-    font-display: swap;
-}
-
-
-@font-face {
-    font-family: 'Byekan';
-    src: url('../fonts/Byekan.ttf');
-
-    font-weight: normal;
-    font-display: swap;
-}
-
-.IRANSansBold {
-    font-family: Byekan;
-    color: #000;
-    margin-right: 50px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: #FFF;
-    font-weight: bold;
-    font-display: swap;
-}
-
-.IRANSansMedium {
-    font-family: Byekan;
-    color: #000;
-    margin-right: 50px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: #FFF;
-    font-weight: 500;
-    font-display: swap;
-}
-
-
-.IRANSansUltraLight {
-    font-family: Byekan;
-    color: #000;
-    margin-right: 50px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: #FFF;
-    font-weight: 200;
-    font-display: swap;
-}
-
-.IRANSansLight {
-    font-family: Byekan;
-    color: #000;
-    margin-right: 50px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: #FFF;
-    font-weight: 300;
-    font-display: swap;
-}
-
-.IRANSans {
-    font-family: Byekan;
-    color: #000;
-    margin-right: 50px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: #FFF;
     font-weight: normal;
 }
 
@@ -205,7 +44,7 @@ html {
 }
 
 body {
-    font-family: Shabnam, Georgia, 'IRANSans-web', 'Byekan', "B Koodak";
+    font-family: Shabnam, 'B Morvarid', 'IRANSans-web', 'B Koodak', Georgia;
     --nav-load-time: 400ms;
     --header-load-time: 400ms;
     --names-header-time: 3s;
@@ -1242,7 +1081,7 @@ nav .mainMenu .closeMenu,
 
 .section-2 img {
     margin: 32px auto;
-    max-width: 173px;
+    width: 173px;
     height: 540px;
     transform: translateY(15%);
     opacity: 0;
