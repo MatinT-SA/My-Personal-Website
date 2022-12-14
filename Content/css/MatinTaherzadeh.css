@@ -593,7 +593,7 @@ nav .mainMenu .closeMenu,
     animation-fill-mode: forwards;
     opacity: 0;
     transform: translate(0, 0);
-    min-height: 63vh;
+    min-height: 71vh;
 }
 
 .Matin-Picture {
@@ -1320,6 +1320,45 @@ nav .mainMenu .closeMenu,
 .carousel-indicators li {
     background-color: red;
 }
+
+/* Start of Styling more-resume */
+
+.more-resume {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0c0101;
+    width: 100px;
+    height: 150px;
+    position: fixed;
+    top: 34%;
+    left: 0;
+    transform: rotate(45deg, 45deg);
+    text-decoration: none;
+    color: white;
+    padding: 20px 5px;
+    /* writing-mode: vertical-rl; */
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+}
+
+.more-resume-hovered {
+    width: 100px;
+    height: 150px;
+    z-index: 10;
+    transition: 1s width ease-in;
+}
+
+.more-resume-hovered button {
+    display: none;
+}
+
+.more-resume:hover .more-resume-hovered {
+    width: 300px;
+}
+
+
+/* End of Styling more-resume */
 
 .carousel-indicators .active {
     background-color: #e6e600;
