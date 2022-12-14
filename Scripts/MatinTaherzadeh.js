@@ -275,8 +275,7 @@ const slidersResume = document.querySelectorAll('.slide-in-resume');
 const appearOptionsResume = {
     threshold: 0,
     rootMargin: "0px 0px 10px 0px"
-}
-    ;
+};
 
 const appearOnScrollResume = new IntersectionObserver(function (entries, appearOnScrollResume) {
     entries.forEach(entry => {
