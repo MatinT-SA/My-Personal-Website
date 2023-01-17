@@ -972,6 +972,7 @@ nav .mainMenu .closeMenu,
     }
 }
 
+
 @keyframes float-lg {
     0% {
         transform: translateY(30px);
@@ -1011,6 +1012,20 @@ nav .mainMenu .closeMenu,
 
     100% {
         transform: translateY(-5px);
+    }
+}
+
+@keyframes float-xlg-cardProfile {
+    0% {
+        transform: translateX(-84%);
+    }
+
+    50% {
+        transform: translateX(84%);
+    }
+
+    100% {
+        transform: translateX(-84%);
     }
 }
 
@@ -2209,6 +2224,138 @@ footer {
 @media (max-width: 140px) {
     .copyright-matin a {
         font-size: .9rem;
+    }
+}
+
+@media (min-width: 1900px) {
+    .header-top {
+        height: 25vh;
+        font-size: 5.2rem;
+    }
+
+    .header-top-p {
+        padding: 7rem 0
+    }
+
+    #logo-header {
+        display: flex;
+        height: 25vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #header-nav {
+        padding-top: 0px;
+        /* display: inline-grid; */
+        align-content: center;
+        justify-items: stretch;
+        height: 100px;
+
+    }
+
+    nav .mainMenu {
+        margin: 0;
+        display: flex;
+    }
+
+    nav .mainMenu li a {
+        padding: 28px;
+        font-size: 3rem;
+    }
+
+
+    #Matin-Pic {
+        min-height: 79vh;
+    }
+
+    .Matin-Picture {
+        margin: 10rem auto;
+        width: 700px;
+        height: 55vh;
+        animation: float-xlg-cardProfile 45s ease-in-out infinite;
+    }
+
+    .cover-photo {
+        height: 180px;
+    }
+
+    .non-profile {
+        height: 140px;
+    }
+
+    .profile {
+        height: 180px;
+        width: 135px;
+        padding: 10px;
+        margin: -93px 0 0 215px;
+    }
+
+    .profile:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+    }
+
+    .profile-name {
+        font-size: 50px;
+        margin: 50px 0 0 -100px;
+    }
+
+    .about {
+        margin-top: 4rem;
+        line-height: 5rem;
+        font-size: 2.7rem;
+    }
+
+    #Matin-Pic button {
+        margin: 7rem 2rem 5rem;
+    }
+
+    .msg-btn,
+    .follow-btn {
+        padding: 15px 36px;
+    }
+
+    #Matin-Pic i {
+        font-size: 30px;
+        padding-left: 34px;
+    }
+
+    /* Modal */
+
+    .modal-dialog {
+        margin: 15rem auto;
+    }
+
+    .modal-header {
+        padding: 30px;
+    }
+
+    #MyPicLarge .modal-content {
+        height: 850px;
+        width: 725px;
+    }
+
+    #MyPicLarge h4 {
+        font-weight: 700;
+        font-size: 24px;
+    }
+
+    .close {
+        font-size: 36px;
+    }
+
+    #MyPicLarge img {
+        height: 680px;
+        width: 550px;
+        padding: 12px;
+    }
+
+    #MyPicLarge .modal-footer {
+        padding: 30px;
+    }
+
+    #MyPicLarge .modal-body {
+        padding: 25px;
     }
 }
 
