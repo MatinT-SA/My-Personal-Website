@@ -60,7 +60,7 @@ body {
 
 html {
     scroll-behavior: smooth;
-    scrollbar-color: #cccc00 rgba(168, 198, 222, .6);
+    scrollbar-color: #FFDF00 rgba(168, 198, 222, .6);
     scrollbar-width: thin;
 }
 
@@ -225,13 +225,13 @@ a {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #b3b300;
+    background: #D4AF37;
     border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #ffff00;
+    background: #FFDF00;
 }
 
 @media (min-width: 700px) {
@@ -279,7 +279,7 @@ a {
     color: var(--our-dark-color);
     justify-content: space-between;
     height: 70px;
-    background-image: linear-gradient(to right, #ffffb3, #ffff66, #ffff00, #b3b300);
+    background-image: linear-gradient(to right, #fefe7b, #fcfc4a, #FFDF00, #D4AF37);
     width: 100%;
     float: right;
     margin: 0 auto;
@@ -287,18 +287,18 @@ a {
     animation: nav-load var(--nav-load-time) ease-in;
     align-items: center;
     z-index: 10000;
-    box-shadow: 0 8px 15px #ffdb4d;
+    box-shadow: 0 8px 15px #FFDF00;
 }
 
 @media screen and (max-width:500px) {
     #header-nav {
-        box-shadow: 0 6px 12px #ffdb4d;
+        box-shadow: 0 6px 12px #FFDF00;
     }
 }
 
 @media screen and (max-width:350px) {
     #header-nav {
-        box-shadow: 0 4px 10px #ffdb4d;
+        box-shadow: 0 4px 10px #FFDF00;
     }
 }
 
@@ -460,7 +460,7 @@ nav .mainMenu .closeMenu,
 
     nav .mainMenu li a:hover {
         background: none;
-        color: #ffdb4d;
+        color: #FFDF00;
     }
 
     .icons {
@@ -1107,6 +1107,7 @@ nav .mainMenu .closeMenu,
 .section-2 img.appear {
     transform: translateY(0);
     opacity: 1;
+    box-shadow: 0px 0px 8px 4px rgba(0 0 0 / 50%);
 }
 
 @media (max-width: 443px) {
@@ -1514,9 +1515,9 @@ nav .mainMenu .closeMenu,
     font-size: 2rem;
     text-align: center;
     -webkit-text-stroke: 1px black;
-    color: yellow;
+    color: #FFDF00;
     font-family: Cursive;
-    text-shadow: 4px 4px 5px #b3b300;
+    text-shadow: 4px 4px 5px #D4AF37;
 }
 
 #entrepreneur-quotes-container .cards .overlay {
@@ -1704,7 +1705,7 @@ nav .mainMenu .closeMenu,
 
 .card-content span {
     bottom: 10px;
-    color: #ffff00;
+    color: #FFDF00;
     font-weight: 500;
 }
 
@@ -1736,7 +1737,7 @@ nav .mainMenu .closeMenu,
     height: 60px;
     margin: 0 30px;
     overflow: hidden;
-    background-color: yellow;
+    background-color: #FFDF00;
     border-radius: 50px;
     cursor: pointer;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
@@ -1947,7 +1948,7 @@ nav .mainMenu .closeMenu,
     position: relative;
     width: 100%;
     height: 40px;
-    color: yellow;
+    color: #FFDF00;
 }
 
 .Comment-rows .Comment-form .Comment-InputBox label {
@@ -1996,7 +1997,7 @@ nav .mainMenu .closeMenu,
     display: block;
     width: 100%;
     height: 2px;
-    background: yellow;
+    background: #FFDF00;
     transition: .5s;
     border-radius: 2px;
     pointer-events: none;
