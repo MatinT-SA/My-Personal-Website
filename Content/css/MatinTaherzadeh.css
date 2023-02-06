@@ -2237,16 +2237,16 @@ footer {
     }
 }
 
-<<<<<<< HEAD
 @media (min-width: 1900px) {
     #GoToTopButton {
         bottom: 50px;
         right: 60px;
     }
 
-=======
+    
+}
+
 @media (min-width: 1900px) and (min-height: 1180px) {
->>>>>>> e893432db873069e3bd470a69ba7b8f05f547086
     .header-top {
         height: 27vh;
         font-size: 5.2rem;
