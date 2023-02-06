@@ -2257,7 +2257,23 @@ footer {
         right: 60px;
     }
 
-    
+    .section-1 h3 {
+        font-size: 4rem;
+    }
+
+    .section-1 p:nth-child(2) {
+        font-size: 2rem;
+    }
+
+    .section-1 p:nth-child(3) {
+        font-size: 1.8rem;
+        line-height: 4rem;
+    }
+
+    #AboutMe-image img:nth-child(1){
+        margin-top: 25rem;
+        animation: float-xlg 6s ease-in-out infinite;
+    }
 }
 
 @media (min-width: 1900px) and (min-height: 1180px) {
@@ -2388,18 +2404,6 @@ footer {
 
     #MyPicLarge .modal-body {
         padding: 25px;
-    }
-
-    .section-1 h3 {
-        font-size: 5rem;
-    }
-
-    .section-1 p:nth-child(2) {
-        font-size: 4rem;
-    }
-
-    .section-1 p:nth-child(3) {
-        font-size: 2rem;
     }
 
     #Comment h2{
@@ -2591,23 +2595,7 @@ footer {
         padding: 15px;
     }
 
-    .section-1 h3 {
-        font-size: 4rem;
-    }
-
-    .section-1 p:nth-child(2) {
-        font-size: 2rem;
-    }
-
-    .section-1 p:nth-child(3) {
-        font-size: 1.8rem;
-        line-height: 4rem;
-    }
-
-    #AboutMe-image img:nth-child(1){
-        margin-top: 25rem;
-        animation: float-xlg 6s ease-in-out infinite;
-    }
+    
 }
 
 /*** End of footer***/
