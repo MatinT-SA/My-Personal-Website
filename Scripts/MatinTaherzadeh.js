@@ -144,9 +144,11 @@ window.addEventListener('scroll', () => {
 //       $(window).scrollTop(0);
 // });
 
-$(document).ready(function () {
-    $(window).scrollTop(0);
-});
+
+//The main code for force page scroll to top
+// $(document).ready(function () {
+//     $(window).scrollTop(0);
+// });
 
 // End of MatinTaherzadeh
 
