@@ -279,7 +279,8 @@ a {
     color: var(--our-dark-color);
     justify-content: space-between;
     height: 70px;
-    background-image: linear-gradient(to right, #fefe7b, #fcfc4a, #FFDF00, #D4AF37);
+    /* background-image: linear-gradient(to right, #fefe7b, #fcfc4a, #FFDF00, #D4AF37); */
+    background-color: rgba(255, 222, 93, 1);
     width: 100%;
     float: right;
     margin: 0 auto;
