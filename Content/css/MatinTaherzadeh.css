@@ -478,6 +478,10 @@ nav .mainMenu .closeMenu,
     nav .mainMenu li a {
         color: #fff;
     }
+
+    ::-webkit-scrollbar {
+        width: 1.25vw !important;
+    }
 }
 
 @media screen and (max-width: 310px) {
@@ -2271,7 +2275,7 @@ footer {
         line-height: 4rem;
     }
 
-    #AboutMe-image img:nth-child(1){
+    #AboutMe-image img:nth-child(1) {
         margin-top: 25rem;
         animation: float-xlg 6s ease-in-out infinite;
     }
@@ -2407,33 +2411,33 @@ footer {
         padding: 25px;
     }
 
-    #Comment h2{
+    #Comment h2 {
         font-size: 50px;
     }
 
     .Comment-rows .Comment-form {
         margin: 7rem 0;
     }
-    
+
     .Comment-rows .Comment-form .Comment-InputBox {
         height: 60px;
     }
-    
+
     .Comment-rows .Comment-form .Comment-InputBox input,
     .Comment-rows .Comment-form .Comment-InputBox.textarea textarea {
         font-size: 3rem;
     }
-    
+
     .Comment-rows .Comment-form .Comment-InputBox .Comment-text {
         line-height: 35px;
         font-size: 2rem;
     }
-    
+
     .Comment-rows .Comment-form .Comment-InputBox .Comment-Line {
         height: 4px;
         border-radius: 4px;
     }
-    
+
     /*textarea*/
     .Comment-rows .Comment-form .Comment-InputBox.textarea {
         height: 200px;
@@ -2443,11 +2447,11 @@ footer {
     .Comment-form-Button {
         margin: 6rem auto 0;
     }
-    
+
     .Comment-form-Button button {
         padding: 2rem 5rem;
     }
-    
+
     .Comment-form-Button button span {
         font-size: 2rem;
     }
@@ -2595,8 +2599,6 @@ footer {
     #MyPicLarge .modal-body {
         padding: 15px;
     }
-
-    
 }
 
 /*** End of footer***/
