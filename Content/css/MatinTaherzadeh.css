@@ -280,8 +280,7 @@ a {
     color: var(--our-dark-color);
     justify-content: space-between;
     height: 70px;
-    /* background-image: linear-gradient(to right, #fefe7b, #fcfc4a, #FFDF00, #D4AF37); */
-    background-color: rgba(255, 222, 93, 1);
+    background-image: linear-gradient(to right, #ffde5d, #ffd633, #ffd11a);
     width: 100%;
     float: right;
     margin: 0 auto;
@@ -289,7 +288,7 @@ a {
     animation: nav-load var(--nav-load-time) ease-in;
     align-items: center;
     z-index: 10000;
-    box-shadow: 0 8px 15px #FFDF00;
+    box-shadow: 0 8px 15px 2px #FFDF00;
 }
 
 @media screen and (max-width:500px) {
