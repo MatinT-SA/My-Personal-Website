@@ -766,7 +766,7 @@ nav .mainMenu .closeMenu,
     box-shadow: 5px 5px 10px blue;
 }
 
-.section-1 h3 {
+.section-1 h1 {
     font-style: oblique;
     font-weight: bold;
     font-size: 3rem;
@@ -774,7 +774,7 @@ nav .mainMenu .closeMenu,
     color: blue;
 }
 
-.section-1 h3 span {
+.section-1 h1 span {
     font-weight: bold;
 }
 
@@ -898,7 +898,7 @@ nav .mainMenu .closeMenu,
 }
 
 @media (max-width: 316px) {
-    .section-1 h3 {
+    .section-1 h1 {
         font-size: 1.6rem !important;
     }
 
@@ -909,7 +909,7 @@ nav .mainMenu .closeMenu,
 }
 
 @media (max-width: 265px) {
-    .section-1 h3 {
+    .section-1 h1 {
         font-size: 1.2rem !important;
     }
 
@@ -934,7 +934,7 @@ nav .mainMenu .closeMenu,
         width: 205px;
     }
 
-    .section-1 h3 {
+    .section-1 h1 {
         font-size: 2rem;
     }
 
@@ -2261,7 +2261,7 @@ footer {
         right: 60px;
     }
 
-    .section-1 h3 {
+    .section-1 h1 {
         font-size: 4rem;
     }
 
