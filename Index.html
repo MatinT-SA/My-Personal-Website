@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--meta settings-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--seo settings-->
+    <meta name="title" content="MatinTSA - متین طاهرزاده">
+    <meta name="keywords" content="matin taherzadeh, taherzadeh, taherzade, متین طاهرزاده, طاهرزاده, طراحی سایت">
+    <meta name="description"
+        content="برنامه نویس و طراح و توسعه دهنده سایت با زبان برنامه نویسی CSharp و فناوری ASP.NET MVC، برنامه نویس React، برنامه نویس فرانت اند و بک اند. برنامه نویس MERN Stack. محتوا نویس وبسایت">
+
+    <!--the open graph prototype-->
+    <meta property="og:title" content="Matin Taherzadeh, متین طاهرزاده" />
+    <meta property="og:type" content="Matin.MatinOnlineShopping" />
+    <meta property="og:url" content="https://https://www.instagram.com/matin_taherzadeh_sa/" />
+    <meta property="og:image"
+        content="https://https://scontent-lga3-1.cdninstagram.com/v/t51.2885-19/s320x320/234079959_347354200268646_4029262247721142941_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_ohc=tVBhf9Cz_1wAX_gLjlb&edm=ABfd0MgBAAAA&ccb=7-4&oh=5d51efefde5640b7165fb30de35de5a6&oe=6169A6B2&_nc_sid=7bff83" />
+
+    <!--Apple iOS-->
+    <link rel="apple-touch-icon" href="Content/images/SiteIcon.webp">
+    <link rel="apple-touch-icon" sizes="152x152" href="Content/images/SiteIcon152-152.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="Content/images/SiteIcon.webp">
+    <link rel="apple-touch-icon" sizes="167x167" href="Content/images/SiteIcon167-167.webp">
+
+    <meta property="og:title" content="Matin Taherzadeh" />
+    <meta property="og:description" content="web designer and developer and CSharp, ASP.NET MVC programmer" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://matintaherzadeh.ir" />
+    <!--Chrome, Firefox and opera title bar color-->
+    <meta name="theme-color" content="#231e39">
+    <!--windows phone title bar color-->
+    <meta name="msapplication-navbutton-color" content="yes">
+    <!--safarai / iOS title bar color-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!--title-->
+    <title>Matin Taherzadeh - متین طاهرزاده</title>
+
+    <!--links-->
+    <link rel="icon" type="image/png" href="Content/images/favicon.ico">
+    <link rel="import" async
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="Content/css/MatinTaherzadeh.css">
+    <link rel="preload" as="style" onload="this.rel='stylesheet'"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4BGB4G5VHS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-4BGB4G5VHS');
+    </script>
+
+</head>
+
+<body>
+
+    <!--loading page-->
+    <div class="centerLoading">
+        <div class="ring"></div>
+        <span>...Loading</span>
+    </div>
+
+    <!-- ***** Home section and header ***** -->
+    <section id="Home">
+        <div class="container-fluid">
+            <div class="row">
+                <header class="header header-top">
+                    <div class="header-top-p col-lg-4 col-md-4 col-sm-4">
+                        <p>Matin</p>
+                        <p>Taherzadeh</p>
+                    </div>
+                    <div id="logo-header" class="col-lg-4 col-md-4 col-sm-4">
+                        <a href="/"><img width="192" height="192" alt="Logo"
+                                src="Content/images/matin taherzade logo-02.png"></a>
+                    </div>
+                    <div class="header-top-p col-lg-4 col-md-4 col-sm-4">
+                        <p>متین</p>
+                        <p>طاهرزاده</p>
+                    </div>
+                </header>
+                <nav id="header-nav">
+                    <div class="openMenu"><i class="fa fa-bars"></i></div>
+                    <ul class="mainMenu">
+                        <li class="Home active"><a href="#Home" class="nav-item">خانه</a></li>
+                        <li class="AboutMe"><a href="#AboutMe-anchor" class="nav-item">درباره من</a></li>
+                        <li class="Skills"><a href="#Skills-anchor" class="nav-item">مهارت ها</a></li>
+                        <li class="Resume"><a href="#Resume-anchor" class="nav-item">نمونه کارها</a></li>
+                        <li class="Contact"><a href="#Contact-anchor" class="nav-item">راه های ارتباطی</a></li>
+                        <li class="Comment"><a href="#Comment-anchor" class="nav-item">ارسال پیام</a></li>
+                        <div class="closeMenu"><i class="fa fa-times"></i></div>
+                        <li class="icons">
+                            <a href="https://www.instagram.com/matin_taherzadeh_sa/" target="_blank" rel="noopener"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="https://twitter.com/TaherzadehMatin" target="_blank" rel="noopener"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a href="https://github.com/MatinT-SA" target="_blank" rel="noopener"><i
+                                    class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/matin-taherzadeh-sa/" target="_blank" rel="noopener"><i
+                                    class="fab fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+    <!--end Home section and header-->
+
+    <!-- ***** Matin Pic card profile ***** -->
+    <div id="Matin-Pic" class="container-fluid">
+        <div class="Matin-Picture">
+            <div class="cover-photo">
+                <div class="non-profile"></div>
+                <a title="کلیک کن" data-toggle="modal" href="#MyPicLarge"><img alt="Matin Picture"
+                        src="Content/images/MatinPicBeach5.webp" class="profile"></a>
+            </div>
+            <div class="profile-name">متین طاهرزاده</div>
+            <p class="about">Back-End and<br>Front-End Developer</p>
+            <button class="msg-btn" onclick="location.href='#Comment-anchor'">ارسال پیام</button>
+            <button onclick="location.href='https://www.instagram.com/matin_taherzadeh_sa/'" class="follow-btn">در
+                اینستا
+                فالوم کن
+            </button>
+            <div>
+                <a href="https://www.linkedin.com/in/matin-taherzadeh-sa/" target="_blank" rel="noopener"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/matin_taherzadeh_sa/" target="_blank" rel="noopener"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://github.com/MatinT-SA" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/TaherzadehMatin" target="_blank" rel="noopener"><i
+                        class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--end Matin Pic card profile-->
+
+    <!-- ***** Modal for Matin Pic ***** -->
+    <div class="modal fade" id="MyPicLarge" role="MyPicLarge">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">&ltWeb&gt Matin Taherzadeh &lt/Programmer&gt</h4>
+                </div>
+                <div class="modal-body">
+                    <img alt="Matin Large Picture" src="Content/images/MatinPicBeach4.webp">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">بستن</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end Modal for Matin Pic-->
+
+    <!-- ***** AboutMe ***** -->
+    <span class="anchor" id="AboutMe-anchor"></span>
+    <section id="AboutMe" class="padding-top-3">
+        <div class="container">
+            <div class="row">
+                <div class="section-1">
+                    <div id="AboutMe-image" class="col-md-5 col-sm-5 slide-in fade-in">
+                        <img alt="computer image for large devices" src="Content/images/bg2-com2.webp" width="534"
+                            height="355" class="img-responsive">
+                        <img alt="computer image for medium devices" src="Content/images/bg2-com5.webp" width="283"
+                            height="188" class="img-responsive">
+                    </div>
+
+                    <div id="AboutMe-Text" class="col-md-7 col-sm-7 slide-in fade-in">
+                        <h3><span class="type"></span></h3>
+                        <p>طراح و توسعه دهنده وب سایت - فارغ التحصیل کارشناسی مهندسی کامپیوتر</p>
+                        <p>درود بر شما. محمد متین طاهرزاده شاه آبادی هستم. فارغ التحصیل کارشناسی مهندسی کامپیوتر از
+                            دانشگاه
+                            آزاد کرج.
+                            <br>
+                            در حوزه وب و طراحی و توسعه سایت فعالیت می کنم و در حال حاضر به صورت فریلنسری بر روی این حوزه
+                            فعالیت
+                            دارم.<br>
+                            سابقه تدریس زبان انگلیسی به مدت یک سال در موسسه زبان پارسیان فرهنگ کرج.<br>
+                            در حال حاضر بر روی زبان برنامه نویسی سی شارپ، فناوری ASP.NET MVC و کتابخانه React و مفاهیم
+                            آن تسلط و تمرکز دارم.<br />
+                            در آینده قصد دارم زبان های برنامه نویسی پایتون و PHP را فرا بگیرم.<br>
+                            علاقه مند به تکنولوژی و مطالب علمی. مسئولیت پذیر، پشتکار بالا و خلاق در زمینه
+                            طراحی سایت های جذاب.<br>
+                        </p>
+                    </div>
+                    <div class="col-xs-12 section-1-image">
+                        <img alt="computer image for extra small devices" src="Content/images/bg2-com.webp" width="598"
+                            height="399" class="img-responsive fade-in slide-in">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--end AboutMe-->
+
+    <!-- ***** skills ***** -->
+    <span class="anchor" id="Skills-anchor"></span>
+    <section id="Skills" class="padding-top-1">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="section-2">
+                    <h2 class="main-titles fade-in-main-titles slide-in-main-titles">مهارت ها</h2>
+                    <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 section-2-left">
+                        <ul>
+                            <li class="fade-in-skills slide-in-skills">مسلط به زبان برنامه نویسی سی شارپ</li>
+                            <li class="fade-in-skills slide-in-skills">مسلط به فریم ورک Bootstrap</li>
+                            <li class="fade-in-skills slide-in-skills">آشنا به زبان جاوااسکریپت</li>
+                            <li class="fade-in-skills slide-in-skills">مسلط به طراحی سایت واکنش گرا</li>
+                            <li class="fade-in-skills slide-in-skills">آشنا با کتابخانه jQuery</li>
+                            <li class="fade-in-skills slide-in-skills">آشنا به دستورات SQL SERVER</li>
+                            <li class="fade-in-skills slide-in-skills">مسلط به زبان های فارسی و انگلیسی</li>
+                            <li class="fade-in-skills-le slide-in-skills-le">آشنایی با مبانی وردپرس</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2">
+                        <img width="173" height="540" alt="My Skills Gif" src="Content/images/MySkills3Ed2.webp"
+                            class="center-block fade-in-skills slide-in-skills">
+                    </div>
+                    <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 section-2-right">
+                        <ul>
+                            <li class="fade-in-skills slide-in-skills">مسلط به CSS و HTML</li>
+                            <li class="fade-in-skills slide-in-skills">مسلط به فناوری ASP.NET MVC</li>
+                            <li class="fade-in-skills slide-in-skills">آشنا به گیت و گیت هاب</li>
+                            <li class="fade-in-skills slide-in-skills">مسلط به Entity Framework</li>
+                            <li class="fade-in-skills slide-in-skills">آشنا به مفاهیم SEO</li>
+                            <li class="fade-in-skills slide-in-skills">آشنا به مفاهیم UI / UX</li>
+                            <li class="fade-in-skills slide-in-skills">برنامه نویسی MERN Stack</li>
+                            <li class="fade-in-skills-le slide-in-skills-le">مسلط به کتابخانه ReactJS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--end skills-->
+
+    <!-- ***** resume ***** -->
+    <div class="more-resume">
+        GitHub
+        <div class="more-resume-hovered">
+            <button>
+                <a href="https://github.com/MatinT-SA?tab=repositories">
+                    Click to see all of my work
+                </a>
+            </button>
+        </div>
+    </div>
+    <span class="anchor" id="Resume-anchor"></span>
+    <section id="Resume" class="padding-top-5">
+        <div class="container">
+            <div class="row">
+                <h2 class="main-titles fade-in-main-titles slide-in-main-titles">نمونه کارها</h2>
+
+
+                <div class="col-lg-12 panel-group fade-in-resume" id="accordion">
+                    <div class="panel justify-content-center">
+                        <ul id="Resume-items">
+                            <li class="panel-title">
+                                <div class="CustomTooltip hidden-md hidden-sm hidden-xs">این پروژه با فناوری ASP.NET MVC
+                                    و زبان های برنامه نویسی
+                                    JavaScript و با کمک Bootstrap و کتابخانه JQuery زده شده. در آن از AJAX و JSON
+                                    نیز استفاده
+                                    شده. کاربر می تواند با ایجاد اکانت، محصولاتی خرید و فروش کند و حتی امکان ارسال پیام
+                                    به سایر کاربران را نیز دارد و ... ادمین ها نیز پنل مربوط به خود را دارند.</div>
+                                <button data-toggle="collapse" data-parent="#accordion" class="btn btn-Resume-buttons"
+                                    href="#Online-Shopping">MVC Online Shopping
+                                </button>
+                            </li>
+                            <li class="panel-title">
+                                <div class="CustomTooltip hidden-md hidden-sm hidden-xs">
+                                    یک پروژه MERN که در آن کاربر می تواند ایجاد اکانت کرده یا از اکانت گوگل استفاده کند
+                                    و اتفاقات روزمره زندگی خود را در قالب پست به نمایش گذاشته، ویرایش کرده، حذف نموده و
+                                    حتی سایر پست ها در صفحه مخصوص خود به همراه جزئیات ببیند و کامنت بگذارد. از قابلیت
+                                    صفحه بندی و سرچ نیز در آن استفاده شده.
+                                </div>
+                                <button data-toggle="collapse" data-parent="#accordion" class="btn btn-Resume-buttons"
+                                    href="#React-MERN">React MERN App
+                                </button>
+                            </li>
+                            <li class="panel-title">
+                                <div class="CustomTooltip hidden-md hidden-sm hidden-xs">
+                                    یک قالب مدرن responsive ( برگرفته از GPT-3). با استفاده از React. تجربه و رابط
+                                    کاربری قوی.
+                                    استفاده از سیستم flex و grid برای نمایش اجزا، به کارگیری CSS پیشرفته، پشتیبانی کردن
+                                    از تقریبا تمامی دستگاه ها. استفاده از CSS-Gradient پیچیده و انیمیشن.
+                                </div>
+                                <button data-toggle="collapse" data-parent="#accordion" class="btn btn-Resume-buttons"
+                                    href="#React-Modern-Design">React Modern UI
+                                </button>
+                            </li>
+                            <li class="panel-title">
+                                <div class="CustomTooltip hidden-md hidden-sm hidden-xs">یک رابط کاربری Responsive که با
+                                    استفاده از Material-UI کد زده شده. یک فروشگاه آنلاین با ReactJS که کاربر می تواند
+                                    محصولاتی را به سبد خرید اضافه کرده، مشخصات خود را وارد کند و با پرداخت بانکی با
+                                    استفاده از Stripe.js، خرید را نهایی کند.</div>
+                                <button data-toggle="collapse" data-parent="#accordion" class="btn btn-Resume-buttons"
+                                    href="#React-Responsive-OnlineShopping">React Online Shopping
+                                </button>
+                            </li>
+                            <li class="panel-title">
+                                <div class="CustomTooltip hidden-md hidden-sm hidden-xs">یک رابط کاربری ساده Responsive
+                                    با استفاده از کتابخانه React
+                                    زده شده که برای یک سایت مسافرتی می باشد. تصویر پس زمینه با 3 حالت متفاوت تست
+                                    شده و با استفاده از Router ها امکان جابجایی بین صفحات وجود دارد.</div>
+                                <button data-toggle="collapse" data-parent="#accordion" class="btn btn-Resume-buttons"
+                                    href="#React-Responsive-UI">React Responsive UI
+                                </button>
+                            </li>
+                        </ul>
+
+                        <div class="Resume-click-open row">
+                            <div id="Online-Shopping" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <video controls controlsList="nodownload">
+                                        <source src="Content/videos/MatinOnlineShopping1.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+
+                            <div id="React-Responsive-UI" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <video controls controlsList="nodownload">
+                                        <source src="Content/videos/React-Web-Test-1-Matin.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+
+                            <div id="React-Responsive-OnlineShopping" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <video controls controlsList="nodownload">
+                                        <source src="Content/videos/React-Web-Test-2-Matin.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+
+                            <div id="React-Modern-Design" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <video controls controlsList="nodownload">
+                                        <source src="Content/videos/React-Web-Test-3.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+
+                            <div id="React-MERN" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <video controls controlsList="nodownload">
+                                        <source src="Content/videos/MernProject-Telenote.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!--end resume-->
+
+    <!-- ***** entrepreneur-quotes ***** -->
+    <section id="entrepreneur-quotes">
+        <div id="entrepreneur-quotes-container" class="container">
+            <div class="row">
+                <h2 class="main-titles fade-in-main-titles slide-in-main-titles">سخنان نوابغ دنیای کامپیوتر</h2>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 quotes-test">
+                    <div class="cards fade-in-entrepreneur slide-in-entrepreneur">
+                        <div class="imgBx">
+                            <img width="285" height="400" src="Content/images/AlanTuring-optimized.webp"
+                                alt="Alan Turing" class="img-responsive">
+
+                        </div>
+                        <div class="overlay"></div>
+                        <div class="content">
+                            گاهی اوقات افرادی که هیچکس تصور نمی کند بتوانند کاری انجام دهند، کارهایی را انجام می دهند
+                            که هیچکس نمی تواند تصور کند.
+                        </div>
+                    </div>
+                    <h3>Alan Turing</h3>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 quotes-test">
+                    <div class="cards fade-in-entrepreneur slide-in-entrepreneu">
+                        <div class="imgBx">
+                            <img width="300" height="400" src="Content/images/BillGates1.webp" alt="Bill Gates"
+                                class="img-responsive">
+
+                        </div>
+                        <div class="overlay"></div>
+                        <div class="content">
+                            جشن گرفتن موفقیت خوب است، اما از آن مهم ‌تر، توجه کردن به درس‌ هایی است که از شکست می
+                            ‌گیریم.
+                        </div>
+                    </div>
+                    <h3>Bill Gates</h3>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 quotes-test">
+                    <div class="cards fade-in-entrepreneur slide-in-entrepreneu">
+                        <div class="imgBx">
+                            <img width="300" height="400" src="Content/images/MargaretHamilton-optimized.webp"
+                                alt="Margaret Hamilton" class="img-responsive">
+
+                        </div>
+                        <div class="overlay"></div>
+                        <div class="content">
+                            هیچوقت نباید از گفتن "نمی دانم" یا "نمی فهمم" یا پرسش سوالات "احمقانه"، ترسید چون هیچ سوالی
+                            احمقانه نیست.
+                        </div>
+                    </div>
+                    <h3>Margaret Hamilton</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--end entrepreneur-quotes-->
+
+    <!-- ***** contact ***** -->
+    <span class="anchor" id="Contact-anchor"></span>
+    <section id="Contact" class="padding-top-5">
+        <div class="container">
+            <div class="row">
+                <h2 class="main-titles fade-in-main-titles slide-in-main-titles">راه های ارتباطی</h2>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="Contact-info">
+                        <div class="cards-Contact fade-in-contact slide-in-contact">
+                            <i class="icon-Contact fas fa-envelope"></i>
+                            <a href="mailto:matin.taherzadeh.mmtsa@gmail.com" target="_blank" rel="noopener">
+                                <div class="card-content">
+                                    <h3>ایمیل</h3>
+                                    <span>matin.taherzadeh.mmtsa@gmail.com</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="Contact-info">
+                        <div class="cards-Contact fade-in-contact slide-in-contact">
+                            <i class="icon-Contact fas fa-phone"></i>
+                            <a href="tel:+98-9334363774">
+                                <div class="card-content">
+                                    <h3>شماره تلفن</h3>
+                                    <span>+98-9334363774</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="LastChild-Cards-Contact col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="Contact-info">
+                        <div class="cards-Contact fade-in-contact slide-in-contact">
+                            <i class="icon-Contact fas fa-map-marker-alt"></i>
+                            <div class="card-content">
+                                <h3>محل اقامت</h3>
+                                <span>ایران، کرج</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Down-Contact">
+                    <div class="Down-Contact-Button fade-in-contact slide-in-contact">
+                        <a href="https://www.instagram.com/matin_taherzadeh_sa/" target="_blank" rel="noopener">
+                            <div class="Down-Contact-Icon"><i class="fab fa-instagram"></i></div>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                    <div class="Down-Contact-Button fade-in-contact slide-in-contact">
+                        <a href="https://twitter.com/TaherzadehMatin" target="_blank" rel="noopener">
+                            <div class="Down-Contact-Icon"><i class="fab fa-twitter"></i></div>
+                            <span>Twitter</span>
+                        </a>
+                    </div>
+                    <div class="Down-Contact-Button fade-in-contact slide-in-contact">
+                        <a href="https://github.com/MatinT-SA" target="_blank" rel="noopener">
+                            <div class="Down-Contact-Icon"><i class="fab fa-github"></i></div>
+                            <span>Github</span>
+                        </a>
+                    </div>
+                    <div class="Down-Contact-Button fade-in-contact slide-in-contact">
+                        <a href="https://www.linkedin.com/in/matin-taherzadeh-sa/" target="_blank" rel="noopener">
+                            <div class="Down-Contact-Icon"><i class="fab fa-linkedin"></i></div>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                    <div class="Down-Contact-Button fade-in-contact slide-in-contact">
+                        <a href="https://api.whatsapp.com/send?phone=989334363774&text=hi%20Matin.%20how%20are%20you%3F"
+                            target="_blank" rel="noopener">
+                            <div class="Down-Contact-Icon"><i class="fab fa-whatsapp"></i></div>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+                    <div class="Down-Contact-Button fade-in-contact slide-in-contact">
+                        <a href="https://t.me/Matin_T_1999" target="_blank" rel="noopener">
+                            <div class="Down-Contact-Icon"><i class="fab fa-telegram"></i></div>
+                            <span>Telegram</span>
+                        </a>
+                    </div>
+                </div>
+
+                <p class="fade-in-contact slide-in-contact">
+                    اگر میخوای برام پیام ارسال کنی، بهترین کار اینه که از بخش بعدی، یعنی ارسال پیام ها دیدن کنی. جای
+                    دوری
+                    نرو! همین پایینم :)
+                </p>
+
+            </div>
+        </div>
+    </section>
+    <!--end contact-->
+
+    <!-- ***** comment ***** -->
+    <span class="anchor" id="Comment-anchor"></span>
+    <section id="Comment" class="padding-top-3">
+        <div class="container">
+            <div class="row">
+                <h2 class="main-titles fade-in-main-titles slide-in-main-titles">ارسال پیام</h2>
+
+                <form action="https://formsubmit.co/matin.taherzadeh.mmtsa@gmail.com" autocomplete="off" method="POST">
+                    <input type="hidden" name="_subject"
+                        value="ایمیل جدید از قسمت ارسال پیام های سایت شخصی متین طاهرزاده">
+                    <div class="Comment-rows fade-in-comment slide-in-comment">
+                        <div class="Comment-form">
+                            <div class="Comment-InputBox">
+                                <input id="name" type="text" name="name" autocomplete="nope" placeholder=" ">
+                                <label for="name" class="Comment-text">نام</label>
+                                <span class="Comment-Line"></span>
+                            </div>
+                        </div>
+                        <div class="Comment-form">
+                            <div class="Comment-InputBox">
+                                <input id="familyname" type="text" name="lastName" placeholder=" ">
+                                <label for="familyname" class="Comment-text">نام خانوادگی</label>
+                                <span class="Comment-Line"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Comment-rows fade-in-comment slide-in-comment">
+                        <div class="Comment-form">
+                            <div class="Comment-InputBox">
+                                <input id="CommentEmail" placeholder=" " type="email" name="email" required
+                                    autocomplete="on"
+                                    oninvalid="this.setCustomValidity('برای دریافت پاسخ، باید ایمیل معتبر وارد شود')"
+                                    onchange="try{setCustomValidity('')}catch(e){}">
+                                <label for="CommentEmail" class="Comment-text">ایمیل*</label>
+                                <span class="Comment-Line"></span>
+                            </div>
+                        </div>
+                        <div class="Comment-form">
+                            <div class="Comment-InputBox">
+                                <input id=phonenumber type="tel" name="phoneNumber"
+                                    pattern="^([0|\+[0-9]{1,5})?([1-9][0-9]{9})$"
+                                    onchange="try{setCustomValidity('')}catch(e){}"
+                                    oninvalid="this.setCustomValidity('شماره تلفن معتبر وارد نمایید')" placeholder=" ">
+                                <label for="phonenumber" class="Comment-text">شماره تلفن</label>
+                                <span class="Comment-Line"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Comment-rows fade-in-comment slide-in-comment">
+                        <div class="Comment-form">
+                            <div class="Comment-InputBox textarea">
+                                <textarea id="CommentMessage" required name="message"
+                                    oninvalid="this.setCustomValidity('لطفا متن پیام را وارد کنید')"
+                                    oninput="this.setCustomValidity('')"></textarea>
+                                <label for="CommentMessage" class="Comment-text">متن پیام*</label>
+                                <span class="Comment-Line"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Comment-form-Button">
+                        <button type="submit">
+                            <span>ارسال پیام</span>
+                            <div class="liquid"></div>
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+    <!--end comment-->
+
+    <!-- ***** footer ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <ul class="footer-icons">
+                    <li><a href="https://twitter.com/TaherzadehMatin" target="_blank" rel="noopener"><span
+                                class="fab fa-twitter"></span></a></li>
+                    <li><a href="https://github.com/MatinT-SA" target="_blank" rel="noopener"><span
+                                class="fab fa-github"></span></a></li>
+                    <li>
+                        <a href="https://api.whatsapp.com/send?phone=989334363774&text=hi%20Matin.%20how%20are%20you%3F"
+                            target="_blank" rel="noopener"><span class="fab fa-whatsapp"></span></a>
+                    </li>
+                    <li><a href="https://t.me/Matin_T_1999" target="_blank" rel="noopener"><span
+                                class="fab fa-telegram"></span></a></li>
+                    <li><a href="https://www.instagram.com/matin_taherzadeh_sa/" target="_blank" rel="noopener"><span
+                                class="fab fa-instagram"></span></a></li>
+                    <li><a href="https://www.linkedin.com/in/matin-taherzadeh-sa/" target="_blank" rel="noopener"><span
+                                class="fab fa-linkedin"></span></a></li>
+                    <li><a href="mailto:matin.taherzadeh.mmtsa@gmail.com" target="_blank" rel="noopener"><span
+                                class="fas fa-envelope"></span></a></li>
+                    <li><a href="tel:+98-9334363774"><span class="fas fa-phone"></span></a></li>
+                </ul>
+                <div class="copyright-matin">
+                    2023 &copy - تمامی حقوق این سایت به <a href="/">matintaherzadeh.ir </a>تعلق دارد.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--end footer-->
+
+    <!--button scroll to top-->
+    <button onclick="topFunction()" id="GoToTopButton" aria-label="Go to Top"><i
+            class="fas fa-angle-double-up"></i></button>
+
+    <!--scripts-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <script
+        src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="Scripts/MatinTaherzadeh.js"></script>
+
+    <!--type.js-->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!--script-->
+    <script>
+        var typed = new Typed('.type', {
+            strings: ['به وب سایت من خوش آمدید!'],
+            typeSpeed: 80,
+            backSpeed: 30,
+            loop: true,
+        });
+    </script>
+
+</body>
+
+</html>
