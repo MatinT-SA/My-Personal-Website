@@ -2278,6 +2278,14 @@ footer {
         margin-top: 25rem;
         animation: float-xlg 6s ease-in-out infinite;
     }
+
+    #Comment {
+        min-height: 95vh;
+    }
+
+    h2 {
+        margin-top: 6rem!important;
+    }
 }
 
 @media (min-width: 1900px) and (min-height: 1180px) {
