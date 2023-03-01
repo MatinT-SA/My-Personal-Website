@@ -2284,7 +2284,7 @@ footer {
     }
 
     h2 {
-        margin-top: 6rem!important;
+        margin-top: 6rem !important;
     }
 }
 
@@ -2418,6 +2418,26 @@ footer {
         padding: 25px;
     }
 
+    #AboutMe {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 8rem;
+        padding-top: 0;
+    }
+
+    #Skills {
+        margin: 0 5rem;
+        height: 80vh;
+    }
+
+    .section-2{
+        height: 65vh;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
     #Comment h2 {
         font-size: 50px;
     }
@@ -2461,6 +2481,10 @@ footer {
 
     .Comment-form-Button button span {
         font-size: 2rem;
+    }
+
+    footer{
+        min-height: 17vh;
     }
 }
 
@@ -2606,6 +2630,30 @@ footer {
     #MyPicLarge .modal-body {
         padding: 15px;
     }
+
+    #AboutMe{
+        padding-top: 0;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #Skills{
+        height: 93vh;
+        margin: 0 5rem;
+    }
+
+    .section-2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer{
+        min-height: 17vh;
+    }
 }
+
 
 /*** End of footer***/
