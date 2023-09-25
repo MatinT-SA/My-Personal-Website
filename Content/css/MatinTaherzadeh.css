@@ -2267,11 +2267,12 @@ footer {
 
     .section-1 p:nth-child(2) {
         font-size: 2rem;
+        font-weight: bold;
     }
 
     .section-1 p:nth-child(3) {
         font-size: 1.8rem;
-        line-height: 4rem;
+        line-height: 3.7rem;
     }
 
     #AboutMe-image img:nth-child(1) {
@@ -2288,6 +2289,7 @@ footer {
     }
 }
 
+/* Desktop - bigger height */
 @media (min-width: 1900px) and (min-height: 1180px) {
     .header-top {
         height: 27vh;
@@ -2322,7 +2324,6 @@ footer {
         padding: 28px;
         font-size: 3rem;
     }
-
 
     #Matin-Pic {
         min-height: 79vh;
@@ -2431,7 +2432,7 @@ footer {
         height: 80vh;
     }
 
-    .section-2{
+    .section-2 {
         height: 65vh;
         justify-content: center;
         align-items: center;
@@ -2483,11 +2484,12 @@ footer {
         font-size: 2rem;
     }
 
-    footer{
+    footer {
         min-height: 17vh;
     }
 }
 
+/* Desktop - smaller height */
 @media (min-width: 1900px) and (max-height: 1180px) {
     #GoToTopButton {
         bottom: 50px;
@@ -2631,7 +2633,7 @@ footer {
         padding: 15px;
     }
 
-    #AboutMe{
+    #AboutMe {
         padding-top: 0;
         margin-bottom: 2rem;
         display: flex;
@@ -2639,18 +2641,18 @@ footer {
         align-items: center;
     }
 
-    #Skills{
+    #Skills {
         height: 93vh;
         margin: 0 5rem;
     }
 
-    .section-2{
+    .section-2 {
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    footer{
+    footer {
         min-height: 17vh;
     }
 }
