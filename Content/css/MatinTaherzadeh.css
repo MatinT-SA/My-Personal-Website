@@ -766,7 +766,7 @@ nav .mainMenu .closeMenu,
     box-shadow: 5px 5px 10px blue;
 }
 
-.section-1 h3 {
+.section-1 h1 {
     font-style: oblique;
     font-weight: bold;
     font-size: 3rem;
@@ -774,7 +774,7 @@ nav .mainMenu .closeMenu,
     color: blue;
 }
 
-.section-1 h3 span {
+.section-1 h1 span {
     font-weight: bold;
 }
 
@@ -898,7 +898,7 @@ nav .mainMenu .closeMenu,
 }
 
 @media (max-width: 316px) {
-    .section-1 h3 {
+    .section-1 h1 {
         font-size: 1.6rem !important;
     }
 
@@ -909,7 +909,7 @@ nav .mainMenu .closeMenu,
 }
 
 @media (max-width: 265px) {
-    .section-1 h3 {
+    .section-1 h1 {
         font-size: 1.2rem !important;
     }
 
@@ -934,7 +934,7 @@ nav .mainMenu .closeMenu,
         width: 205px;
     }
 
-    .section-1 h3 {
+    .section-1 h1 {
         font-size: 2rem;
     }
 
@@ -2280,25 +2280,35 @@ footer {
         right: 60px;
     }
 
-    .section-1 h3 {
+    .section-1 h1 {
         font-size: 4rem;
     }
 
     .section-1 p:nth-child(2) {
         font-size: 2rem;
+        font-weight: bold;
     }
 
     .section-1 p:nth-child(3) {
         font-size: 1.8rem;
-        line-height: 4rem;
+        line-height: 3.7rem;
     }
 
     #AboutMe-image img:nth-child(1) {
         margin-top: 25rem;
         animation: float-xlg 6s ease-in-out infinite;
     }
+
+    #Comment {
+        min-height: 95vh;
+    }
+
+    h2 {
+        margin-top: 6rem !important;
+    }
 }
 
+/* Desktop - bigger height */
 @media (min-width: 1900px) and (min-height: 1180px) {
     .header-top {
         height: 27vh;
@@ -2333,7 +2343,6 @@ footer {
         padding: 28px;
         font-size: 3rem;
     }
-
 
     #Matin-Pic {
         min-height: 79vh;
@@ -2429,6 +2438,26 @@ footer {
         padding: 25px;
     }
 
+    #AboutMe {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 8rem;
+        padding-top: 0;
+    }
+
+    #Skills {
+        margin: 0 5rem;
+        height: 80vh;
+    }
+
+    .section-2 {
+        height: 65vh;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
     #Comment h2 {
         font-size: 50px;
     }
@@ -2473,8 +2502,13 @@ footer {
     .Comment-form-Button button span {
         font-size: 2rem;
     }
+
+    footer {
+        min-height: 17vh;
+    }
 }
 
+/* Desktop - smaller height */
 @media (min-width: 1900px) and (max-height: 1180px) {
     #GoToTopButton {
         bottom: 50px;
@@ -2617,6 +2651,30 @@ footer {
     #MyPicLarge .modal-body {
         padding: 15px;
     }
+
+    #AboutMe {
+        padding-top: 0;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #Skills {
+        height: 93vh;
+        margin: 0 5rem;
+    }
+
+    .section-2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer {
+        min-height: 17vh;
+    }
 }
+
 
 /*** End of footer***/
