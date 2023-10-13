@@ -878,7 +878,7 @@ nav .mainMenu .closeMenu,
     }
 
     .profile {
-        margin: -70px auto 0;
+        margin: -100px auto 0;
     }
 
     #Matin-Pic button {
@@ -893,7 +893,7 @@ nav .mainMenu .closeMenu,
     }
 
     .profile {
-        width: 110px;
+        width: 125px;
     }
 }
 
@@ -921,17 +921,17 @@ nav .mainMenu .closeMenu,
 
 @media (max-width: 450px) {
     #MyPicLarge .modal-content {
-        height: 395px;
+        height: 471px;
         width: 280px;
-        margin: 0 auto;
+        margin: 5rem auto 0;
         display: block;
         text-align: center;
         border-radius: 10px;
     }
 
     #MyPicLarge img {
-        height: 250px;
-        width: 205px;
+        height: 325px;
+        width: 240px;
     }
 
     .section-1 h1 {
