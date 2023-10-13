@@ -884,9 +884,25 @@ nav .mainMenu .closeMenu,
     #Matin-Pic button {
         margin: 0 10px 10px;
     }
-}
 
-@media (max-width: 410px) {
+    #entrepreneur-quotes-container .cards {
+        width: 200px;
+        height: 300px;
+    }
+
+    #entrepreneur-quotes img {
+        width: 200px;
+        height: 300px;
+    }
+
+    #entrepreneur-quotes-container .cards .content {
+        font-size: 1.5rem;
+    }
+
+    #entrepreneur-quotes-container .cards .overlay:hover~.content {
+        transition-delay: 0.5s;
+    }
+
     .profile:hover {
         transform: scale(1);
         cursor: pointer;
@@ -1652,26 +1668,6 @@ nav .mainMenu .closeMenu,
 @media (max-width: 443px) {
     #entrepreneur-quotes {
         margin: 20px;
-    }
-}
-
-@media (max-width: 410px) {
-    #entrepreneur-quotes-container .cards {
-        width: 200px;
-        height: 300px;
-    }
-
-    #entrepreneur-quotes img {
-        width: 200px;
-        height: 300px;
-    }
-
-    #entrepreneur-quotes-container .cards .content {
-        font-size: 1.5rem;
-    }
-
-    #entrepreneur-quotes-container .cards .overlay:hover~.content {
-        transition-delay: 0.5s;
     }
 }
 
