@@ -626,13 +626,13 @@ nav .mainMenu .closeMenu,
 }
 
 .profile {
-    height: 140px;
-    width: 105px;
+    height: 170px;
+    width: 125px;
     border-radius: 50%;
     border: 1px solid #1f1a32;
     padding: 7px;
     background: #292343;
-    margin: -70px 0 0 203px;
+    margin: -90px 0 0 203px;
     transition: .4s ease-in-out;
 }
 
@@ -697,7 +697,7 @@ nav .mainMenu .closeMenu,
 }
 
 #MyPicLarge .modal-content {
-    height: 553px;
+    height: 570px;
     width: 418px;
     margin: 0 auto;
     display: block;
@@ -720,8 +720,8 @@ nav .mainMenu .closeMenu,
 }
 
 #MyPicLarge img {
-    height: 400px;
-    width: 320px;
+    height: 474px;
+    width: 329px;
     border-radius: 7px;
     border: 3px solid #1f1a32;
     padding: 10px;
@@ -878,22 +878,38 @@ nav .mainMenu .closeMenu,
     }
 
     .profile {
-        margin: -70px auto 0;
+        margin: -100px auto 0;
     }
 
     #Matin-Pic button {
         margin: 0 10px 10px;
     }
-}
 
-@media (max-width: 410px) {
+    #entrepreneur-quotes-container .cards {
+        width: 200px;
+        height: 300px;
+    }
+
+    #entrepreneur-quotes img {
+        width: 200px;
+        height: 300px;
+    }
+
+    #entrepreneur-quotes-container .cards .content {
+        font-size: 1.5rem;
+    }
+
+    #entrepreneur-quotes-container .cards .overlay:hover~.content {
+        transition-delay: 0.5s;
+    }
+
     .profile:hover {
         transform: scale(1);
         cursor: pointer;
     }
 
     .profile {
-        width: 110px;
+        width: 125px;
     }
 }
 
@@ -921,17 +937,17 @@ nav .mainMenu .closeMenu,
 
 @media (max-width: 450px) {
     #MyPicLarge .modal-content {
-        height: 395px;
+        height: 471px;
         width: 280px;
-        margin: 0 auto;
+        margin: 5rem auto 0;
         display: block;
         text-align: center;
         border-radius: 10px;
     }
 
     #MyPicLarge img {
-        height: 250px;
-        width: 205px;
+        height: 325px;
+        width: 240px;
     }
 
     .section-1 h1 {
@@ -1316,6 +1332,7 @@ nav .mainMenu .closeMenu,
     opacity: 0;
     transition: opacity 1.3s ease-out;
     margin: 20px 0;
+    z-index: 0;
 }
 
 #accordion.appear {
@@ -1364,32 +1381,50 @@ nav .mainMenu .closeMenu,
     align-items: center;
     background-color: #0c0101;
     width: 100px;
-    height: 150px;
+    height: 140px;
     position: fixed;
     top: 34%;
     left: 0;
-    transform: rotate(45deg, 45deg);
     text-decoration: none;
     color: white;
     padding: 20px 5px;
-    /* writing-mode: vertical-rl; */
     writing-mode: vertical-lr;
     text-orientation: upright;
+    cursor: pointer;
+    border-radius: 0px 10px 10px 0px;
+    transition: .4s background-color ease-out, .4s border-radius ease-out;
 }
 
 .more-resume-hovered {
+    display: none;
     width: 100px;
-    height: 150px;
+    height: 140px;
+    position: fixed;
+    top: 34%;
+    left: 100px;
+    text-decoration: none;
+    color: white;
+    background-color: red;
+    padding: 20px 5px;
+    cursor: pointer;
+    border-radius: 0px 10px 10px 0px;
     z-index: 10;
-    transition: 1s width ease-in;
+    transition: 1s display ease-out;
 }
 
 .more-resume-hovered button {
-    display: none;
+    /* display: none; */
+    transition: 1s display ease-out;
 }
 
 .more-resume:hover .more-resume-hovered {
+    display: flex;
     width: 300px;
+    transition: 1s display ease-out;
+}
+
+.more-resume:hover {
+    border-radius: 0px;
 }
 
 
@@ -1633,26 +1668,6 @@ nav .mainMenu .closeMenu,
 @media (max-width: 443px) {
     #entrepreneur-quotes {
         margin: 20px;
-    }
-}
-
-@media (max-width: 410px) {
-    #entrepreneur-quotes-container .cards {
-        width: 200px;
-        height: 300px;
-    }
-
-    #entrepreneur-quotes img {
-        width: 200px;
-        height: 300px;
-    }
-
-    #entrepreneur-quotes-container .cards .content {
-        font-size: 1.5rem;
-    }
-
-    #entrepreneur-quotes-container .cards .overlay:hover~.content {
-        transition-delay: 0.5s;
     }
 }
 
@@ -2552,17 +2567,17 @@ footer {
     }
 
     .profile {
-        height: 170px;
-        width: 134px;
+        height: 190px;
+        width: 135px;
         padding: 10px;
-        right: 70px;
-        top: 100px;
+        right: 60px;
+        top: 105px;
         position: absolute;
     }
 
     .profile:hover {
         cursor: pointer;
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 
     .profile-name {
@@ -2601,7 +2616,7 @@ footer {
     }
 
     #MyPicLarge .modal-content {
-        height: 700px;
+        height: 770px;
         width: 600px;
     }
 
@@ -2615,7 +2630,7 @@ footer {
     }
 
     #MyPicLarge img {
-        height: 570px;
+        height: 640px;
         width: 470px;
         padding: 12px;
     }
