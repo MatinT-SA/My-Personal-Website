@@ -435,3 +435,34 @@ slidersComment.forEach(slider => {
 });
 
 // End of Comment
+
+// Github api
+const username = 'MatinT-SA';
+const token = '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';
+const apiUrl = `https://api.github.com/users/${username}/repos?per_page=3`;
+
+function displayRepositories() {
+    fetch(apiUrl, {
+        headers: {
+            Authorization: `token ${token}`,
+        },
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            const repoList = document.querySelector('.more-resume-hovered');
+            data.forEach((repo) => {
+                const repoItem = document.createElement('div');
+                repoItem.innerHTML = `
+            <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+            <p>${repo.description || 'No description available'}</p>
+          `;
+                repoList.appendChild(repoItem);
+            });
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+}
+
+// Call the function to fetch and display repositories
+displayRepositories();
