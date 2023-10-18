@@ -1408,16 +1408,28 @@ nav .mainMenu .closeMenu,
     padding: 20px 5px;
     cursor: pointer;
     border-radius: 0px 10px 10px 0px;
-    z-index: 10;
+    z-index: 10000;
     transition: 1s display ease-out;
     writing-mode: horizontal-tb;
+    /* Override vertical text orientation */
     text-orientation: mixed;
-    padding: 10px 20px;
+    /* Override text orientation */
+}
+
+.github-description {
+    font-size: 14px;
+    text-align: center;
+    border-right: 2px solid black;
+}
+
+.more-resume-hovered button {
+    /* display: none; */
+    transition: 1s display ease-out;
 }
 
 .more-resume:hover .more-resume-hovered {
     display: flex;
-    width: 650px;
+    width: 700px;
     transition: 1s display ease-out;
 }
 

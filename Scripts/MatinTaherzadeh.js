@@ -438,7 +438,7 @@ slidersComment.forEach(slider => {
 
 // Github api
 const username = 'MatinT-SA';
-const token = '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';
+const token = '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';
 const apiUrl = `https://api.github.com/users/${username}/repos?per_page=3`;
 
 function displayRepositories() {
@@ -454,7 +454,7 @@ function displayRepositories() {
                 const repoItem = document.createElement('div');
                 repoItem.innerHTML = `
             <a href="${repo.html_url}" target="_blank">${repo.name}</a>
-            <p>${repo.description || 'No description available'}</p>
+            <p class="github-description">${repo.description || 'No description available'}</p>
           `;
                 repoList.appendChild(repoItem);
             });
