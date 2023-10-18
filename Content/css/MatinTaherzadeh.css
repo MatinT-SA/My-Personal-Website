@@ -1419,7 +1419,7 @@ nav .mainMenu .closeMenu,
 .github-description {
     font-size: 14px;
     text-align: center;
-    border-right: 2px solid black;
+    border-right: 2px solid blue;
 }
 
 .more-resume-hovered button {
