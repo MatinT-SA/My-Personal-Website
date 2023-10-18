@@ -1410,16 +1410,14 @@ nav .mainMenu .closeMenu,
     border-radius: 0px 10px 10px 0px;
     z-index: 10;
     transition: 1s display ease-out;
-}
-
-.more-resume-hovered button {
-    /* display: none; */
-    transition: 1s display ease-out;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    padding: 10px 20px;
 }
 
 .more-resume:hover .more-resume-hovered {
     display: flex;
-    width: 300px;
+    width: 650px;
     transition: 1s display ease-out;
 }
 
