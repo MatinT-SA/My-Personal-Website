@@ -438,7 +438,7 @@ slidersComment.forEach(slider => {
 
 // Github api
 const username = 'MatinT-SA';
-const token = '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';
+const token = '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';
 const apiUrl = `https://api.github.com/users/${username}/repos?per_page=3`;
 
 function displayRepositories() {
