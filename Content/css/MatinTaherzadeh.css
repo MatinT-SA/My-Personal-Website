@@ -301,6 +301,16 @@ a {
     #header-nav {
         box-shadow: 0 4px 10px #FFDF00;
     }
+
+    #entrepreneur-quotes-container .cards {
+        width: 230px !important;
+        height: 350px !important;
+    }
+
+    #entrepreneur-quotes img {
+        width: 230px !important;
+        height: 350px !important;
+    }
 }
 
 nav .openMenu .fa-bars {
@@ -886,12 +896,12 @@ nav .mainMenu .closeMenu,
     }
 
     #entrepreneur-quotes-container .cards {
-        width: 200px;
+        width: 265px;
         height: 300px;
     }
 
     #entrepreneur-quotes img {
-        width: 200px;
+        width: 265px;
         height: 300px;
     }
 
