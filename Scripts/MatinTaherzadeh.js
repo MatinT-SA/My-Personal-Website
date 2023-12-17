@@ -437,32 +437,58 @@ slidersComment.forEach(slider => {
 // End of Comment
 
 // Github api
-const username = 'MatinT-SA';
-const token = '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';
-const apiUrl = `https://api.github.com/users/${username}/repos?per_page=3`;
+// const username = 'MatinT-SA';
+// const token = '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';
+// const apiUrl = `https://api.github.com/users/${username}/repos?per_page=3`;
 
-function displayRepositories() {
-    fetch(apiUrl, {
-        headers: {
-            Authorization: `token ${token}`,
-        },
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            const repoList = document.querySelector('.more-resume-hovered');
-            data.forEach((repo) => {
-                const repoItem = document.createElement('div');
-                repoItem.innerHTML = `
-            <a href="${repo.html_url}" target="_blank">${repo.name}</a>
-            <p class="github-description">${repo.description || 'No description available'}</p>
-          `;
-                repoList.appendChild(repoItem);
-            });
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-}
+// function displayRepositories() {
+//     fetch(apiUrl, {
+//         headers: {
+//             Authorization: `token ${token}`,
+//         },
+//     })
+//         .then((response) => response.json())
+//         .then((data) => {
+//             const repoList = document.querySelector('.more-resume-hovered');
+//             data.forEach((repo) => {
+//                 const repoItem = document.createElement('div');
+//                 repoItem.innerHTML = `
+//             <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+//             <p class="github-description">${repo.description || 'No description available'}</p>
+//           `;
+//                 repoList.appendChild(repoItem);
+//             });
+//         })
+//         .catch((error) => {
+//             console.error(error);
+//         });
+// }
 
 // Call the function to fetch and display repositories
-displayRepositories();
+// displayRepositories();
+
+// Github more resume
+document.addEventListener('DOMContentLoaded', function () {
+    var resumeSection = document.getElementById('Comment');
+    var moreResumeElement = document.querySelector('.more-resume');
+
+    function toggleMoreResumeVisibility() {
+        var resumeSectionRect = resumeSection.getBoundingClientRect();
+
+        // Adjust these values as needed to control when more-resume appears/disappears
+        var showAt = resumeSectionRect.top; // When to show more-resume
+        var hideAt = resumeSectionRect.bottom; // When to hide more-resume
+
+        if (window.scrollY >= showAt && window.scrollY <= hideAt) {
+            moreResumeElement.style.display = 'flex';
+        } else {
+            moreResumeElement.style.display = 'none';
+        }
+    }
+
+    // Attach the toggle function to the scroll event
+    window.addEventListener('scroll', toggleMoreResumeVisibility);
+
+    // Initial check for visibility on page load
+    toggleMoreResumeVisibility();
+});

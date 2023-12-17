@@ -1386,7 +1386,7 @@ nav .mainMenu .closeMenu,
 /* Start of Styling more-resume */
 
 .more-resume {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     background-color: #0c0101;
@@ -1400,9 +1400,10 @@ nav .mainMenu .closeMenu,
     padding: 20px 5px;
     writing-mode: vertical-lr;
     text-orientation: upright;
-    cursor: pointer;
     border-radius: 0px 10px 10px 0px;
     transition: .4s background-color ease-out, .4s border-radius ease-out;
+    cursor: pointer;
+    z-index: 10000;
 }
 
 .more-resume-hovered {
@@ -1413,10 +1414,9 @@ nav .mainMenu .closeMenu,
     top: 34%;
     left: 100px;
     text-decoration: none;
-    color: yellow;
-    background-color: red;
+    color: white;
+    background-color: rgba(48, 214, 145, 0.919);
     padding: 20px 5px;
-    cursor: pointer;
     border-radius: 0px 10px 10px 0px;
     z-index: 10000;
     transition: 1s display ease-out;
@@ -1426,20 +1426,24 @@ nav .mainMenu .closeMenu,
     /* Override text orientation */
 }
 
-.github-description {
-    font-size: 14px;
-    text-align: center;
-    border-right: 2px solid blue;
-}
-
 .more-resume-hovered button {
     /* display: none; */
     transition: 1s display ease-out;
+    background: transparent;
+    border: 2px dashed var(--our-purple-color);
+    padding: 6px;
+}
+
+.more-resume-hovered button a {
+    text-decoration: none;
+    color: black;
 }
 
 .more-resume:hover .more-resume-hovered {
     display: flex;
-    width: 700px;
+    align-content: center;
+    justify-content: center;
+    width: 220px;
     transition: 1s display ease-out;
 }
 
