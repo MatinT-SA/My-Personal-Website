@@ -637,12 +637,12 @@ nav .mainMenu .closeMenu,
 
 .profile {
     height: 170px;
-    width: 125px;
+    width: 127px;
     border-radius: 50%;
     border: 1px solid #1f1a32;
     padding: 7px;
     background: #292343;
-    margin: -90px 0 0 203px;
+    margin: -100px 0 0 203px;
     transition: .4s ease-in-out;
 }
 
@@ -730,8 +730,8 @@ nav .mainMenu .closeMenu,
 }
 
 #MyPicLarge img {
-    height: 474px;
-    width: 329px;
+    height: 472px;
+    width: 354px;
     border-radius: 7px;
     border: 3px solid #1f1a32;
     padding: 10px;
