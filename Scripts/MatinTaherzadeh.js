@@ -318,6 +318,89 @@ $('.carousel').carousel({
     interval: 2500
 });
 
+
+// Get the threejs modal
+var threejsModal = document.getElementById("threejsModal");
+
+// Get the close button for threejs modal
+var closeButtonThreejs = document.getElementsByClassName("threejs-close")[0];
+
+// Check if the modal has been opened before
+var modalOpenedBefore = localStorage.getItem("modalOpened");
+
+// Function to show the modal
+function showModal() {
+  threejsModal.style.display = "block";
+}
+
+// Function to hide the modal
+function hideModal() {
+  threejsModal.style.display = "none";
+}
+
+// Intersection Observer configuration
+var options = {
+  root: null, // Use the viewport as the root
+  rootMargin: '0px', // No margin
+  threshold: 0.5 // Trigger when at least half of the target is visible
+};
+
+// Callback function to handle intersection changes
+function handleIntersection(entries, observer) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Delay showing the modal by 3 seconds
+      setTimeout(showModal, 2000);
+      // Disconnect the observer once the modal is shown
+      observer.disconnect();
+    }
+  });
+}
+
+// Create an Intersection Observer instance with the callback function and options
+var observer = new IntersectionObserver(handleIntersection, options);
+
+// Observe the Resume section
+var resumeSection = document.getElementById("Resume");
+observer.observe(resumeSection);
+
+// When the user clicks on the close button for threejs, hide the modal and set the flag to indicate it has been closed
+closeButtonThreejs.onclick = function() {
+  hideModal();
+  localStorage.setItem("modalClosed", true);
+  
+  // Show the fixed trigger modal after closing the main modal
+  document.getElementById("fixed-trigger-modal").style.display = "block";
+}
+
+// Get the explore button for threejs
+var exploreButtonThreejs = document.getElementById("threejs-btn");
+
+// When the user clicks on the explore button for threejs, you can redirect them to your 3D portfolio or any desired link
+exploreButtonThreejs.onclick = function() {
+  // Replace the URL with your actual 3D portfolio or desired link
+  var url = "https://matint-sa.github.io/ThreeJS-portfolio/";
+  window.open(url, "_blank");
+}
+
+// fixed trigger modal
+// If the modal hasn't been opened before and it has been closed before, show the fixed trigger
+if (!modalOpenedBefore && localStorage.getItem("modalClosed")) {
+  document.getElementById("fixed-trigger-modal").style.display = "block";
+}
+
+// When the fixed trigger is clicked, show the modal and hide the trigger
+document.getElementById("fixed-trigger-modal").onclick = function() {
+  showModal(); // Show the modal
+  this.style.display = "none"; // Hide the fixed trigger once the modal is opened
+}
+
+
+
+
+
+
+
 // End of Resume
 
 //Entrepreneur
@@ -471,24 +554,27 @@ slidersComment.forEach(slider => {
 document.addEventListener('DOMContentLoaded', function () {
     var resumeSection = document.getElementById('Comment');
     var moreResumeElement = document.querySelector('.more-resume');
+    var fixedTriggerModal = document.getElementById('fixed-trigger-modal');
 
-    function toggleMoreResumeVisibility() {
+    function toggleVisibility() {
         var resumeSectionRect = resumeSection.getBoundingClientRect();
 
-        // Adjust these values as needed to control when more-resume appears/disappears
-        var showAt = resumeSectionRect.top; // When to show more-resume
-        var hideAt = resumeSectionRect.bottom; // When to hide more-resume
+        // Adjust these values as needed to control when the elements appear/disappear
+        var showAt = resumeSectionRect.top; // When to show the elements
+        var hideAt = resumeSectionRect.bottom; // When to hide the elements
 
         if (window.scrollY >= showAt && window.scrollY <= hideAt) {
             moreResumeElement.style.display = 'flex';
+            fixedTriggerModal.style.display = 'block';
         } else {
             moreResumeElement.style.display = 'none';
+            fixedTriggerModal.style.display = 'none';
         }
     }
 
     // Attach the toggle function to the scroll event
-    window.addEventListener('scroll', toggleMoreResumeVisibility);
+    window.addEventListener('scroll', toggleVisibility);
 
     // Initial check for visibility on page load
-    toggleMoreResumeVisibility();
+    toggleVisibility();
 });
