@@ -1519,6 +1519,123 @@ nav .mainMenu .closeMenu,
     }
 }
 
+/* Modal Styles */
+.threejs-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.threejs-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to right, #ffde5d, #FFDF00);
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    max-width: 80%;
+    max-height: 80%;
+    overflow: auto;
+    text-align: left;
+    direction: ltr;
+}
+
+.threejs-modal-content-text {
+    background: linear-gradient(to right, rgb(140, 23, 113), rgb(70, 17, 83));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.threejs-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.threejs-close:hover,
+.threejs-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#threejs-btn {
+    background-color: var(--our-purple-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    transition: .2s all ease-in;
+}
+
+#threejs-btn:hover {
+    background-color: var(--our-blue-color);
+    color: var(--our-purple-color);
+}
+
+
+/* Show modal */
+.modal.show {
+    display: block;
+}
+
+/* Styles for the fixed trigger modal */
+#fixed-trigger-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    width: 150px;
+    height: 150px;
+    background-color: var(--our-purple-color);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 9999;
+    transition: 0.2s all ease-in;
+}
+
+#fixed-trigger-modal:hover{
+    background: var(--our-blue-color);
+    
+}
+
+#fixed-trigger-modal::before {
+    content: '3D Portfolio';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    
+}
+
+#fixed-trigger-modal:hover::before {
+    color: var(--our-purple-color);
+    
+}
+
+.gradient-3d-text {
+    background: linear-gradient(to right, var(--our-dark-color), var(--our-purple-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
 /*** End of Resume***/
 
 /*Entrepreneur*/
