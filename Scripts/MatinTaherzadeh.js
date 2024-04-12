@@ -395,12 +395,6 @@ document.getElementById("fixed-trigger-modal").onclick = function() {
   this.style.display = "none"; // Hide the fixed trigger once the modal is opened
 }
 
-
-
-
-
-
-
 // End of Resume
 
 //Entrepreneur
