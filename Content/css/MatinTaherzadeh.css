@@ -1548,10 +1548,15 @@ nav .mainMenu .closeMenu,
     direction: ltr;
 }
 
+.threejs-modal-content h2{
+    text-align: center;
+}
+
 .threejs-modal-content-text {
     background: linear-gradient(to right, rgb(140, 23, 113), rgb(70, 17, 83));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    margin: 3rem auto;
 }
 
 .threejs-close {
