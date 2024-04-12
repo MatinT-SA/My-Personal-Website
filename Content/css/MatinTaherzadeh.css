@@ -1868,6 +1868,10 @@ nav .mainMenu .closeMenu,
     background: #0088cc;
 }
 
+.Down-Contact .Down-Contact-Button:nth-child(7):hover .Down-Contact-Icon {
+    background: #316FF6;
+}
+
 .Down-Contact .Down-Contact-Button .Down-Contact-Icon i {
     font-size: 3rem;
     line-height: 60px;
@@ -1907,6 +1911,10 @@ nav .mainMenu .closeMenu,
 
 .Down-Contact .Down-Contact-Button:nth-child(6) span {
     color: #0088cc;
+}
+
+.Down-Contact .Down-Contact-Button:nth-child(7) span {
+    color: #316FF6;
 }
 
 /*the text*/
