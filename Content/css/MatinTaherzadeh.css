@@ -61,8 +61,8 @@ body {
 
 html {
     scroll-behavior: smooth;
-    scrollbar-color: #FFDF00 rgba(168, 198, 222, .6);
-    scrollbar-width: thin;
+    /* scrollbar-color: #FFDF00 rgba(168, 198, 222, .6);
+    scrollbar-width: thin; */
 }
 
 /*loading page*/
@@ -212,27 +212,32 @@ a {
     color: var(--our-purple-color);
 }
 
-/*styling scrollbar*/
-/*Width*/
+/* Width */
 ::-webkit-scrollbar {
     width: .65vw;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    box-shadow: inset 4px 4px 7px var(--our-blue-color) !important;
+    background-color: rgba(168, 198, 222, 0.6);
     border-radius: 10px;
+    box-shadow: inset 4px 4px 7px var(--our-blue-color);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #D4AF37;
+    background-color: #D4AF37;
     border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #FFDF00;
+    background-color: #FFDF00;
+}
+
+/* Handle when focused */
+::-webkit-scrollbar-thumb:focus {
+    background-color: #FFDF00;
 }
 
 @media (min-width: 700px) {
@@ -2190,22 +2195,7 @@ nav .mainMenu .closeMenu,
     }
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-    box-shadow: inset 9px 9px 1px #fff;
-    border-radius: 0;
-}
 
-/* Handle */
-#Comment ::-webkit-scrollbar-thumb {
-    background: #b3b300;
-    border-radius: 0;
-}
-
-/* Handle on hover */
-#Comment ::-webkit-scrollbar-thumb:hover {
-    background: #b3b300;
-}
 
 @keyframes CommentButton {
     0% {
