@@ -1599,14 +1599,15 @@ nav .mainMenu .closeMenu,
 /* Styles for the fixed trigger modal */
 #fixed-trigger-modal {
     display: none;
+    padding: 20px 5px;
     position: fixed;
-    top: 50%;
-    right: 20px;
-    width: 150px;
-    height: 150px;
+    top: 34%;
+    right: 0;
+    width: 100px;
+    height: 140px;
     background-color: var(--our-purple-color);
-    border-radius: 50%;
-    transform: translateY(-50%);
+    border-radius: 10px 0px 0px 10px;
+    /* transform: translateY(-50%); */
     cursor: pointer;
     z-index: 9999;
     transition: 0.2s all ease-in;
