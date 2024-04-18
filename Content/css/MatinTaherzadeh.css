@@ -131,17 +131,6 @@ html {
     }
 }
 
-@media screen and (max-width: 550px) {
-    .ring {
-        width: 150px;
-        height: 150px;
-    }
-
-    .centerLoading span {
-        font-size: 16px;
-    }
-}
-
 /*end of loading page*/
 
 a:focus,
@@ -1188,12 +1177,6 @@ nav .mainMenu .closeMenu,
     }
 }
 
-@media (max-width: 500px) {
-    #Skills {
-        border-radius: 100px 15px;
-    }
-}
-
 @media (max-width: 220px) {
     #Skills {
         border-radius: 15px;
@@ -1510,12 +1493,51 @@ nav .mainMenu .closeMenu,
 }
 
 @media screen and (max-width: 550px) {
+    .ring {
+        width: 150px;
+        height: 150px;
+    }
+
+    .centerLoading span {
+        font-size: 16px;
+    }
+
     .Resume-click-open video {
         max-width: 85%;
     }
 
     .Resume-click-open {
         max-width: 100%;
+    }
+
+    .more-resume{
+        width: 60px;
+        height: 120px;
+        font-size: 12px;
+    }
+
+    .more-resume-hovered{
+        height: 120px;
+        font-size: 12px;
+        left: 60px;
+    }
+
+    #fixed-trigger-modal{
+        width: 60px!important;
+        height: 120px!important;
+    }
+
+    .threejs-modal-content{
+        padding: 5px 10px!important;
+    }
+
+    .threejs-modal-content h2{
+        font-size: 16px;
+    }
+
+    .threejs-modal-content-text{
+        text-align: center;
+        margin: 1rem auto;
     }
 }
 
@@ -1814,6 +1836,10 @@ nav .mainMenu .closeMenu,
 @media (max-width: 500px) {
     #entrepreneur-quotes {
         border-radius: 15px 75px;
+    }
+
+    #Skills {
+        border-radius: 100px 15px;
     }
 }
 
