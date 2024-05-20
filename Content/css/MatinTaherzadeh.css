@@ -405,12 +405,6 @@ nav .mainMenu li a {
     z-index: 1;
 }
 
-@media (max-width: 1000px) {
-    .header-top {
-        font-size: 4.1rem;
-    }
-}
-
 @media (max-width: 850px) {
     .header-top {
         font-size: 3.5rem;
@@ -495,29 +489,6 @@ nav .mainMenu .closeMenu,
 
     ::-webkit-scrollbar {
         width: 1.25vw !important;
-    }
-}
-
-@media screen and (max-width: 310px) {
-    .icons {
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 265px) {
-    #logo-header {
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .header-top-p {
-        display: none;
-    }
-
-    #Home .col-sm-4 {
-        float: none;
     }
 }
 
@@ -837,25 +808,6 @@ nav .mainMenu .closeMenu,
     opacity: 1;
 }
 
-@media (max-width: 1200px) {
-    #AboutMe-image img {
-        margin-top: 155px;
-    }
-}
-
-@media (max-width: 992px) {
-    #AboutMe-image img:nth-child(2) {
-        display: block;
-        margin: 50px auto;
-        animation: float-md-2 5s ease-in-out infinite;
-    }
-
-    #AboutMe-image img:nth-child(1) {
-        margin-top: 160px;
-        animation: float-md-1 5s ease-in-out infinite;
-    }
-}
-
 @media (max-width: 768px) {
     .section-1-image img {
         display: block;
@@ -874,6 +826,26 @@ nav .mainMenu .closeMenu,
 
     .Matin-Picture {
         animation: none;
+    }
+
+    .header-top-p {
+        display: none;
+    }
+
+    #Home .col-sm-4 {
+        float: none;
+    }
+
+    .Down-Contact .Down-Contact-Button {
+        margin: 0 auto;
+    }
+
+    .section-2-left ul li:last-child {
+        margin-bottom: 0;
+    }
+
+    .section-2-right ul li:first-child {
+        margin-top: 55px;
     }
 }
 
@@ -952,6 +924,23 @@ nav .mainMenu .closeMenu,
         font-size: 1.1rem;
         line-height: 1.5;
     }
+
+    #logo-header {
+        display: none;
+    }
+
+    #Matin-Pic {
+        display: none;
+    }
+
+    #entrepreneur-quotes {
+        display: none;
+    }
+
+    .Contact-info:nth-child(1) span {
+        word-break: break-word;
+        bottom: 10px;
+    }
 }
 
 @media (max-width: 450px) {
@@ -992,11 +981,9 @@ nav .mainMenu .closeMenu,
     #Matin-Pic a[href*="MyPicLarge"] {
         pointer-events: none;
     }
-}
 
-@media (max-width: 265px) {
-    #Matin-Pic {
-        display: none;
+    .Comment-rows .Comment-form .Comment-InputBox .Comment-Line {
+        width: 100%;
     }
 }
 
@@ -1172,21 +1159,19 @@ nav .mainMenu .closeMenu,
     #Skills {
         margin: 0 20px;
     }
+
+    #entrepreneur-quotes {
+        margin: 20px;
+    }
 }
 
 @media (max-width: 1000px) {
     #Skills {
         border-radius: 230px 15px;
     }
-}
 
-@media (max-width: 768px) {
-    .section-2-left ul li:last-child {
-        margin-bottom: 0;
-    }
-
-    .section-2-right ul li:first-child {
-        margin-top: 55px;
+    .header-top {
+        font-size: 4.1rem;
     }
 }
 
@@ -1200,17 +1185,15 @@ nav .mainMenu .closeMenu,
     #Skills {
         border-radius: 15px;
     }
+
+    #Resume-items .btn {
+        width: auto;
+    }
 }
 
 @media (max-width: 400px) {
     .section-2 ul li {
         font-size: 1.4rem;
-    }
-}
-
-@media (max-width: 1200px) {
-    .section-2 img {
-        display: none;
     }
 }
 
@@ -1482,12 +1465,6 @@ nav .mainMenu .closeMenu,
     }
 }
 
-@media (max-width: 220px) {
-    #Resume-items .btn {
-        width: auto;
-    }
-}
-
 @media (max-width: 234px) {
     #Resume-items .btn {
         padding: .6rem 1.4rem;
@@ -1512,6 +1489,14 @@ nav .mainMenu .closeMenu,
 @media (max-width: 1200px) {
     .padding-top-5 {
         padding-top: 0;
+    }
+
+    .section-2 img {
+        display: none;
+    }
+
+    #AboutMe-image img {
+        margin-top: 155px;
     }
 }
 
@@ -1568,7 +1553,7 @@ nav .mainMenu .closeMenu,
 .threejs-modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     left: 0;
     top: 0;
     width: 100%;
@@ -1884,18 +1869,6 @@ nav .mainMenu .closeMenu,
     }
 }
 
-@media (max-width: 443px) {
-    #entrepreneur-quotes {
-        margin: 20px;
-    }
-}
-
-@media (max-width: 265px) {
-    #entrepreneur-quotes {
-        display: none;
-    }
-}
-
 /*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 /*═════════════════════╣ End of Entrepreneur ╠═════════════════════*/
 /*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
@@ -2146,24 +2119,27 @@ nav .mainMenu .closeMenu,
     .LastChild-Cards-Contact {
         margin-bottom: 20px;
     }
+
+    #AboutMe-image img:nth-child(2) {
+        display: block;
+        margin: 50px auto;
+        animation: float-md-2 5s ease-in-out infinite;
+    }
+
+    #AboutMe-image img:nth-child(1) {
+        margin-top: 160px;
+        animation: float-md-1 5s ease-in-out infinite;
+    }
 }
 
 @media (max-width: 310px) {
     .Contact-info:nth-child(1) span {
         font-size: 1.2rem;
     }
-}
 
-@media (max-width: 265px) {
-    .Contact-info:nth-child(1) span {
-        word-break: break-word;
-        bottom: 10px;
-    }
-}
-
-@media (max-width: 768px) {
-    .Down-Contact .Down-Contact-Button {
-        margin: 0 auto;
+    .icons {
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -2379,12 +2355,6 @@ nav .mainMenu .closeMenu,
     border-radius: 40%;
     background: rgba(20, 20, 20, .5);
     animation: CommentButton 10s linear infinite;
-}
-
-@media (max-width: 300px) {
-    .Comment-rows .Comment-form .Comment-InputBox .Comment-Line {
-        width: 100%;
-    }
 }
 
 @media (max-width: 210px) {
