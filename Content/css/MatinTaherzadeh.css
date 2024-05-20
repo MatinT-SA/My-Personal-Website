@@ -1593,8 +1593,21 @@ nav .mainMenu .closeMenu,
     direction: ltr;
 }
 
+.threejs-modal-content__upper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .threejs-modal-content h2 {
     text-align: center;
+}
+
+.threejs-modal-content img {
+    max-width: 100%;
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
 }
 
 .threejs-modal-content-text {
@@ -1620,12 +1633,15 @@ nav .mainMenu .closeMenu,
 
 #threejs-btn {
     background-color: var(--our-purple-color);
+    text-decoration: none;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     display: block;
+    text-align: center;
+    width: 40%;
     margin: 0 auto;
     transition: .2s all ease-in;
 }
