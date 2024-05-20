@@ -1,4 +1,7 @@
-/*FontsMatin*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ Start of Font ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+
 @font-face {
     font-family: Shabnam;
     src: url('/Content/fonts/Shabnam.ttf'),
@@ -26,9 +29,14 @@
     font-weight: normal;
 }
 
-/*** End of FontsMatin***/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ End of Font ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 
-/*MatinTaherzadeh*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ Start of General Styles ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+
 * {
     margin: 0;
     padding: 0;
@@ -64,74 +72,6 @@ html {
     /* scrollbar-color: #FFDF00 rgba(168, 198, 222, .6);
     scrollbar-width: thin; */
 }
-
-/*loading page*/
-.centerLoading {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    background: rgba(204, 230, 255, .5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 1000;
-    overflow: hidden;
-}
-
-.ring {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    animation: ringLoadingPage 2s linear infinite;
-}
-
-@keyframes ringLoadingPage {
-    0% {
-        transform: rotate(0deg);
-        box-shadow: 2px 8px 4px #0456c8;
-    }
-
-    50% {
-        transform: rotate(180deg);
-        box-shadow: 2px 8px 4px #e65c00;
-    }
-
-    100% {
-        transform: rotate(360deg);
-        box-shadow: 2px 8px 4px #18b201;
-    }
-}
-
-.ring::before {
-    position: absolute;
-    content: '';
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    box-shadow: 0 0 5px rgba(255, 255, 255, .3);
-}
-
-.centerLoading span {
-    color: #737373;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    line-height: 200px;
-    animation: textLoadingPage 3s ease-in-out linear infinite;
-}
-
-@keyframes textLoadingPage {
-    50% {
-        color: #ffff66;
-    }
-}
-
-/*end of loading page*/
 
 a:focus,
 a:hover {
@@ -235,9 +175,86 @@ a {
     }
 }
 
-/*** End of MatinTaherzadeh***/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ End of General Styles ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 
-/*header*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ Start of Loading ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+
+.centerLoading {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background: rgba(204, 230, 255, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.ring {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    animation: ringLoadingPage 2s linear infinite;
+}
+
+@keyframes ringLoadingPage {
+    0% {
+        transform: rotate(0deg);
+        box-shadow: 2px 8px 4px #0456c8;
+    }
+
+    50% {
+        transform: rotate(180deg);
+        box-shadow: 2px 8px 4px #e65c00;
+    }
+
+    100% {
+        transform: rotate(360deg);
+        box-shadow: 2px 8px 4px #18b201;
+    }
+}
+
+.ring::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(255, 255, 255, .3);
+}
+
+.centerLoading span {
+    color: #737373;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 200px;
+    animation: textLoadingPage 3s ease-in-out linear infinite;
+}
+
+@keyframes textLoadingPage {
+    50% {
+        color: #ffff66;
+    }
+}
+
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ End of Loading ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ Start of Header ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 
 .header {
     text-align: center;
@@ -378,15 +395,9 @@ nav .mainMenu li a {
 .anchor {
     display: block;
     height: 70px;
-    /*same height as header*/
     margin-top: -70px;
-    /*same height as header*/
     visibility: hidden;
 }
-
-/*#header-nav:hover li:not(:hover) {*/
-/*    opacity: .5;*/
-/*}*/
 
 .fixed {
     position: fixed;
@@ -592,9 +603,13 @@ nav .mainMenu .closeMenu,
     }
 }
 
-/*** End of header***/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ End of Header ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 
-/*AboutMe*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ Start of About Me ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 
 #Matin-Pic {
     background: #28223f;
@@ -1096,9 +1111,13 @@ nav .mainMenu .closeMenu,
     }
 }
 
-/*** End of AboutMe***/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ End of About Me ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 
-/*d*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ Start of Skills ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 
 #Skills {
     background: rgba(168, 198, 222, .2);
@@ -1195,9 +1214,13 @@ nav .mainMenu .closeMenu,
     }
 }
 
-/*** End of Skills***/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ End of Skills ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 
-/*Resume*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ Start of Resume ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 
 #Resume {
     width: 100%;
@@ -1510,32 +1533,32 @@ nav .mainMenu .closeMenu,
         max-width: 100%;
     }
 
-    .more-resume{
+    .more-resume {
         width: 60px;
         height: 120px;
         font-size: 12px;
     }
 
-    .more-resume-hovered{
+    .more-resume-hovered {
         height: 120px;
         font-size: 12px;
         left: 60px;
     }
 
-    #fixed-trigger-modal{
-        width: 60px!important;
-        height: 120px!important;
+    #fixed-trigger-modal {
+        width: 60px !important;
+        height: 120px !important;
     }
 
-    .threejs-modal-content{
-        padding: 5px 10px!important;
+    .threejs-modal-content {
+        padding: 5px 10px !important;
     }
 
-    .threejs-modal-content h2{
+    .threejs-modal-content h2 {
         font-size: 16px;
     }
 
-    .threejs-modal-content-text{
+    .threejs-modal-content-text {
         text-align: center;
         margin: 1rem auto;
     }
@@ -1570,7 +1593,7 @@ nav .mainMenu .closeMenu,
     direction: ltr;
 }
 
-.threejs-modal-content h2{
+.threejs-modal-content h2 {
     text-align: center;
 }
 
@@ -1634,9 +1657,9 @@ nav .mainMenu .closeMenu,
     transition: 0.2s all ease-in;
 }
 
-#fixed-trigger-modal:hover{
+#fixed-trigger-modal:hover {
     background: var(--our-blue-color);
-    
+
 }
 
 #fixed-trigger-modal::before {
@@ -1648,12 +1671,12 @@ nav .mainMenu .closeMenu,
     color: white;
     font-size: 14px;
     text-align: center;
-    
+
 }
 
 #fixed-trigger-modal:hover::before {
     color: var(--our-purple-color);
-    
+
 }
 
 .gradient-3d-text {
@@ -1662,10 +1685,13 @@ nav .mainMenu .closeMenu,
     -webkit-text-fill-color: transparent;
 }
 
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ End of Resume ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 
-/*** End of Resume***/
-
-/*Entrepreneur*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ Start of Entrepreneur ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 
 #entrepreneur-quotes {
     background: rgba(168, 198, 222, .2);
@@ -1854,9 +1880,13 @@ nav .mainMenu .closeMenu,
     }
 }
 
-/*** End of Entrepreneur***/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ End of Entrepreneur ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 
-/*Contact*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ Start of Contact ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 
 #Contact {
     /* background: #fff; */
@@ -2131,9 +2161,13 @@ nav .mainMenu .closeMenu,
     }
 }
 
-/*** End of Contact***/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ End of Contact ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 
-/*Comment*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ Start of Comment ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 
 #Comment {
     background: var(--our-purple-color);
@@ -2355,9 +2389,13 @@ nav .mainMenu .closeMenu,
     }
 }
 
-/*** End of Comment***/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ End of Comment ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 
-/*footer*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ Start of Footer ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 
 footer {
     min-height: 25vh;
@@ -2843,4 +2881,6 @@ footer {
 }
 
 
-/*** End of footer***/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+/*═════════════════════╣ End of Footer ╠═════════════════════*/
+/*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
