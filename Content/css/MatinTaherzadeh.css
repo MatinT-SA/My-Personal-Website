@@ -409,6 +409,10 @@ nav .mainMenu li a {
     .header-top {
         font-size: 3.5rem;
     }
+
+    #threejs-btn {
+        width: 100% !important;
+    }
 }
 
 nav .mainMenu .closeMenu,
@@ -847,6 +851,10 @@ nav .mainMenu .closeMenu,
     .section-2-right ul li:first-child {
         margin-top: 55px;
     }
+
+    .threejs-modal-content__upper h2 {
+        font-size: 2rem;
+    }
 }
 
 @media (min-width:768px) and (max-width:1024px) {
@@ -1173,6 +1181,10 @@ nav .mainMenu .closeMenu,
     .header-top {
         font-size: 4.1rem;
     }
+
+    .threejs-modal-content__upper {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 860px) {
@@ -1498,6 +1510,10 @@ nav .mainMenu .closeMenu,
     #AboutMe-image img {
         margin-top: 155px;
     }
+
+    .threejs-modal-content__upper {
+        justify-content: space-between !important;
+    }
 }
 
 @media screen and (max-width: 550px) {
@@ -1537,10 +1553,6 @@ nav .mainMenu .closeMenu,
 
     .threejs-modal-content {
         padding: 5px 10px !important;
-    }
-
-    .threejs-modal-content h2 {
-        font-size: 16px;
     }
 
     .threejs-modal-content-text {
@@ -1618,6 +1630,9 @@ nav .mainMenu .closeMenu,
 
 #threejs-btn {
     background-color: var(--our-purple-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-decoration: none;
     color: white;
     padding: 10px 20px;
@@ -1626,7 +1641,7 @@ nav .mainMenu .closeMenu,
     cursor: pointer;
     display: block;
     text-align: center;
-    width: 40%;
+    width: 100%;
     margin: 0 auto;
     transition: .2s all ease-in;
 }
@@ -1866,6 +1881,10 @@ nav .mainMenu .closeMenu,
 
     #Skills {
         border-radius: 100px 15px;
+    }
+
+    .threejs-modal-content__upper h2 {
+        font-size: 1.2rem;
     }
 }
 
