@@ -1263,7 +1263,7 @@ nav .mainMenu .closeMenu,
 }
 
 #Resume-items li:hover:nth-child(1) .CustomTooltip {
-    top: -80px;
+    top: -115px;
     right: -195px;
 }
 
