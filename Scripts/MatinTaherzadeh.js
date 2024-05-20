@@ -349,7 +349,6 @@ var options = {
 function handleIntersection(entries, observer) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            // Delay showing the modal by 3 seconds
             setTimeout(showModal, 2000);
             // Disconnect the observer once the modal is shown
             observer.disconnect();
@@ -364,23 +363,10 @@ var observer = new IntersectionObserver(handleIntersection, options);
 var resumeSection = document.getElementById("Resume");
 observer.observe(resumeSection);
 
-// When the user clicks on the close button for threejs, hide the modal and set the flag to indicate it has been closed
 closeButtonThreejs.onclick = function () {
     hideModal();
     localStorage.setItem("modalClosed", true);
-
-    // Show the fixed trigger modal after closing the main modal
     document.getElementById("fixed-trigger-modal").style.display = "block";
-}
-
-// Get the explore button for threejs
-var exploreButtonThreejs = document.getElementById("threejs-btn");
-
-// When the user clicks on the explore button for threejs, you can redirect them to your 3D portfolio or any desired link
-exploreButtonThreejs.onclick = function () {
-    // Replace the URL with your actual 3D portfolio or desired link
-    var url = "https://matint-sa.github.io/ThreeJS-portfolio/";
-    window.open(url, "_blank");
 }
 
 // fixed trigger modal
@@ -391,15 +377,14 @@ if (!modalOpenedBefore && localStorage.getItem("modalClosed")) {
 
 // When the fixed trigger is clicked, show the modal and hide the trigger
 document.getElementById("fixed-trigger-modal").onclick = function () {
-    showModal(); // Show the modal
-    this.style.display = "none"; // Hide the fixed trigger once the modal is opened
+    showModal();
+    this.style.display = "none";
 }
 
 function closeModalOutsideClick(event) {
     if (event.target === threejsModal) {
         hideModal();
         localStorage.setItem("modalClosed", true);
-        // Show the fixed trigger modal after closing the main modal
         document.getElementById("fixed-trigger-modal").style.display = "block";
     }
 }
@@ -408,16 +393,12 @@ function closeModalOnEscape(event) {
     if (event.key === "Escape") {
         hideModal();
         localStorage.setItem("modalClosed", true);
-
-        // Show the fixed trigger modal after closing the main modal
         document.getElementById("fixed-trigger-modal").style.display = "block";
     }
 }
 
-// Add event listener to close modal when clicked outside
 window.addEventListener("click", closeModalOutsideClick);
 
-// Add event listener to close modal when escape key is pressed
 window.addEventListener("keydown", closeModalOnEscape);
 
 // End of Resume
