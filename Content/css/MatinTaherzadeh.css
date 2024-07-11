@@ -1227,7 +1227,8 @@ nav .mainMenu .closeMenu,
     text-align: center;
     display: inline-flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
+    width: 100%;
 }
 
 #Resume-items li {
