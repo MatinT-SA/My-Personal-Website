@@ -56,8 +56,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!-- lazyloading -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script> -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4BGB4G5VHS"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -174,10 +172,10 @@
             <div class="row">
                 <div class="section-1">
                     <div id="AboutMe-image" class="col-md-5 col-sm-5 slide-in fade-in">
-                        <img alt="computer image for large devices" src="Content/images/bg2-com2.webp" width="534"
-                            height="355" class="img-responsive" class="lazyload">
-                        <img alt="computer image for medium devices" src="Content/images/bg2-com5.webp" width="283"
-                            height="188" class="img-responsive" class="lazyload">
+                        <img alt="computer image for large devices" src="Content/images/bg2-com2-lazy.jpg" width="534"
+                            height="355" class="img-responsive lazy-img" data-src="Content/images/bg2-com2.webp">
+                        <img alt="computer image for medium devices" src="Content/images/bg2-com5-lazy.jpg" width="283"
+                            height="188" class="img-responsive lazy-img" data-src="Content/images/bg2-com5.webp">
                     </div>
 
                     <div id="AboutMe-Text" class="col-md-7 col-sm-7 slide-in fade-in">
@@ -201,8 +199,9 @@
                         </p>
                     </div>
                     <div class="col-xs-12 section-1-image">
-                        <img alt="computer image for extra small devices" src="Content/images/bg2-com.webp" width="598"
-                            height="399" class="img-responsive fade-in slide-in" class="lazyload">
+                        <img alt="computer image for extra small devices" src="Content/images/bg2-com-lazy.jpg"
+                            width="598" height="399" class="img-responsive fade-in slide-in lazy-img"
+                            data-src="Content/images/bg2-com.webp">
                     </div>
                 </div>
             </div>
@@ -231,7 +230,7 @@
                     </div>
                     <div class="col-lg-2">
                         <img width="173" height="540" alt="My Skills Gif" src="Content/images/MySkills3Ed2.webp"
-                            class="center-block fade-in-skills slide-in-skills" class="lazyload">
+                            class="center-block fade-in-skills slide-in-skills">
                     </div>
                     <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 section-2-right">
                         <ul>
@@ -352,7 +351,7 @@
                         <div class="Resume-click-open row">
                             <div id="Pig-Dice-Game" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <video controls controlsList="nodownload" class="lazyload">
+                                    <video controls controlsList="nodownload">
                                         <source src="Content/videos/Pig-Dice-Game.mp4" type="video/mp4">
                                     </video>
                                 </div>
@@ -360,7 +359,7 @@
 
                             <div id="Banklist" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <video controls controlsList="nodownload" class="lazyload">
+                                    <video controls controlsList="nodownload">
                                         <source src="Content/videos/Banklist.mp4" type="video/mp4">
                                     </video>
                                 </div>
@@ -368,7 +367,7 @@
 
                             <div id="Guess-The-Number" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <video controls controlsList="nodownload" class="lazyload">
+                                    <video controls controlsList="nodownload">
                                         <source src="Content/videos/Guess-The-Number.mp4" type="video/mp4">
                                     </video>
                                 </div>
@@ -376,7 +375,7 @@
 
                             <div id="React-Modern-Design" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <video controls controlsList="nodownload" class="lazyload">
+                                    <video controls controlsList="nodownload">
                                         <source src="Content/videos/React-Web-Test-3.mp4" type="video/mp4">
                                     </video>
                                 </div>
@@ -384,7 +383,7 @@
 
                             <div id="React-MERN" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <video controls controlsList="nodownload" class="lazyload">
+                                    <video controls controlsList="nodownload">
                                         <source src="Content/videos/MernProject-Telenote.mp4" type="video/mp4">
                                     </video>
                                 </div>
@@ -406,8 +405,9 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 quotes-test">
                     <div class="cards fade-in-entrepreneur slide-in-entrepreneur">
                         <div class="imgBx">
-                            <img width="285" height="400" src="Content/images/AlanTuring-optimized.webp"
-                                alt="Alan Turing" class="img-responsive" class="lazyload">
+                            <img width="285" height="400" src="Content/images/AlanTuring-optimized-lazy.jpg"
+                                data-src="Content/images/AlanTuring-optimized.webp" alt="Alan Turing"
+                                class="img-responsive lazy-img">
 
                         </div>
                         <div class="overlay"></div>
@@ -421,8 +421,9 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 quotes-test">
                     <div class="cards fade-in-entrepreneur slide-in-entrepreneu">
                         <div class="imgBx">
-                            <img width="300" height="400" src="Content/images/BillGates1.webp" alt="Bill Gates"
-                                class="img-responsive" class="lazyload">
+                            <img width="300" height="400" src="Content/images/BillGates1-lazy.jpg"
+                                data-src="Content/images/BillGates1.webp" alt="Bill Gates"
+                                class="img-responsive lazy-img">
 
                         </div>
                         <div class="overlay"></div>
@@ -436,8 +437,9 @@
                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 quotes-test">
                     <div class="cards fade-in-entrepreneur slide-in-entrepreneu">
                         <div class="imgBx">
-                            <img width="300" height="400" src="Content/images/MargaretHamilton-optimized.webp"
-                                alt="Margaret Hamilton" class="img-responsive" class="lazyload">
+                            <img width="300" height="400" src="Content/images/MargaretHamilton-optimized-lazy.jpg"
+                                data-src="Content/images/MargaretHamilton-optimized.webp" alt="Margaret Hamilton"
+                                class="img-responsive lazy-img">
 
                         </div>
                         <div class="overlay"></div>
