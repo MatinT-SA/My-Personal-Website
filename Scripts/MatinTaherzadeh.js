@@ -404,31 +404,8 @@ window.addEventListener("keydown", closeModalOnEscape);
 // End of Resume
 
 //Entrepreneur
-// Lazy Loading
 const fadersEntrepreneur = document.querySelectorAll('.fade-in-entrepreneur');
 const slidersEntrepreneur = document.querySelectorAll('.slide-in-entrepreneur');
-const lazyImgs = document.querySelectorAll('#entrepreneur-quotes img, .section-1 img');
-
-const loadImg = (entries, observer) => {
-    const [entry] = entries;
-
-    if (!entry.isIntersecting) return;
-    entry.target.src = entry.target.dataset.src;
-
-    entry.target.addEventListener('load', function () {
-        entry.target.classList.remove('lazy-img');
-    });
-
-    observer.unobserve(entry.target);
-};
-
-const imgLazyObserver = new IntersectionObserver(loadImg, {
-    root: null,
-    threshold: 0,
-    rootMargin: '50%'
-});
-
-lazyImgs.forEach(img => imgLazyObserver.observe(img));
 
 const appearOptionsEntrepreneur = {
     threshold: 0,
