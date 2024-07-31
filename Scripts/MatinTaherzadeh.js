@@ -519,37 +519,6 @@ slidersComment.forEach(slider => {
 
 // End of Comment
 
-// Github api
-// const username = 'MatinT-SA';
-// const token = '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';
-// const apiUrl = `https://api.github.com/users/${username}/repos?per_page=3`;
-
-// function displayRepositories() {
-//     fetch(apiUrl, {
-//         headers: {
-//             Authorization: `token ${token}`,
-//         },
-//     })
-//         .then((response) => response.json())
-//         .then((data) => {
-//             const repoList = document.querySelector('.more-resume-hovered');
-//             data.forEach((repo) => {
-//                 const repoItem = document.createElement('div');
-//                 repoItem.innerHTML = `
-//             <a href="${repo.html_url}" target="_blank">${repo.name}</a>
-//             <p class="github-description">${repo.description || 'No description available'}</p>
-//           `;
-//                 repoList.appendChild(repoItem);
-//             });
-//         })
-//         .catch((error) => {
-//             console.error(error);
-//         });
-// }
-
-// Call the function to fetch and display repositories
-// displayRepositories();
-
 // Github more resume
 document.addEventListener('DOMContentLoaded', function () {
     var resumeSection = document.getElementById('Comment');
