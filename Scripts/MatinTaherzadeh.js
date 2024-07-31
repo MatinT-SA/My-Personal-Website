@@ -107,52 +107,7 @@ window.addEventListener('scroll', () => {
     })
 });
 
-//AJAX formSubmit didn't work properly
-// $("#Comment button").click(function (e) {
-//
-//     // if (validateForm()) {
-//     //     let UserEmail = $(this).serialize();
-//     // e.preventDefault();
-//     $.ajax({
-//         method: 'POST',
-//         url: 'https://formsubmit.co/ajax/matin.taherzadeh.mmtsa@gmail.com',
-//         dataType: 'json',
-//         accepts: 'application/json',
-//         data: {
-//             subject: document.querySelector('[name="_subject"]').value,
-//             email: document.getElementById('CommentEmail').value,
-//             message: document.getElementById('CommentMessage').value
-//         },
-//         // success: (data) => console.log(data),
-//         // error: (err) => console.log(err)
-//         success: function (result) {
-//             alert('ok');
-//         },
-//         error: function (result) {
-//             alert('error');
-//         }
-//     });
-//     // }
-//     // alert('ایمیل وارد شده صحیح نمی باشد');
-//     // return false;
-// });
-
-//Force Page Scroll Top
-// history.scrollRestoration = "manual";
-//
-// $(window).on('beforeunload', function(){
-//       $(window).scrollTop(0);
-// });
-
-
-//The main code for force page scroll to top
-// $(document).ready(function () {
-//     $(window).scrollTop(0);
-// });
-
 // End of MatinTaherzadeh
-
-//header
 
 //hamburger menu
 const mainMenu = document.querySelector('.mainMenu');
@@ -528,9 +483,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function toggleVisibility() {
         var resumeSectionRect = resumeSection.getBoundingClientRect();
 
-        // Adjust these values as needed to control when the elements appear/disappear
-        var showAt = resumeSectionRect.top; // When to show the elements
-        var hideAt = resumeSectionRect.bottom; // When to hide the elements
+        var showAt = resumeSectionRect.top;
+        var hideAt = resumeSectionRect.bottom;
 
         if (window.scrollY >= showAt && window.scrollY <= hideAt) {
             moreResumeElement.style.display = 'flex';
@@ -541,9 +495,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Attach the toggle function to the scroll event
     window.addEventListener('scroll', toggleVisibility);
 
-    // Initial check for visibility on page load
     toggleVisibility();
 });
