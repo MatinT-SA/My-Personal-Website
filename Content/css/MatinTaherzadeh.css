@@ -779,6 +779,7 @@ nav .mainMenu .closeMenu,
 .section-1 p:nth-child(2) {
     margin: 0 auto 15px;
     font-size: 1.6rem;
+    text-align: center;
 }
 
 .section-1 p:nth-child(3) {
@@ -789,6 +790,7 @@ nav .mainMenu .closeMenu,
 #AboutMe {
     margin-bottom: 110px;
     min-height: 78vh;
+    display: grid;
 }
 
 #AboutMe-image {
@@ -796,7 +798,7 @@ nav .mainMenu .closeMenu,
 }
 
 #AboutMe-Text {
-    padding-right: 50px;
+    padding: 0 5rem 0 8rem;
     transform: translateX(5%);
 }
 
