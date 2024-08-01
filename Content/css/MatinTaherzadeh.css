@@ -1744,6 +1744,11 @@ nav .mainMenu .closeMenu,
 #entrepreneur-quotes-container .cards.appear {
     transform: translateY(0);
     opacity: 1;
+    transition: transform 300ms ease-in-out;
+}
+
+#entrepreneur-quotes-container .cards.appear:hover {
+    transform: translateX(4px) skew(0.5deg, -0.4deg);
 }
 
 #entrepreneur-quotes-container .cards::before {
