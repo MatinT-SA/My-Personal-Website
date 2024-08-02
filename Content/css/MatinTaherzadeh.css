@@ -69,8 +69,6 @@ body {
 
 html {
     scroll-behavior: smooth;
-    /* scrollbar-color: #FFDF00 rgba(168, 198, 222, .6);
-    scrollbar-width: thin; */
 }
 
 a:focus,
@@ -2588,6 +2586,10 @@ footer {
     .header-top {
         height: 27vh;
         font-size: 5.2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        direction: ltr;
     }
 
     .header-top-p {
