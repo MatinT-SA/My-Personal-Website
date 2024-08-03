@@ -2586,10 +2586,6 @@ footer {
     .header-top {
         height: 27vh;
         font-size: 5.2rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        direction: ltr;
     }
 
     .header-top-p {
@@ -2950,6 +2946,15 @@ footer {
 
     footer {
         min-height: 17vh;
+    }
+}
+
+@media (min-width: 1900px) {
+    .header-top {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        direction: ltr;
     }
 }
 
