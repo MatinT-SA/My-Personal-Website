@@ -499,3 +499,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     toggleVisibility();
 });
+
+
+// replacing container with container-fluid
+function updateContainerClasses() {
+    if (window.matchMedia("(min-width: 1900px)").matches) {
+        document.querySelectorAll('#AboutMe .container').forEach(element => {
+            element.classList.remove('container');
+            element.classList.add('container-fluid');
+        });
+    }
+}
+
+// Check the condition on page load
+updateContainerClasses();
+
+// Optionally, listen for window resize events to update dynamically
+window.addEventListener('resize', updateContainerClasses);
