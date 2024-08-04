@@ -502,28 +502,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // replacing container with container-fluid
-function updateContainerClasses() {
+function updateClassesAndMargins(sectionId, marginRightLeft, addFluid = true) {
     if (window.matchMedia("(min-width: 1900px)").matches) {
-        document.querySelectorAll('#AboutMe .container').forEach(element => {
+        document.querySelectorAll(`${sectionId} .container`).forEach(element => {
             element.classList.remove('container');
-            element.classList.add('container-fluid');
+            if (addFluid) {
+                element.classList.add('container-fluid');
+            }
+            element.style.margin = `auto ${marginRightLeft}`;
         });
     }
 }
 
-function removeContainerClass() {
-    if (window.matchMedia("(min-width: 1900px)").matches) {
-        document.querySelectorAll('#Resume .container').forEach(element => {
-            element.classList.remove('container');
-            element.style.margin = "auto 10rem";
-        });
-    }
+function updateAllSections() {
+    updateClassesAndMargins('#AboutMe', '0', true);
+    updateClassesAndMargins('#Resume', '10rem', false);
+    updateClassesAndMargins('#Contact', '20rem', false);
 }
 
-updateContainerClasses();
-removeContainerClass();
+updateAllSections();
 
-window.addEventListener('resize', () => {
-    updateContainerClasses();
-    removeContainerClass();
-});
+window.addEventListener('resize', updateAllSections);
