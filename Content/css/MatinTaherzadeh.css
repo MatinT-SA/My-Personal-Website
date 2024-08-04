@@ -1094,6 +1094,20 @@ nav .mainMenu .closeMenu,
     }
 }
 
+@keyframes float-wideScreen {
+    0% {
+        transform: translateY(1rem);
+    }
+
+    50% {
+        transform: translateY(-1.5rem);
+    }
+
+    100% {
+        transform: translateY(1rem);
+    }
+}
+
 @keyframes float-md-1 {
     0% {
         transform: translateY(5px);
@@ -2548,6 +2562,15 @@ footer {
 }
 
 @media (min-width: 1900px) {
+    html {
+        font-size: 75%;
+    }
+
+    #AboutMe-image img:nth-child(1) {
+        /* animation: float-wideScreen 6s ease-in-out infinite; */
+        margin-top: 10rem !important;
+    }
+
     #GoToTopButton {
         bottom: 50px;
         right: 60px;
