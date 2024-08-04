@@ -511,8 +511,19 @@ function updateContainerClasses() {
     }
 }
 
-// Check the condition on page load
-updateContainerClasses();
+function removeContainerClass() {
+    if (window.matchMedia("(min-width: 1900px)").matches) {
+        document.querySelectorAll('#Resume .container').forEach(element => {
+            element.classList.remove('container');
+            element.style.margin = "auto 10rem";
+        });
+    }
+}
 
-// Optionally, listen for window resize events to update dynamically
-window.addEventListener('resize', updateContainerClasses);
+updateContainerClasses();
+removeContainerClass();
+
+window.addEventListener('resize', () => {
+    updateContainerClasses();
+    removeContainerClass();
+});
