@@ -2602,6 +2602,10 @@ footer {
     h2 {
         margin-top: 6rem !important;
     }
+
+    #entrepreneur-quotes-container {
+        flex-direction: column;
+    }
 }
 
 /* Desktop - bigger height */
