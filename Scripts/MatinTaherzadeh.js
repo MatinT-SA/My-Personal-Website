@@ -13,7 +13,7 @@ $(window).on("load", function () {
 window.addEventListener('load', () => {
     setTimeout(() => {
         welcoming.classList.add('show');
-    }, 3000);
+    }, 2500);
 });
 
 
