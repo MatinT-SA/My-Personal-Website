@@ -1,3 +1,6 @@
+// Selecting DOM Elements
+const welcoming = document.querySelector('#welcome-overlay');
+
 //clearing URL after refreshing the page
 history.pushState('', '', window.location.pathname);
 
@@ -5,6 +8,14 @@ history.pushState('', '', window.location.pathname);
 $(window).on("load", function () {
     $(".centerLoading").fadeOut("slow");
 })
+
+// Welcoming
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        welcoming.classList.add('show');
+    }, 3000);
+});
+
 
 //MatinTaherzadeh
 const faders = document.querySelectorAll('.fade-in');
