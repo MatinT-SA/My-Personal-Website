@@ -12,10 +12,15 @@ $(window).on("load", function () {
 // Welcoming
 window.addEventListener('load', () => {
     setTimeout(() => {
-        welcoming.classList.add('show');
-    }, 2500);
+        document.getElementById('welcome-overlay').classList.add('showWelcome');
+    }, 2500); // 2.5 seconds delay
 });
 
+document.getElementById('got-it-button').addEventListener('click', () => {
+    const overlay = document.getElementById('welcome-overlay');
+    overlay.classList.remove('showWelcome');
+    overlay.classList.add('hideWelcome');
+});
 
 //MatinTaherzadeh
 const faders = document.querySelectorAll('.fade-in');
