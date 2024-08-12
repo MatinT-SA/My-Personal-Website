@@ -1,19 +1,19 @@
-// Selecting DOM Elements
+/***** Selecting DOM elements ********/
 const welcoming = document.querySelector('#welcome-overlay');
 
-//clearing URL after refreshing the page
+/***** clearing URL after refreshing the page ********/
 history.pushState('', '', window.location.pathname);
 
-//loading page
+/***** Loading page ********/
 $(window).on("load", function () {
     $(".centerLoading").fadeOut("slow");
 })
 
-// Welcoming
+/***** Welcoming ********/
 window.addEventListener('load', () => {
     setTimeout(() => {
         document.getElementById('welcome-overlay').classList.add('showWelcome');
-    }, 2500); // 2.5 seconds delay
+    }, 2500);
 });
 
 document.getElementById('got-it-button').addEventListener('click', () => {
@@ -22,7 +22,7 @@ document.getElementById('got-it-button').addEventListener('click', () => {
     overlay.classList.add('hideWelcome');
 });
 
-//MatinTaherzadeh
+/***** Matin Taherzadeh ********/
 const faders = document.querySelectorAll('.fade-in');
 const sliders = document.querySelectorAll('.slide-in');
 const MainTitlesfaders = document.querySelectorAll('.fade-in-main-titles');
@@ -33,13 +33,11 @@ const appearOptions = {
     threshold: 0,
     rootMargin: "0px 0px -300px 0px"
 }
-    ;
 
 const appearOptionsMainTitles = {
     threshold: 0,
     rootMargin: "0px 0px -120px 0px"
 }
-    ;
 
 const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
     entries.forEach(entry => {
@@ -79,12 +77,12 @@ MainTitlessliders.forEach(sliders => {
     appearOnScrollMainTitles.observe(sliders);
 });
 
-//an option for smooth scroll js with script
+/***** Smooth scroll ********/
 const scroll = new SmoothScroll('.mainMenu a[href*="#"]', {
     speed: 350,
 });
 
-//GoToTopButton
+/***** GoToTopButton ********/
 var GoToTopButton = document.getElementById("GoToTopButton");
 
 window.onscroll = function () {
@@ -104,7 +102,7 @@ function topFunction() {
     document.documentElement.scrollTop = 0;
 }
 
-//highlight nav menu on scroll with js but first we specify const variables at top
+/***** Highlight nav menu items on scroll ********/
 window.addEventListener('scroll', () => {
     let current = '';
 
@@ -123,9 +121,9 @@ window.addEventListener('scroll', () => {
     })
 });
 
-// End of MatinTaherzadeh
+/***** End of Matin Taharzadeh ********/
 
-//hamburger menu
+/***** Hamburger menu ********/
 const mainMenu = document.querySelector('.mainMenu');
 const closeMenu = document.querySelector('.closeMenu');
 const openMenu = document.querySelector('.openMenu');
@@ -149,43 +147,29 @@ function close() {
     mainMenu.style.top = "-1000%";
 }
 
-//fixed navigation
+/***** Fixed nav ********/
 $(document).ready(function () {
+    const aboveHeight = $('header').height();
 
-    // Calculate the height of <header>
-    // Use outerHeight() instead of height() if have padding
-    var aboveHeight = $('header').height();
-
-    // when scroll
     $(window).scroll(function () {
-
-        // if scrolled down more than the header’s height
         if ($(window).scrollTop() > aboveHeight) {
-
-            // if yes, add “fixed” class to the <nav>
-            // add padding top to the #content
-            // (value is same as the height of the nav)
             $('nav').addClass('fixed').css('top', '0').next().css('padding-top', '70px');
-
         } else {
-
-            // when scroll up or less than aboveHeight,
-            // remove the “fixed” class, and the padding-top
             $('nav').removeClass('fixed').css('padding-top', '0');
         }
     });
 });
 
-//navigation link active class
+/***** navigation link active class ********/
 $(document).ready(function () {
     $('#header-nav ul li').on('click', function () {
         $(this).addClass('active').siblings().removeClass('active')
     });
 });
 
-// End of header
+/***** End of header ********/
 
-//Skills
+/***** Skills ********/
 
 const fadersSkills = document.querySelectorAll('.fade-in-skills');
 const slidersSkills = document.querySelectorAll('.slide-in-skills');
@@ -239,9 +223,9 @@ slidersSkillsLE.forEach(Slider => {
     appearOnScrollSkillsLE.observe(Slider);
 });
 
-// End of Skills
+/***** End of Skills ********/
 
-//Resume
+/***** Resume ********/
 
 const fadersResume = document.querySelectorAll('.fade-in-resume');
 const slidersResume = document.querySelectorAll('.slide-in-resume');
@@ -284,39 +268,35 @@ $(document).ready(function () {
     });
 });
 
-//carousel
+/***** carousel ********/
 $('.carousel').carousel({
     interval: 2500
 });
 
 
-// Get the threejs modal
-var threejsModal = document.getElementById("threejsModal");
-
-// Get the close button for threejs modal
-var closeButtonThreejs = document.getElementsByClassName("threejs-close")[0];
+// threejs modal
+const threejsModal = document.getElementById("threejsModal");
+const closeButtonThreejs = document.getElementsByClassName("threejs-close")[0];
 
 // Check if the modal has been opened before
-var modalOpenedBefore = localStorage.getItem("modalOpened");
+const modalOpenedBefore = localStorage.getItem("modalOpened");
 
-// Function to show the modal
 function showModal() {
     threejsModal.style.display = "block";
 }
 
-// Function to hide the modal
 function hideModal() {
     threejsModal.style.display = "none";
 }
 
-// Intersection Observer configuration
-var options = {
-    root: null, // Use the viewport as the root
-    rootMargin: '0px', // No margin
+// IntersectionObserver options
+const options = {
+    root: null,
+    rootMargin: '0px',
     threshold: 0.5 // Trigger when at least half of the target is visible
 };
 
-// Callback function to handle intersection changes
+// IntersectionObserver callback function
 function handleIntersection(entries, observer) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -327,11 +307,9 @@ function handleIntersection(entries, observer) {
     });
 }
 
-// Create an Intersection Observer instance with the callback function and options
-var observer = new IntersectionObserver(handleIntersection, options);
+const observer = new IntersectionObserver(handleIntersection, options);
 
-// Observe the Resume section
-var resumeSection = document.getElementById("Resume");
+const resumeSection = document.getElementById("Resume");
 observer.observe(resumeSection);
 
 closeButtonThreejs.onclick = function () {
@@ -340,18 +318,18 @@ closeButtonThreejs.onclick = function () {
     document.getElementById("fixed-trigger-modal").style.display = "block";
 }
 
-// fixed trigger modal
-// If the modal hasn't been opened before and it has been closed before, show the fixed trigger
+// Fixed trigger modal logic
 if (!modalOpenedBefore && localStorage.getItem("modalClosed")) {
     document.getElementById("fixed-trigger-modal").style.display = "block";
 }
 
-// When the fixed trigger is clicked, show the modal and hide the trigger
+// Fixed trigger click handler
 document.getElementById("fixed-trigger-modal").onclick = function () {
     showModal();
     this.style.display = "none";
 }
 
+// Close modal when clicking outside
 function closeModalOutsideClick(event) {
     if (event.target === threejsModal) {
         hideModal();
@@ -360,6 +338,7 @@ function closeModalOutsideClick(event) {
     }
 }
 
+// Close modal on Escape key press
 function closeModalOnEscape(event) {
     if (event.key === "Escape") {
         hideModal();
@@ -369,12 +348,12 @@ function closeModalOnEscape(event) {
 }
 
 window.addEventListener("click", closeModalOutsideClick);
-
 window.addEventListener("keydown", closeModalOnEscape);
 
-// End of Resume
 
-//Entrepreneur
+/***** End of resume ********/
+
+/***** Entrepreneur ********/
 const fadersEntrepreneur = document.querySelectorAll('.fade-in-entrepreneur');
 const slidersEntrepreneur = document.querySelectorAll('.slide-in-entrepreneur');
 
@@ -382,7 +361,6 @@ const appearOptionsEntrepreneur = {
     threshold: 0,
     rootMargin: "0px 0px -100px 0px"
 }
-    ;
 
 const appearOnScrollEntrepreneur = new IntersectionObserver(function (entries, appearOnScrollEntrepreneur) {
     entries.forEach(entry => {
@@ -403,9 +381,9 @@ slidersEntrepreneur.forEach(slider => {
     appearOnScrollEntrepreneur.observe(slider);
 });
 
-// End of Entrepreneur
+/***** End of Entrepreneur ********/
 
-//Contact
+/***** Contact ********/
 
 const fadersContact = document.querySelectorAll('.fade-in-contact');
 const slidersContact = document.querySelectorAll('.slide-in-contact');
@@ -457,9 +435,9 @@ slidersContact.forEach(slider => {
     appearOnScrollContactLE.observe(slider);
 });
 
-// End of Contact
+/***** End of Contact ********/
 
-//Comment
+/***** Comment ********/
 
 const fadersComment = document.querySelectorAll('.fade-in-comment');
 const slidersComment = document.querySelectorAll('.slide-in-comment');
@@ -467,7 +445,6 @@ const appearOptionsComment = {
     threshold: 0,
     rootMargin: "0px 0px -150px 0px"
 }
-    ;
 
 const appearOnScrollComment = new IntersectionObserver(function (entries, appearOnScrollComment) {
     entries.forEach(entry => {
@@ -488,9 +465,10 @@ slidersComment.forEach(slider => {
     appearOnScrollComment.observe(slider);
 });
 
-// End of Comment
+/***** End of Comment ********/
 
-// Github more resume
+/***** GitHub more resume ********/
+
 document.addEventListener('DOMContentLoaded', function () {
     var resumeSection = document.getElementById('Comment');
     var moreResumeElement = document.querySelector('.more-resume');
@@ -517,7 +495,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// replacing container with container-fluid
+/***** Replacing container with container-fluid ********/
+
 function updateClassesAndMargins(sectionId, marginRightLeft, addFluid = true) {
     if (window.matchMedia("(min-width: 1900px)").matches) {
         document.querySelectorAll(`${sectionId} .container`).forEach(element => {
