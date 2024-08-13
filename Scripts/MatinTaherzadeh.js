@@ -1,5 +1,46 @@
 /***** Selecting DOM elements ********/
 const welcoming = document.querySelector('#welcome-overlay');
+const gotItButton = document.querySelector('#got-it-button');
+const overlay = document.querySelector('#welcome-overlay');
+
+const faders = document.querySelectorAll('.fade-in');
+const sliders = document.querySelectorAll('.slide-in');
+const MainTitlesfaders = document.querySelectorAll('.fade-in-main-titles');
+const MainTitlessliders = document.querySelectorAll('.slide-in-main-titles');
+const sections = document.querySelectorAll('section');
+const navLi = document.querySelectorAll('#header-nav ul li');
+
+const GoToTopButton = document.getElementById("GoToTopButton");
+
+const mainMenu = document.querySelector('.mainMenu');
+const closeMenu = document.querySelector('.closeMenu');
+const openMenu = document.querySelector('.openMenu');
+const navLinks = document.querySelectorAll('.nav-item');
+
+const fadersSkills = document.querySelectorAll('.fade-in-skills');
+const slidersSkills = document.querySelectorAll('.slide-in-skills');
+const fadersSkillsLE = document.querySelectorAll('.fade-in-skills-le');
+const slidersSkillsLE = document.querySelectorAll('.slide-in-skills-le');
+
+const fadersResume = document.querySelectorAll('.fade-in-resume');
+const slidersResume = document.querySelectorAll('.slide-in-resume');
+
+const threejsModal = document.getElementById("threejsModal");
+const closeButtonThreejs = document.getElementsByClassName("threejs-close")[0];
+const resumeSection = document.querySelector("#Resume");
+
+const fadersEntrepreneur = document.querySelectorAll('.fade-in-entrepreneur');
+const slidersEntrepreneur = document.querySelectorAll('.slide-in-entrepreneur');
+
+const fadersContact = document.querySelectorAll('.fade-in-contact');
+const slidersContact = document.querySelectorAll('.slide-in-contact');
+
+const fadersComment = document.querySelectorAll('.fade-in-comment');
+const slidersComment = document.querySelectorAll('.slide-in-comment');
+
+const commentSection = document.querySelector('#Comment');
+const moreResumeElement = document.querySelector('.more-resume');
+const fixedTriggerModal = document.getElementById('fixed-trigger-modal');
 
 /***** clearing URL after refreshing the page ********/
 history.pushState('', '', window.location.pathname);
@@ -12,23 +53,17 @@ $(window).on("load", function () {
 /***** Welcoming ********/
 window.addEventListener('load', () => {
     setTimeout(() => {
-        document.getElementById('welcome-overlay').classList.add('showWelcome');
+        overlay.classList.add('showWelcome');
     }, 2500);
 });
 
-document.getElementById('got-it-button').addEventListener('click', () => {
-    const overlay = document.getElementById('welcome-overlay');
+gotItButton.addEventListener('click', () => {
     overlay.classList.remove('showWelcome');
     overlay.classList.add('hideWelcome');
 });
 
 /***** Matin Taherzadeh ********/
-const faders = document.querySelectorAll('.fade-in');
-const sliders = document.querySelectorAll('.slide-in');
-const MainTitlesfaders = document.querySelectorAll('.fade-in-main-titles');
-const MainTitlessliders = document.querySelectorAll('.slide-in-main-titles');
-const sections = document.querySelectorAll('section');
-const navLi = document.querySelectorAll('#header-nav ul li');
+
 const appearOptions = {
     threshold: 0,
     rootMargin: "0px 0px -300px 0px"
@@ -83,7 +118,6 @@ const scroll = new SmoothScroll('.mainMenu a[href*="#"]', {
 });
 
 /***** GoToTopButton ********/
-var GoToTopButton = document.getElementById("GoToTopButton");
 
 window.onscroll = function () {
     scrollFunctionButton()
@@ -103,6 +137,7 @@ function topFunction() {
 }
 
 /***** Highlight nav menu items on scroll ********/
+
 window.addEventListener('scroll', () => {
     let current = '';
 
@@ -124,10 +159,6 @@ window.addEventListener('scroll', () => {
 /***** End of Matin Taharzadeh ********/
 
 /***** Hamburger menu ********/
-const mainMenu = document.querySelector('.mainMenu');
-const closeMenu = document.querySelector('.closeMenu');
-const openMenu = document.querySelector('.openMenu');
-const navLinks = document.querySelectorAll('.nav-item');
 
 openMenu.addEventListener('click', show);
 closeMenu.addEventListener('click', close);
@@ -148,6 +179,7 @@ function close() {
 }
 
 /***** Fixed nav ********/
+
 $(document).ready(function () {
     const aboveHeight = $('header').height();
 
@@ -161,6 +193,7 @@ $(document).ready(function () {
 });
 
 /***** navigation link active class ********/
+
 $(document).ready(function () {
     $('#header-nav ul li').on('click', function () {
         $(this).addClass('active').siblings().removeClass('active')
@@ -171,10 +204,6 @@ $(document).ready(function () {
 
 /***** Skills ********/
 
-const fadersSkills = document.querySelectorAll('.fade-in-skills');
-const slidersSkills = document.querySelectorAll('.slide-in-skills');
-const fadersSkillsLE = document.querySelectorAll('.fade-in-skills-le');
-const slidersSkillsLE = document.querySelectorAll('.slide-in-skills-le');
 const appearOptionsSkills = {
     threshold: 0,
     rootMargin: "0px 0px -120px 0px"
@@ -227,8 +256,6 @@ slidersSkillsLE.forEach(Slider => {
 
 /***** Resume ********/
 
-const fadersResume = document.querySelectorAll('.fade-in-resume');
-const slidersResume = document.querySelectorAll('.slide-in-resume');
 const appearOptionsResume = {
     threshold: 0,
     rootMargin: "0px 0px 10px 0px"
@@ -268,15 +295,7 @@ $(document).ready(function () {
     });
 });
 
-/***** carousel ********/
-$('.carousel').carousel({
-    interval: 2500
-});
-
-
-// threejs modal
-const threejsModal = document.getElementById("threejsModal");
-const closeButtonThreejs = document.getElementsByClassName("threejs-close")[0];
+/***** Threejs modal ********/
 
 // Check if the modal has been opened before
 const modalOpenedBefore = localStorage.getItem("modalOpened");
@@ -309,7 +328,6 @@ function handleIntersection(entries, observer) {
 
 const observer = new IntersectionObserver(handleIntersection, options);
 
-const resumeSection = document.getElementById("Resume");
 observer.observe(resumeSection);
 
 closeButtonThreejs.onclick = function () {
@@ -354,8 +372,6 @@ window.addEventListener("keydown", closeModalOnEscape);
 /***** End of resume ********/
 
 /***** Entrepreneur ********/
-const fadersEntrepreneur = document.querySelectorAll('.fade-in-entrepreneur');
-const slidersEntrepreneur = document.querySelectorAll('.slide-in-entrepreneur');
 
 const appearOptionsEntrepreneur = {
     threshold: 0,
@@ -385,8 +401,6 @@ slidersEntrepreneur.forEach(slider => {
 
 /***** Contact ********/
 
-const fadersContact = document.querySelectorAll('.fade-in-contact');
-const slidersContact = document.querySelectorAll('.slide-in-contact');
 const appearOptionsContact = {
     threshold: 0,
     rootMargin: "0px 0px -150px 0px"
@@ -439,8 +453,6 @@ slidersContact.forEach(slider => {
 
 /***** Comment ********/
 
-const fadersComment = document.querySelectorAll('.fade-in-comment');
-const slidersComment = document.querySelectorAll('.slide-in-comment');
 const appearOptionsComment = {
     threshold: 0,
     rootMargin: "0px 0px -150px 0px"
@@ -470,15 +482,11 @@ slidersComment.forEach(slider => {
 /***** GitHub more resume ********/
 
 document.addEventListener('DOMContentLoaded', function () {
-    var resumeSection = document.getElementById('Comment');
-    var moreResumeElement = document.querySelector('.more-resume');
-    var fixedTriggerModal = document.getElementById('fixed-trigger-modal');
-
     function toggleVisibility() {
-        var resumeSectionRect = resumeSection.getBoundingClientRect();
+        const resumeSectionRect = commentSection.getBoundingClientRect();
 
-        var showAt = resumeSectionRect.top;
-        var hideAt = resumeSectionRect.bottom;
+        const showAt = resumeSectionRect.top;
+        const hideAt = resumeSectionRect.bottom;
 
         if (window.scrollY >= showAt && window.scrollY <= hideAt) {
             moreResumeElement.style.display = 'flex';

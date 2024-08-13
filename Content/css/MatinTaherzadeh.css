@@ -1560,15 +1560,6 @@ nav .mainMenu .closeMenu,
     height: auto;
 }
 
-.carousel {
-    margin: 0 auto;
-    width: 90%;
-}
-
-.carousel-indicators li {
-    background-color: red;
-}
-
 /* Start of Styling more-resume */
 
 .more-resume {
@@ -1639,10 +1630,6 @@ nav .mainMenu .closeMenu,
 
 
 /* End of Styling more-resume */
-
-.carousel-indicators .active {
-    background-color: #e6e600;
-}
 
 @media (max-width: 445px) {
     #Resume-items .btn {
