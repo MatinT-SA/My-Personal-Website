@@ -1551,11 +1551,12 @@ nav .mainMenu .closeMenu,
     margin: 0 auto;
 }
 
-.Resume-click-open video {
+.Resume-click-open iframe {
     display: block;
     margin: 0 auto;
+    width: 800px;
+    height: 350px;
     max-width: 85%;
-    height: auto;
     border-radius: 4px;
     border: 3px ridge var(--dark-primary-color);
     padding: 1px;
