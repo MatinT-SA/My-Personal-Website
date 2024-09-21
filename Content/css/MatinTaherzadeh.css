@@ -1055,6 +1055,11 @@ nav .mainMenu .closeMenu,
         margin: 0 10px 10px;
     }
 
+    #entrepreneur-quotes {
+        margin: 2rem !important;
+        padding: 3rem .5rem;
+    }
+
     #entrepreneur-quotes-container .cards {
         width: 265px;
         height: 300px;
@@ -1552,8 +1557,14 @@ nav .mainMenu .closeMenu,
 }
 
 .Resume-click-open iframe {
+    display: block;
+    margin: 0 auto;
+    width: 800px;
+    height: 350px;
+    max-width: 85%;
     border-radius: 4px;
-    box-shadow: 0px -3px 7px 3px rgba(0, 0, 0, 0.2);
+    border: 3px ridge var(--dark-primary-color);
+    padding: 1px;
 }
 
 .test-template {
@@ -1898,7 +1909,7 @@ nav .mainMenu .closeMenu,
     background: rgba(168, 198, 222, .2);
     border-radius: 15px 300px;
     padding: 3rem 0;
-    margin: 20px 50px;
+    margin: 2rem 5rem;
 }
 
 #entrepreneur-quotes-container {
