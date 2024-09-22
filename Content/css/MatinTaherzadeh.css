@@ -719,8 +719,10 @@ nav .mainMenu .closeMenu,
 }
 
 .profile {
-    height: 170px;
-    width: 127px;
+    width: 100%;
+    max-width: 127px;
+    height: auto;
+    object-fit: cover;
     border-radius: 50%;
     border: 1px solid var(--purple-tertiary-color);
     padding: 7px;
@@ -847,11 +849,19 @@ nav .mainMenu .closeMenu,
     box-shadow: -5px -5px 10px blue;
     display: block;
     animation: float-lg 6s ease-in-out infinite;
+    width: 100%;
+    max-width: 534px;
+    height: auto;
+    object-fit: contain;
 }
 
 #AboutMe-image img:nth-child(2) {
     display: none;
     box-shadow: -5px 5px 10px blue;
+    width: 100%;
+    max-width: 283px;
+    height: auto;
+    object-fit: contain;
 }
 
 .section-1-image img {
