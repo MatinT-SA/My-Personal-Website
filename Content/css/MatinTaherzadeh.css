@@ -359,17 +359,13 @@ button#got-it-button:hover {
     justify-content: center;
     align-items: center;
     direction: ltr;
-}
-
-.header-top {
     font-size: 4.2rem;
     height: 210px;
     background: var(--purple-secondary-color);
     animation: header-load var(--header-load-time) ease-in;
 }
 
-.header-top-p {
-    padding: 40px 0 30px;
+.header-p {
     animation: names-header var(--names-header-time) ease-out;
 }
 
@@ -514,7 +510,7 @@ nav .mainMenu li a {
 }
 
 @media (max-width: 850px) {
-    .header-top {
+    .header {
         font-size: 3.5rem;
     }
 
@@ -1000,7 +996,7 @@ nav .mainMenu .closeMenu,
         animation: none;
     }
 
-    .header-top-p {
+    .header-p {
         display: none;
     }
 
@@ -1375,7 +1371,7 @@ nav .mainMenu .closeMenu,
         border-radius: 230px 15px;
     }
 
-    .header-top {
+    .header {
         font-size: 4.1rem;
     }
 
@@ -2736,12 +2732,12 @@ footer {
 
 /* Desktop - bigger height */
 @media (min-width: 1900px) and (min-height: 1180px) {
-    .header-top {
+    .header {
         height: 27vh;
         font-size: 5.2rem;
     }
 
-    .header-top-p {
+    .header-p {
         padding: 7rem 0
     }
 
@@ -2941,12 +2937,12 @@ footer {
         right: 60px;
     }
 
-    .header-top {
+    .header {
         height: 27vh;
         font-size: 4.5rem;
     }
 
-    .header-top-p {
+    .header-p {
         padding: 3.4rem 0
     }
 
