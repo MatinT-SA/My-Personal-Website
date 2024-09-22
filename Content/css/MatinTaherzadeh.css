@@ -1001,10 +1001,6 @@ nav .mainMenu .closeMenu,
         margin: 0 auto;
     }
 
-    .section-2-left ul li:last-child {
-        margin-bottom: 0;
-    }
-
     .section-2-right ul li:first-child {
         margin-top: 55px;
     }
@@ -1329,7 +1325,7 @@ nav .mainMenu .closeMenu,
 }
 
 .section-2 ul li:last-child {
-    margin-bottom: 52px;
+    margin-bottom: 5.2rem;
 }
 
 .section-2 ul li.appear {
@@ -1370,6 +1366,11 @@ nav .mainMenu .closeMenu,
 
     .header-top {
         font-size: 4.1rem;
+    }
+
+    .section-2-right,
+    .section-2-left {
+        width: 100%;
     }
 
     .threejs-modal-content__upper {
@@ -1671,8 +1672,12 @@ nav .mainMenu .closeMenu,
         padding-top: 0;
     }
 
-    .section-2 img {
+    .section-2 .col-lg-2 {
         display: none;
+    }
+
+    .section-2-left ul li:last-child {
+        margin-bottom: 2rem;
     }
 
     #AboutMe-image img {
