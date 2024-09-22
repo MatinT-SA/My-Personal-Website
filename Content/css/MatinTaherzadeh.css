@@ -422,7 +422,7 @@ button#got-it-button:hover {
         height: 350px !important;
     }
 
-    #entrepreneur-quotes img {
+    .imgBx img {
         width: 230px !important;
         height: 350px !important;
     }
@@ -1068,7 +1068,7 @@ nav .mainMenu .closeMenu,
         height: 300px;
     }
 
-    #entrepreneur-quotes img {
+    .imgBx img {
         width: 265px;
         height: 300px;
     }
@@ -1975,13 +1975,14 @@ nav .mainMenu .closeMenu,
 }
 
 #entrepreneur-quotes-container .cards .imgBx {
-    position: absolute;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     border-radius: 10%;
-
+    overflow: hidden;
+    position: absolute;
     transform: skew(10px, 10px);
 }
 
@@ -2064,9 +2065,10 @@ nav .mainMenu .closeMenu,
     transition-delay: .5s;
 }
 
-#entrepreneur-quotes img {
-    max-width: 100%;
-    height: 400px;
+.imgBx img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 10%;
 }
 
