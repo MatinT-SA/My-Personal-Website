@@ -42,16 +42,18 @@ const commentSection = document.querySelector('#Comment');
 const moreResumeElement = document.querySelector('.more-resume');
 const fixedTriggerModal = document.getElementById('fixed-trigger-modal');
 
+const loaderContainer = document.querySelector('.loader-container');
+const loader = document.querySelector('.loader');
+
 /***** clearing URL after refreshing the page ********/
 history.pushState('', '', window.location.pathname);
 
 /***** Loading page ********/
-$(window).on("load", function () {
-    $(".centerLoading").fadeOut("slow");
-})
+showLoader();
 
-/***** Welcoming ********/
 window.addEventListener('load', () => {
+    hideLoader();
+
     setTimeout(() => {
         overlay.classList.add('showWelcome');
     }, 2500);
@@ -526,3 +528,11 @@ function updateAllSections() {
 updateAllSections();
 
 window.addEventListener('resize', updateAllSections);
+
+function showLoader() {
+    loaderContainer.style.display = 'flex';
+}
+
+function hideLoader() {
+    loaderContainer.style.display = 'none';
+}
