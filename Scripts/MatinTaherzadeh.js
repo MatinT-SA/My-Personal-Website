@@ -52,7 +52,7 @@ history.pushState('', '', window.location.pathname);
 showLoader();
 
 window.addEventListener('load', () => {
-    hideLoader();
+    setTimeout(hideLoader, 50);
 
     setTimeout(() => {
         overlay.classList.add('showWelcome');
@@ -534,5 +534,5 @@ function showLoader() {
 }
 
 function hideLoader() {
-    loaderContainer.style.display = 'none';
+    loaderContainer.classList.add('hidden');
 }
