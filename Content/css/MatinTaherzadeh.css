@@ -246,68 +246,6 @@ a {
     }
 }
 
-/* .loader-container {
-    display: grid;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    z-index: 99999;
-}
-
-.loader {
-    width: 100px;
-    height: 100px;
-    background: #fff;
-    box-sizing: border-box;
-    display: grid;
-    place-items: center;
-    position: relative;
-    filter: blur(5px) contrast(20) hue-rotate(300deg);
-}
-
-.loader:before,
-.loader:after {
-    content: "";
-    grid-area: 1/1;
-    width: 40px;
-    height: 40px;
-    background: yellow;
-    animation: l7 2s infinite;
-
-}
-
-.loader:after {
-    transform: translate(50%, 50%);
-    animation-delay: -1s;
-}
-
-@keyframes l7 {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    25% {
-        transform: translate(100%, 0);
-    }
-
-    50% {
-        transform: translate(100%, 100%);
-    }
-
-    75% {
-        transform: translate(0, 100%);
-    }
-
-    100% {
-        transform: translate(0, 0);
-    }
-} */
-
 /*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 /*═════════════════════╣ End of Loading ╠═════════════════════*/
 /*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
