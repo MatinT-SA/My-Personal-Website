@@ -262,7 +262,7 @@ a {
     width: 100%;
     height: 50%;
     background: rgba(173, 173, 173, 0.8);
-    color: var(--purple-primary-color);
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -691,7 +691,7 @@ nav .mainMenu .closeMenu,
 .Matin-Picture {
     user-select: none;
     margin: 15px auto;
-    color: #b3b8cd;
+    color: #ffffff;
     width: 380px;
     background: var(--purple-primary-color);
     text-align: center;
