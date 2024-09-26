@@ -4,18 +4,18 @@
 
 @font-face {
     font-family: Shabnam;
-    src: url('/Content/fonts/Shabnam.ttf'),
-        url('../fonts/Shabnam-FD.woff2') format('woff2'),
-        url('../fonts/Shabnam-FD.woff') format('woff'),
-        url('../fonts/Shabnam-FD.ttf') format('truetype');
+    src: url('/Shabnam.1ddc88cc.ttf'),
+        url('/Shabnam-FD.07409969.woff2') format('woff2'),
+        url('/Shabnam-FD.bbadabeb.woff') format('woff'),
+        url('/Shabnam-FD.2e75f802.ttf') format('truetype');
     font-weight: normal;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'IRANSans-web';
-    src: url('../fonts/IRANSans-web.ttf'),
-        url('../fonts/IRANSans-web.otf') format('truetype');
+    src: url('/IRANSans-web.b9cb4b2a.ttf'),
+        url('/IRANSans-web.1b745edb.otf') format('truetype');
     font-display: swap;
     font-weight: normal;
 }
@@ -3090,3 +3090,5 @@ footer {
 /*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
 /*═════════════════════╣ End of Footer ╠═════════════════════*/
 /*⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜⚜*/
+
+/*# sourceMappingURL=/MatinTaherzadeh.9c33a697.css.map */
