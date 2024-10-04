@@ -974,10 +974,7 @@ nav .mainMenu .closeMenu,
         margin: 20px auto;
     }
 
-    #AboutMe-image img:nth-child(1) {
-        display: none;
-    }
-
+    #AboutMe-image img:nth-child(1),
     #AboutMe-image img:nth-child(2) {
         display: none;
     }
@@ -2323,15 +2320,22 @@ nav .mainMenu .closeMenu,
         margin-bottom: 20px;
     }
 
+    #AboutMe-image img:nth-child(1),
     #AboutMe-image img:nth-child(2) {
-        display: block;
-        margin: 50px auto;
-        animation: float-md-2 5s ease-in-out infinite;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
     }
 
     #AboutMe-image img:nth-child(1) {
         margin-top: 160px;
         animation: float-md-1 5s ease-in-out infinite;
+    }
+
+    #AboutMe-image img:nth-child(2) {
+        display: block;
+        margin: 50px auto;
+        animation: float-md-2 5s ease-in-out infinite;
     }
 }
 
