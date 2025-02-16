@@ -119,55 +119,55 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"Scripts/MatinTaherzadeh.js":[function(require,module,exports) {
 /***** Selecting DOM elements ********/
-var welcoming = document.querySelector('#welcome-overlay');
-var gotItButton = document.querySelector('#got-it-button');
-var overlay = document.querySelector('#welcome-overlay');
-var faders = document.querySelectorAll('.fade-in');
-var sliders = document.querySelectorAll('.slide-in');
-var MainTitlesfaders = document.querySelectorAll('.fade-in-main-titles');
-var MainTitlessliders = document.querySelectorAll('.slide-in-main-titles');
-var sections = document.querySelectorAll('section');
-var navLi = document.querySelectorAll('#header-nav ul li');
+var welcoming = document.querySelector("#welcome-overlay");
+var gotItButton = document.querySelector("#got-it-button");
+var overlay = document.querySelector("#welcome-overlay");
+var faders = document.querySelectorAll(".fade-in");
+var sliders = document.querySelectorAll(".slide-in");
+var MainTitlesfaders = document.querySelectorAll(".fade-in-main-titles");
+var MainTitlessliders = document.querySelectorAll(".slide-in-main-titles");
+var sections = document.querySelectorAll("section");
+var navLi = document.querySelectorAll("#header-nav ul li");
 var GoToTopButton = document.getElementById("GoToTopButton");
-var mainMenu = document.querySelector('.mainMenu');
-var closeMenu = document.querySelector('.closeMenu');
-var openMenu = document.querySelector('.openMenu');
-var navLinks = document.querySelectorAll('.nav-item');
-var fadersSkills = document.querySelectorAll('.fade-in-skills');
-var slidersSkills = document.querySelectorAll('.slide-in-skills');
-var fadersSkillsLE = document.querySelectorAll('.fade-in-skills-le');
-var slidersSkillsLE = document.querySelectorAll('.slide-in-skills-le');
-var fadersResume = document.querySelectorAll('.fade-in-resume');
-var slidersResume = document.querySelectorAll('.slide-in-resume');
+var mainMenu = document.querySelector(".mainMenu");
+var closeMenu = document.querySelector(".closeMenu");
+var openMenu = document.querySelector(".openMenu");
+var navLinks = document.querySelectorAll(".nav-item");
+var fadersSkills = document.querySelectorAll(".fade-in-skills");
+var slidersSkills = document.querySelectorAll(".slide-in-skills");
+var fadersSkillsLE = document.querySelectorAll(".fade-in-skills-le");
+var slidersSkillsLE = document.querySelectorAll(".slide-in-skills-le");
+var fadersResume = document.querySelectorAll(".fade-in-resume");
+var slidersResume = document.querySelectorAll(".slide-in-resume");
 var threejsModal = document.getElementById("threejsModal");
 var closeButtonThreejs = document.getElementsByClassName("threejs-close")[0];
 var resumeSection = document.querySelector("#Resume");
-var fadersEntrepreneur = document.querySelectorAll('.fade-in-entrepreneur');
-var slidersEntrepreneur = document.querySelectorAll('.slide-in-entrepreneur');
-var fadersContact = document.querySelectorAll('.fade-in-contact');
-var slidersContact = document.querySelectorAll('.slide-in-contact');
-var fadersComment = document.querySelectorAll('.fade-in-comment');
-var slidersComment = document.querySelectorAll('.slide-in-comment');
-var commentSection = document.querySelector('#Comment');
-var moreResumeElement = document.querySelector('.more-resume');
-var fixedTriggerModal = document.getElementById('fixed-trigger-modal');
-var loaderContainer = document.querySelector('.loader-container');
-var loader = document.querySelector('.loader');
+var fadersEntrepreneur = document.querySelectorAll(".fade-in-entrepreneur");
+var slidersEntrepreneur = document.querySelectorAll(".slide-in-entrepreneur");
+var fadersContact = document.querySelectorAll(".fade-in-contact");
+var slidersContact = document.querySelectorAll(".slide-in-contact");
+var fadersComment = document.querySelectorAll(".fade-in-comment");
+var slidersComment = document.querySelectorAll(".slide-in-comment");
+var commentSection = document.querySelector("#Comment");
+var moreResumeElement = document.querySelector(".more-resume");
+var fixedTriggerModal = document.getElementById("fixed-trigger-modal");
+var loaderContainer = document.querySelector(".loader-container");
+var loader = document.querySelector(".loader");
 /***** clearing URL after refreshing the page ********/
 
-history.pushState('', '', window.location.pathname);
+history.pushState("", "", window.location.pathname);
 /***** Loading page ********/
 
 showLoader();
-window.addEventListener('load', function () {
+window.addEventListener("load", function () {
   setTimeout(hideLoader, 50);
   setTimeout(function () {
-    overlay.classList.add('showWelcome');
+    overlay.classList.add("showWelcome");
   }, 2500);
 });
-gotItButton.addEventListener('click', function () {
-  overlay.classList.remove('showWelcome');
-  overlay.classList.add('hideWelcome');
+gotItButton.addEventListener("click", function () {
+  overlay.classList.remove("showWelcome");
+  overlay.classList.add("hideWelcome");
 });
 /***** Matin Taherzadeh ********/
 
@@ -222,6 +222,8 @@ window.onscroll = function () {
   scrollFunctionButton();
 };
 
+GoToTopButton.addEventListener("click", topFunction);
+
 function scrollFunctionButton() {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
     GoToTopButton.style.display = "block";
@@ -237,21 +239,21 @@ function topFunction() {
 /***** Highlight nav menu items on scroll ********/
 
 
-window.addEventListener('scroll', function () {
-  var current = '';
+window.addEventListener("scroll", function () {
+  var current = "";
   sections.forEach(function (section) {
     var sectionTop = section.offsetTop;
     var sectionHeight = section.clientHeight;
 
     if (pageYOffset >= sectionTop - sectionHeight / 3) {
-      current = section.getAttribute('id');
+      current = section.getAttribute("id");
     }
   });
   navLi.forEach(function (li) {
-    li.classList.remove('active');
+    li.classList.remove("active");
 
     if (li.classList.contains(current)) {
-      li.classList.add('active');
+      li.classList.add("active");
     }
   });
 });
@@ -259,8 +261,8 @@ window.addEventListener('scroll', function () {
 
 /***** Hamburger menu ********/
 
-openMenu.addEventListener('click', show);
-closeMenu.addEventListener('click', close);
+openMenu.addEventListener("click", show);
+closeMenu.addEventListener("click", close);
 
 for (var i = 0; i < navLinks.length; i++) {
   navLinks[i].addEventListener("click", function () {
@@ -269,8 +271,8 @@ for (var i = 0; i < navLinks.length; i++) {
 }
 
 function show() {
-  mainMenu.style.display = 'flex';
-  mainMenu.style.top = '0';
+  mainMenu.style.display = "flex";
+  mainMenu.style.top = "0";
 }
 
 function close() {
@@ -280,20 +282,20 @@ function close() {
 
 
 $(document).ready(function () {
-  var aboveHeight = $('header').height();
+  var aboveHeight = $("header").height();
   $(window).scroll(function () {
     if ($(window).scrollTop() > aboveHeight) {
-      $('nav').addClass('fixed').css('top', '0').next().css('padding-top', '70px');
+      $("nav").addClass("fixed").css("top", "0").next().css("padding-top", "70px");
     } else {
-      $('nav').removeClass('fixed').css('padding-top', '0');
+      $("nav").removeClass("fixed").css("padding-top", "0");
     }
   });
 });
 /***** navigation link active class ********/
 
 $(document).ready(function () {
-  $('#header-nav ul li').on('click', function () {
-    $(this).addClass('active').siblings().removeClass('active');
+  $("#header-nav ul li").on("click", function () {
+    $(this).addClass("active").siblings().removeClass("active");
   });
 });
 /***** End of header ********/
@@ -365,17 +367,17 @@ slidersResume.forEach(function (slider) {
   appearOnScrollResume.observe(slider);
 });
 $(document).ready(function () {
-  $('body').on('click', '#Resume .btn', function () {
-    $("#Resume-items .btn").not(this).removeClass('active');
+  $("body").on("click", "#Resume .btn", function () {
+    $("#Resume-items .btn").not(this).removeClass("active");
 
-    if ($(this).hasClass('active')) {
-      $(this).removeClass('active');
+    if ($(this).hasClass("active")) {
+      $(this).removeClass("active");
     } else {
-      $(this).addClass('active');
+      $(this).addClass("active");
     }
   });
-  $('.btn-Resume-buttons').click(function (e) {
-    $('.collapse').collapse('hide');
+  $(".btn-Resume-buttons").click(function (e) {
+    $(".collapse").collapse("hide");
   });
 });
 /***** Threejs modal ********/
@@ -394,7 +396,7 @@ function hideModal() {
 
 var options = {
   root: null,
-  rootMargin: '0px',
+  rootMargin: "0px",
   threshold: 0.5 // Trigger when at least half of the target is visible
 
 }; // IntersectionObserver callback function
@@ -545,22 +547,22 @@ slidersComment.forEach(function (slider) {
 
 /***** GitHub more resume ********/
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   function toggleVisibility() {
     var resumeSectionRect = commentSection.getBoundingClientRect();
     var showAt = resumeSectionRect.top;
     var hideAt = resumeSectionRect.bottom;
 
     if (window.scrollY >= showAt && window.scrollY <= hideAt) {
-      moreResumeElement.style.display = 'flex';
-      fixedTriggerModal.style.display = 'block';
+      moreResumeElement.style.display = "flex";
+      fixedTriggerModal.style.display = "block";
     } else {
-      moreResumeElement.style.display = 'none';
-      fixedTriggerModal.style.display = 'none';
+      moreResumeElement.style.display = "none";
+      fixedTriggerModal.style.display = "none";
     }
   }
 
-  window.addEventListener('scroll', toggleVisibility);
+  window.addEventListener("scroll", toggleVisibility);
   toggleVisibility();
 });
 /***** Replacing container with container-fluid ********/
@@ -570,10 +572,10 @@ function updateClassesAndMargins(sectionId, marginRightLeft) {
 
   if (window.matchMedia("(min-width: 1900px)").matches) {
     document.querySelectorAll("".concat(sectionId, " .container")).forEach(function (element) {
-      element.classList.remove('container');
+      element.classList.remove("container");
 
       if (addFluid) {
-        element.classList.add('container-fluid');
+        element.classList.add("container-fluid");
       }
 
       element.style.margin = "auto ".concat(marginRightLeft);
@@ -582,20 +584,20 @@ function updateClassesAndMargins(sectionId, marginRightLeft) {
 }
 
 function updateAllSections() {
-  updateClassesAndMargins('#AboutMe', '0', true);
-  updateClassesAndMargins('#Resume', '10rem', false);
-  updateClassesAndMargins('#Contact', '20rem', false);
+  updateClassesAndMargins("#AboutMe", "0", true);
+  updateClassesAndMargins("#Resume", "10rem", false);
+  updateClassesAndMargins("#Contact", "20rem", false);
 }
 
 updateAllSections();
-window.addEventListener('resize', updateAllSections);
+window.addEventListener("resize", updateAllSections);
 
 function showLoader() {
-  loaderContainer.style.display = 'flex';
+  loaderContainer.style.display = "flex";
 }
 
 function hideLoader() {
-  loaderContainer.classList.add('hidden');
+  loaderContainer.classList.add("hidden");
 }
 },{}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -625,7 +627,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "11783" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "5428" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
