@@ -1450,8 +1450,8 @@ nav .mainMenu .closeMenu,
 }
 
 #Resume-items li:hover:nth-child(3) .CustomTooltip {
-  top: -135px;
-  right: -180px;
+  top: -115px;
+  right: -200px;
 }
 
 #Resume-items li:hover:nth-child(4) .CustomTooltip {
