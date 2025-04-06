@@ -1,4 +1,5 @@
 /***** Selecting DOM elements ********/
+console.log("test");
 const welcoming = document.querySelector("#welcome-overlay");
 const gotItButton = document.querySelector("#got-it-button");
 const overlay = document.querySelector("#welcome-overlay");
