@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+/* Custom Font Faces */
+@font-face {
+  font-family: Shabnam;
+  src: url("/fonts/Shabnam.ttf") format("truetype"),
+    url("/fonts/Shabnam-FD.woff2") format("woff2"),
+    url("/fonts/Shabnam-FD.woff") format("woff"),
+    url("/fonts/Shabnam-FD.ttf") format("truetype");
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IRANSans-web";
+  src: url("/fonts/IRANSans-web.ttf") format("truetype"),
+    url("/fonts/IRANSans-web.otf") format("truetype");
+  font-weight: normal;
+  font-display: swap;
+}
+
+/* Root Variables */
+:root {
+  --blue-light-color: #a8c6de;
+  --purple-primary-color: #231e39;
+  --purple-secondary-color: #28223f;
+  --purple-tertiary-color: #1f1a32;
+  --dark-primary-color: #333300;
+  --yellow-primary-color: #ffdf00;
+  --nav-load-time: 400ms;
+  --header-load-time: 400ms;
+  --names-header-time: 3s;
+  --logo-header-time: 300ms;
+  --nav-link-load-time: 1.5s;
+  --MyPic-delay-time: calc(
+    (var(--nav-load-time) + var(--nav-link-load-time)) + 100ms
+  );
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 0.65vw;
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(168, 198, 222, 0.6);
+  border-radius: 10px;
+  box-shadow: inset 4px 4px 7px var(--blue-light-color);
+}
+::-webkit-scrollbar-thumb {
+  background-color: #d4af37;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--yellow-primary-color);
+}
