@@ -161,11 +161,6 @@ a {
   background-color: var(--yellow-primary-color);
 }
 
-/* Handle when focused */
-::-webkit-scrollbar-thumb:focus {
-  background-color: var(--yellow-primary-color);
-}
-
 @media (min-width: 700px) {
   body {
     overflow-y: hidden;
