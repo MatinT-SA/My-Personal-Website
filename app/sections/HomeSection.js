@@ -1,14 +1,15 @@
 import Header from "../components/Header";
 import Navigation from "../components/Navigation";
+import ProfileCard from "../components/ProfileCard";
 
 export default function HomeSection() {
   return (
     <section id="Home" className="w-full">
-      <div className="container-fluid px-4">
-        <div className="row">
-          <Header />
-          <Navigation />
-        </div>
+      <div className="max-w-7xl mx-auto px-4 py-6">
+        <Header />
+        <Navigation />
+
+        <ProfileCard />
       </div>
     </section>
   );
