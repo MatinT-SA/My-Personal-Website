@@ -3,27 +3,101 @@
 import { useState } from "react";
 import Image from "next/image";
 import ProfileModal from "./ProfileModal";
+import { FaInstagram, FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function ProfileCard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
   return (
-    <div className="relative text-center">
-      {/* Profile Image */}
-      <Image
-        src="/images/Matin-Taherzadeh-portrait.webp"
-        alt="Matin Taherzadeh"
-        width={150}
-        height={150}
-        className="mx-auto rounded-full cursor-pointer hover:opacity-80 transition"
-        onClick={openModal}
-      />
+    <div className="w-full max-w-sm mx-auto bg-purple-primary rounded-3xl shadow-2xl pt-0 pb-8 px-6 flex flex-col items-center relative">
+      {/* Cover Photo */}
+      <div className="w-full h-24 bg-gradient-to-r from-blue-light via-purple-secondary to-yellow-primary rounded-t-3xl mb-[-56px]" />
 
-      {/* Profile Modal */}
-      <ProfileModal isOpen={isModalOpen} onClose={closeModal} />
+      {/* Profile Image */}
+      <div className="relative z-10">
+        <Image
+          src="/images/Matin-Taherzadeh-portrait.webp"
+          alt="Matin Taherzadeh"
+          width={120}
+          height={120}
+          className="rounded-full border-4 border-white shadow-xl cursor-pointer hover:opacity-90 transition"
+          onClick={() => setIsModalOpen(true)}
+          priority
+        />
+      </div>
+
+      {/* Name & Subtitle */}
+      <div className="mt-7 text-center">
+        <div className="text-2xl font-bold text-yellow-primary drop-shadow">
+          متین طاهرزاده
+        </div>
+        <div className="text-base text-blue-light mt-1 font-semibold">
+          Front-End Developer
+        </div>
+      </div>
+
+      {/* Buttons */}
+      <div className="flex gap-3 mt-6">
+        <button
+          className="bg-yellow-primary hover:bg-yellow-400 text-purple-primary font-bold px-5 py-2 rounded-xl shadow transition"
+          onClick={() => (window.location.href = "#Comment-anchor")}
+        >
+          ارسال پیام
+        </button>
+        <button
+          className="bg-blue-light hover:bg-blue-400 text-purple-primary font-bold px-5 py-2 rounded-xl shadow transition"
+          onClick={() =>
+            window.open(
+              "https://www.instagram.com/matin_taherzadeh_sa/",
+              "_blank"
+            )
+          }
+        >
+          در اینستا فالوم کن
+        </button>
+      </div>
+
+      {/* Social Icons */}
+      <div className="flex gap-5 mt-7 text-2xl text-yellow-primary">
+        <a
+          href="https://www.linkedin.com/in/matin-taherzadeh-sa"
+          target="_blank"
+          rel="noopener"
+          aria-label="LinkedIn"
+        >
+          <FaLinkedin className="hover:text-blue-light transition" />
+        </a>
+        <a
+          href="https://www.instagram.com/matin_taherzadeh_sa/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram"
+        >
+          <FaInstagram className="hover:text-pink-500 transition" />
+        </a>
+        <a
+          href="https://github.com/MatinT-SA"
+          target="_blank"
+          rel="noopener"
+          aria-label="GitHub"
+        >
+          <FaGithub className="hover:text-purple-tertiary transition" />
+        </a>
+        <a
+          href="https://twitter.com/MatinT_SA"
+          target="_blank"
+          rel="noopener"
+          aria-label="Twitter"
+        >
+          <FaTwitter className="hover:text-blue-400 transition" />
+        </a>
+      </div>
+
+      {/* Modal */}
+      <ProfileModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }

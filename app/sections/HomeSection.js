@@ -5,7 +5,7 @@ import ProfileCard from "../components/ProfileCard";
 export default function HomeSection() {
   return (
     <section id="Home" className="w-full">
-      <div className="max-w-7xl mx-auto px-4 py-6">
+      <div className="w-full mx-auto px-4 py-6">
         <Header />
         <Navigation />
 
