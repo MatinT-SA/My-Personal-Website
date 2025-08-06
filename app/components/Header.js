@@ -2,7 +2,7 @@ import Logo from "./Logo";
 
 export default function Header() {
   return (
-    <header className="header flex justify-between items-center flex-wrap w-full py-4">
+    <header className="header flex justify-between items-center flex-wrap w-full py-4 bg-purple-primary">
       <div className="header-p w-full sm:w-1/3 text-center sm:text-left">
         <p>Matin</p>
         <p>Taherzadeh</p>
