@@ -71,8 +71,6 @@ html {
 }
 
 body {
-  font-family: Shabnam, "B Morvarid", "IRANSans-web", "B Koodak", Georgia,
-    sans-serif;
   background-image: linear-gradient(to right, #fff, #ffe6ff 80%);
   overflow-anchor: none;
 }

@@ -1,15 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./styles/global.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "Matin Taherzadeh - متین طاهرزاده",
@@ -20,7 +9,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased 
+        className={`antialiased 
           bg-gradient-to-r from-white to-[#ffe6ff] 
           overflow-x-hidden text-black font-shabnam`}
       >
