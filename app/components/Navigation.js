@@ -1,48 +1,51 @@
 export default function Navigation() {
   return (
-    <nav id="header-nav" className="mt-4">
+    <nav className="p-6 h-17.5 bg-gradient-yellow">
       <div className="openMenu">
         <i className="fa fa-bars" />
       </div>
+
       <ul className="mainMenu flex flex-wrap justify-center gap-4">
-        <li className="Home active">
-          <a href="#Home" className="nav-item">
+        <li>
+          <a href="#home" className="nav-item" aria-current="page">
             خانه
           </a>
         </li>
-        <li className="AboutMe">
-          <a href="#AboutMe-anchor" className="nav-item">
+        <li>
+          <a href="#about-me" className="nav-item">
             درباره من
           </a>
         </li>
-        <li className="Skills">
-          <a href="#Skills-anchor" className="nav-item">
+        <li>
+          <a href="#skills" className="nav-item">
             مهارت ها
           </a>
         </li>
-        <li className="Resume">
-          <a href="#Resume-anchor" className="nav-item">
+        <li>
+          <a href="#resume" className="nav-item">
             نمونه کارها
           </a>
         </li>
-        <li className="Contact">
-          <a href="#Contact-anchor" className="nav-item">
+        <li>
+          <a href="#contact" className="nav-item">
             راه های ارتباطی
           </a>
         </li>
-        <li className="Comment">
-          <a href="#Comment-anchor" className="nav-item">
+        <li>
+          <a href="#comment" className="nav-item">
             ارسال پیام
           </a>
         </li>
+
         <div className="closeMenu">
           <i className="fa fa-times" />
         </div>
+
         <li className="icons flex gap-4">
           <a
             href="https://www.instagram.com/matin_taherzadeh_sa/"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             aria-label="Instagram"
           >
             <i className="fab fa-instagram" />
@@ -50,7 +53,7 @@ export default function Navigation() {
           <a
             href="https://twitter.com/MatinT_SA"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             aria-label="Twitter"
           >
             <i className="fab fa-twitter" />
@@ -58,7 +61,7 @@ export default function Navigation() {
           <a
             href="https://github.com/MatinT-SA"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             aria-label="GitHub"
           >
             <i className="fab fa-github" />
@@ -66,7 +69,7 @@ export default function Navigation() {
           <a
             href="https://www.linkedin.com/in/matin-taherzadeh-sa"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             aria-label="LinkedIn"
           >
             <i className="fab fa-linkedin" />

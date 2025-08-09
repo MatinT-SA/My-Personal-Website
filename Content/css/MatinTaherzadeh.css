@@ -373,21 +373,6 @@ button#got-it-button:hover {
   object-fit: contain;
 }
 
-#header-nav {
-  color: var(--dark-primary-color);
-  justify-content: space-between;
-  height: 70px;
-  background-image: linear-gradient(to right, #ffde5d, #ffd633, #ffd11a);
-  width: 100%;
-  float: right;
-  margin: 0 auto;
-  transition: 0.4s ease-out;
-  animation: nav-load var(--nav-load-time) ease-in;
-  align-items: center;
-  z-index: 10000;
-  box-shadow: 0 8px 15px 2px var(--yellow-primary-color);
-}
-
 @media screen and (max-width: 500px) {
   #header-nav {
     box-shadow: 0 6px 12px var(--yellow-primary-color);
@@ -403,6 +388,21 @@ button#got-it-button:hover {
     width: 230px !important;
     height: 350px !important;
   }
+}
+
+#header-nav {
+  color: var(--dark-primary-color);
+  justify-content: space-between;
+  height: 70px;
+  background-image: linear-gradient(to right, #ffde5d, #ffd633, #ffd11a);
+  width: 100%;
+  float: right;
+  margin: 0 auto;
+  transition: 0.4s ease-out;
+  animation: nav-load var(--nav-load-time) ease-in;
+  align-items: center;
+  z-index: 10000;
+  box-shadow: 0 8px 15px 2px var(--yellow-primary-color);
 }
 
 nav .openMenu .fa-bars {
