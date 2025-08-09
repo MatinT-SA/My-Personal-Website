@@ -1,7 +1,6 @@
-// app/components/Navigation.jsx
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,11 +17,22 @@ export default function Navigation() {
     { id: "comment", label: "ارسال پیام" },
   ];
 
+  // Throttle function to improve scroll performance
+  function throttle(fn, wait) {
+    let time = Date.now();
+    return function () {
+      if (Date.now() - time >= wait) {
+        fn();
+        time = Date.now();
+      }
+    };
+  }
+
   /* -------------------------
      Fixed-on-scroll logic
-     ------------------------- */
+  ------------------------- */
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = throttle(() => {
       const headerEl = document.querySelector("header");
       const headerHeight = headerEl ? headerEl.offsetHeight : 0;
       const scrollY = window.scrollY || window.pageYOffset;
@@ -38,9 +48,8 @@ export default function Navigation() {
         setIsFixed(false);
         if (nextEl) nextEl.style.paddingTop = "";
       }
-    };
+    }, 100);
 
-    // passive listeners for performance
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll);
     handleScroll(); // initial check on mount
@@ -57,8 +66,8 @@ export default function Navigation() {
   }, []);
 
   /* -------------------------
-     Active section (IntersectionObserver)
-     ------------------------- */
+     Active section tracking (IntersectionObserver)
+  ------------------------- */
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
     if (!sections.length) return;
@@ -73,7 +82,6 @@ export default function Navigation() {
       },
       {
         root: null,
-        // trigger when roughly middle of section is visible
         rootMargin: "0px 0px -50% 0px",
         threshold: 0,
       }
@@ -83,7 +91,7 @@ export default function Navigation() {
     return () => io.disconnect();
   }, []);
 
-  const closeMenu = () => setIsMenuOpen(false);
+  const closeMenu = useCallback(() => setIsMenuOpen(false), []);
 
   return (
     <nav
@@ -93,8 +101,9 @@ export default function Navigation() {
         isFixed ? "fixed top-0 left-0 w-full z-50 shadow-lg" : "relative"
       }`}
       aria-label="Primary navigation"
+      style={{ scrollBehavior: "smooth" }} // smooth scrolling for anchors
     >
-      {/* open button - visible on mobile only */}
+      {/* Open menu button (mobile only) */}
       <button
         type="button"
         onClick={() => setIsMenuOpen(true)}
@@ -104,7 +113,7 @@ export default function Navigation() {
         <i className="fa fa-bars" />
       </button>
 
-      {/* Main menu - desktop: md:flex, mobile: full-screen overlay when open */}
+      {/* Main menu */}
       <ul
         className={`mainMenu list-none gap-4 ${
           isMenuOpen
@@ -112,7 +121,7 @@ export default function Navigation() {
             : "hidden md:flex md:flex-row md:items-center"
         }`}
       >
-        {/* close button (mobile overlay) */}
+        {/* Close menu button (mobile only) */}
         {isMenuOpen && (
           <button
             type="button"
@@ -124,12 +133,12 @@ export default function Navigation() {
           </button>
         )}
 
-        {links.map((link) => {
-          const isActive = activeSection === link.id;
+        {links.map(({ id, label }) => {
+          const isActive = activeSection === id;
           return (
-            <li key={link.id} className="transition-all duration-300">
+            <li key={id} className="transition-all duration-300">
               <a
-                href={`#${link.id}`}
+                href={`#${id}`}
                 onClick={closeMenu}
                 aria-current={isActive ? "page" : undefined}
                 className={`nav-item flex justify-between px-5 py-4 text-[2rem] font-bold transition-opacity duration-200 ${
@@ -139,50 +148,47 @@ export default function Navigation() {
                   color: isMenuOpen ? "#fff" : "var(--dark-primary-color)",
                 }}
               >
-                {link.label}
+                {label}
               </a>
             </li>
           );
         })}
 
-        {/* Social icons (kept visible on desktop; shown in overlay on mobile) */}
+        {/* Social icons */}
         <li className="icons flex gap-4">
-          <a
-            href="https://www.instagram.com/matin_taherzadeh_sa/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="text-2xl"
-          >
-            <i className="fab fa-instagram" />
-          </a>
-          <a
-            href="https://twitter.com/MatinT_SA"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Twitter"
-            className="text-2xl"
-          >
-            <i className="fab fa-twitter" />
-          </a>
-          <a
-            href="https://github.com/MatinT-SA"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="text-2xl"
-          >
-            <i className="fab fa-github" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/matin-taherzadeh-sa"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="text-2xl"
-          >
-            <i className="fab fa-linkedin" />
-          </a>
+          {[
+            {
+              href: "https://www.instagram.com/matin_taherzadeh_sa/",
+              label: "Instagram",
+              icon: "fab fa-instagram",
+            },
+            {
+              href: "https://twitter.com/MatinT_SA",
+              label: "Twitter",
+              icon: "fab fa-twitter",
+            },
+            {
+              href: "https://github.com/MatinT-SA",
+              label: "GitHub",
+              icon: "fab fa-github",
+            },
+            {
+              href: "https://www.linkedin.com/in/matin-taherzadeh-sa",
+              label: "LinkedIn",
+              icon: "fab fa-linkedin",
+            },
+          ].map(({ href, label, icon }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="text-2xl"
+            >
+              <i className={icon} />
+            </a>
+          ))}
         </li>
       </ul>
     </nav>
