@@ -18,6 +18,7 @@
   --color-purple-secondary: #28223f;
   --color-purple-tertiary: #1f1a32;
   --color-dark-primary: #333300;
+  --gradient-yellow: linear-gradient(90deg, #ffde5d, #ffd633, #ffd11a);
 }
 
 /* Custom Font Faces */
@@ -99,4 +100,8 @@ a:hover {
 }
 a {
   text-decoration: none;
+}
+
+.bg-gradient-yellow {
+  background-image: var(--gradient-yellow);
 }
