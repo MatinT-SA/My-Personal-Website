@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,22 +17,9 @@ export default function Navigation() {
     { id: "comment", label: "ارسال پیام" },
   ];
 
-  // Throttle function to improve scroll performance
-  function throttle(fn, wait) {
-    let time = Date.now();
-    return function () {
-      if (Date.now() - time >= wait) {
-        fn();
-        time = Date.now();
-      }
-    };
-  }
-
-  /* -------------------------
-     Fixed-on-scroll logic
-  ------------------------- */
+  // Sticky nav logic
   useEffect(() => {
-    const handleScroll = throttle(() => {
+    const handleScroll = () => {
       const headerEl = document.querySelector("header");
       const headerHeight = headerEl ? headerEl.offsetHeight : 0;
       const scrollY = window.scrollY || window.pageYOffset;
@@ -48,16 +35,15 @@ export default function Navigation() {
         setIsFixed(false);
         if (nextEl) nextEl.style.paddingTop = "";
       }
-    }, 100);
+    };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll);
-    handleScroll(); // initial check on mount
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
-      // cleanup padding
       if (navRef.current) {
         const nextEl = navRef.current.nextElementSibling;
         if (nextEl) nextEl.style.paddingTop = "";
@@ -65,33 +51,37 @@ export default function Navigation() {
     };
   }, []);
 
-  /* -------------------------
-     Active section tracking (IntersectionObserver)
-  ------------------------- */
+  // Highlight active nav link on scroll
   useEffect(() => {
-    const sections = document.querySelectorAll("section[id]");
+    const sections = Array.from(document.querySelectorAll("section[id]"));
     if (!sections.length) return;
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: "0px 0px -50% 0px",
-        threshold: 0,
-      }
-    );
+    const onScroll = () => {
+      const scrollPos = window.scrollY + window.innerHeight / 2;
 
-    sections.forEach((s) => io.observe(s));
-    return () => io.disconnect();
+      const current = sections.find((section) => {
+        const rect = section.getBoundingClientRect();
+        return (
+          rect.top <= window.innerHeight / 2 &&
+          rect.bottom > window.innerHeight / 2
+        );
+      });
+
+      if (current) {
+        setActiveSection(current.id);
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const closeMenu = useCallback(() => setIsMenuOpen(false), []);
+  const handleClick = (id) => {
+    setActiveSection(id);
+    if (isMenuOpen) setIsMenuOpen(false);
+  };
 
   return (
     <nav
@@ -101,9 +91,9 @@ export default function Navigation() {
         isFixed ? "fixed top-0 left-0 w-full z-50 shadow-lg" : "relative"
       }`}
       aria-label="Primary navigation"
-      style={{ scrollBehavior: "smooth" }} // smooth scrolling for anchors
+      style={{ scrollBehavior: "smooth" }}
     >
-      {/* Open menu button (mobile only) */}
+      {/* Mobile menu open button */}
       <button
         type="button"
         onClick={() => setIsMenuOpen(true)}
@@ -115,17 +105,17 @@ export default function Navigation() {
 
       {/* Main menu */}
       <ul
-        className={`mainMenu list-none gap-4 ${
+        className={`mainMenu list-none ${
           isMenuOpen
-            ? "fixed inset-0 z-40 flex flex-col justify-center items-center bg-purple-primary text-white"
-            : "hidden md:flex md:flex-row md:items-center"
+            ? "fixed w-full inset-0 z-40 flex flex-col justify-center items-center bg-purple-primary text-white"
+            : "hidden md:flex md:flex-row md:items-center md:justify-between"
         }`}
+        style={{ gap: isMenuOpen ? "1.5rem" : "2rem" }}
       >
-        {/* Close menu button (mobile only) */}
         {isMenuOpen && (
           <button
             type="button"
-            onClick={closeMenu}
+            onClick={() => setIsMenuOpen(false)}
             className="closeMenu absolute top-5 right-5 text-2xl md:hidden"
             aria-label="Close menu"
           >
@@ -139,13 +129,13 @@ export default function Navigation() {
             <li key={id} className="transition-all duration-300">
               <a
                 href={`#${id}`}
-                onClick={closeMenu}
+                onClick={() => handleClick(id)}
                 aria-current={isActive ? "page" : undefined}
-                className={`nav-item flex justify-between px-5 py-4 text-[2rem] font-bold transition-opacity duration-200 ${
-                  isActive ? "opacity-100 underline" : "opacity-80"
-                }`}
+                className="nav-item flex items-center px-4 py-2 text-2xl transition-opacity duration-200"
                 style={{
-                  color: isMenuOpen ? "#fff" : "var(--dark-primary-color)",
+                  color: isMenuOpen ? "#fff" : "var(--color-dark-primary)",
+                  fontWeight: 700,
+                  opacity: isActive ? 1 : 0.6,
                 }}
               >
                 {label}
