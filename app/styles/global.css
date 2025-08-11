@@ -60,11 +60,8 @@
 
 /* Global Reset and Direction */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   font-weight: normal;
-  direction: rtl;
 }
 
 html {
@@ -76,9 +73,19 @@ body {
   overflow-anchor: none;
 }
 
-section {
-  border: 2px solid red;
-  min-height: 400px;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li {
+  padding: 0;
+  margin: 0;
 }
 
 /* Scrollbar Styling */
