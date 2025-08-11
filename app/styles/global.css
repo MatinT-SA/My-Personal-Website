@@ -76,6 +76,11 @@ body {
   overflow-anchor: none;
 }
 
+section {
+  border: 2px solid red;
+  min-height: 400px;
+}
+
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 0.65vw;
