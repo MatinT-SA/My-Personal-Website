@@ -87,7 +87,7 @@ export default function Navigation() {
     <nav
       id="header-nav"
       ref={navRef}
-      className={`p-6 bg-gradient-yellow h-17.5 transition-all duration-200 ${
+      className={`bg-gradient-yellow h-17.5 transition-all duration-200 ${
         isFixed ? "fixed top-0 left-0 w-full z-50 shadow-lg" : "relative"
       }`}
       aria-label="Primary navigation"
@@ -108,34 +108,25 @@ export default function Navigation() {
         className={`mainMenu list-none ${
           isMenuOpen
             ? "fixed w-full inset-0 z-40 flex flex-col justify-center items-center bg-purple-primary text-white"
-            : "hidden md:flex md:flex-row md:items-center md:justify-between"
+            : "hidden md:flex md:flex-row md:items-center md:justify-between md:mr-10 md:w-full md:h-17.5"
         }`}
-        style={{ gap: isMenuOpen ? "1.5rem" : "2rem" }}
+        style={{ gap: isMenuOpen ? "1.5rem" : "0" }}
       >
-        {isMenuOpen && (
-          <button
-            type="button"
-            onClick={() => setIsMenuOpen(false)}
-            className="closeMenu absolute top-5 right-5 text-2xl md:hidden"
-            aria-label="Close menu"
-          >
-            <i className="fa fa-times" />
-          </button>
-        )}
-
         {links.map(({ id, label }) => {
           const isActive = activeSection === id;
           return (
-            <li key={id} className="transition-all duration-300">
+            <li key={id} className="mx-0">
+              {" "}
+              {/* remove horizontal margins */}
               <a
                 href={`#${id}`}
                 onClick={() => handleClick(id)}
                 aria-current={isActive ? "page" : undefined}
-                className="nav-item flex items-center px-4 py-2 text-2xl transition-opacity duration-200"
+                className="nav-item inline-block items-center py-5 px-8 text-2xl transition-opacity duration-200"
                 style={{
                   color: isMenuOpen ? "#fff" : "var(--color-dark-primary)",
                   fontWeight: 700,
-                  opacity: isActive ? 1 : 0.6,
+                  opacity: isActive ? 1 : 0.5,
                 }}
               >
                 {label}
@@ -147,26 +138,7 @@ export default function Navigation() {
         {/* Social icons */}
         <li className="icons flex gap-4">
           {[
-            {
-              href: "https://www.instagram.com/matin_taherzadeh_sa/",
-              label: "Instagram",
-              icon: "fab fa-instagram",
-            },
-            {
-              href: "https://twitter.com/MatinT_SA",
-              label: "Twitter",
-              icon: "fab fa-twitter",
-            },
-            {
-              href: "https://github.com/MatinT-SA",
-              label: "GitHub",
-              icon: "fab fa-github",
-            },
-            {
-              href: "https://www.linkedin.com/in/matin-taherzadeh-sa",
-              label: "LinkedIn",
-              icon: "fab fa-linkedin",
-            },
+            /* social links here */
           ].map(({ href, label, icon }) => (
             <a
               key={label}
