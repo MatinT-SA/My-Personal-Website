@@ -116,17 +116,16 @@ export default function Navigation() {
           const isActive = activeSection === id;
           return (
             <li key={id} className="mx-0">
-              {" "}
-              {/* remove horizontal margins */}
               <a
                 href={`#${id}`}
                 onClick={() => handleClick(id)}
                 aria-current={isActive ? "page" : undefined}
-                className="nav-item inline-block items-center py-5 px-8 text-2xl transition-opacity duration-200"
+                className={`nav-item inline-block items-center py-5 px-8 text-2xl transition-opacity duration-200 ${
+                  isActive ? "opacity-100" : "opacity-50"
+                } hover:opacity-100`}
                 style={{
                   color: isMenuOpen ? "#fff" : "var(--color-dark-primary)",
                   fontWeight: 700,
-                  opacity: isActive ? 1 : 0.5,
                 }}
               >
                 {label}
