@@ -1,17 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  /* Fonts */
+  /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+  /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Fonts ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+  /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
   --font-shabnam: "Shabnam", sans-serif;
   --font-iransans: "IRANSans-web", sans-serif;
 
-  /* Breakpoints */
+  /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+  /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Breakpoints ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+  /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
   --breakpoint-sm: 30rem;
   --breakpoint-md: 48rem;
   --breakpoint-lg: 64rem;
   --breakpoint-xl: 80rem;
 
-  /* Colors */
+  /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+  /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Colors ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+  /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
   --color-purple-primary: #231e39;
   --color-yellow-primary: #ffdf00;
   --color-blue-light: #a8c6de;
@@ -21,7 +27,9 @@
   --gradient-yellow: linear-gradient(90deg, #ffde5d, #ffd633, #ffd11a);
 }
 
-/* Custom Font Faces */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Custom Font Faces ≪⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 @font-face {
   font-family: Shabnam;
   src: url("/fonts/Shabnam.ttf") format("truetype"),
@@ -40,14 +48,10 @@
   font-display: swap;
 }
 
-/* Root Variables */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Root Variables ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 :root {
-  /* --blue-light-color: #a8c6de;
-  --purple-primary-color: #231e39;
-  --purple-secondary-color: #28223f;
-  --purple-tertiary-color: #1f1a32;
-  --dark-primary-color: #333300;
-  --yellow-primary-color: #ffdf00; */
   --nav-load-time: 400ms;
   --header-load-time: 400ms;
   --names-header-time: 3s;
@@ -58,7 +62,9 @@
   );
 }
 
-/* Global Reset and Direction */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* ⬡⬡⬡⬡⬡⬡⬡≫ Global Reset Direction ≪⬡⬡⬡⬡⬡⬡ */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 * {
   box-sizing: border-box;
   font-weight: normal;
@@ -71,6 +77,7 @@ html {
 body {
   background-image: linear-gradient(to right, #fff, #ffe6ff 80%);
   overflow-anchor: none;
+  margin: 0;
 }
 
 body,
@@ -88,7 +95,9 @@ li {
   margin: 0;
 }
 
-/* Scrollbar Styling */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Scrollbar ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 ::-webkit-scrollbar {
   width: 0.65vw;
 }
@@ -105,7 +114,9 @@ li {
   background-color: var(--yellow-primary-color);
 }
 
-/* Link Styles */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Link Styles ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 a:focus,
 a:hover {
   color: var(--dark-primary-color);
@@ -118,7 +129,9 @@ a {
   background-image: var(--gradient-yellow);
 }
 
-/* Navigation */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Navigation ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 .active-link {
   text-shadow: -3px 3px 7px #4d4d00;
 }

@@ -115,7 +115,7 @@ export default function Navigation() {
         {links.map(({ id, label }) => {
           const isActive = activeSection === id;
           return (
-            <li key={id} className="mx-0">
+            <li key={id} className="mx-auto px-6">
               <a
                 href={`#${id}`}
                 onClick={() => handleClick(id)}
