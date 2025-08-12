@@ -120,8 +120,8 @@ export default function Navigation() {
                 href={`#${id}`}
                 onClick={() => handleClick(id)}
                 aria-current={isActive ? "page" : undefined}
-                className={`nav-item inline-block items-center py-5 px-8 text-2xl transition-opacity duration-200 ${
-                  isActive ? "opacity-100" : "opacity-50"
+                className={`nav-item inline-block items-center py-5 px-8 text-xl transition-opacity duration-200 ${
+                  isActive ? "opacity-100 active-link" : "opacity-50"
                 } hover:opacity-100`}
                 style={{
                   color: isMenuOpen ? "#fff" : "var(--color-dark-primary)",
