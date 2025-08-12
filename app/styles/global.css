@@ -117,3 +117,8 @@ a {
 .bg-gradient-yellow {
   background-image: var(--gradient-yellow);
 }
+
+/* Navigation */
+.active-link {
+  text-shadow: -3px 3px 7px #4d4d00;
+}
