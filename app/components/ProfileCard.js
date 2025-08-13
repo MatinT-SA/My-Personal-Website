@@ -9,11 +9,14 @@ export default function ProfileCard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="relative w-full bg-[url('/images/profile-card-bg.svg')] bg-no-repeat bg-cover bg-bottom py-20">
+    <div className="relative w-full bg-[url('/images/profile-card-bg.svg')] bg-no-repeat bg-cover bg-bottom pt-1 pb-28">
       {/* Card itself, centered */}
-      <div className="w-full max-w-sm mx-auto bg-purple-primary shadow-2xl pt-0 pb-8 px-6 flex flex-col items-center relative rounded-3xl">
+      <div className="w-full max-w-sm mx-auto my-4 bg-purple-primary shadow-2xl pt-0 pb-8 flex flex-col items-center relative rounded-md">
         {/* Cover Photo */}
-        <div className="w-full h-24 bg-gradient-to-r from-blue-light via-purple-secondary to-yellow-primary rounded-t-3xl mb-[-56px]" />
+        <div
+          className="w-full h-24 rounded-md mb-[-56px]"
+          style={{ backgroundColor: "var(--color-blue-light)" }}
+        />
 
         {/* Profile Image */}
         <div className="relative z-10">
