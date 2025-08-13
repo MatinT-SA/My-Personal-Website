@@ -2,21 +2,20 @@
 
 @theme {
   /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-  /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Fonts ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+  /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Fonts ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
   /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
   --font-shabnam: "Shabnam", sans-serif;
   --font-iransans: "IRANSans-web", sans-serif;
 
   /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-  /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Breakpoints ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
-  /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+  /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Breakpoints ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
   --breakpoint-sm: 30rem;
   --breakpoint-md: 48rem;
   --breakpoint-lg: 64rem;
   --breakpoint-xl: 80rem;
 
   /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-  /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Colors ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+  /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Colors ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
   /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
   --color-purple-primary: #231e39;
   --color-yellow-primary: #ffdf00;
@@ -28,7 +27,7 @@
 }
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Custom Font Faces ≪⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Custom Font Faces ≪⬡⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 @font-face {
   font-family: Shabnam;
@@ -49,7 +48,7 @@
 }
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Root Variables ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Root Variables ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 :root {
   --nav-load-time: 400ms;
@@ -63,7 +62,7 @@
 }
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* ⬡⬡⬡⬡⬡⬡⬡≫ Global Reset Direction ≪⬡⬡⬡⬡⬡⬡ */
+/* ⬡⬡⬡⬡⬡⬡⬡≫ Global Reset & Direction ≪⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 * {
   box-sizing: border-box;
@@ -78,21 +77,17 @@ body {
   background-image: linear-gradient(to right, #fff, #ffe6ff 80%);
   overflow-anchor: none;
   margin: 0;
+  padding: 0;
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
 ul,
-ol,
-li {
-  padding: 0;
+ol {
   margin: 0;
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
@@ -115,23 +110,12 @@ li {
 }
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Link Styles ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Navigation ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-a:focus,
-a:hover {
-  color: var(--dark-primary-color);
-}
-a {
-  text-decoration: none;
+.active-link {
+  text-shadow: -3px 3px 7px #4d4d00 !important; /* prevent override */
 }
 
 .bg-gradient-yellow {
   background-image: var(--gradient-yellow);
-}
-
-/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Navigation ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
-/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-.active-link {
-  text-shadow: -3px 3px 7px #4d4d00;
 }
