@@ -8,7 +8,6 @@ export default function HomeSection() {
       <div className="w-full">
         <Header />
         <Navigation />
-
         <ProfileCard />
       </div>
     </section>
