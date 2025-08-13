@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Skills() {
   return (
-    <section id="skills" className="bg-orange-300 h-96">
+    <section id="skills" className="h-96">
       Skills
     </section>
   );
