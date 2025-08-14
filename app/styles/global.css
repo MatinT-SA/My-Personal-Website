@@ -39,15 +39,6 @@
   font-display: swap;
 }
 
-/* @font-face {
-  font-family: Shabnam;
-  src: url("/fonts/Shabnam-Bold.ttf") format("truetype"),
-    url("/fonts/Shabnam-Bold.woff2") format("woff2"),
-    url("/fonts/Shabnam-Bold.woff") format("woff");
-  font-weight: 700;
-  font-display: swap;
-} */
-
 @font-face {
   font-family: "IRANSans-web";
   src: url("/fonts/IRANSans-web.ttf") format("truetype"),

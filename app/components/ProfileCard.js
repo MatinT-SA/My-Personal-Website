@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import ProfileModal from "./ProfileModal";
+import Button from "./Button";
 import { FaInstagram, FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function ProfileCard() {
@@ -40,14 +41,15 @@ export default function ProfileCard() {
 
         {/* Buttons */}
         <div className="flex gap-3 mt-6">
-          <button
-            className="bg-yellow-primary hover:bg-yellow-400 text-purple-primary font-bold px-5 py-2 rounded-xl shadow transition"
+          <Button
+            className="bg-blue-light text-purple-primary border border-purple-primary rounded-sm hover:bg-purple-primary hover:text-blue-light hover:border-blue-light"
             onClick={() => (window.location.href = "#Comment-anchor")}
           >
             ارسال پیام
-          </button>
-          <button
-            className="bg-blue-light hover:bg-blue-400 text-purple-primary font-bold px-5 py-2 rounded-xl shadow transition"
+          </Button>
+
+          <Button
+            className="bg-purple-primary text-blue-light border border-blue-light rounded-sm hover:bg-blue-light hover:text-purple-primary hover:border-purple-primary"
             onClick={() =>
               window.open(
                 "https://www.instagram.com/matin_taherzadeh_sa/",
@@ -56,7 +58,7 @@ export default function ProfileCard() {
             }
           >
             در اینستا فالوم کن
-          </button>
+          </Button>
         </div>
 
         {/* Social Icons */}
