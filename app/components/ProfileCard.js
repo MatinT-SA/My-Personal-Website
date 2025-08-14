@@ -33,14 +33,10 @@ export default function ProfileCard() {
         </div>
 
         {/* Name & Subtitle */}
-        <div className="mt-7 text-center">
-          <div className="text-2xl font-bold text-yellow-primary drop-shadow">
-            متین طاهرزاده
-          </div>
-          <div className="text-base text-blue-light mt-1 font-semibold">
-            Front-End Developer
-          </div>
+        <div className="text-2xl font-bold text-white -mt-10 -ml-28">
+          متین طاهرزاده
         </div>
+        <div className="text-white mt-10 text-base">Front-End Developer</div>
 
         {/* Buttons */}
         <div className="flex gap-3 mt-6">
