@@ -6,8 +6,14 @@ export default function ProfileModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50">
-      <div className="relative bg-purple-secondary p-6 rounded-2xl max-w-[90vw] max-h-[90vh] shadow-2xl">
+    <div
+      className="fixed inset-0 bg-black/70 flex justify-center items-center z-50"
+      onClick={onClose}
+    >
+      <div
+        className="relative bg-purple-secondary p-6 rounded-2xl max-w-[90vw] max-h-[90vh] shadow-2xl overflow-hidden"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -16,17 +22,25 @@ export default function ProfileModal({ isOpen, onClose }) {
         >
           &times;
         </button>
+
+        {/* Modal Name */}
         <h4 className="text-lg font-bold mb-4 text-center text-yellow-primary">
-          &lt;Web&gt; Matin Taherzadeh &lt;/Programmer&gt;
+          متین طاهرزاده &lt;Front-End Developer&gt;
         </h4>
+
         {/* Modal Image */}
-        <Image
-          src="/images/Matin-Taherzadeh-portrait.webp"
-          alt="Matin Taherzadeh Enlarged"
-          width={500}
-          height={500}
-          className="rounded-xl object-cover mx-auto"
-        />
+        <div className="w-full h-80 relative rounded-xl overflow-hidden">
+          <Image
+            src="/images/Matin-Taherzadeh-portrait.webp"
+            alt="Matin Taherzadeh Enlarged"
+            fill
+            className="object-cover rounded-xl"
+            sizes="(max-width: 768px) 80vw, (max-width: 1200px) 60vw, 500px"
+            priority
+          />
+        </div>
+
+        {/* Close Button */}
         <div className="flex justify-center mt-4">
           <button
             onClick={onClose}

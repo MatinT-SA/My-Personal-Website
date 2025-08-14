@@ -10,23 +10,24 @@ export default function ProfileCard() {
 
   return (
     <div className="relative w-full bg-[url('/images/profile-card-bg.svg')] bg-no-repeat bg-cover bg-bottom pt-1 pb-28">
-      {/* Card itself, centered */}
       <div className="w-full max-w-sm mx-auto my-4 bg-purple-primary shadow-2xl pt-0 pb-8 flex flex-col items-center relative rounded-md">
         {/* Cover Photo */}
         <div
-          className="w-full h-24 rounded-md mb-[-56px]"
+          className="w-full h-32 rounded-md -mb-24"
           style={{ backgroundColor: "var(--color-blue-light)" }}
         />
 
         {/* Profile Image */}
-        <div className="relative z-10">
+        <div
+          className="relative cursor-pointer"
+          onClick={() => setIsModalOpen(true)}
+        >
           <Image
             src="/images/Matin-Taherzadeh-portrait.webp"
             alt="Matin Taherzadeh"
-            width={120}
-            height={120}
-            className="rounded-full border-4 border-white shadow-xl cursor-pointer hover:opacity-90 transition"
-            onClick={() => setIsModalOpen(true)}
+            width={127}
+            height={160}
+            className="rounded-[50%] border-8 border-purple-tertiary shadow-xl hover:opacity-90 transition object-cover ml-52"
             priority
           />
         </div>
