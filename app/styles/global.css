@@ -62,9 +62,9 @@
 :root {
   --nav-load-time: 400ms;
   --header-load-time: 400ms;
-  --names-header-time: 1.5s;
+  --names-header-time: 3s;
   --logo-header-time: 300ms;
-  --nav-link-load-time: 1s;
+  --nav-link-load-time: 1.5s;
   --MyPic-delay-time: calc(
     (var(--nav-load-time) + var(--nav-link-load-time)) + 200ms
   );
@@ -155,12 +155,10 @@ a {
 @keyframes names-header {
   0% {
     opacity: 0;
-    transform: translateY(50px);
   }
 
   100% {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -196,23 +194,29 @@ a {
 
 @keyframes nav-odd-link-load {
   0% {
-    transform: translateY(1000%);
-    opacity: 0;
+    transform: translateY(10000%);
   }
+
+  90% {
+    transform: translateY(-50%);
+  }
+
   100% {
     transform: translateY(0);
-    opacity: 1;
   }
 }
 
 @keyframes nav-even-link-load {
   0% {
     transform: translateY(-1000%);
-    opacity: 0;
   }
+
+  90% {
+    transform: translateY(50%);
+  }
+
   100% {
     transform: translateY(0);
-    opacity: 1;
   }
 }
 
