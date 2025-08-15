@@ -91,7 +91,9 @@ export default function Navigation() {
         isFixed ? "fixed top-0 left-0 w-full z-50 shadow-lg" : "relative"
       }`}
       aria-label="Primary navigation"
-      style={{ scrollBehavior: "smooth" }}
+      style={{
+        scrollBehavior: "smooth",
+      }}
     >
       {/* Mobile menu open button */}
       <button
@@ -108,9 +110,11 @@ export default function Navigation() {
         className={`mainMenu list-none ${
           isMenuOpen
             ? "fixed w-full inset-0 z-40 flex flex-col justify-center items-center bg-purple-primary text-white"
-            : "hidden md:flex md:flex-row md:items-center md:justify-between md:mr-10 md:w-full md:h-17.5"
+            : "hidden md:flex md:flex-row md:items-center md:justify-between md:mr-10 md:w-full"
         }`}
-        style={{ gap: isMenuOpen ? "1.5rem" : "0" }}
+        style={{
+          gap: isMenuOpen ? "1.5rem" : "0",
+        }}
       >
         {links.map(({ id, label }) => {
           const isActive = activeSection === id;

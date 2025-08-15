@@ -24,6 +24,15 @@
   --color-purple-tertiary: #1f1a32;
   --color-dark-primary: #333300;
   --gradient-yellow: linear-gradient(90deg, #ffde5d, #ffd633, #ffd11a);
+
+  /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+  /* ⬡⬡⬡⬡⬡⬡⬡⬡≫ Animation Definitions ≪⬡⬡⬡⬡⬡⬡⬡⬡ */
+  /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+  --animate-pic-load: pic-load 300ms ease-in forwards;
+  --animate-float-profile: float-profile 35s ease-in-out infinite;
+  --animate-float-lg: float-lg 35s ease-in-out infinite;
+  --animate-float-xlg: float-xlg 35s ease-in-out infinite;
+  --animate-float-wide: float-wideScreen 35s ease-in-out infinite;
 }
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
@@ -53,11 +62,11 @@
 :root {
   --nav-load-time: 400ms;
   --header-load-time: 400ms;
-  --names-header-time: 3s;
+  --names-header-time: 1.5s;
   --logo-header-time: 300ms;
-  --nav-link-load-time: 1.5s;
+  --nav-link-load-time: 1s;
   --MyPic-delay-time: calc(
-    (var(--nav-load-time) + var(--nav-link-load-time)) + 100ms
+    (var(--nav-load-time) + var(--nav-link-load-time)) + 200ms
   );
 }
 
@@ -117,4 +126,234 @@ a {
 
 .bg-gradient-yellow {
   background-image: var(--gradient-yellow);
+}
+
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Header & Navigation Animations ≪⬡⬡⬡⬡⬡⬡ */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+@keyframes nav-load {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes header-load {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes names-header {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes logo-header {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1) rotate(-90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes nav-link-load {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes nav-odd-link-load {
+  0% {
+    transform: translateY(1000%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes nav-even-link-load {
+  0% {
+    transform: translateY(-1000%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Navigation styling */
+#header-nav {
+  animation: nav-load var(--nav-load-time) ease-in;
+}
+
+#header-nav.fixed {
+  box-shadow: 0 8px 15px 2px var(--color-yellow-primary);
+}
+
+#header-nav ul li {
+  position: relative;
+  margin: 0 auto;
+  transition: 0.4s ease-out;
+  animation-name: nav-link-load;
+  animation-duration: var(--nav-link-load-time);
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  transform: scale(0);
+  opacity: 0.6;
+}
+
+#header-nav ul li:nth-child(odd) {
+  animation-name: nav-odd-link-load;
+  animation-timing-function: ease-out;
+  animation-delay: var(--nav-load-time);
+  animation-fill-mode: forwards;
+  transform: translateY(1000%);
+}
+
+#header-nav ul li:nth-child(even) {
+  animation-name: nav-even-link-load;
+  animation-timing-function: ease-in;
+  animation-delay: var(--nav-load-time);
+  animation-fill-mode: forwards;
+  transform: translateY(-1000%);
+}
+
+/* Header styling */
+.header {
+  animation: header-load var(--header-load-time) ease-in;
+}
+
+.header-p {
+  animation: names-header var(--names-header-time) ease-out;
+}
+
+#logo-header {
+  animation: var(--logo-header-time) ease-out 900ms 1 logo-header;
+  animation-fill-mode: backwards;
+}
+
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Profile Card Animations ≪⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+@keyframes pic-load {
+  0% {
+    transform: translate(-45%, 45%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes float-profile {
+  0% {
+    transform: translateX(-40%);
+  }
+  50% {
+    transform: translateX(40%);
+  }
+  100% {
+    transform: translateX(-40%);
+  }
+}
+
+@keyframes float-lg {
+  0% {
+    transform: translateX(-80%);
+  }
+  50% {
+    transform: translateX(80%);
+  }
+  100% {
+    transform: translateX(-80%);
+  }
+}
+
+@keyframes float-xlg {
+  0% {
+    transform: translateX(-84%);
+  }
+  50% {
+    transform: translateX(84%);
+  }
+  100% {
+    transform: translateX(-84%);
+  }
+}
+
+@keyframes float-wideScreen {
+  0% {
+    transform: translateX(-84%);
+  }
+  50% {
+    transform: translateX(84%);
+  }
+  100% {
+    transform: translateX(-84%);
+  }
+}
+
+/* Tailwind custom animation utilities */
+.animate-pic-load {
+  animation: var(--animate-pic-load);
+  animation-delay: var(--MyPic-delay-time, 0ms);
+}
+
+.animate-float-profile {
+  animation: var(--animate-float-profile);
+}
+
+/* Responsive animations */
+@media (min-width: 64rem) {
+  .animate-float-profile {
+    animation: var(--animate-float-lg);
+  }
+}
+
+@media (min-width: 80rem) {
+  .animate-float-profile {
+    animation: var(--animate-float-xlg);
+  }
+}
+
+@media (min-width: 96rem) {
+  .animate-float-profile {
+    animation: var(--animate-float-wide);
+  }
 }

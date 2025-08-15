@@ -10,8 +10,14 @@ export default function ProfileCard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="relative w-full bg-[url('/images/profile-card-bg.svg')] bg-no-repeat bg-cover bg-bottom pt-1 pb-56">
-      <div className="w-full max-w-sm mx-auto my-4 bg-purple-primary shadow-[0_10px_20px_-10px_rgba(0,0,0,0.75)] pt-0 pb-8 flex flex-col items-center relative rounded-md">
+    <div
+      className="relative w-full bg-[url('/images/profile-card-bg.svg')] bg-no-repeat bg-cover bg-bottom pt-1 pb-56 min-h-[71vh] animate-pic-load opacity-0"
+      style={{
+        backgroundColor: "var(--color-purple-secondary)",
+        animationFillMode: "forwards",
+      }}
+    >
+      <div className="w-full max-w-sm mx-auto my-3 bg-purple-primary shadow-[0_10px_20px_-10px_rgba(0,0,0,0.75)] pt-4 pb-5 flex flex-col items-center relative rounded-md animate-float-profile">
         {/* Cover Photo */}
         <div
           className="w-full h-32 rounded-md -mb-24"
@@ -28,7 +34,7 @@ export default function ProfileCard() {
             alt="Matin Taherzadeh"
             width={127}
             height={160}
-            className="rounded-[50%] border-8 border-purple-tertiary shadow-xl hover:opacity-90 transition object-cover ml-52"
+            className="rounded-[50%] border-8 border-purple-tertiary shadow-xl hover:opacity-90 transition object-cover ml-52 select-none"
             priority
           />
         </div>
