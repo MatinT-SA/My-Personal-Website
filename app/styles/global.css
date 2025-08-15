@@ -230,15 +230,10 @@ a {
 }
 
 #header-nav ul li {
-  position: relative;
-  margin: 0 auto;
-  transition: 0.4s ease-out;
   animation-name: nav-link-load;
   animation-duration: var(--nav-link-load-time);
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
-  transform: scale(0);
-  opacity: 0.6;
 }
 
 #header-nav ul li:nth-child(odd) {
@@ -272,7 +267,7 @@ a {
 }
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Profile Card Animations ≪⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ⬡⬡⬡⬡⬡⬡⬡≫ Profile Card Animations ≪⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 @keyframes pic-load {
   0% {
@@ -333,7 +328,9 @@ a {
   }
 }
 
-/* Tailwind custom animation utilities */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* ⬡⬡≫ Tailwind custom animations utilities ≪⬡⬡ */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 .animate-pic-load {
   animation: var(--animate-pic-load);
   animation-delay: var(--MyPic-delay-time, 0ms);
