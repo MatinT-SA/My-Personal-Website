@@ -66,7 +66,7 @@
   --logo-header-time: 300ms;
   --nav-link-load-time: 1.5s;
   --MyPic-delay-time: calc(
-    (var(--nav-load-time) + var(--nav-link-load-time)) + 200ms
+    (var(--nav-load-time) + var(--nav-link-load-time)) + 100ms
   );
 }
 
