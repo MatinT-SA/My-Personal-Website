@@ -17,7 +17,7 @@ export default function ProfileCard() {
         animationFillMode: "forwards",
       }}
     >
-      <div className="w-full max-w-sm mx-auto my-3 bg-purple-primary shadow-[0_10px_20px_-10px_rgba(0,0,0,0.75)] pt-4 pb-5 flex flex-col items-center relative rounded-md animate-float-profile">
+      <div className="w-full max-w-sm mx-auto my-2 bg-purple-primary shadow-[0_10px_20px_-10px_rgba(0,0,0,0.75)] pt-1 pb-5 flex flex-col items-center relative rounded-md animate-float-profile">
         {/* Cover Photo */}
         <div
           className="w-full h-32 rounded-md -mb-24"
