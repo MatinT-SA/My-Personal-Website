@@ -5,6 +5,7 @@ import Image from "next/image";
 import ProfileModal from "./ProfileModal";
 import Button from "./Button";
 import { FaInstagram, FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
+import Link from "next/link";
 
 export default function ProfileCard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -47,12 +48,11 @@ export default function ProfileCard() {
 
         {/* Buttons */}
         <div className="flex gap-3 mt-6">
-          <Button
-            className="bg-blue-light text-purple-primary border border-purple-primary rounded-sm hover:bg-purple-primary hover:text-blue-light hover:border-blue-light"
-            onClick={() => (window.location.href = "#Comment-anchor")}
-          >
-            ارسال پیام
-          </Button>
+          <Link href="#comment" scroll={true}>
+            <Button className="bg-blue-light text-purple-primary border border-purple-primary rounded-sm hover:bg-purple-primary hover:text-blue-light hover:border-blue-light">
+              ارسال پیام
+            </Button>
+          </Link>
 
           <Button
             className="bg-purple-primary text-blue-light border border-blue-light rounded-sm hover:bg-blue-light hover:text-purple-primary hover:border-purple-primary"
