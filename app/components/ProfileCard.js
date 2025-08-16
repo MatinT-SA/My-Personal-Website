@@ -5,6 +5,7 @@ import Image from "next/image";
 import ProfileModal from "./ProfileModal";
 import Button from "./Button";
 import { FaInstagram, FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
+import Link from "next/link";
 
 export default function ProfileCard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,7 +18,7 @@ export default function ProfileCard() {
         animationFillMode: "forwards",
       }}
     >
-      <div className="w-full max-w-sm mx-auto my-3 bg-purple-primary shadow-[0_10px_20px_-10px_rgba(0,0,0,0.75)] pt-4 pb-5 flex flex-col items-center relative rounded-md animate-float-profile">
+      <div className="w-full max-w-sm mx-auto my-2 bg-purple-primary shadow-[0_10px_20px_-10px_rgba(0,0,0,0.75)] pt-1 pb-5 flex flex-col items-center relative rounded-md animate-float-profile">
         {/* Cover Photo */}
         <div
           className="w-full h-32 rounded-md -mb-24"
@@ -47,12 +48,11 @@ export default function ProfileCard() {
 
         {/* Buttons */}
         <div className="flex gap-3 mt-6">
-          <Button
-            className="bg-blue-light text-purple-primary border border-purple-primary rounded-sm hover:bg-purple-primary hover:text-blue-light hover:border-blue-light"
-            onClick={() => (window.location.href = "#Comment-anchor")}
-          >
-            ارسال پیام
-          </Button>
+          <Link href="#comment" scroll={true}>
+            <Button className="bg-blue-light text-purple-primary border border-purple-primary rounded-sm hover:bg-purple-primary hover:text-blue-light hover:border-blue-light">
+              ارسال پیام
+            </Button>
+          </Link>
 
           <Button
             className="bg-purple-primary text-blue-light border border-blue-light rounded-sm hover:bg-blue-light hover:text-purple-primary hover:border-purple-primary"
@@ -75,7 +75,7 @@ export default function ProfileCard() {
             rel="noopener"
             aria-label="LinkedIn"
           >
-            <FaLinkedin className="hover:text-blue-light transition" />
+            <FaLinkedin className="transition hover:text-[rgb(0,0,204)]" />
           </a>
           <a
             href="https://www.instagram.com/matin_taherzadeh_sa/"
@@ -83,7 +83,7 @@ export default function ProfileCard() {
             rel="noopener"
             aria-label="Instagram"
           >
-            <FaInstagram className="hover:text-pink-500 transition" />
+            <FaInstagram className="transition hover:text-[rgb(255,0,191)]" />
           </a>
           <a
             href="https://github.com/MatinT-SA"
@@ -91,7 +91,7 @@ export default function ProfileCard() {
             rel="noopener"
             aria-label="GitHub"
           >
-            <FaGithub className="hover:text-purple-tertiary transition" />
+            <FaGithub className="transition hover:text-[rgb(255,123,0)]" />
           </a>
           <a
             href="https://twitter.com/MatinT_SA"
@@ -99,7 +99,7 @@ export default function ProfileCard() {
             rel="noopener"
             aria-label="Twitter"
           >
-            <FaTwitter className="hover:text-blue-400 transition" />
+            <FaTwitter className="transition hover:text-[rgb(86,154,243)]" />
           </a>
         </div>
 
