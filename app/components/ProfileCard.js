@@ -35,7 +35,8 @@ export default function ProfileCard() {
             alt="Matin Taherzadeh"
             width={127}
             height={160}
-            className="rounded-[50%] border-8 border-purple-tertiary shadow-xl hover:opacity-90 transition object-cover ml-52 select-none"
+            className="rounded-[50%] border-8 border-purple-tertiary shadow-xl object-cover ml-52 select-none
+           transition-all duration-500 ease-in-out hover:scale-120"
             priority
           />
         </div>
