@@ -75,7 +75,7 @@ export default function ProfileCard() {
             rel="noopener"
             aria-label="LinkedIn"
           >
-            <FaLinkedin className="hover:text-blue-light transition" />
+            <FaLinkedin className="transition hover:text-[rgb(0,0,204)]" />
           </a>
           <a
             href="https://www.instagram.com/matin_taherzadeh_sa/"
@@ -83,7 +83,7 @@ export default function ProfileCard() {
             rel="noopener"
             aria-label="Instagram"
           >
-            <FaInstagram className="hover:text-pink-500 transition" />
+            <FaInstagram className="transition hover:text-[rgb(255,0,191)]" />
           </a>
           <a
             href="https://github.com/MatinT-SA"
@@ -91,7 +91,7 @@ export default function ProfileCard() {
             rel="noopener"
             aria-label="GitHub"
           >
-            <FaGithub className="hover:text-purple-tertiary transition" />
+            <FaGithub className="transition hover:text-[rgb(255,123,0)]" />
           </a>
           <a
             href="https://twitter.com/MatinT_SA"
@@ -99,7 +99,7 @@ export default function ProfileCard() {
             rel="noopener"
             aria-label="Twitter"
           >
-            <FaTwitter className="hover:text-blue-400 transition" />
+            <FaTwitter className="transition hover:text-[rgb(86,154,243)]" />
           </a>
         </div>
 
