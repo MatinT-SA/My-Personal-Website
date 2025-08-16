@@ -13,14 +13,10 @@ export default function ProfileModal({ isOpen, onClose }) {
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => setShow(true), 10);
-      document.body.style.overflow = "hidden";
     } else {
       setShow(false);
-      document.body.style.overflow = "";
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => {};
   }, [isOpen]);
 
   // Handle fancy close animation
@@ -43,12 +39,13 @@ export default function ProfileModal({ isOpen, onClose }) {
     >
       <div
         ref={modalRef}
-        className={`relative rounded-2xl shadow-2xl max-w-md w-full overflow-hidden animate-modal-pop ${
+        className={`relative rounded-2xl shadow-2xl max-w-md w-full overflow-auto animate-modal-pop ${
           closing ? "animate-modal-whirlwind" : ""
         }`}
         style={{
           background: "rgba(168,198,222,0.25)",
           border: "1.5px solid var(--color-purple-tertiary)",
+          maxHeight: "90vh",
         }}
         onClick={(e) => e.stopPropagation()}
       >
