@@ -12,11 +12,11 @@ export default function ProfileModal({ isOpen, onClose }) {
 
   useEffect(() => {
     if (isOpen) {
-      setTimeout(() => setShow(true), 10);
+      setShow(true);
     } else {
       setShow(false);
+      setClosing(false);
     }
-    return () => {};
   }, [isOpen]);
 
   // Handle fancy close animation
@@ -24,18 +24,20 @@ export default function ProfileModal({ isOpen, onClose }) {
     setClosing(true);
     setTimeout(() => {
       setClosing(false);
+      setShow(false);
       onClose();
-    }, 500); // Animation duration
+    }, 1800); // Animation duration
   };
 
-  if (!isOpen) return null;
+  if (!isOpen && !show) return null;
 
   const modalContent = (
     <div
-      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-md transition-opacity duration-300 ${
-        show && !closing ? "opacity-100" : "opacity-0"
-      }`}
-      onClick={handleClose}
+      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-md ${
+        closing ? "" : "transition-opacity duration-300"
+      } ${show ? "opacity-100" : "opacity-0"}`}
+      // Only allow closing if not already closing
+      onClick={!closing ? handleClose : undefined}
     >
       <div
         ref={modalRef}
@@ -67,7 +69,7 @@ export default function ProfileModal({ isOpen, onClose }) {
               closing ? "animate-icon-squish" : ""
             }`}
             aria-label="Close"
-            onClick={handleClose}
+            onClick={!closing ? handleClose : undefined}
             style={{ marginLeft: "12px" }}
           >
             <FaTimes size={18} />
@@ -107,7 +109,7 @@ export default function ProfileModal({ isOpen, onClose }) {
           <button
             type="button"
             className="bg-red-400 hover:bg-red-500 text-white font-semibold px-6 py-2 rounded-xl shadow-md transition cursor-pointer"
-            onClick={handleClose}
+            onClick={!closing ? handleClose : undefined}
           >
             بستن
           </button>
@@ -130,21 +132,16 @@ export default function ProfileModal({ isOpen, onClose }) {
             opacity: 1;
             filter: blur(0);
           }
-          30% {
-            transform: scale(0.95) rotate(360deg);
-            opacity: 0.9;
-            filter: blur(1px);
-          }
-          60% {
-            transform: scale(0.7) rotate(1440deg);
-            opacity: 0.6;
-            filter: blur(2px);
-          }
-          80% {
-            transform: scale(0.4, 0.7) rotate(2160deg);
-            opacity: 0.3;
-            filter: blur(4px);
-          }
+          /* 50% {
+            transform: scale(0.5) rotate(1440deg);
+            opacity: 0.5;
+            filter: blur(6px);
+          } */
+          /* 80% {
+            transform: scale(0.3, 0.6) rotate(2160deg);
+            opacity: 0.2;
+            filter: blur(6px);
+          } */
           100% {
             transform: scale(0, 0) rotate(2880deg);
             opacity: 0;
@@ -155,7 +152,7 @@ export default function ProfileModal({ isOpen, onClose }) {
           animation: modal-pop 0.4s cubic-bezier(0.4, 0.8, 0.2, 1) forwards;
         }
         .animate-modal-whirlwind {
-          animation: modal-whirlwind 2s cubic-bezier(0.7, 0.2, 0.2, 1) forwards;
+          animation: modal-whirlwind 1.8s ease-in-out forwards;
         }
         @keyframes icon-squish {
           0% {
