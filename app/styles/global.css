@@ -26,7 +26,7 @@
   --gradient-yellow: linear-gradient(90deg, #ffde5d, #ffd633, #ffd11a);
 
   /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-  /* ⬡⬡⬡⬡⬡⬡⬡⬡≫ Animation Definitions ≪⬡⬡⬡⬡⬡⬡⬡⬡ */
+  /* ⬡⬡⬡⬡⬡⬡⬡≫ Animation Definitions ≪⬡⬡⬡⬡⬡⬡⬡ */
   /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
   --animate-pic-load: pic-load 300ms ease-in forwards;
   --animate-float-profile: float-profile 35s ease-in-out infinite;
@@ -37,7 +37,7 @@
 }
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Custom Font Faces ≪⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Custom Font Faces ≪⬡⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 @font-face {
   font-family: Shabnam;
@@ -58,7 +58,7 @@
 }
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Root Variables ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Root Variables ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 :root {
   --nav-load-time: 400ms;
@@ -72,7 +72,7 @@
 }
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* ⬡⬡⬡⬡⬡⬡⬡≫ Global Reset & Direction ≪⬡⬡⬡⬡⬡⬡⬡ */
+/* ⬡⬡⬡⬡⬡⬡≫ Global Reset & Direction ≪⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 * {
   box-sizing: border-box;
@@ -115,14 +115,14 @@ a {
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--yellow-primary-color);
+  background-color: var(--color-yellow-primary);
 }
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Navigation ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Navigation ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 .active-link {
-  text-shadow: -3px 3px 7px #4d4d00 !important; /* prevent override */
+  text-shadow: -3px 3px 7px #4d4d00 !important;
 }
 
 .bg-gradient-yellow {
@@ -130,7 +130,7 @@ a {
 }
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Header & Navigation Animations ≪⬡⬡⬡⬡⬡⬡ */
+/* ⬡⬡⬡⬡≫ Header & Navigation Animations ≪⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 @keyframes nav-load {
   0% {
@@ -221,7 +221,9 @@ a {
   }
 }
 
-/* Navigation styling */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡≫ Navigation Styling ≪⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 #header-nav {
   animation: nav-load var(--nav-load-time) ease-in;
 }
@@ -253,7 +255,9 @@ a {
   transform: translateY(-1000%);
 }
 
-/* Header styling */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Header Styling ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 .header {
   animation: header-load var(--header-load-time) ease-in;
 }
@@ -343,6 +347,28 @@ a {
   }
 }
 
+@keyframes modal-pop {
+  0% {
+    transform: scale(0.85) translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes modal-pop {
+  0% {
+    transform: scale(0.85) translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 /* ⬡⬡≫ Tailwind custom animations utilities ≪⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
@@ -355,7 +381,13 @@ a {
   animation: var(--animate-float-profile);
 }
 
-/* Responsive animations */
+.modal-pop {
+  animation: modal-pop 0.4s cubic-bezier(0.4, 0.8, 0.2, 1) forwards;
+}
+
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Responsiveness ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 @media (min-width: 768px) and (max-width: 1024px) {
   .animate-float-profile {
     animation: var(--animate-float-md);
