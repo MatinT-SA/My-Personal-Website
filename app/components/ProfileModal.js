@@ -65,8 +65,8 @@ export default function ProfileModal({ isOpen, onClose, getTargetRect }) {
     >
       <div
         ref={modalRef}
-        className={`relative shadow-2xl max-w-md w-full overflow-auto animate-modal-pop ${
-          closing ? "" : "rounded-2xl"
+        className={`relative shadow-2xl max-w-md w-full overflow-auto ${
+          closing ? "" : "rounded-2xl modal-pop"
         }`}
         style={{
           background: "rgba(168,198,222,0.25)",
@@ -138,18 +138,6 @@ export default function ProfileModal({ isOpen, onClose, getTargetRect }) {
           </button>
         </div>
       </div>
-      <style jsx global>{`
-        @keyframes modal-pop {
-          0% {
-            transform: scale(0.85) translateY(40px);
-            opacity: 0;
-          }
-          100% {
-            transform: scale(1) translateY(0);
-            opacity: 1;
-          }
-        }
-      `}</style>
     </div>
   );
 
