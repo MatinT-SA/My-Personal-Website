@@ -9,14 +9,17 @@ import Link from "next/link";
 
 export default function ProfileCard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [profileRect, setProfileRect] = useState(null);
+
   const profileImgRef = useRef();
 
-  const handleProfileClick = () => {
+  const getProfileRect = () => {
     if (profileImgRef.current) {
-      const rect = profileImgRef.current.getBoundingClientRect();
-      setProfileRect(rect);
+      return profileImgRef.current.getBoundingClientRect();
     }
+    return null;
+  };
+
+  const handleProfileClick = () => {
     setIsModalOpen(true);
   };
 
@@ -36,14 +39,14 @@ export default function ProfileCard() {
         />
 
         {/* Profile Image */}
-        <div className="relative cursor-pointer" onClick={handleProfileClick}>
+        <div className="relative" onClick={handleProfileClick}>
           <Image
             ref={profileImgRef}
             src="/images/Matin-Taherzadeh-portrait.webp"
             alt="Matin Taherzadeh"
             width={127}
             height={160}
-            className="rounded-[50%] border-8 border-purple-tertiary shadow-xl object-cover ml-52 select-none
+            className="rounded-[50%] cursor-pointer border-8 border-purple-tertiary shadow-xl object-cover ml-52 select-none
            transition-all duration-500 ease-in-out hover:scale-120"
             priority
           />
@@ -116,7 +119,7 @@ export default function ProfileCard() {
         <ProfileModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
-          targetRect={profileRect}
+          getTargetRect={getProfileRect}
         />
       </div>
     </div>

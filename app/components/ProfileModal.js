@@ -5,7 +5,7 @@ import { useEffect, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import { FaTimes } from "react-icons/fa";
 
-export default function ProfileModal({ isOpen, onClose, targetRect }) {
+export default function ProfileModal({ isOpen, onClose, getTargetRect }) {
   const [show, setShow] = useState(false);
   const [closing, setClosing] = useState(false);
   const [modalStyle, setModalStyle] = useState({});
@@ -22,11 +22,10 @@ export default function ProfileModal({ isOpen, onClose, targetRect }) {
     }
   }, [isOpen]);
 
-  // Handle shrink-to-profile animation
   const handleClose = () => {
+    let targetRect = getTargetRect ? getTargetRect() : null;
     if (modalRef.current && targetRect) {
       const modalRect = modalRef.current.getBoundingClientRect();
-      // Calculate scale and translation
       const scaleX = targetRect.width / modalRect.width;
       const scaleY = targetRect.height / modalRect.height;
       const translateX =
@@ -40,8 +39,9 @@ export default function ProfileModal({ isOpen, onClose, targetRect }) {
 
       setModalStyle({
         transform: `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY}) rotate(1440deg)`,
+        borderRadius: "50%",
         transition:
-          "transform 1.8s cubic-bezier(0.7,0.2,0.2,1), opacity 1.8s ease-out",
+          "transform 1s cubic-bezier(0.7,0.2,0.2,1), opacity 1s ease-in-out, border-radius 1s cubic-bezier(0.7,0.2,0.2,1)",
         opacity: 0,
       });
     }
@@ -51,7 +51,7 @@ export default function ProfileModal({ isOpen, onClose, targetRect }) {
       setShow(false);
       setModalStyle({});
       onClose();
-    }, 1800); // Animation duration
+    }, 1000);
   };
 
   if (!isOpen && !show) return null;
@@ -65,8 +65,8 @@ export default function ProfileModal({ isOpen, onClose, targetRect }) {
     >
       <div
         ref={modalRef}
-        className={`relative rounded-2xl shadow-2xl max-w-md w-full overflow-auto animate-modal-pop ${
-          closing ? "" : ""
+        className={`relative shadow-2xl max-w-md w-full overflow-auto animate-modal-pop ${
+          closing ? "" : "rounded-2xl"
         }`}
         style={{
           background: "rgba(168,198,222,0.25)",
