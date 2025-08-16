@@ -30,8 +30,9 @@
   /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
   --animate-pic-load: pic-load 300ms ease-in forwards;
   --animate-float-profile: float-profile 35s ease-in-out infinite;
+  --animate-float-md: float-md 15s ease-in-out infinite;
   --animate-float-lg: float-lg 35s ease-in-out infinite;
-  --animate-float-xlg: float-xlg 35s ease-in-out infinite;
+  --animate-float-xlg: float-xlg 45s ease-in-out infinite;
   --animate-float-wide: float-wideScreen 35s ease-in-out infinite;
 }
 
@@ -292,6 +293,20 @@ a {
   }
 }
 
+@keyframes float-md {
+  0% {
+    transform: translateX(-40%);
+  }
+
+  50% {
+    transform: translateX(40%);
+  }
+
+  100% {
+    transform: translateX(-40%);
+  }
+}
+
 @keyframes float-lg {
   0% {
     transform: translateX(-80%);
@@ -341,6 +356,12 @@ a {
 }
 
 /* Responsive animations */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .animate-float-profile {
+    animation: var(--animate-float-md);
+  }
+}
+
 @media (min-width: 64rem) {
   .animate-float-profile {
     animation: var(--animate-float-lg);
