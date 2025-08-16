@@ -5,26 +5,51 @@ import { useEffect, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import { FaTimes } from "react-icons/fa";
 
-export default function ProfileModal({ isOpen, onClose }) {
+export default function ProfileModal({ isOpen, onClose, targetRect }) {
   const [show, setShow] = useState(false);
   const [closing, setClosing] = useState(false);
+  const [modalStyle, setModalStyle] = useState({});
   const modalRef = useRef();
 
   useEffect(() => {
     if (isOpen) {
       setShow(true);
+      setModalStyle({});
     } else {
       setShow(false);
       setClosing(false);
+      setModalStyle({});
     }
   }, [isOpen]);
 
-  // Handle fancy close animation
+  // Handle shrink-to-profile animation
   const handleClose = () => {
+    if (modalRef.current && targetRect) {
+      const modalRect = modalRef.current.getBoundingClientRect();
+      // Calculate scale and translation
+      const scaleX = targetRect.width / modalRect.width;
+      const scaleY = targetRect.height / modalRect.height;
+      const translateX =
+        targetRect.left +
+        targetRect.width / 2 -
+        (modalRect.left + modalRect.width / 2);
+      const translateY =
+        targetRect.top +
+        targetRect.height / 2 -
+        (modalRect.top + modalRect.height / 2);
+
+      setModalStyle({
+        transform: `translate(${translateX}px, ${translateY}px) scale(${scaleX}, ${scaleY}) rotate(1440deg)`,
+        transition:
+          "transform 1.8s cubic-bezier(0.7,0.2,0.2,1), opacity 1.8s ease-out",
+        opacity: 0,
+      });
+    }
     setClosing(true);
     setTimeout(() => {
       setClosing(false);
       setShow(false);
+      setModalStyle({});
       onClose();
     }, 1800); // Animation duration
   };
@@ -36,18 +61,18 @@ export default function ProfileModal({ isOpen, onClose }) {
       className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-md ${
         closing ? "" : "transition-opacity duration-300"
       } ${show ? "opacity-100" : "opacity-0"}`}
-      // Only allow closing if not already closing
       onClick={!closing ? handleClose : undefined}
     >
       <div
         ref={modalRef}
         className={`relative rounded-2xl shadow-2xl max-w-md w-full overflow-auto animate-modal-pop ${
-          closing ? "animate-modal-whirlwind" : ""
+          closing ? "" : ""
         }`}
         style={{
           background: "rgba(168,198,222,0.25)",
           border: "1.5px solid var(--color-purple-tertiary)",
           maxHeight: "90vh",
+          ...modalStyle,
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -65,9 +90,7 @@ export default function ProfileModal({ isOpen, onClose }) {
           </h4>
           <button
             type="button"
-            className={`rounded-full bg-white/80 hover:bg-red-400 hover:text-white p-2 transition cursor-pointer flex items-center justify-center ${
-              closing ? "animate-icon-squish" : ""
-            }`}
+            className={`rounded-full bg-white/80 hover:bg-red-400 hover:text-white p-2 transition cursor-pointer flex items-center justify-center`}
             aria-label="Close"
             onClick={!closing ? handleClose : undefined}
             style={{ marginLeft: "12px" }}
@@ -125,48 +148,6 @@ export default function ProfileModal({ isOpen, onClose }) {
             transform: scale(1) translateY(0);
             opacity: 1;
           }
-        }
-        @keyframes modal-whirlwind {
-          0% {
-            transform: scale(1) rotate(0deg);
-            opacity: 1;
-            filter: blur(0);
-          }
-          /* 50% {
-            transform: scale(0.5) rotate(1440deg);
-            opacity: 0.5;
-            filter: blur(6px);
-          } */
-          /* 80% {
-            transform: scale(0.3, 0.6) rotate(2160deg);
-            opacity: 0.2;
-            filter: blur(6px);
-          } */
-          100% {
-            transform: scale(0, 0) rotate(2880deg);
-            opacity: 0;
-            filter: blur(12px);
-          }
-        }
-        .animate-modal-pop {
-          animation: modal-pop 0.4s cubic-bezier(0.4, 0.8, 0.2, 1) forwards;
-        }
-        .animate-modal-whirlwind {
-          animation: modal-whirlwind 1.8s ease-in-out forwards;
-        }
-        @keyframes icon-squish {
-          0% {
-            transform: scale(1);
-          }
-          50% {
-            transform: scale(0.7) rotate(-20deg);
-          }
-          100% {
-            transform: scale(0.9) rotate(360deg);
-          }
-        }
-        .animate-icon-squish {
-          animation: icon-squish 0.5s cubic-bezier(0.7, 0.2, 0.2, 1);
         }
       `}</style>
     </div>

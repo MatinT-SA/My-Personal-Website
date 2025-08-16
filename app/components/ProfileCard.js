@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import ProfileModal from "./ProfileModal";
 import Button from "./Button";
@@ -9,6 +9,16 @@ import Link from "next/link";
 
 export default function ProfileCard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [profileRect, setProfileRect] = useState(null);
+  const profileImgRef = useRef();
+
+  const handleProfileClick = () => {
+    if (profileImgRef.current) {
+      const rect = profileImgRef.current.getBoundingClientRect();
+      setProfileRect(rect);
+    }
+    setIsModalOpen(true);
+  };
 
   return (
     <div
@@ -26,11 +36,9 @@ export default function ProfileCard() {
         />
 
         {/* Profile Image */}
-        <div
-          className="relative cursor-pointer"
-          onClick={() => setIsModalOpen(true)}
-        >
+        <div className="relative cursor-pointer" onClick={handleProfileClick}>
           <Image
+            ref={profileImgRef}
             src="/images/Matin-Taherzadeh-portrait.webp"
             alt="Matin Taherzadeh"
             width={127}
@@ -108,6 +116,7 @@ export default function ProfileCard() {
         <ProfileModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
+          targetRect={profileRect}
         />
       </div>
     </div>
