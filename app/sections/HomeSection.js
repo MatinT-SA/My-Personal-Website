@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import Navigation from "../components/Navigation";
-import ProfileCard from "../components/ProfileCard";
+import ProfileCard from "../components/profile/profie/profile-card/ProfileCard";
 
 export default function HomeSection() {
   return (
