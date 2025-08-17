@@ -71,7 +71,7 @@ export default function ProfileModal({ isOpen, onClose, getTargetRect }) {
         style={{
           background: "rgba(168,198,222,0.25)",
           border: "1.5px solid var(--color-purple-tertiary)",
-          maxHeight: "90vh",
+          maxHeight: "100vh",
           ...modalStyle,
         }}
         onClick={(e) => e.stopPropagation()}
