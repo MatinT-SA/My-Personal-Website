@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import ProfileButtons from "./ProfileButtons";
 import ProfileImage from "./ProfileImage";
 import ProfileInfo from "./ProfileInfo";
-import ProfileModal from "./ProfileModal";
+import ProfileModal from "../profile-modal/ProfileModal";
 import SocialLinks from "./SocialLinks";
 
 export default function ProfileCard() {
