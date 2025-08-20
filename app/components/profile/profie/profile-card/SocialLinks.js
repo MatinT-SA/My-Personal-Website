@@ -1,7 +1,7 @@
 import React from "react";
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
-export default function SocialLinks() {
+export default function SocialLinks({ isMenuOpen }) {
   const links = [
     {
       icon: <FaLinkedin />,
@@ -25,8 +25,10 @@ export default function SocialLinks() {
     },
   ];
 
+  const gapClass = isMenuOpen ? "gap-15 mt-4" : "gap-5 mt-7";
+
   return (
-    <div className="flex gap-5 mt-7 text-xl text-blue-light">
+    <div className={`flex ${gapClass} text-xl text-blue-light`}>
       {links.map(({ icon, url, color }, idx) => (
         <a key={idx} href={url} target="_blank" rel="noopener" aria-label={url}>
           {React.cloneElement(icon, { className: `transition ${color}` })}
