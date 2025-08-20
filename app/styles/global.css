@@ -9,10 +9,11 @@
 
   /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
   /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Breakpoints ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
-  --breakpoint-sm: 30rem;
-  --breakpoint-md: 48rem;
-  --breakpoint-lg: 64rem;
-  --breakpoint-xl: 80rem;
+  --breakpoint-sm: 30rem; /* 480px */
+  --breakpoint-md: 48rem; /* 768px */
+  --breakpoint-hamburger: 867px;
+  --breakpoint-lg: 64rem; /* 1024px */
+  --breakpoint-xl: 80rem; /* 1280px */
 
   /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
   /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Colors ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
