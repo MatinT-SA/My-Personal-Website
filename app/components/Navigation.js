@@ -6,6 +6,7 @@ import SocialLinks from "./profile/profie/profile-card/SocialLinks";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const navRef = useRef(null);
@@ -78,7 +79,19 @@ export default function Navigation() {
 
   const handleClick = (id) => {
     setActiveSection(id);
-    if (isMenuOpen) setIsMenuOpen(false);
+    closeMenu();
+  };
+
+  // Open menu
+  const openMenu = () => {
+    setIsMenuVisible(true); // keep menu mounted
+    setTimeout(() => setIsMenuOpen(true), 10); // trigger slide-in
+  };
+
+  // Close menu
+  const closeMenu = () => {
+    setIsMenuOpen(false); // trigger slide-out
+    setTimeout(() => setIsMenuVisible(false), 300); // unmount after animation
   };
 
   return (
@@ -92,10 +105,10 @@ export default function Navigation() {
       style={{ scrollBehavior: "smooth" }}
     >
       {/* Hamburger button */}
-      {!isMenuOpen && (
+      {!isMenuVisible && (
         <button
           type="button"
-          onClick={() => setIsMenuOpen(true)}
+          onClick={openMenu}
           className="block mx-auto p-5 text-center w-12 h-12 text-dark-primary hamburger:hidden"
           aria-label="Open menu"
         >
@@ -103,11 +116,11 @@ export default function Navigation() {
         </button>
       )}
 
-      {/* Close button (only visible when mobile menu is open) */}
-      {isMenuOpen && (
+      {/* Close button */}
+      {isMenuVisible && (
         <button
           type="button"
-          onClick={() => setIsMenuOpen(false)}
+          onClick={closeMenu}
           className="fixed top-6 right-6 z-50 text-white"
           aria-label="Close menu"
         >
@@ -116,26 +129,57 @@ export default function Navigation() {
       )}
 
       {/* Main menu */}
-      <ul
-        className={`mainMenu list-none ${
-          isMenuOpen
-            ? "fixed w-full inset-0 z-40 flex flex-col gap-2 justify-center items-center bg-purple-primary text-white"
-            : "hidden hamburger:flex hamburger:flex-row gap-0 hamburger:items-center hamburger:justify-between hamburger:mr-10 hamburger:w-full"
-        }`}
-      >
+      {isMenuVisible && (
+        <ul
+          className={`mainMenu list-none fixed inset-0 z-40 flex flex-col justify-center items-center bg-purple-primary text-white
+            transform transition-transform duration-300 ease-in-out
+            ${isMenuOpen ? "translate-x-0" : "translate-x-full"}
+          `}
+        >
+          {links.map(({ id, label }) => {
+            const isActive = activeSection === id;
+            return (
+              <li key={id} className="mx-auto">
+                <a
+                  href={`#${id}`}
+                  onClick={() => handleClick(id)}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`nav-item inline-block items-center py-5 px-8 text-xl transition-opacity duration-200 ${
+                    isActive ? "opacity-100 active-link" : "opacity-50"
+                  } hover:opacity-100`}
+                  style={{
+                    color: "#fff",
+                    fontWeight: 700,
+                  }}
+                >
+                  {label}
+                </a>
+              </li>
+            );
+          })}
+
+          {/* Social links at the bottom for mobile */}
+          <li className="mt-5">
+            <SocialLinks isMenuOpen={isMenuOpen} />
+          </li>
+        </ul>
+      )}
+
+      {/* Desktop menu */}
+      <ul className="hidden hamburger:flex hamburger:flex-row gap-0 hamburger:items-center hamburger:justify-between hamburger:mr-10 hamburger:w-full">
         {links.map(({ id, label }) => {
           const isActive = activeSection === id;
           return (
-            <li key={id} className="mx-auto">
+            <li key={id}>
               <a
                 href={`#${id}`}
                 onClick={() => handleClick(id)}
                 aria-current={isActive ? "page" : undefined}
-                className={`nav-item inline-block items-center py-5 px-8 text-xl transition-opacity duration-200 ${
+                className={`nav-item inline-block py-5 px-8 text-xl transition-opacity duration-200 ${
                   isActive ? "opacity-100 active-link" : "opacity-50"
                 } hover:opacity-100`}
                 style={{
-                  color: isMenuOpen ? "#fff" : "var(--color-dark-primary)",
+                  color: "var(--color-dark-primary)",
                   fontWeight: 700,
                 }}
               >
@@ -144,13 +188,6 @@ export default function Navigation() {
             </li>
           );
         })}
-
-        {/* Add social links at the bottom for mobile menu */}
-        {isMenuOpen && (
-          <li>
-            <SocialLinks isMenuOpen={isMenuOpen} />
-          </li>
-        )}
       </ul>
     </nav>
   );
