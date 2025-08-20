@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import SocialLinks from "./profile/profie/profile-card/SocialLinks";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -118,10 +119,9 @@ export default function Navigation() {
       <ul
         className={`mainMenu list-none ${
           isMenuOpen
-            ? "fixed w-full inset-0 z-40 flex flex-col justify-center items-center bg-purple-primary text-white"
-            : "hidden hamburger:flex hamburger:flex-row hamburger:items-center hamburger:justify-between hamburger:mr-10 hamburger:w-full"
+            ? "fixed w-full inset-0 z-40 flex flex-col gap-2 justify-center items-center bg-purple-primary text-white"
+            : "hidden hamburger:flex hamburger:flex-row gap-0 hamburger:items-center hamburger:justify-between hamburger:mr-10 hamburger:w-full"
         }`}
-        style={{ gap: isMenuOpen ? "1.5rem" : "0" }}
       >
         {links.map(({ id, label }) => {
           const isActive = activeSection === id;
@@ -144,6 +144,13 @@ export default function Navigation() {
             </li>
           );
         })}
+
+        {/* Add social links at the bottom for mobile menu */}
+        {isMenuOpen && (
+          <li>
+            <SocialLinks isMenuOpen={isMenuOpen} />
+          </li>
+        )}
       </ul>
     </nav>
   );
