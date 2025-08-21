@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import SocialLinks from "./profile/profie/profile-card/SocialLinks";
+import SocialLinks from "../profile/profie/profile-card/SocialLinks";
+import NavLinks from "./NavLinks";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -128,7 +129,7 @@ export default function Navigation() {
         </button>
       )}
 
-      {/* Main menu */}
+      {/* Main menu (mobile) */}
       {isMenuVisible && (
         <ul
           className={`mainMenu list-none fixed inset-0 z-40 flex flex-col justify-center items-center bg-purple-primary text-white
@@ -136,27 +137,12 @@ export default function Navigation() {
             ${isMenuOpen ? "translate-x-0" : "translate-x-full"}
           `}
         >
-          {links.map(({ id, label }) => {
-            const isActive = activeSection === id;
-            return (
-              <li key={id} className="mx-auto">
-                <a
-                  href={`#${id}`}
-                  onClick={() => handleClick(id)}
-                  aria-current={isActive ? "page" : undefined}
-                  className={`nav-item inline-block items-center py-5 px-8 text-xl transition-opacity duration-200 ${
-                    isActive ? "opacity-100 active-link" : "opacity-50"
-                  } hover:opacity-100`}
-                  style={{
-                    color: "#fff",
-                    fontWeight: 700,
-                  }}
-                >
-                  {label}
-                </a>
-              </li>
-            );
-          })}
+          <NavLinks
+            links={links}
+            activeSection={activeSection}
+            onClick={handleClick}
+            variant="mobile"
+          />
 
           {/* Social links at the bottom for mobile */}
           <li className="mt-5">
@@ -167,27 +153,12 @@ export default function Navigation() {
 
       {/* Desktop menu */}
       <ul className="hidden hamburger:flex hamburger:flex-row gap-0 hamburger:items-center hamburger:justify-between hamburger:mr-10 hamburger:w-full">
-        {links.map(({ id, label }) => {
-          const isActive = activeSection === id;
-          return (
-            <li key={id}>
-              <a
-                href={`#${id}`}
-                onClick={() => handleClick(id)}
-                aria-current={isActive ? "page" : undefined}
-                className={`nav-item inline-block py-5 px-8 text-xl transition-opacity duration-200 ${
-                  isActive ? "opacity-100 active-link" : "opacity-50"
-                } hover:opacity-100`}
-                style={{
-                  color: "var(--color-dark-primary)",
-                  fontWeight: 700,
-                }}
-              >
-                {label}
-              </a>
-            </li>
-          );
-        })}
+        <NavLinks
+          links={links}
+          activeSection={activeSection}
+          onClick={handleClick}
+          variant="desktop"
+        />
       </ul>
     </nav>
   );
