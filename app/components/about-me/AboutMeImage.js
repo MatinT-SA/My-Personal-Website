@@ -2,15 +2,15 @@ import Image from "next/image";
 
 export default function AboutMeImage() {
   return (
-    <div className="relative">
+    <div className="w-full max-w-[500px] mx-auto">
       <Image
-        src="/Content/images/bg2-com2.webp"
-        alt="computer image"
-        width={534}
-        height={399}
-        quality={80}
+        src="/images/matin-taherzadeh-standing-4.png"
+        alt="Matin Taherzadeh Image"
+        width={500}
+        height={700}
         priority
-        className="block rounded-lg shadow-lg"
+        quality={100}
+        className="rounded-lg object-contain w-full h-auto"
       />
     </div>
   );
