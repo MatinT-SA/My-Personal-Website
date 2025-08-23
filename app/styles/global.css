@@ -37,6 +37,22 @@
   --animate-float-wide: float-wideScreen 35s ease-in-out infinite;
 }
 
+@layer utilities {
+  .float-matin {
+    @apply animate-[float-matin_5s_ease-in-out_infinite];
+  }
+
+  @keyframes float-matin {
+    0%,
+    100% {
+      transform: translateY(0.5rem);
+    }
+    50% {
+      transform: translateY(-1rem);
+    }
+  }
+}
+
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Custom Font Faces ≪⬡⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
