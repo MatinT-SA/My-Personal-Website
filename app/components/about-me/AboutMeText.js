@@ -6,7 +6,7 @@ export default function AboutMeText() {
     <div className="p-4 sm:px-12 py-4">
       <TypedHeading />
 
-      <p className="text-base sm:text-lg text-gray-700 leading-relaxed sm:leading-8">
+      <p className="text-base sm:text-lg text-gray-700 leading-relaxed sm:leading-12">
         فارغ‌التحصیل کارشناسی مهندسی کامپیوتر (نرم‌افزار) از دانشگاه آزاد کرج.
         <br />
         سابقه تدریس زبان انگلیسی به مدت یک سال در موسسه زبان.
