@@ -21,12 +21,12 @@ export default function AboutMeText() {
 
       <div className="mt-8 flex justify-center">
         <a
-          href="/Content/resume/Matin Taherzadeh Resume - 1404-05-07.pdf"
+          href="/resume/Matin Taherzadeh Resume - 1404-06-03.pdf"
           download
-          className="group relative px-8 py-4 text-lg font-bold text-blue-light bg-purple-primary rounded-full transition-all duration-300 ease-in-out hover:text-purple-700 hover:bg-blue-300 hover:shadow-lg flex items-center"
+          className="relative px-8 py-4 text-lg font-bold text-blue-light bg-purple-primary rounded-full transition-all duration-300 ease-in-out hover:text-purple-primary hover:bg-blue-300 hover:shadow-lg flex items-center gap-2 hover:gap-3.5"
         >
           دانلود رزومه
-          <FiDownload className="mr-2 w-5 h-5 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
+          <FiDownload className="w-5 h-5" />
         </a>
       </div>
     </div>
