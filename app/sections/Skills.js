@@ -36,8 +36,8 @@ const listVariants = {
 export default function Skills() {
   return (
     <section
-      id="Skills"
-      className="relative mx-6 my-16 rounded-[300px_15px] bg-blue-light-transparent p-10"
+      id="skills"
+      className="relative scroll-mt-20 mx-6 my-16 rounded-[300px_15px] bg-blue-light-transparent p-10"
     >
       {/* Title */}
       <motion.h2
@@ -61,7 +61,7 @@ export default function Skills() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="rounded-xl bg-white/50 px-4 py-2 text-lg font-medium text-sky-900 shadow-sm backdrop-blur-md hover:shadow-lg"
+              className="flex justify-center items-center py-2 text-md font-medium text-dark-primary"
             >
               {skill}
             </motion.li>
@@ -90,7 +90,7 @@ export default function Skills() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="rounded-xl bg-white/50 px-4 py-2 text-lg font-medium text-sky-900 shadow-sm backdrop-blur-md hover:shadow-lg"
+              className="flex justify-center items-center py-2 text-md font-medium text-dark-primary"
             >
               {skill}
             </motion.li>
