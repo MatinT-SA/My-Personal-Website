@@ -37,7 +37,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative scroll-mt-20 mx-6 my-16 rounded-[300px_15px] bg-blue-light-transparent p-10"
+      className="relative scroll-mt-20 mx-12 my-16 rounded-[300px_15px] bg-blue-light-transparent p-6"
     >
       {/* Title */}
       <motion.h2
@@ -50,7 +50,7 @@ export default function Skills() {
         مهارت ها
       </motion.h2>
 
-      <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-3">
+      <div className="grid grid-cols-1 items-center gap-0 lg:grid-cols-3">
         {/* Left skills */}
         <ul className="space-y-6 text-right">
           {skillsLeft.map((skill, i) => (
