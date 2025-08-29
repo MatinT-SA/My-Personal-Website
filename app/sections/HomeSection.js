@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import Header from "../components/header/Header";
 import Navigation from "../components/navigation/Navigation";
 import ProfileCard from "../components/profile/profie/profile-card/ProfileCard";
 

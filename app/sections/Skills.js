@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import SkillsCircle from "../components/skills/SkillsCircle";
 
 const skillsLeft = [
   "آشنا به زبان برنامه نویسی CSharp",
@@ -50,7 +51,7 @@ export default function Skills() {
         مهارت ها
       </motion.h2>
 
-      <div className="grid grid-cols-1 items-center gap-0 lg:grid-cols-3">
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-8">
         {/* Left skills */}
         <ul className="space-y-6 text-right">
           {skillsLeft.map((skill, i) => (
@@ -68,16 +69,15 @@ export default function Skills() {
           ))}
         </ul>
 
-        {/* Center Animation Placeholder */}
+        {/* Center Circle */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="flex justify-center"
         >
-          {/* Replace this with a Lottie animation, SVG, or Three.js canvas */}
-          <div className="h-80 w-56 rounded-xl bg-gradient-to-b from-yellow-400 to-yellow-600 shadow-lg" />
+          <SkillsCircle />
         </motion.div>
 
         {/* Right skills */}
