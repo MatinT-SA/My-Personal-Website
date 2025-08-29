@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import SkillsList from "../components/skills/SkillsList";
 import SkillsCircle from "../components/skills/SkillsCircle";
 
 const skillsLeft = [
@@ -25,15 +26,6 @@ const skillsRight = [
   "طراحی سایت واکنش گرا",
 ];
 
-const listVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" },
-  }),
-};
-
 export default function Skills() {
   return (
     <section
@@ -51,51 +43,17 @@ export default function Skills() {
         مهارت ها
       </motion.h2>
 
-      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-8">
-        {/* Left skills */}
-        <ul className="space-y-6 text-right">
-          {skillsLeft.map((skill, i) => (
-            <motion.li
-              key={i}
-              custom={i}
-              variants={listVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="flex justify-center items-center py-2 text-md font-medium text-dark-primary"
-            >
-              {skill}
-            </motion.li>
-          ))}
-        </ul>
+      <div className="grid grid-cols-1 items-center gap-0 lg:grid-cols-3">
+        {/* Left Skills */}
+        <SkillsList skills={skillsLeft} />
 
-        {/* Center Circle */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="flex justify-center"
-        >
+        {/* Middle Circle */}
+        <div className="flex justify-center">
           <SkillsCircle />
-        </motion.div>
+        </div>
 
-        {/* Right skills */}
-        <ul className="space-y-6 text-right">
-          {skillsRight.map((skill, i) => (
-            <motion.li
-              key={i}
-              custom={i}
-              variants={listVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="flex justify-center items-center py-2 text-md font-medium text-dark-primary"
-            >
-              {skill}
-            </motion.li>
-          ))}
-        </ul>
+        {/* Right Skills */}
+        <SkillsList skills={skillsRight} />
       </div>
     </section>
   );
