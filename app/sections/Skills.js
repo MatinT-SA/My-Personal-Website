@@ -3,6 +3,7 @@
 import { useRef, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
 import SkillsList from "../components/skills/SkillsList";
+import SkillsGlowCursor from "../components/skills/SkillsGlowCursor";
 
 const SkillsCircle = dynamic(
   () => import("../components/skills/SkillsCircle"),
@@ -200,26 +201,7 @@ export default function Skills() {
       </div>
 
       {/* Custom cursor (glow) - absolutely positioned inside container */}
-      <div
-        ref={cursorRef}
-        style={{
-          position: "absolute",
-          left: 0,
-          top: 0,
-          transform: "translate(-50%, -50%)",
-          width: `${HIGHLIGHT_RADIUS * 2}px`,
-          height: `${HIGHLIGHT_RADIUS * 2}px`,
-          borderRadius: "50%",
-          pointerEvents: "none",
-          opacity: 0,
-          transition: "opacity 160ms linear, transform 120ms linear",
-          mixBlendMode: "screen",
-          zIndex: 40,
-          // strong yellow -> softer outer fade. Change colors here.
-          background: `radial-gradient(circle at center, rgba(255,223,0,0.30) 0%, rgba(255,223,0,0.18) 25%, rgba(255,223,0,0.06) 55%, rgba(255,223,0,0.00) 100%)`,
-          filter: "blur(8px)",
-        }}
-      />
+      <SkillsGlowCursor containerRef={containerRef} />
     </section>
   );
 }
