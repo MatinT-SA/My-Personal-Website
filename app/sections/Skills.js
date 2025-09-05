@@ -41,10 +41,10 @@ const skillsRight = [
 
 // Data for the SkillsCircle component
 const circleData = [
-  { name: "Frontend", value: 7, color: "#3b82f6" }, // updated count for skillsRight
-  { name: "Backend", value: 3, color: "#22c55e" }, // updated count for skillsLeft & skillsRight
-  { name: "Databases", value: 1, color: "#facc15" }, // updated count for skillsLeft
-  { name: "Other", value: 4, color: "#a855f7" }, // updated count for skillsLeft
+  { name: "Frontend", value: 7, color: "#3b82f6" },
+  { name: "Backend", value: 3, color: "#22c55e" },
+  { name: "Databases", value: 1, color: "#facc15" },
+  { name: "Other", value: 4, color: "#a855f7" },
 ];
 
 // Map each skill string to its category
@@ -79,27 +79,29 @@ export default function Skills() {
     typeof window !== "undefined" &&
     ("ontouchstart" in window || navigator.maxTouchPoints > 0);
 
-  // New state to manage the selected category from the pie chart
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [showAll, setShowAll] = useState(false); // New state for "show all"
 
-  // Function to handle click on a pie chart slice
   const handleSliceClick = useCallback((categoryName) => {
     setSelectedCategory((prevCategory) =>
       prevCategory === categoryName ? null : categoryName
     );
+    setShowAll(false); // Disable "show all" when a specific category is selected
   }, []);
 
-  // register item DOM nodes (called by SkillsList)
+  const handleShowAllClick = useCallback(() => {
+    setShowAll((prevShowAll) => !prevShowAll);
+    setSelectedCategory(null); // Deselect any category when "show all" is toggled
+  }, []);
+
   const registerItem = useCallback((index, el) => {
     itemRefs.current[index] = el;
-    // ensure initial style
     if (el) {
       el.style.opacity = "0";
       el.style.transition = "opacity 120ms linear";
     }
   }, []);
 
-  // compute center positions of items relative to container
   const computePositions = useCallback(() => {
     const cont = containerRef.current;
     if (!cont) return;
@@ -114,25 +116,21 @@ export default function Skills() {
     });
   }, []);
 
-  // update opacities and cursor position (runs in RAF)
   const tick = useCallback(() => {
     const cont = containerRef.current;
     if (!cont) return;
     const { x: cx, y: cy } = lastPos.current;
 
-    // position and style the custom cursor
     if (cursorRef.current) {
       cursorRef.current.style.left = `${cx}px`;
       cursorRef.current.style.top = `${cy}px`;
       cursorRef.current.style.opacity = isInside.current ? "1" : "0";
     }
 
-    // compute distances and set opacity
     const radius = HIGHLIGHT_RADIUS;
     const base = 0;
     const max = 1;
 
-    // Combine skill lists for mapping to itemRefs
     const allSkills = [...skillsLeft, ...skillsRight];
 
     positions.current.forEach((pos, idx) => {
@@ -142,10 +140,8 @@ export default function Skills() {
       const skillString = allSkills[idx];
       const skillCategory = skillCategoryMap[skillString];
 
-      // Check if the skill's category is the selected one
       const isSelected = selectedCategory === skillCategory;
 
-      // Calculate opacity based on cursor position (glow effect)
       const dx = pos.x - cx;
       const dy = pos.y - cy;
       const dist = Math.sqrt(dx * dx + dy * dy);
@@ -153,15 +149,22 @@ export default function Skills() {
       t = Math.pow(t, FALL_OFF);
       const glowOpacity = base + (max - base) * t;
 
-      // Final opacity is either full (if selected) or the glow opacity
-      const finalOpacity = isSelected ? max : glowOpacity;
+      // New logic: Check if showAll is true first, otherwise check selectedCategory, then use glow
+      let finalOpacity;
+      if (showAll) {
+        finalOpacity = max;
+      } else if (isSelected) {
+        finalOpacity = max;
+      } else {
+        finalOpacity = glowOpacity;
+      }
+
       el.style.opacity = String(finalOpacity);
     });
 
     rafRef.current = null;
-  }, [selectedCategory, skillCategoryMap]); // selectedCategory is a dependency now
+  }, [selectedCategory, showAll, skillCategoryMap]);
 
-  // on mouse move, schedule RAF
   const handleMouseMove = useCallback(
     (e) => {
       const cont = containerRef.current;
@@ -175,14 +178,16 @@ export default function Skills() {
     [tick]
   );
 
-  // on enter / leave
   const handleMouseEnter = useCallback(() => {
     if (isTouchDevice) return;
     isInside.current = true;
     const cont = containerRef.current;
     if (cont) cont.style.cursor = "none";
     if (cursorRef.current) cursorRef.current.style.opacity = "1";
-  }, [isTouchDevice]);
+    if (selectedCategory || showAll) {
+      tick();
+    }
+  }, [isTouchDevice, selectedCategory, showAll, tick]);
 
   const handleMouseLeave = useCallback(() => {
     if (isTouchDevice) return;
@@ -190,11 +195,13 @@ export default function Skills() {
     const cont = containerRef.current;
     if (cont) cont.style.cursor = "auto";
     if (cursorRef.current) cursorRef.current.style.opacity = "0";
-    // Reset all item opacities back to base
-    itemRefs.current.forEach((el) => {
-      if (el) el.style.opacity = "0";
-    });
-  }, [isTouchDevice]);
+
+    if (!selectedCategory && !showAll) {
+      itemRefs.current.forEach((el) => {
+        if (el) el.style.opacity = "0";
+      });
+    }
+  }, [isTouchDevice, selectedCategory, showAll]);
 
   useEffect(() => {
     computePositions();
@@ -213,9 +220,10 @@ export default function Skills() {
     };
   }, [computePositions, isTouchDevice]);
 
+  // Use a dedicated useEffect to run the tick function when state changes
   useEffect(() => {
     tick();
-  }, [selectedCategory, tick]);
+  }, [selectedCategory, showAll, tick]);
 
   return (
     <section
@@ -239,8 +247,15 @@ export default function Skills() {
         />
 
         {/* Center */}
-        <div className="flex justify-center">
+        <div className="flex justify-center relative">
           <SkillsCircle data={circleData} onSliceClick={handleSliceClick} />
+          {/* Corrected button: The inline opacity style was removed */}
+          <div
+            onClick={handleShowAllClick}
+            className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer font-bold text-center text-sky-900 transition-opacity duration-300"
+          >
+            {showAll ? "پنهان همه" : "نمایش همه"}
+          </div>
         </div>
 
         {/* Right */}
