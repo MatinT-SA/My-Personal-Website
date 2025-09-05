@@ -1,6 +1,7 @@
+// app/sections/Skills.js
 "use client";
 
-import { useRef, useEffect, useCallback } from "react";
+import { useRef, useEffect, useCallback, useState } from "react";
 import dynamic from "next/dynamic";
 import SkillsList from "../components/skills/SkillsList";
 import SkillsGlowCursor from "../components/skills/SkillsGlowCursor";
@@ -38,6 +39,34 @@ const skillsRight = [
   "طراحی سایت واکنش گرا",
 ];
 
+// Data for the SkillsCircle component
+const circleData = [
+  { name: "Frontend", value: 7, color: "#3b82f6" }, // updated count for skillsRight
+  { name: "Backend", value: 3, color: "#22c55e" }, // updated count for skillsLeft & skillsRight
+  { name: "Databases", value: 1, color: "#facc15" }, // updated count for skillsLeft
+  { name: "Other", value: 4, color: "#a855f7" }, // updated count for skillsLeft
+];
+
+// Map each skill string to its category
+const skillCategoryMap = {
+  "آشنا به زبان برنامه نویسی CSharp": "Backend",
+  "آشنا به Tailwind, Bootstrap, SASS": "Other",
+  "آشنا به Redux": "Other",
+  "تسلط کافی به SQL Server و MySQL": "Databases",
+  "سابقه کار با وردپرس": "Other",
+  "تسلط کافی به Git و GitHub": "Other",
+  "آشنا با مفاهیم SEO": "Other",
+  "RESTful API": "Backend",
+  "تسلط کافی به زبان برنامه نویسی JavaScript": "Frontend",
+  "مسلط به HTML و CSS": "Frontend",
+  "مسلط به کتابخانه ReactJS": "Frontend",
+  "برنامه نویسی MERN Stack": "Backend",
+  "آشنا به Next.js": "Frontend",
+  "آشنا با ThreeJS": "Frontend",
+  "آشنا با کتابخانه jQuery": "Frontend",
+  "طراحی سایت واکنش گرا": "Frontend",
+};
+
 export default function Skills() {
   const containerRef = useRef(null);
   const cursorRef = useRef(null);
@@ -49,6 +78,16 @@ export default function Skills() {
   const isTouchDevice =
     typeof window !== "undefined" &&
     ("ontouchstart" in window || navigator.maxTouchPoints > 0);
+
+  // New state to manage the selected category from the pie chart
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  // Function to handle click on a pie chart slice
+  const handleSliceClick = useCallback((categoryName) => {
+    setSelectedCategory((prevCategory) =>
+      prevCategory === categoryName ? null : categoryName
+    );
+  }, []);
 
   // register item DOM nodes (called by SkillsList)
   const registerItem = useCallback((index, el) => {
@@ -85,30 +124,42 @@ export default function Skills() {
     if (cursorRef.current) {
       cursorRef.current.style.left = `${cx}px`;
       cursorRef.current.style.top = `${cy}px`;
-      // keep visible
       cursorRef.current.style.opacity = isInside.current ? "1" : "0";
     }
 
     // compute distances and set opacity
     const radius = HIGHLIGHT_RADIUS;
-    const base = 0; // base opacity outside the spotlight; set 0 for invisible otherwise 0.03
+    const base = 0;
     const max = 1;
+
+    // Combine skill lists for mapping to itemRefs
+    const allSkills = [...skillsLeft, ...skillsRight];
 
     positions.current.forEach((pos, idx) => {
       const el = itemRefs.current[idx];
       if (!el || !pos) return;
+
+      const skillString = allSkills[idx];
+      const skillCategory = skillCategoryMap[skillString];
+
+      // Check if the skill's category is the selected one
+      const isSelected = selectedCategory === skillCategory;
+
+      // Calculate opacity based on cursor position (glow effect)
       const dx = pos.x - cx;
       const dy = pos.y - cy;
       const dist = Math.sqrt(dx * dx + dy * dy);
-      // linear falloff
       let t = Math.max(0, (radius - dist) / radius);
       t = Math.pow(t, FALL_OFF);
-      const opacity = base + (max - base) * t;
-      el.style.opacity = String(opacity);
+      const glowOpacity = base + (max - base) * t;
+
+      // Final opacity is either full (if selected) or the glow opacity
+      const finalOpacity = isSelected ? max : glowOpacity;
+      el.style.opacity = String(finalOpacity);
     });
 
     rafRef.current = null;
-  }, []);
+  }, [selectedCategory, skillCategoryMap]); // selectedCategory is a dependency now
 
   // on mouse move, schedule RAF
   const handleMouseMove = useCallback(
@@ -116,7 +167,6 @@ export default function Skills() {
       const cont = containerRef.current;
       if (!cont) return;
       const rect = cont.getBoundingClientRect();
-      // cursor position relative to container
       lastPos.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
       if (!rafRef.current) {
         rafRef.current = requestAnimationFrame(tick);
@@ -130,30 +180,27 @@ export default function Skills() {
     if (isTouchDevice) return;
     isInside.current = true;
     const cont = containerRef.current;
-    if (cont) cont.style.cursor = "none"; // hide native cursor
+    if (cont) cont.style.cursor = "none";
     if (cursorRef.current) cursorRef.current.style.opacity = "1";
   }, [isTouchDevice]);
 
   const handleMouseLeave = useCallback(() => {
     if (isTouchDevice) return;
     isInside.current = false;
-    // hide cursor, reset items
     const cont = containerRef.current;
     if (cont) cont.style.cursor = "auto";
     if (cursorRef.current) cursorRef.current.style.opacity = "0";
-    // reset all item opacities back to base (0)
+    // Reset all item opacities back to base
     itemRefs.current.forEach((el) => {
       if (el) el.style.opacity = "0";
     });
   }, [isTouchDevice]);
 
   useEffect(() => {
-    // initial compute and on resize
     computePositions();
     const onResize = () => computePositions();
     window.addEventListener("resize", onResize);
 
-    // if touch device, show items by default and skip cursor logic
     if (isTouchDevice) {
       itemRefs.current.forEach((el) => {
         if (el) el.style.opacity = "1";
@@ -189,7 +236,7 @@ export default function Skills() {
 
         {/* Center */}
         <div className="flex justify-center">
-          <SkillsCircle />
+          <SkillsCircle data={circleData} onSliceClick={handleSliceClick} />
         </div>
 
         {/* Right */}

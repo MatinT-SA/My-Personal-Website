@@ -1,15 +1,21 @@
+// app/components/skills/SkillsCircle.js
 "use client";
 
+import { useCallback } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
-const data = [
-  { name: "Frontend", value: 8, color: "#3b82f6" }, // blue
-  { name: "Backend", value: 5, color: "#22c55e" }, // green
-  { name: "Databases", value: 3, color: "#facc15" }, // yellow
-  { name: "Other", value: 4, color: "#a855f7" }, // purple
-];
+// No more local data variable; it will be passed as a prop from the parent
+export default function SkillsCircle({ data, onSliceClick }) {
+  // New handler function to pass the clicked slice's name back to the parent
+  const handleSliceClick = useCallback(
+    (data, index) => {
+      if (onSliceClick) {
+        onSliceClick(data.name);
+      }
+    },
+    [onSliceClick]
+  );
 
-export default function SkillsCircle() {
   return (
     <div className="h-[300px] w-[300px]">
       <ResponsiveContainer width="100%" height="100%">
@@ -25,6 +31,7 @@ export default function SkillsCircle() {
             paddingAngle={5}
             startAngle={90}
             endAngle={450}
+            onClick={handleSliceClick} // Attach the new click handler
           >
             {data.map((entry, i) => (
               <Cell
