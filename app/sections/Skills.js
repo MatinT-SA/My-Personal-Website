@@ -213,6 +213,10 @@ export default function Skills() {
     };
   }, [computePositions, isTouchDevice]);
 
+  useEffect(() => {
+    tick();
+  }, [selectedCategory, tick]);
+
   return (
     <section
       id="skills"
