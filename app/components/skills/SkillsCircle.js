@@ -1,12 +1,10 @@
 // app/components/skills/SkillsCircle.js
 "use client";
 
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 import { useCallback } from "react";
-import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
-// No more local data variable; it will be passed as a prop from the parent
 export default function SkillsCircle({ data, onSliceClick }) {
-  // New handler function to pass the clicked slice's name back to the parent
   const handleSliceClick = useCallback(
     (data, index) => {
       if (onSliceClick) {
@@ -15,6 +13,16 @@ export default function SkillsCircle({ data, onSliceClick }) {
     },
     [onSliceClick]
   );
+
+  // A custom formatter function to display both the name and value.
+  const tooltipLabelFormatter = (value, name, props) => {
+    // Recharts expects an array of strings or numbers for the tooltip content.
+    // The first element is the value, the second is the name.
+    // We can return a formatted label instead.
+    const categoryName = props.payload.name;
+    const skillCount = props.payload.value;
+    return [`${categoryName}: ${skillCount}`];
+  };
 
   return (
     <div className="h-[300px] w-[300px]">
@@ -31,7 +39,7 @@ export default function SkillsCircle({ data, onSliceClick }) {
             paddingAngle={5}
             startAngle={90}
             endAngle={450}
-            onClick={handleSliceClick} // Attach the new click handler
+            onClick={handleSliceClick}
           >
             {data.map((entry, i) => (
               <Cell
@@ -42,6 +50,8 @@ export default function SkillsCircle({ data, onSliceClick }) {
               />
             ))}
           </Pie>
+          {/* Add the Tooltip component here with the updated formatter */}
+          <Tooltip formatter={tooltipLabelFormatter} />
         </PieChart>
       </ResponsiveContainer>
     </div>
