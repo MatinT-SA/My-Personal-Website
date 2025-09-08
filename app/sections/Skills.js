@@ -1,4 +1,3 @@
-// app/sections/Skills.js
 "use client";
 
 import { useRef, useEffect, useCallback, useState } from "react";
@@ -13,9 +12,8 @@ const SkillsCircle = dynamic(
   }
 );
 
-// tweak these to change glow size / strength:
-const HIGHLIGHT_RADIUS = 260; // px radius of the spotlight where items become visible
-const FALL_OFF = 1.0; // linear falloff multiplier (1 = linear)
+const HIGHLIGHT_RADIUS = 260;
+const FALL_OFF = 1.0;
 
 const skillsLeft = [
   "آشنا به زبان برنامه نویسی CSharp",
@@ -70,8 +68,8 @@ const skillCategoryMap = {
 export default function Skills() {
   const containerRef = useRef(null);
   const cursorRef = useRef(null);
-  const itemRefs = useRef([]); // DOM nodes
-  const positions = useRef([]); // centers relative to container
+  const itemRefs = useRef([]);
+  const positions = useRef([]);
   const rafRef = useRef(null);
   const lastPos = useRef({ x: 0, y: 0 });
   const isInside = useRef(false);
@@ -80,18 +78,18 @@ export default function Skills() {
     ("ontouchstart" in window || navigator.maxTouchPoints > 0);
 
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [showAll, setShowAll] = useState(false); // New state for "show all"
+  const [showAll, setShowAll] = useState(false);
 
   const handleSliceClick = useCallback((categoryName) => {
     setSelectedCategory((prevCategory) =>
       prevCategory === categoryName ? null : categoryName
     );
-    setShowAll(false); // Disable "show all" when a specific category is selected
+    setShowAll(false);
   }, []);
 
   const handleShowAllClick = useCallback(() => {
     setShowAll((prevShowAll) => !prevShowAll);
-    setSelectedCategory(null); // Deselect any category when "show all" is toggled
+    setSelectedCategory(null);
   }, []);
 
   const registerItem = useCallback((index, el) => {
@@ -234,7 +232,7 @@ export default function Skills() {
       onMouseLeave={handleMouseLeave}
       className="relative scroll-mt-20 mx-12 my-16 rounded-[300px_15px] bg-[color:var(--color-blue-light-transparent)] p-6"
     >
-      <h2 className="mb-12 text-center text-3xl font-extrabold text-sky-900">
+      <h2 className="mb-12 text-center text-3xl font-extrabold text-purple-primary">
         مهارت ها
       </h2>
 
