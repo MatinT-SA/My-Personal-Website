@@ -43,6 +43,7 @@ export default function SkillsCircle({ data, onSliceClick }) {
                 fill={entry.color}
                 stroke="#fff"
                 strokeWidth={1.5}
+                className="cursor-pointer"
               />
             ))}
           </Pie>
