@@ -22,7 +22,7 @@ export default function SkillsCircle({ data, onSliceClick }) {
   return (
     <div className="h-[300px] w-[300px]">
       <ResponsiveContainer width="100%" height="100%">
-        <PieChart className="focus:outline-none">
+        <PieChart>
           <Pie
             data={data}
             dataKey="value"
@@ -35,7 +35,6 @@ export default function SkillsCircle({ data, onSliceClick }) {
             startAngle={90}
             endAngle={450}
             onClick={handleSliceClick}
-            className="focus:outline-none"
           >
             {data.map((entry, i) => (
               <Cell
