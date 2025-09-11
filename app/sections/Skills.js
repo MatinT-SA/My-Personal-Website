@@ -247,7 +247,6 @@ export default function Skills() {
         {/* Center */}
         <div className="flex justify-center relative">
           <SkillsCircle data={circleData} onSliceClick={handleSliceClick} />
-          {/* Corrected button: The inline opacity style was removed */}
           <div
             onClick={handleShowAllClick}
             className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer font-bold text-center text-sky-900 transition-opacity duration-300"
