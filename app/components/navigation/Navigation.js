@@ -16,7 +16,7 @@ export default function Navigation() {
     { id: "home", label: "خانه" },
     { id: "about-me", label: "درباره من" },
     { id: "skills", label: "مهارت ها" },
-    { id: "resume", label: "نمونه کارها" },
+    { id: "projects", label: "نمونه کارها" },
     { id: "contact", label: "راه های ارتباطی" },
     { id: "comment", label: "ارسال پیام" },
   ];

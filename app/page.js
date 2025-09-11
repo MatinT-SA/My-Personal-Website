@@ -1,11 +1,11 @@
-import HomeSection from "./sections/HomeSection";
 import AboutMe from "./sections/AboutMe";
-import Skills from "./sections/Skills";
-import Resume from "./sections/Resume";
-import EntrepreneurQuotes from "./sections/EntrepreneurQuotes";
-import Contact from "./sections/Contact";
 import Comment from "./sections/Comment";
+import Contact from "./sections/Contact";
+import EntrepreneurQuotes from "./sections/EntrepreneurQuotes";
 import Footer from "./sections/Footer";
+import HomeSection from "./sections/HomeSection";
+import Projects from "./sections/Projects";
+import Skills from "./sections/Skills";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       <HomeSection />
       <AboutMe />
       <Skills />
-      <Resume />
+      <Projects />
       <EntrepreneurQuotes />
       <Contact />
       <Comment />
