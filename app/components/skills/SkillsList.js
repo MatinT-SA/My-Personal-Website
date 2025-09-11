@@ -12,7 +12,6 @@ export default function SkillsList({
           key={baseIndex + i}
           ref={(el) => registerItem(baseIndex + i, el)}
           className="flex items-center justify-center py-2 text-md font-medium text-dark-primary"
-          // start fully hidden; we'll control opacity via inline style (DOM)
           style={{
             opacity: 0,
             transition: "opacity 120ms linear",
