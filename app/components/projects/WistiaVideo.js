@@ -1,7 +1,7 @@
 import React from "react";
 
 const WistiaVideo = ({ wistiaId }) => (
-  <div className="w-full max-w-[80%] mx-auto mt-8">
+  <div className="w-full">
     <div
       className="wistia_responsive_padding"
       style={{ padding: "47.92% 0 0 0", position: "relative" }}

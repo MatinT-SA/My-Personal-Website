@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import Script from "next/script";
 import WistiaVideo from "../components/projects/WistiaVideo";
 
 const PROJECTS = [
@@ -10,35 +11,35 @@ const PROJECTS = [
     name: "Stelix Website",
     description:
       "اولین پروژه ام با Next.js در کنار React و Tailwindcss که در اصل سایت مشتری پروژه قبلی ما یعنی Stelix هست. این وبسایت کاملا ریسپانسیو و مبتنی بر اصول حرفه ای کد نوشته شده که برای سیستم رزرو سوئیت در هتل میباشد.",
-    wistiaId: "tp8e04tq2i",
+    wistiaId: "placeholder-id-1",
   },
   {
     id: "stelix",
     name: "Stelix",
     description:
       "یک پروژه فول استک با استفاده از React، Vite، React Query، Supabase و بسیاری تکنولوژی‌ دیگر. یک سیستم پذیرش هتل که شامل احراز هویت، مدیریت رزروها، عملیات CRUD، فرم‌های پیشرفته و داشبورد تحلیلی می‌باشد.",
-    wistiaId: "ei6wx8l1ph",
+    wistiaId: "placeholder-id-2",
   },
   {
     id: "zesty",
     name: "Zesty",
     description:
       "وب اپ ریسپانسیو برای سفارش غذا از رستوران با استفاده از React + Vite. این اپ از Three.js و Redux Toolkit نیز بهره برده و یک تجربه کاربری دلچسب به کاربر می دهد.",
-    wistiaId: "yug44k97un",
+    wistiaId: "placeholder-id-3",
   },
   {
     id: "travex",
     name: "Travex",
     description:
       "یک پروژه ریسپانسیو با ری‌اکت با استفاده از useReducer و Context API برای مدیریت کردن state ها. یک نقشه تعاملگرا با استفاده از leaflet. ابزاری همچون Datepicker, React-toastify, react-router-dom برای یک تجربه کاربری دلچسب",
-    wistiaId: "yzs3wso7l9",
+    wistiaId: "placeholder-id-4",
   },
   {
     id: "rateflicks",
     name: "Rateflicks",
     description:
       "یک اپلیکیشن ری‌اکت برای رتبه‌بندی فیلم ها کاملا ریسپانسیو. قابلیت جستجوی فیلم‌ها، و نمایش بر اساس رتبه بندی ها. قابلیت هایی مانند جستجو، واکشی داده‌ها از API. همچنین از react-spinners و react-toastify استفاده کرده‌ام.",
-    wistiaId: "1xj3edyvq7",
+    wistiaId: "placeholder-id-5",
   },
   {
     id: "project-6",
@@ -72,19 +73,23 @@ const PROJECTS = [
   },
 ];
 
+const BUTTON_WIDTH_PX = 160;
+const BUTTON_GAP_PX = 40;
+
 export default function ProjectsSection() {
   const [startIndex, setStartIndex] = useState(0);
   const [activeProjectId, setActiveProjectId] = useState(null);
   const visibleProjects = 5;
 
+  // RTL Logic: Next button moves to a smaller index, Prev moves to a larger index.
   const handleNext = () => {
-    setStartIndex((prevIndex) =>
-      Math.min(prevIndex + 1, PROJECTS.length - visibleProjects)
-    );
+    setStartIndex((prevIndex) => Math.max(prevIndex - 1, 0));
   };
 
   const handlePrev = () => {
-    setStartIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+    setStartIndex((prevIndex) =>
+      Math.min(prevIndex + 1, PROJECTS.length - visibleProjects)
+    );
   };
 
   const handleAccordionToggle = (projectId) => {
@@ -94,29 +99,36 @@ export default function ProjectsSection() {
   return (
     <section
       id="Resume"
-      className="padding-top-5 px-4 bg-[#2c1537] text-[#a8c6de] py-20"
+      className="padding-top-5 px-4  text-[#a8c6de] py-20"
+      dir="rtl"
     >
       <div className="container mx-auto">
-        <h2 className="main-titles text-center text-3xl font-bold mb-12 text-[#dae7f1]">
+        <h2 className="main-titles text-center text-3xl font-bold mb-12 text-purple-primary">
           نمونه کارها
         </h2>
 
-        <div id="accordion" className="panel relative">
-          <div className="w-full flex justify-center items-center">
-            {/* Left Arrow Button */}
+        <div
+          id="accordion"
+          className="panel relative flex justify-center items-center"
+        >
+          <div className="w-6xl bg-white flex justify-center items-center rounded-md">
+            {/* Left Arrow Button (Now controls Prev) */}
             <motion.button
               onClick={handlePrev}
-              disabled={startIndex === 0}
+              disabled={startIndex >= PROJECTS.length - visibleProjects}
               className={`
                 absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2
                 ${
-                  startIndex === 0
-                    ? "opacity-0 cursor-default"
+                  startIndex >= PROJECTS.length - visibleProjects
+                    ? "opacity-0 cursor-default pointer-events-none"
                     : "opacity-100 cursor-pointer"
                 }
               `}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: startIndex === 0 ? 0 : 1 }}
+              initial={{ opacity: 1 }}
+              animate={{
+                opacity:
+                  startIndex >= PROJECTS.length - visibleProjects ? 0 : 1,
+              }}
               transition={{ duration: 0.3 }}
             >
               <svg
@@ -139,14 +151,20 @@ export default function ProjectsSection() {
             <div className="w-full overflow-hidden">
               <motion.ul
                 id="Resume-items"
-                className="flex flex-nowrap w-full"
-                animate={{ x: `-${startIndex * (100 / visibleProjects)}%` }}
+                className="flex flex-nowrap justify-center"
+                animate={{
+                  x: `-${startIndex * (BUTTON_WIDTH_PX + BUTTON_GAP_PX)}px`,
+                }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 {PROJECTS.map((project) => (
                   <motion.li
                     key={project.id}
-                    className="flex-shrink-0 w-1/5 my-4 px-6 relative flex flex-col items-center justify-center cursor-pointer group"
+                    className="flex-shrink-0 relative flex flex-col items-center justify-center cursor-pointer group"
+                    style={{
+                      width: `${BUTTON_WIDTH_PX}px`,
+                      margin: `16px ${BUTTON_GAP_PX / 2}px`,
+                    }}
                   >
                     {/* Custom Tooltip */}
                     <div className="CustomTooltip absolute top-[-70px] right-[-50%] md:right-auto md:left-1/2 md:-translate-x-1/2 opacity-0 group-hover:opacity-100 bg-[#fff] text-[#2c1537] text-[13px] p-4 rounded-full shadow-lg transition-opacity duration-300 z-20 whitespace-nowrap">
@@ -156,11 +174,15 @@ export default function ProjectsSection() {
                     <button
                       onClick={() => handleAccordionToggle(project.id)}
                       className={`
-                        btn-Resume-buttons relative px-8 py-4 font-semibold text-lg rounded-full overflow-hidden transition-all duration-300 w-full z-10
-                        ${activeProjectId === project.id ? "active" : ""}
+                        relative px-4 py-2 font-semibold text-lg rounded-sm overflow-hidden transition-all duration-300 w-full z-10
+                        ${
+                          activeProjectId === project.id
+                            ? "text-blue-light bg-purple-primary"
+                            : "text-purple-primary"
+                        }
                       `}
                     >
-                      {project.name}
+                      <span className="relative z-20">{project.name}</span>
                       <span className="absolute left-0 right-0 top-0 bottom-0 z-[-1] bg-[#a8c6de] transition-transform duration-300 origin-left transform-scale-x-0 group-hover:scale-x-100"></span>
                     </button>
                   </motion.li>
@@ -168,23 +190,20 @@ export default function ProjectsSection() {
               </motion.ul>
             </div>
 
-            {/* Right Arrow Button */}
+            {/* Right Arrow Button (Now controls Next) */}
             <motion.button
               onClick={handleNext}
-              disabled={startIndex >= PROJECTS.length - visibleProjects}
+              disabled={startIndex === 0}
               className={`
                 absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2
                 ${
-                  startIndex >= PROJECTS.length - visibleProjects
-                    ? "opacity-0 cursor-default"
+                  startIndex === 0
+                    ? "opacity-0 cursor-default pointer-events-none"
                     : "opacity-100 cursor-pointer"
                 }
               `}
               initial={{ opacity: 1 }}
-              animate={{
-                opacity:
-                  startIndex >= PROJECTS.length - visibleProjects ? 0 : 1,
-              }}
+              animate={{ opacity: startIndex === 0 ? 0 : 1 }}
               transition={{ duration: 0.3 }}
             >
               <svg
@@ -205,28 +224,23 @@ export default function ProjectsSection() {
           </div>
 
           {/* Accordion Content */}
-          <div className="panel-collapse collapse">
-            {PROJECTS.map((project) => (
+          <AnimatePresence mode="wait">
+            {activeProjectId && (
               <motion.div
-                key={`video-${project.id}`}
+                key={activeProjectId}
                 initial={{ opacity: 0, height: 0 }}
-                animate={{
-                  opacity: activeProjectId === project.id ? 1 : 0,
-                  height: activeProjectId === project.id ? "auto" : 0,
-                }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className={`overflow-hidden ${
-                  activeProjectId === project.id ? "block" : "hidden"
-                }`}
               >
-                <WistiaVideo wistiaId={project.wistiaId} />
+                <WistiaVideo wistiaId={activeProjectId} />
               </motion.div>
-            ))}
-          </div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
       {/* Wistia Player Script */}
-      <script src="https://fast.wistia.net/player.js" async></script>
+      <Script src="https://fast.wistia.net/player.js" strategy="lazyOnload" />
     </section>
   );
 }
