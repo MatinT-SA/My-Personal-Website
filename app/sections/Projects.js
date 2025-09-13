@@ -111,7 +111,7 @@ export default function ProjectsSection() {
           id="accordion"
           className="panel relative flex justify-center items-center"
         >
-          <div className="w-6xl bg-white flex justify-center items-center rounded-md">
+          <div className="w-6xl bg-white shadow-custom-blue flex justify-center items-center rounded-md">
             {/* Left Arrow Button (Now controls Prev) */}
             <motion.button
               onClick={handlePrev}
