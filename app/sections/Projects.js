@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Script from "next/script";
 import WistiaVideo from "../components/projects/WistiaVideo";
@@ -73,15 +73,20 @@ const PROJECTS = [
   },
 ];
 
-const BUTTON_WIDTH_PX = 160;
-const BUTTON_GAP_PX = 40;
-
 export default function ProjectsSection() {
   const [startIndex, setStartIndex] = useState(0);
   const [activeProjectId, setActiveProjectId] = useState(null);
+  const [containerWidth, setContainerWidth] = useState(0);
+  const containerRef = useRef(null);
   const visibleProjects = 5;
 
-  // RTL Logic: Next button moves to a smaller index, Prev moves to a larger index.
+  useEffect(() => {
+    if (containerRef.current) {
+      setContainerWidth(containerRef.current.clientWidth);
+    }
+  }, []);
+
+  // Corrected RTL logic: Next moves to a smaller index (to the left), Prev moves to a larger index (to the right).
   const handleNext = () => {
     setStartIndex((prevIndex) => Math.max(prevIndex - 1, 0));
   };
@@ -99,7 +104,7 @@ export default function ProjectsSection() {
   return (
     <section
       id="Resume"
-      className="padding-top-5 px-4  text-[#a8c6de] py-20"
+      className="padding-top-5 px-4 text-[#a8c6de] py-20"
       dir="rtl"
     >
       <div className="container mx-auto">
@@ -112,7 +117,7 @@ export default function ProjectsSection() {
           className="panel relative flex justify-center items-center"
         >
           <div className="w-6xl bg-white shadow-custom-blue flex justify-center items-center rounded-md">
-            {/* Left Arrow Button (Now controls Prev) */}
+            {/* Previous Arrow Button (Left side) */}
             <motion.button
               onClick={handlePrev}
               disabled={startIndex >= PROJECTS.length - visibleProjects}
@@ -148,23 +153,20 @@ export default function ProjectsSection() {
             </motion.button>
 
             {/* Slider Window */}
-            <div className="w-full overflow-hidden">
+            <div className="w-full overflow-hidden" ref={containerRef}>
               <motion.ul
                 id="Resume-items"
-                className="flex flex-nowrap justify-center"
+                className="flex flex-nowrap w-full"
                 animate={{
-                  x: `-${startIndex * (BUTTON_WIDTH_PX + BUTTON_GAP_PX)}px`,
+                  x: `${startIndex * (containerWidth / visibleProjects)}px`,
                 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 {PROJECTS.map((project) => (
                   <motion.li
                     key={project.id}
-                    className="flex-shrink-0 relative flex flex-col items-center justify-center cursor-pointer group"
-                    style={{
-                      width: `${BUTTON_WIDTH_PX}px`,
-                      margin: `16px ${BUTTON_GAP_PX / 2}px`,
-                    }}
+                    className="flex-grow flex-shrink-0 relative my-4 px-4 flex flex-col items-center justify-center cursor-pointer group"
+                    style={{ flexBasis: `calc(100% / ${visibleProjects})` }}
                   >
                     {/* Custom Tooltip */}
                     <div className="CustomTooltip absolute top-[-70px] right-[-50%] md:right-auto md:left-1/2 md:-translate-x-1/2 opacity-0 group-hover:opacity-100 bg-[#fff] text-[#2c1537] text-[13px] p-4 rounded-full shadow-lg transition-opacity duration-300 z-20 whitespace-nowrap">
@@ -190,7 +192,7 @@ export default function ProjectsSection() {
               </motion.ul>
             </div>
 
-            {/* Right Arrow Button (Now controls Next) */}
+            {/* Next Arrow Button (Right side) */}
             <motion.button
               onClick={handleNext}
               disabled={startIndex === 0}
