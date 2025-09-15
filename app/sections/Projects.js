@@ -182,7 +182,7 @@ export default function ProjectsSection() {
                         group-hover:text-blue-light
                         ${
                           activeProjectId === project.id
-                            ? "bg-purple-primary text-blue-light"
+                            ? "bg-purple-primary text-blue-light focus:text-blue-light"
                             : ""
                         }
                       `}
