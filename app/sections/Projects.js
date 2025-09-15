@@ -173,9 +173,15 @@ export default function ProjectsSection() {
       dir="rtl"
     >
       <div className="container mx-auto">
-        <h2 className="main-titles text-center text-3xl font-bold mb-12 text-purple-primary">
+        <motion.h2
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="main-titles text-center text-3xl font-bold mb-12 text-purple-primary"
+        >
           نمونه کارها
-        </h2>
+        </motion.h2>
 
         <div id="accordion" className="panel relative flex justify-center">
           <motion.button
