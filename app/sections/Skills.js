@@ -230,7 +230,7 @@ export default function Skills() {
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="relative scroll-mt-20 mx-12 my-16 rounded-[300px_15px] bg-[color:var(--color-blue-light-transparent)] p-6"
+      className="relative scroll-mt-24 mx-12 my-16 rounded-[300px_15px] bg-[color:var(--color-blue-light-transparent)] p-6"
     >
       <h2 className="mb-12 text-center text-3xl font-extrabold text-purple-primary">
         مهارت ها
