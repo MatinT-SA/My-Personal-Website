@@ -86,7 +86,6 @@ export default function ProjectsSection() {
     }
   }, []);
 
-  // Corrected RTL logic: Next moves to a smaller index (to the left), Prev moves to a larger index (to the right).
   const handleNext = () => {
     setStartIndex((prevIndex) => Math.max(prevIndex - 1, 0));
   };
@@ -108,7 +107,7 @@ export default function ProjectsSection() {
       dir="rtl"
     >
       <div className="container mx-auto">
-        <h2 className="main-titles text-center text-3xl font-bold mb-12 text-purple-primary">
+        <h2 className="main-titles text-center text-3xl font-bold mb-12 text-[--color-purple-primary]">
           نمونه کارها
         </h2>
 
@@ -142,7 +141,7 @@ export default function ProjectsSection() {
                 viewBox="0 0 24 24"
                 strokeWidth={2.5}
                 stroke="currentColor"
-                className="w-8 h-8 text-[#a8c6de] hover:text-[#dae7f1]"
+                className="w-8 h-8 text-[--color-blue-light] hover:text-[#dae7f1]"
               >
                 <path
                   strokeLinecap="round"
@@ -176,16 +175,26 @@ export default function ProjectsSection() {
                     <button
                       onClick={() => handleAccordionToggle(project.id)}
                       className={`
-                        relative px-4 py-2 font-semibold text-lg rounded-sm overflow-hidden transition-all duration-300 w-full z-10
+                        relative w-full z-10
+                        cursor-pointer outline-none border-none overflow-hidden transition-all duration-300
+                        p-[0.9rem] px-[1.8rem] text-base font-semibold rounded-sm
+                        text-purple-primary bg-[rgba(168,198,222,0.4)]
+                        group-hover:text-blue-light
                         ${
                           activeProjectId === project.id
-                            ? "text-blue-light bg-purple-primary"
-                            : "text-purple-primary"
+                            ? "bg-purple-primary text-blue-light"
+                            : ""
                         }
                       `}
                     >
+                      <span
+                        className={`
+                          absolute inset-0 z-[-1] bg-purple-primary
+                          scale-x-0 origin-left transition-transform duration-300 ease-in-out
+                          group-hover:scale-x-100 group-hover:shadow-[0_2px_6px_var(--color-purple-primary)]
+                        `}
+                      ></span>
                       <span className="relative z-20">{project.name}</span>
-                      <span className="absolute left-0 right-0 top-0 bottom-0 z-[-1] bg-[#a8c6de] transition-transform duration-300 origin-left transform-scale-x-0 group-hover:scale-x-100"></span>
                     </button>
                   </motion.li>
                 ))}
@@ -214,7 +223,7 @@ export default function ProjectsSection() {
                 viewBox="0 0 24 24"
                 strokeWidth={2.5}
                 stroke="currentColor"
-                className="w-8 h-8 text-[#a8c6de] hover:text-[#dae7f1]"
+                className="w-8 h-8 text-[--color-blue-light] hover:text-[#dae7f1]"
               >
                 <path
                   strokeLinecap="round"
