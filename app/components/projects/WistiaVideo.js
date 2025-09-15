@@ -20,7 +20,7 @@ const WistiaVideo = ({ wistiaId }) => (
           src={`https://fast.wistia.net/embed/iframe/${wistiaId}?web_component=true&seo=true`}
           title={`Project Video`}
           allow="autoplay; fullscreen"
-          allowTransparency="true"
+          allowtransparency="true" // Corrected this line
           frameBorder="0"
           scrolling="no"
           className="wistia_embed rounded-md shadow-md"
