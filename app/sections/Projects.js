@@ -60,7 +60,7 @@ const PROJECTS = [
     name: "Banklist",
     description:
       "پروژه Banklist یک راه‌حل کامل بانکی است که از دو بخش مجزا تشکیل شده است: یک وبسایت با رابط کاربری جذاب و انیمیشن‌های چشم‌نواز برای مشتریان، و یک وب‌اپلیکیشن کاملاً واکنش‌گرا برای کارمندان. این وب‌اپلیکیشن که عمدتاً با جاوااسکریپت (فرانت‌اند) توسعه یافته، برای مدیریت و نمایش تراکنش‌های بانکی به صورت داینامیک طراحی شده است. از ویژگی‌های برجسته آن می‌توان به رابط کاربری روان، قابلیت‌های فیلتر پیشرفته و نمایش کاربردی طیف وسیعی از متدهای آرایه در جاوااسکریپت اشاره کرد.",
-    wistiaId: "9gi2lfw6g1 ",
+    wistiaId: "9gi2lfw6g1",
   },
   {
     id: "tele-note",
@@ -116,46 +116,44 @@ export default function ProjectsSection() {
           نمونه کارها
         </h2>
 
-        <div id="accordion" className="panel relative">
-          {/* NEW CONTAINER ADDED HERE to handle centering */}
-          <div className="flex items-center justify-center">
-            {/* The old inner container for the button slider is now a child of the new flex container */}
-            <div className="w-6xl bg-white shadow-custom-blue flex justify-center items-center rounded-md">
-              {/* Previous Arrow Button (Left side) */}
-              <motion.button
-                onClick={handlePrev}
-                disabled={startIndex >= PROJECTS.length - visibleProjects}
-                className={`
-                  absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2
-                  ${
-                    startIndex >= PROJECTS.length - visibleProjects
-                      ? "opacity-0 cursor-default pointer-events-none"
-                      : "opacity-100 cursor-pointer"
-                  }
-                `}
-                initial={{ opacity: 1 }}
-                animate={{
-                  opacity:
-                    startIndex >= PROJECTS.length - visibleProjects ? 0 : 1,
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2.5}
-                  stroke="currentColor"
-                  className="w-8 h-8 text-blue-light hover:text-[#dae7f1]"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 19.5 8.25 12l7.5-7.5"
-                  />
-                </svg>
-              </motion.button>
+        <div id="accordion" className="panel relative flex justify-center">
+          {/* Previous Arrow Button (Left side) - OUTSIDE the box */}
+          <motion.button
+            onClick={handlePrev}
+            disabled={startIndex >= PROJECTS.length - visibleProjects}
+            className={`
+              absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2
+              ${
+                startIndex >= PROJECTS.length - visibleProjects
+                  ? "opacity-0 cursor-default pointer-events-none"
+                  : "opacity-100 cursor-pointer"
+              }
+            `}
+            initial={{ opacity: 1 }}
+            animate={{
+              opacity: startIndex >= PROJECTS.length - visibleProjects ? 0 : 1,
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2.5}
+              stroke="currentColor"
+              className="w-8 h-8 text-blue-light hover:text-[#dae7f1]"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 19.5 8.25 12l7.5-7.5"
+              />
+            </svg>
+          </motion.button>
 
+          {/* This container now holds both the slider and the video */}
+          <div className="w-6xl bg-white shadow-custom-blue rounded-md">
+            <div className="flex justify-center items-center relative">
               {/* Slider Window */}
               <div className="w-full overflow-hidden" ref={containerRef}>
                 <motion.ul
@@ -205,55 +203,56 @@ export default function ProjectsSection() {
                   ))}
                 </motion.ul>
               </div>
-
-              {/* Next Arrow Button (Right side) */}
-              <motion.button
-                onClick={handleNext}
-                disabled={startIndex === 0}
-                className={`
-                  absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2
-                  ${
-                    startIndex === 0
-                      ? "opacity-0 cursor-default pointer-events-none"
-                      : "opacity-100 cursor-pointer"
-                  }
-                `}
-                initial={{ opacity: 1 }}
-                animate={{ opacity: startIndex === 0 ? 0 : 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2.5}
-                  stroke="currentColor"
-                  className="w-8 h-8 text-blue-light hover:text-[#dae7f1]"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-              </motion.button>
             </div>
+
+            {/* Accordion Content is now a child of the box-shadowed div */}
+            <AnimatePresence mode="wait">
+              {activeProjectId && (
+                <motion.div
+                  key={activeProjectId}
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="my-8 mx-auto max-w-2xl"
+                >
+                  <WistiaVideo wistiaId={activeProjectId} />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
-          {/* Accordion Content is now a sibling, not a child of the flex container */}
-          <AnimatePresence mode="wait">
-            {activeProjectId && (
-              <motion.div
-                key={activeProjectId}
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-              >
-                <WistiaVideo wistiaId={activeProjectId} />
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {/* Next Arrow Button (Right side) - OUTSIDE the box */}
+          <motion.button
+            onClick={handleNext}
+            disabled={startIndex === 0}
+            className={`
+              absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2
+              ${
+                startIndex === 0
+                  ? "opacity-0 cursor-default pointer-events-none"
+                  : "opacity-100 cursor-pointer"
+              }
+            `}
+            initial={{ opacity: 1 }}
+            animate={{ opacity: startIndex === 0 ? 0 : 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2.5}
+              stroke="currentColor"
+              className="w-8 h-8 text-blue-light hover:text-[#dae7f1]"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+              />
+            </svg>
+          </motion.button>
         </div>
       </div>
       {/* Wistia Player Script */}

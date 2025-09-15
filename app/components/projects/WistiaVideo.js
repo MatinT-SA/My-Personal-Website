@@ -1,7 +1,10 @@
+// src/components/projects/WistiaVideo.js
+"use client";
+
 import React from "react";
 
-const WistiaVideo = ({ wistiaId }) => (
-  <div className="w-full">
+const WistiaVideo = ({ wistiaId }) => {
+  return (
     <div
       className="wistia_responsive_padding"
       style={{ padding: "47.92% 0 0 0", position: "relative" }}
@@ -18,19 +21,19 @@ const WistiaVideo = ({ wistiaId }) => (
       >
         <iframe
           src={`https://fast.wistia.net/embed/iframe/${wistiaId}?web_component=true&seo=true`}
-          title={`Project Video`}
-          allow="autoplay; fullscreen"
-          allowtransparency="true" // Corrected this line
+          title="Video Player"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowtransparency="true"
           frameBorder="0"
           scrolling="no"
-          className="wistia_embed rounded-md shadow-md"
+          className="wistia_embed"
           name="wistia_embed"
           width="100%"
           height="100%"
         ></iframe>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default WistiaVideo;
