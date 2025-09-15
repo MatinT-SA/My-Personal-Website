@@ -45,7 +45,7 @@ const PROJECTS = [
     id: "goal-tracker",
     name: "Goal Tracker",
     description:
-      "این پروژه یک اپلیکیشن کاملاً واکنش‌گرای React برای ردیابی اهداف بر اساس اولویت‌بندی آن‌هاست. برنامه دارای یک نوار پیشرفت برای نمایش وضعیت اهداف تکمیل‌شده است و با استفاده از React Hooks (مانند useState و useEffect) و مفاهیم پیشرفته‌ای چون forwardRef، به یک اپلیکیشن مدرن و کاربردی تبدیل شده است.",
+      "یک وب اپ واکنش‌گرای React برای ردیابی اهداف بر اساس اولویت‌ بندی آن‌ هاست. برنامه یک نوار پیشرفت برای نمایش وضعیت اهداف تکمیل‌ شده داره و با استفاده از React Hooks و مفاهیم پیشرفته‌ای چون forwardRef، کدنویسی شده.",
     wistiaId: "ccdh5lh9yp",
   },
   {
@@ -59,21 +59,21 @@ const PROJECTS = [
     id: "banklist",
     name: "Banklist",
     description:
-      "پروژه Banklist یک راه‌حل کامل بانکی است که از دو بخش مجزا تشکیل شده است: یک وبسایت با رابط کاربری جذاب و انیمیشن‌های چشم‌نواز برای مشتریان، و یک وب‌اپلیکیشن کاملاً واکنش‌گرا برای کارمندان. این وب‌اپلیکیشن که عمدتاً با جاوااسکریپت (فرانت‌اند) توسعه یافته، برای مدیریت و نمایش تراکنش‌های بانکی به صورت داینامیک طراحی شده است. از ویژگی‌های برجسته آن می‌توان به رابط کاربری روان، قابلیت‌های فیلتر پیشرفته و نمایش کاربردی طیف وسیعی از متدهای آرایه در جاوااسکریپت اشاره کرد.",
+      "یک پروژه بانکی هست که از دو بخش وبسایت سمت مشتری و یک وب‌ اپ واکنش‌گرا برای کارمندان تشکیل شده. با JS توسعه یافته، برای مدیریت و نمایش تراکنش‌ های بانکی. رابط کاربری روان، قابلیت‌ فیلتر پیشرفته و نمایش کاربردی طیف وسیعی از متدهای آرایه در JS.",
     wistiaId: "9gi2lfw6g1",
   },
   {
     id: "tele-note",
     name: "TeleNote",
     description:
-      "TeleNote یک اپلیکیشن شبکه‌اجتماعی کامل است که با استفاده از پشته فناوری MERN توسعه یافته است. کاربران می‌توانند حساب کاربری ایجاد کرده و به راحتی فعالیت‌ها و لحظات خود را با دیگران به اشتراک بگذارند. این برنامه قابلیت‌های کاملی مانند ایجاد، ویرایش و حذف پست‌ها، و همچنین امکاناتی چون لایک کردن، کامنت گذاشتن، جستجوی پیشرفته و صفحه‌بندی را فراهم می‌کند.",
+      "یک وب اپ شبکه‌اجتماعی کامل هست که با استفاده از MERN توسعه یافته. کاربران میتوانند اکانت بسازند و فعالیت‌ ها و لحظات خود را با دیگران به اشتراک بذارند. قابلیت‌ هایی مانند عملیات CRUD، لایک کردن، کامنت گذاشتن، جستجوی پیشرفته و صفحه‌بندی.",
     wistiaId: "vx3wuep3a3",
   },
   {
     id: "track-map",
     name: "Track Map",
     description:
-      "یک اپلیکیشن نقشه کاملاً واکنش‌گرا که به کاربران امکان می‌دهد فعالیت‌های خود را بر اساس موقعیت فعلی یا هر مکان دلخواه دیگری ردیابی و ثبت کنند. این اپلیکیشن از APIهای مختلفی مانند Big Data Cloud و OpenStreetMap برای ارائه نقشه‌های دقیق و تعاملی بهره می‌برد.",
+      "یک وب اپ نقشه واکنش‌گرا که به کاربران امکان میده فعالیت‌ های خود را بر اساس موقعیت فعلی یا هر مکان دلخواه دیگری ردیابی و ثبت کنند. این برنامه از APIهای مختلفی مانند Big Data Cloud و OpenStreetMap برای ارائه نقشه‌ های دقیق و تعاملی بهره میبرد.",
     wistiaId: "av0onexjn1",
   },
 ];
@@ -82,8 +82,12 @@ export default function ProjectsSection() {
   const [startIndex, setStartIndex] = useState(0);
   const [activeProjectId, setActiveProjectId] = useState(null);
   const [containerWidth, setContainerWidth] = useState(0);
+  const [isSliding, setIsSliding] = useState(false);
   const containerRef = useRef(null);
   const visibleProjects = 5;
+
+  const tooltipTimerRef = useRef(null);
+  const slidingTimerRef = useRef(null);
 
   const [tooltip, setTooltip] = useState({
     content: null,
@@ -106,13 +110,27 @@ export default function ProjectsSection() {
   }, []);
 
   const handleNext = () => {
+    // Start sliding, then update the index after a short delay to match the animation
+    setIsSliding(true);
     setStartIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+    // Set a timer to end the sliding state after the animation is complete
+    clearTimeout(slidingTimerRef.current);
+    slidingTimerRef.current = setTimeout(() => {
+      setIsSliding(false);
+    }, 500); // Matches the animation duration of 0.5s
   };
 
   const handlePrev = () => {
+    // Start sliding, then update the index after a short delay to match the animation
+    setIsSliding(true);
     setStartIndex((prevIndex) =>
       Math.min(prevIndex + 1, PROJECTS.length - visibleProjects)
     );
+    // Set a timer to end the sliding state after the animation is complete
+    clearTimeout(slidingTimerRef.current);
+    slidingTimerRef.current = setTimeout(() => {
+      setIsSliding(false);
+    }, 500); // Matches the animation duration of 0.5s
   };
 
   const handleAccordionToggle = (projectId) => {
@@ -120,20 +138,29 @@ export default function ProjectsSection() {
   };
 
   const handleMouseEnter = (event, description) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const TOOLTIP_HEIGHT = 120; // Approximate height of the tooltip to position it correctly
-    const TOOLTIP_GAP = 15; // Controls the space between the button and the tooltip
+    // DO NOT SHOW THE TOOLTIP IF THE CAROUSEL IS CURRENTLY SLIDING
+    if (isSliding) {
+      return;
+    }
 
-    setTooltip({
-      content: description,
-      visible: true,
-      x: rect.left - rect.width / 8,
-      // Position the tooltip at the button's top minus its own height and the gap
-      y: rect.top - TOOLTIP_HEIGHT - TOOLTIP_GAP,
-    });
+    const rect = event.currentTarget.getBoundingClientRect();
+    const TOOLTIP_HEIGHT = 120; // Approximate height of the tooltip
+    const TOOLTIP_GAP = 15; // Space between the button and tooltip
+    const TOOLTIP_DELAY = 100; // Delay in milliseconds (e.g., 500ms = 0.5 seconds)
+
+    clearTimeout(tooltipTimerRef.current);
+    tooltipTimerRef.current = setTimeout(() => {
+      setTooltip({
+        content: description,
+        visible: true,
+        x: rect.left - rect.width / 8,
+        y: rect.top - TOOLTIP_HEIGHT - TOOLTIP_GAP,
+      });
+    }, TOOLTIP_DELAY);
   };
 
   const handleMouseLeave = () => {
+    clearTimeout(tooltipTimerRef.current);
     setTooltip({ ...tooltip, visible: false });
   };
 
@@ -310,7 +337,7 @@ export default function ProjectsSection() {
               left: tooltip.x,
               transform: "translateX(-50%)",
             }}
-            className="bg-[#fff] text-[#2c1537] text-[13px] p-4 rounded-full shadow-lg z-[9999] pointer-events-none w-[350px]"
+            className="bg-[#fff] text-[#2c1537] text-[13px] p-4 rounded-full shadow-lg z-[9999] pointer-events-none w-[400px]"
           >
             {tooltip.content}
           </motion.div>
