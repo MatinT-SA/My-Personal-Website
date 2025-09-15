@@ -105,6 +105,8 @@ export default function ProjectsSection() {
     setActiveProjectId(activeProjectId === projectId ? null : projectId);
   };
 
+  const activeProject = PROJECTS.find((p) => p.id === activeProjectId);
+
   return (
     <section
       id="projects"
@@ -171,7 +173,7 @@ export default function ProjectsSection() {
                       style={{ flexBasis: `calc(100% / ${visibleProjects})` }}
                     >
                       {/* Custom Tooltip */}
-                      <div className="CustomTooltip absolute top-[-70px] right-[-50%] md:right-auto md:left-1/2 md:-translate-x-1/2 opacity-0 group-hover:opacity-100 bg-[#fff] text-[#2c1537] text-[13px] p-4 rounded-full shadow-lg transition-opacity duration-300 z-20 whitespace-nowrap">
+                      <div className="CustomTooltip absolute top-[-70px] left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-[#fff] text-[#2c1537] text-[13px] p-4 rounded-full shadow-lg transition-opacity duration-300 z-20 whitespace-nowrap pointer-events-none">
                         {project.description}
                       </div>
 
@@ -207,16 +209,16 @@ export default function ProjectsSection() {
 
             {/* Accordion Content is now a child of the box-shadowed div */}
             <AnimatePresence mode="wait">
-              {activeProjectId && (
+              {activeProject && (
                 <motion.div
-                  key={activeProjectId}
+                  key={activeProject.id}
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                   className="my-8 mx-auto max-w-2xl"
                 >
-                  <WistiaVideo wistiaId={activeProjectId} />
+                  <WistiaVideo wistiaId={activeProject.wistiaId} />
                 </motion.div>
               )}
             </AnimatePresence>
