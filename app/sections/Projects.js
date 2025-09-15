@@ -102,8 +102,8 @@ export default function ProjectsSection() {
 
   return (
     <section
-      id="Resume"
-      className="padding-top-5 px-4 text-[#a8c6de] py-20"
+      id="projects"
+      className="padding-top-5 px-4 text-[#a8c6de] py-20 scroll-mt-10"
       dir="rtl"
     >
       <div className="container mx-auto">
