@@ -107,6 +107,23 @@ export default function ProjectsSection() {
 
   const activeProject = PROJECTS.find((p) => p.id === activeProjectId);
 
+  // Function to determine the correct tooltip position based on index
+  const getTooltipPositionClasses = (index) => {
+    // You can adjust these values as needed
+    const positions = [
+      "top-[-115px] right-[-200px]", // Item 1 (0-indexed)
+      "top-[-135px] right-[-215px]", // Item 2 (1-indexed)
+      "top-[-115px] right-[-200px]", // Item 3 (2-indexed)
+      "top-[-135px] left-[-215px]", // Item 4 (3-indexed)
+      "top-[-135px] left-[-215px]", // Item 5 (4-indexed)
+    ];
+
+    return (
+      positions[index % visibleProjects] ||
+      "top-[-115px] left-1/2 -translate-x-1/2"
+    );
+  };
+
   return (
     <section
       id="projects"
@@ -166,14 +183,18 @@ export default function ProjectsSection() {
                   }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
-                  {PROJECTS.map((project) => (
+                  {PROJECTS.map((project, index) => (
                     <motion.li
                       key={project.id}
                       className="flex-grow flex-shrink-0 relative my-4 px-4 flex flex-col items-center justify-center cursor-pointer group"
                       style={{ flexBasis: `calc(100% / ${visibleProjects})` }}
                     >
                       {/* Custom Tooltip */}
-                      <div className="CustomTooltip absolute top-[-70px] left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-[#fff] text-[#2c1537] text-[13px] p-4 rounded-full shadow-lg transition-opacity duration-300 z-20 whitespace-nowrap pointer-events-none">
+                      <div
+                        className={`CustomTooltip absolute opacity-0 group-hover:opacity-100 bg-[#fff] text-[#2c1537] text-[13px] p-4 rounded-full shadow-lg transition-opacity duration-300 z-20 whitespace-nowrap ${getTooltipPositionClasses(
+                          index
+                        )}`}
+                      >
                         {project.description}
                       </div>
 
@@ -208,17 +229,27 @@ export default function ProjectsSection() {
             </div>
 
             {/* Accordion Content is now a child of the box-shadowed div */}
-            <AnimatePresence mode="wait">
+            <AnimatePresence>
               {activeProject && (
                 <motion.div
-                  key={activeProject.id}
+                  key="accordion-panel"
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="my-8 mx-auto max-w-2xl"
                 >
-                  <WistiaVideo wistiaId={activeProject.wistiaId} />
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeProject.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.3, ease: "linear" }}
+                    >
+                      <WistiaVideo wistiaId={activeProject.wistiaId} />
+                    </motion.div>
+                  </AnimatePresence>
                 </motion.div>
               )}
             </AnimatePresence>
