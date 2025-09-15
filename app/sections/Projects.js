@@ -85,10 +85,24 @@ export default function ProjectsSection() {
   const containerRef = useRef(null);
   const visibleProjects = 5;
 
+  const [tooltip, setTooltip] = useState({
+    content: null,
+    visible: false,
+    x: 0,
+    y: 0,
+  });
+
   useEffect(() => {
-    if (containerRef.current) {
-      setContainerWidth(containerRef.current.clientWidth);
-    }
+    const handleResize = () => {
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.clientWidth);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleNext = () => {
@@ -105,24 +119,25 @@ export default function ProjectsSection() {
     setActiveProjectId(activeProjectId === projectId ? null : projectId);
   };
 
-  const activeProject = PROJECTS.find((p) => p.id === activeProjectId);
+  const handleMouseEnter = (event, description) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const TOOLTIP_HEIGHT = 120; // Approximate height of the tooltip to position it correctly
+    const TOOLTIP_GAP = 15; // Controls the space between the button and the tooltip
 
-  // Function to determine the correct tooltip position based on index
-  const getTooltipPositionClasses = (index) => {
-    // You can adjust these values as needed
-    const positions = [
-      "top-[-115px] right-[-200px]", // Item 1 (0-indexed)
-      "top-[-135px] right-[-215px]", // Item 2 (1-indexed)
-      "top-[-115px] right-[-200px]", // Item 3 (2-indexed)
-      "top-[-135px] left-[-215px]", // Item 4 (3-indexed)
-      "top-[-135px] left-[-215px]", // Item 5 (4-indexed)
-    ];
-
-    return (
-      positions[index % visibleProjects] ||
-      "top-[-115px] left-1/2 -translate-x-1/2"
-    );
+    setTooltip({
+      content: description,
+      visible: true,
+      x: rect.left - rect.width / 8,
+      // Position the tooltip at the button's top minus its own height and the gap
+      y: rect.top - TOOLTIP_HEIGHT - TOOLTIP_GAP,
+    });
   };
+
+  const handleMouseLeave = () => {
+    setTooltip({ ...tooltip, visible: false });
+  };
+
+  const activeProject = PROJECTS.find((p) => p.id === activeProjectId);
 
   return (
     <section
@@ -136,7 +151,6 @@ export default function ProjectsSection() {
         </h2>
 
         <div id="accordion" className="panel relative flex justify-center">
-          {/* Previous Arrow Button (Left side) - OUTSIDE the box */}
           <motion.button
             onClick={handlePrev}
             disabled={startIndex >= PROJECTS.length - visibleProjects}
@@ -170,10 +184,8 @@ export default function ProjectsSection() {
             </svg>
           </motion.button>
 
-          {/* This container now holds both the slider and the video */}
           <div className="w-6xl bg-white shadow-custom-blue rounded-md">
             <div className="flex justify-center items-center relative">
-              {/* Slider Window */}
               <div className="w-full overflow-hidden" ref={containerRef}>
                 <motion.ul
                   id="Resume-items"
@@ -188,16 +200,11 @@ export default function ProjectsSection() {
                       key={project.id}
                       className="flex-grow flex-shrink-0 relative my-4 px-4 flex flex-col items-center justify-center cursor-pointer group"
                       style={{ flexBasis: `calc(100% / ${visibleProjects})` }}
+                      onMouseEnter={(e) =>
+                        handleMouseEnter(e, project.description)
+                      }
+                      onMouseLeave={handleMouseLeave}
                     >
-                      {/* Custom Tooltip */}
-                      <div
-                        className={`CustomTooltip absolute opacity-0 group-hover:opacity-100 bg-[#fff] text-[#2c1537] text-[13px] p-4 rounded-full shadow-lg transition-opacity duration-300 z-20 whitespace-nowrap ${getTooltipPositionClasses(
-                          index
-                        )}`}
-                      >
-                        {project.description}
-                      </div>
-
                       <button
                         onClick={() => handleAccordionToggle(project.id)}
                         className={`
@@ -228,7 +235,6 @@ export default function ProjectsSection() {
               </div>
             </div>
 
-            {/* Accordion Content is now a child of the box-shadowed div */}
             <AnimatePresence>
               {activeProject && (
                 <motion.div
@@ -255,7 +261,6 @@ export default function ProjectsSection() {
             </AnimatePresence>
           </div>
 
-          {/* Next Arrow Button (Right side) - OUTSIDE the box */}
           <motion.button
             onClick={handleNext}
             disabled={startIndex === 0}
@@ -288,8 +293,29 @@ export default function ProjectsSection() {
           </motion.button>
         </div>
       </div>
-      {/* Wistia Player Script */}
+
       <Script src="https://fast.wistia.net/player.js" strategy="lazyOnload" />
+
+      <AnimatePresence>
+        {tooltip.visible && (
+          <motion.div
+            key="tooltip"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            style={{
+              position: "fixed",
+              top: tooltip.y,
+              left: tooltip.x,
+              transform: "translateX(-50%)",
+            }}
+            className="bg-[#fff] text-[#2c1537] text-[13px] p-4 rounded-full shadow-lg z-[9999] pointer-events-none w-[350px]"
+          >
+            {tooltip.content}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
