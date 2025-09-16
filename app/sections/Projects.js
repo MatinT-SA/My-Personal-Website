@@ -184,7 +184,7 @@ const Projects = forwardRef(function Projects(props, ref) {
             onClick={handlePrev}
             disabled={startIndex >= PROJECTS.length - visibleProjects}
             className={`
-              absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2
+              absolute left-20 top-1/2 -translate-y-1/2 z-10 p-2
               ${
                 startIndex >= PROJECTS.length - visibleProjects
                   ? "opacity-0 cursor-default pointer-events-none"
@@ -294,7 +294,7 @@ const Projects = forwardRef(function Projects(props, ref) {
             onClick={handleNext}
             disabled={startIndex === 0}
             className={`
-              absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2
+              absolute right-20 top-1/2 -translate-y-1/2 z-10 p-2
               ${
                 startIndex === 0
                   ? "opacity-0 cursor-default pointer-events-none"
