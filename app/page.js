@@ -1,3 +1,5 @@
+// app/page.js
+
 "use client";
 
 import { useRef, useState, useEffect } from "react";
@@ -10,8 +12,27 @@ import HomeSection from "./sections/HomeSection";
 import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
 import GithubRepositoryButton from "./components/projects/GithubRepositoryButton";
+import Loader from "./components/Loader";
+import { AnimatePresence } from "framer-motion";
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const handleLoad = () => setLoading(false);
+    const timeoutId = setTimeout(handleLoad, 5000);
+    if (typeof window !== "undefined") {
+      window.addEventListener("load", handleLoad);
+    }
+
+    return () => {
+      clearTimeout(timeoutId);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("load", handleLoad);
+      }
+    };
+  }, []);
+
   const homeRef = useRef(null);
   const aboutMeRef = useRef(null);
   const skillsRef = useRef(null);
@@ -69,6 +90,8 @@ export default function Home() {
       <Comment ref={commentRef} />
       <Footer />
       <GithubRepositoryButton activeSectionId={activeSectionId} />
+
+      <AnimatePresence>{loading && <Loader />}</AnimatePresence>
     </main>
   );
 }
