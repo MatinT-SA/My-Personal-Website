@@ -35,7 +35,7 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       let currentSectionId = null;
-      const scrollPosition = window.scrollY + 150; // Add a small offset
+      const scrollPosition = window.scrollY + 150;
 
       for (const [id, ref] of Object.entries(allRefs)) {
         if (ref.current) {
@@ -53,7 +53,7 @@ export default function Home() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [allRefs]);
@@ -68,8 +68,7 @@ export default function Home() {
       <Contact ref={contactRef} />
       <Comment ref={commentRef} />
       <Footer />
-      <GithubRepositoryButton activeSectionId={activeSectionId} />{" "}
-      {/* <-- Pass the new state */}
+      <GithubRepositoryButton activeSectionId={activeSectionId} />
     </main>
   );
 }
