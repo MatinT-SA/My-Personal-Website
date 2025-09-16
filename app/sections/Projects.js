@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, forwardRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Script from "next/script";
 import WistiaVideo from "../components/projects/WistiaVideo";
@@ -78,7 +78,7 @@ const PROJECTS = [
   },
 ];
 
-export default function ProjectsSection() {
+const Projects = forwardRef(function Projects(props, ref) {
   const [startIndex, setStartIndex] = useState(0);
   const [activeProjectId, setActiveProjectId] = useState(null);
   const [containerWidth, setContainerWidth] = useState(0);
@@ -110,27 +110,23 @@ export default function ProjectsSection() {
   }, []);
 
   const handleNext = () => {
-    // Start sliding, then update the index after a short delay to match the animation
     setIsSliding(true);
     setStartIndex((prevIndex) => Math.max(prevIndex - 1, 0));
-    // Set a timer to end the sliding state after the animation is complete
     clearTimeout(slidingTimerRef.current);
     slidingTimerRef.current = setTimeout(() => {
       setIsSliding(false);
-    }, 500); // Matches the animation duration of 0.5s
+    }, 500);
   };
 
   const handlePrev = () => {
-    // Start sliding, then update the index after a short delay to match the animation
     setIsSliding(true);
     setStartIndex((prevIndex) =>
       Math.min(prevIndex + 1, PROJECTS.length - visibleProjects)
     );
-    // Set a timer to end the sliding state after the animation is complete
     clearTimeout(slidingTimerRef.current);
     slidingTimerRef.current = setTimeout(() => {
       setIsSliding(false);
-    }, 500); // Matches the animation duration of 0.5s
+    }, 500);
   };
 
   const handleAccordionToggle = (projectId) => {
@@ -138,15 +134,14 @@ export default function ProjectsSection() {
   };
 
   const handleMouseEnter = (event, description) => {
-    // DO NOT SHOW THE TOOLTIP IF THE CAROUSEL IS CURRENTLY SLIDING
     if (isSliding) {
       return;
     }
 
     const rect = event.currentTarget.getBoundingClientRect();
-    const TOOLTIP_HEIGHT = 120; // Approximate height of the tooltip
-    const TOOLTIP_GAP = 15; // Space between the button and tooltip
-    const TOOLTIP_DELAY = 100; // Delay in milliseconds (e.g., 500ms = 0.5 seconds)
+    const TOOLTIP_HEIGHT = 120;
+    const TOOLTIP_GAP = 15;
+    const TOOLTIP_DELAY = 100;
 
     clearTimeout(tooltipTimerRef.current);
     tooltipTimerRef.current = setTimeout(() => {
@@ -169,6 +164,7 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
+      ref={ref}
       className="padding-top-5 px-4 text-[#a8c6de] py-20 scroll-mt-10"
       dir="rtl"
     >
@@ -351,4 +347,6 @@ export default function ProjectsSection() {
       </AnimatePresence>
     </section>
   );
-}
+});
+
+export default Projects;
