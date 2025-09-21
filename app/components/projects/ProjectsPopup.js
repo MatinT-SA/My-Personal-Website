@@ -22,7 +22,10 @@ export default function ProjectsPopup({ onClose }) {
         <p className="text-gray-300 mb-6">
           برای مشاهده تمامی پروژه‌ هایم، دکمه زیر را بزنید
         </p>
-        <Link href="/projects" passHref>
+        <Link
+          href="https://matint-sa.github.io/ThreeJS-portfolio/#/projects"
+          passHref
+        >
           <button
             className="w-full bg-blue-light text-purple-primary cursor-pointer font-semibold py-3 px-6 rounded-lg border-2 border-transparent transition-all duration-300 ease-in-out tracking-normal hover:bg-purple-primary hover:text-blue-light hover:border-blue-light hover:tracking-wide"
             onClick={onClose}
