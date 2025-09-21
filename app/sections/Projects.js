@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, forwardRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
 import Script from "next/script";
 import WistiaVideo from "../components/projects/WistiaVideo";
 
@@ -182,18 +183,18 @@ const Projects = forwardRef(function Projects(props, ref) {
         <div id="accordion" className="panel relative flex justify-center">
           <motion.button
             onClick={handlePrev}
-            disabled={startIndex >= PROJECTS.length - visibleProjects}
+            disabled={startIndex === 0}
             className={`
-              absolute left-20 top-1/2 -translate-y-1/2 z-10 p-2
-              ${
-                startIndex >= PROJECTS.length - visibleProjects
-                  ? "opacity-0 cursor-default pointer-events-none"
-                  : "opacity-100 cursor-pointer"
-              }
-            `}
+        absolute left-20 top-1/2 -translate-y-1/2 z-10 p-2
+        ${
+          startIndex === 0
+            ? "opacity-0 cursor-default pointer-events-none"
+            : "opacity-100 cursor-pointer"
+        }
+      `}
             initial={{ opacity: 1 }}
             animate={{
-              opacity: startIndex >= PROJECTS.length - visibleProjects ? 0 : 1,
+              opacity: startIndex === 0 ? 0 : 1,
             }}
             transition={{ duration: 0.3 }}
           >
@@ -213,18 +214,24 @@ const Projects = forwardRef(function Projects(props, ref) {
             </svg>
           </motion.button>
 
-          <div className="w-6xl bg-white shadow-custom-blue rounded-md">
+          <motion.div
+            className="w-6xl bg-white shadow-custom-blue rounded-md"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
+            viewport={{ once: true }}
+          >
             <div className="flex justify-center items-center relative">
               <div className="w-full overflow-hidden" ref={containerRef}>
                 <motion.ul
                   id="Resume-items"
                   className="flex flex-nowrap w-full"
                   animate={{
-                    x: `${startIndex * (containerWidth / visibleProjects)}px`,
+                    x: `-${startIndex * (containerWidth / visibleProjects)}px`,
                   }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
-                  {PROJECTS.map((project, index) => (
+                  {PROJECTS.map((project) => (
                     <motion.li
                       key={project.id}
                       className="flex-grow flex-shrink-0 relative my-4 px-4 flex flex-col items-center justify-center cursor-pointer group"
@@ -237,24 +244,24 @@ const Projects = forwardRef(function Projects(props, ref) {
                       <button
                         onClick={() => handleAccordionToggle(project.id)}
                         className={`
-                          relative w-full z-10
-                          cursor-pointer outline-none border-none overflow-hidden transition-all duration-300
-                          p-[0.9rem] px-[1.8rem] text-base font-semibold rounded-sm
-                          text-purple-primary bg-[rgba(168,198,222,0.4)]
-                          group-hover:text-blue-light
-                          ${
-                            activeProjectId === project.id
-                              ? "bg-purple-primary !text-blue-light"
-                              : ""
-                          }
-                        `}
+                    relative w-full z-10
+                    cursor-pointer outline-none border-none overflow-hidden transition-all duration-300
+                    p-[0.9rem] px-[1.8rem] text-base font-semibold rounded-sm
+                    text-purple-primary bg-[rgba(168,198,222,0.4)]
+                    group-hover:text-blue-light
+                    ${
+                      activeProjectId === project.id
+                        ? "bg-purple-primary !text-blue-light"
+                        : ""
+                    }
+                  `}
                       >
                         <span
                           className={`
-                            absolute inset-0 z-[-1] bg-purple-primary
-                            scale-x-0 origin-left transition-transform duration-300 ease-in-out
-                            group-hover:scale-x-100 group-hover:shadow-[0_2px_6px_var(--color-purple-primary)]
-                          `}
+                      absolute inset-0 z-[-1] bg-purple-primary
+                      scale-x-0 origin-left transition-transform duration-300 ease-in-out
+                      group-hover:scale-x-100 group-hover:shadow-[0_2px_6px_var(--color-purple-primary)]
+                    `}
                         ></span>
                         <span className="relative z-20">{project.name}</span>
                       </button>
@@ -288,21 +295,23 @@ const Projects = forwardRef(function Projects(props, ref) {
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
+          </motion.div>
 
           <motion.button
             onClick={handleNext}
-            disabled={startIndex === 0}
+            disabled={startIndex >= PROJECTS.length - visibleProjects}
             className={`
-              absolute right-20 top-1/2 -translate-y-1/2 z-10 p-2
-              ${
-                startIndex === 0
-                  ? "opacity-0 cursor-default pointer-events-none"
-                  : "opacity-100 cursor-pointer"
-              }
-            `}
+        absolute right-20 top-1/2 -translate-y-1/2 z-10 p-2
+        ${
+          startIndex >= PROJECTS.length - visibleProjects
+            ? "opacity-0 cursor-default pointer-events-none"
+            : "opacity-100 cursor-pointer"
+        }
+      `}
             initial={{ opacity: 1 }}
-            animate={{ opacity: startIndex === 0 ? 0 : 1 }}
+            animate={{
+              opacity: startIndex >= PROJECTS.length - visibleProjects ? 0 : 1,
+            }}
             transition={{ duration: 0.3 }}
           >
             <svg
