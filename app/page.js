@@ -12,11 +12,14 @@ import HomeSection from "./sections/HomeSection";
 import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
 import GithubRepositoryButton from "./components/projects/GithubRepositoryButton";
+import ProjectsPageButton from "./components/projects/ProjectsPageButton";
+import ProjectsPopup from "./components/projects/ProjectsPopup";
 import Loader from "./components/Loader";
 import { AnimatePresence } from "framer-motion";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
     const handleLoad = () => setLoading(false);
@@ -90,8 +93,15 @@ export default function Home() {
       <Comment ref={commentRef} />
       <Footer />
       <GithubRepositoryButton activeSectionId={activeSectionId} />
+      <ProjectsPageButton
+        activeSectionId={activeSectionId}
+        onButtonClick={() => setIsPopupOpen(true)}
+      />
 
-      <AnimatePresence>{loading && <Loader />}</AnimatePresence>
+      <AnimatePresence>
+        {loading && <Loader />}
+        {isPopupOpen && <ProjectsPopup onClose={() => setIsPopupOpen(false)} />}
+      </AnimatePresence>
     </main>
   );
 }
