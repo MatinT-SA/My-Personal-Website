@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -25,6 +23,8 @@ export default function ProjectsPopup({ onClose }) {
         <Link
           href="https://matint-sa.github.io/ThreeJS-portfolio/#/projects"
           passHref
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <button
             className="w-full bg-blue-light text-purple-primary cursor-pointer font-semibold py-3 px-6 rounded-lg border-2 border-transparent transition-all duration-300 ease-in-out tracking-normal hover:bg-purple-primary hover:text-blue-light hover:border-blue-light hover:tracking-wide"
