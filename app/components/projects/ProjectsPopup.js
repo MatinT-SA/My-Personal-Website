@@ -12,31 +12,29 @@ export default function ProjectsPopup({ onClose }) {
       exit={{ opacity: 0, scale: 0.8 }}
       transition={{ type: "spring", stiffness: 200, damping: 25 }}
       className="fixed inset-0 flex items-center justify-center z-[99999] bg-black/50"
-      onClick={onClose} // Close popup on overlay click
+      onClick={onClose}
     >
       <div
-        className="bg-gray-800 p-8 rounded-lg shadow-2xl text-center max-w-sm mx-4"
-        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+        className="bg-purple-primary p-8 rounded-xl shadow-2xl text-center max-w-sm mx-4"
+        onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="text-white text-2xl font-bold mb-4">
-          Ready to see my projects?
-        </h2>
+        <h2 className="text-white text-2xl font-bold mb-4">نمونه کارها</h2>
         <p className="text-gray-300 mb-6">
-          Click below to navigate to my projects page.
+          برای مشاهده تمامی پروژه‌ هایم، دکمه زیر را بزنید
         </p>
         <Link href="/projects" passHref>
           <button
-            className="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
+            className="w-full bg-blue-light text-purple-primary cursor-pointer font-semibold py-3 px-6 rounded-lg border-2 border-transparent transition-all duration-300 ease-in-out tracking-normal hover:bg-purple-primary hover:text-blue-light hover:border-blue-light hover:tracking-wide"
             onClick={onClose}
           >
-            Go to Projects
+            مشاهده پروژه‌ ها
           </button>
         </Link>
         <button
-          className="mt-4 text-gray-400 hover:text-gray-200 transition-colors"
+          className="mt-4 text-gray-400 hover:text-gray-200 cursor-pointer transition-colors"
           onClick={onClose}
         >
-          Close
+          بستن
         </button>
       </div>
     </motion.div>

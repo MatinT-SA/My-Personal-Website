@@ -1,24 +1,40 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaLaptopCode } from "react-icons/fa";
+import ProjectsPopup from "./ProjectsPopup";
+import { useState } from "react";
 
-export default function ProjectsPageButton({ activeSectionId, onButtonClick }) {
-  const isButtonVisible = !["home", "about-me"].includes(activeSectionId);
+export default function ProjectsPageButton({ activeSectionId }) {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const isVisible = activeSectionId === "projects";
 
   return (
-    <motion.button
-      initial={{ x: 100, opacity: 0 }}
-      animate={{
-        x: isButtonVisible ? 0 : 100,
-        opacity: isButtonVisible ? 1 : 0,
-      }}
-      transition={{ type: "spring", stiffness: 100, damping: 15 }}
-      onClick={onButtonClick}
-      className="fixed bottom-16 right-5 z-50 p-3 rounded-full bg-slate-800 text-white shadow-xl cursor-pointer"
-    >
-      <FaLaptopCode className="text-2xl" />
-    </motion.button>
+    <>
+      <AnimatePresence>
+        {isVisible && (
+          <motion.div
+            initial={{ x: 30, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 30, opacity: 0 }}
+            transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
+            className="fixed top-1/3 right-0 z-[10000]"
+          >
+            <button
+              onClick={() => setIsPopupOpen(true)}
+              className="flex flex-col items-center cursor-pointer justify-center gap-2 bg-slate-800 text-blue-light py-2 px-6 rounded-l-lg shadow-lg border-2 border-r-0 border-slate-800 hover:px-8 transition-all duration-300 hover:rounded-l-sm hover:shadow-amber-500 hover:text-amber-500"
+            >
+              <FaLaptopCode size={24} />
+              <span className="font-semibold text-sm [writing-mode:vertical-lr] [text-orientation:upright]">
+                Projects
+              </span>
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {isPopupOpen && <ProjectsPopup onClose={() => setIsPopupOpen(false)} />}
+      </AnimatePresence>
+    </>
   );
 }
