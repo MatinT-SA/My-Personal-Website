@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import AboutMe from "./sections/AboutMe";
 import Comment from "./sections/Comment";
 import Contact from "./sections/Contact";
-import EntrepreneurQuotes from "./sections/EntrepreneurQuotes";
+import Entrepreneur from "./sections/Entrepreneur";
 import Footer from "./sections/Footer";
 import HomeSection from "./sections/HomeSection";
 import Projects from "./sections/Projects";
@@ -86,7 +86,7 @@ export default function Home() {
       <AboutMe ref={aboutMeRef} />
       <Skills ref={skillsRef} />
       <Projects ref={projectsRef} />
-      <EntrepreneurQuotes ref={entrepreneurRef} />
+      <Entrepreneur ref={entrepreneurRef} />
       <Contact ref={contactRef} />
       <Comment ref={commentRef} />
       <Footer />
