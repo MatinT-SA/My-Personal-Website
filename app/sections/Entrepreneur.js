@@ -71,10 +71,12 @@ export default function Entrepreneur() {
         {QUOTES.map((quote) => (
           <div key={quote.id} className="w-[265px] flex flex-col items-center">
             <motion.div
-              className="w-full h-[400px] relative bg-black flex justify-center items-center rounded-[10%] mx-auto"
+              className="w-full h-[400px] relative bg-black flex justify-center items-center rounded-2xl mx-auto"
+              style={{
+                boxShadow: quote.shadow,
+              }}
               initial={{ opacity: 0, y: "25%" }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ x: 4, skewX: 0.5, skewY: -0.4 }}
               transition={{
                 type: "spring",
                 stiffness: 100,
@@ -84,20 +86,14 @@ export default function Entrepreneur() {
               viewport={{ once: true, amount: 0.5 }}
             >
               <div
-                className="w-1/2 h-full absolute left-0 top-0 pointer-events-none rounded-[10%]"
+                className="w-1/2 h-full absolute left-0 top-0 pointer-events-none rounded-2xl"
                 style={{
                   background: quote.bg,
-                  boxShadow: quote.shadow,
                   opacity: 0.3,
                 }}
               />
 
-              <div
-                className="w-full h-full flex justify-center items-center rounded-[10%] overflow-hidden absolute"
-                style={{
-                  transform: "skew(10px, 10px)",
-                }}
-              >
+              <div className="w-full h-full flex justify-center items-center rounded-2xl overflow-hidden absolute">
                 <Image
                   src={quote.image}
                   alt={quote.alt}
@@ -105,7 +101,7 @@ export default function Entrepreneur() {
                   height={400}
                   quality={75}
                   priority={false}
-                  className="w-full h-full object-cover rounded-[10%]"
+                  className="w-full h-full object-cover rounded-2xl"
                 />
               </div>
 
@@ -113,7 +109,6 @@ export default function Entrepreneur() {
                 className="w-[50px] h-[50px] absolute right-5 bottom-5 rounded-full cursor-pointer shadow-md"
                 style={{
                   background: quote.bg,
-                  boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
                 }}
                 onMouseEnter={() => handleMouseEnter(quote.id)}
                 onMouseLeave={handleMouseLeave}
@@ -122,8 +117,12 @@ export default function Entrepreneur() {
                   height: hoveredCard === quote.id ? "100%" : "50px",
                   right: hoveredCard === quote.id ? 0 : 20,
                   bottom: hoveredCard === quote.id ? 0 : 20,
-                  borderRadius: hoveredCard === quote.id ? "10%" : "50%",
+                  borderRadius: hoveredCard === quote.id ? "5%" : "50%",
                   opacity: hoveredCard === quote.id ? 0.9 : 1,
+                  boxShadow:
+                    hoveredCard === quote.id
+                      ? "none"
+                      : "0 2px 5px rgba(0, 0, 0, 0.2)",
                 }}
                 transition={{ duration: 0.5 }}
               >
@@ -139,7 +138,7 @@ export default function Entrepreneur() {
               </motion.div>
 
               <motion.div
-                className="p-5 box-border text-white text-center leading-loose text-2xl z-10 pointer-events-none"
+                className="p-5 box-border text-white text-center leading-loose text-lg z-10 pointer-events-none"
                 initial={{ opacity: 0, visibility: "hidden" }}
                 animate={{
                   opacity: hoveredCard === quote.id ? 1 : 0,
