@@ -82,10 +82,6 @@ const SOCIAL_LINKS = [
   },
 ];
 
-// Reusable card for the top section
-
-// Reusable component for the social media buttons
-
 export default function Contact() {
   return (
     <section id="contact" className="py-12 my-8 scroll-mt-20">
