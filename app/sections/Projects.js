@@ -111,8 +111,11 @@ const Projects = forwardRef(function Projects(props, ref) {
   }, []);
 
   const handleNext = () => {
+    // Moves to the next set of items by INCREMENTING the index
     setIsSliding(true);
-    setStartIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+    setStartIndex((prevIndex) =>
+      Math.min(prevIndex + 1, PROJECTS.length - visibleProjects)
+    );
     clearTimeout(slidingTimerRef.current);
     slidingTimerRef.current = setTimeout(() => {
       setIsSliding(false);
@@ -120,10 +123,9 @@ const Projects = forwardRef(function Projects(props, ref) {
   };
 
   const handlePrev = () => {
+    // Moves to the previous set of items by DECREMENTING the index
     setIsSliding(true);
-    setStartIndex((prevIndex) =>
-      Math.min(prevIndex + 1, PROJECTS.length - visibleProjects)
-    );
+    setStartIndex((prevIndex) => Math.max(prevIndex - 1, 0));
     clearTimeout(slidingTimerRef.current);
     slidingTimerRef.current = setTimeout(() => {
       setIsSliding(false);
@@ -183,17 +185,20 @@ const Projects = forwardRef(function Projects(props, ref) {
         <div id="accordion" className="panel relative flex justify-center">
           <motion.button
             onClick={handlePrev}
+            // ✅ FIX: Disabled when startIndex is 0 (the beginning of the list)
             disabled={startIndex === 0}
             className={`
-        absolute left-20 top-1/2 -translate-y-1/2 z-10 p-2
-        ${
-          startIndex === 0
-            ? "opacity-0 cursor-default pointer-events-none"
-            : "opacity-100 cursor-pointer"
-        }
-      `}
+    absolute left-20 top-1/2 -translate-y-1/2 z-10 p-2
+    ${
+      // ✅ FIX: Hidden when startIndex is 0
+      startIndex === 0
+        ? "opacity-0 cursor-default pointer-events-none"
+        : "opacity-100 cursor-pointer"
+    }
+  `}
             initial={{ opacity: 1 }}
             animate={{
+              // ✅ FIX: Animate opacity to 0 when startIndex is 0
               opacity: startIndex === 0 ? 0 : 1,
             }}
             transition={{ duration: 0.3 }}
@@ -213,7 +218,6 @@ const Projects = forwardRef(function Projects(props, ref) {
               />
             </svg>
           </motion.button>
-
           <motion.div
             className="w-6xl bg-white shadow-custom-blue rounded-md"
             initial={{ opacity: 0 }}
@@ -227,7 +231,7 @@ const Projects = forwardRef(function Projects(props, ref) {
                   id="Resume-items"
                   className="flex flex-nowrap w-full"
                   animate={{
-                    x: `-${startIndex * (containerWidth / visibleProjects)}px`,
+                    x: `${startIndex * (containerWidth / visibleProjects)}px`,
                   }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
@@ -296,20 +300,22 @@ const Projects = forwardRef(function Projects(props, ref) {
               )}
             </AnimatePresence>
           </motion.div>
-
           <motion.button
             onClick={handleNext}
+            // ✅ CHECK: Disabled when startIndex is at its maximum (the end of the list)
             disabled={startIndex >= PROJECTS.length - visibleProjects}
             className={`
-        absolute right-20 top-1/2 -translate-y-1/2 z-10 p-2
-        ${
-          startIndex >= PROJECTS.length - visibleProjects
-            ? "opacity-0 cursor-default pointer-events-none"
-            : "opacity-100 cursor-pointer"
-        }
-      `}
+    absolute right-20 top-1/2 -translate-y-1/2 z-10 p-2
+    ${
+      // ✅ CHECK: Hidden when startIndex is at its maximum
+      startIndex >= PROJECTS.length - visibleProjects
+        ? "opacity-0 cursor-default pointer-events-none"
+        : "opacity-100 cursor-pointer"
+    }
+  `}
             initial={{ opacity: 1 }}
             animate={{
+              // ✅ CHECK: Animate opacity to 0 when at the maximum index
               opacity: startIndex >= PROJECTS.length - visibleProjects ? 0 : 1,
             }}
             transition={{ duration: 0.3 }}
