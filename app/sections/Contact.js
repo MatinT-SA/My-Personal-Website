@@ -108,16 +108,33 @@ export default function Contact() {
           ))}
         </div>
 
-        <motion.p
-          className="text-center text-lg font-medium mx-auto mt-20 mb-12 max-w-[83%] text-purple-primary"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.35, delay: 0.3 }}
-        >
-          اگر میخوای برام پیام ارسال کنی، بهترین کار اینه که از بخش بعدی، یعنی
-          ارسال پیام ها دیدن کنی. جای دوری نرو! همین پایینم :)
-        </motion.p>
+        <div className="flex flex-col items-center justify-center my-12">
+          <motion.p
+            className="text-center text-lg md:text-xl font-bold mx-auto max-w-[83%] text-purple-primary mb-4"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.35, delay: 0.3 }}
+          >
+            گام بعدی اینجاست. یک پیام، آغاز تمام همکاری‌ هاست.
+          </motion.p>
+
+          <motion.div
+            className="text-4xl text-purple-primary drop-shadow-lg"
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: [0.3, 1, 0.3],
+              y: [0, 8, 0],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 2,
+              ease: "easeInOut",
+            }}
+          >
+            &#x2193;
+          </motion.div>
+        </div>
       </div>
     </section>
   );
