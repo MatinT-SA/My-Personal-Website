@@ -87,7 +87,7 @@ export default function Contact() {
     <section id="contact" className="py-12 my-8 scroll-mt-20">
       <div className="container mx-auto px-4">
         <motion.h2
-          className="main-titles text-center text-3xl font-bold mb-12 text-purple-primary"
+          className="main-titles text-center text-3xl font-bold mb-16 text-purple-primary"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -96,28 +96,45 @@ export default function Contact() {
           راه های ارتباطی
         </motion.h2>
 
-        <div className="flex justify-center flex-wrap gap-y-12 gap-x-10">
+        <div className="flex justify-center flex-wrap gap-y-12 gap-x-12">
           {CONTACT_INFO.map((item, index) => (
             <ContactCard key={index} {...item} />
           ))}
         </div>
 
-        <div className="flex justify-center flex-wrap gap-y-4 my-8">
+        <div className="flex justify-center flex-wrap gap-y-4 my-16">
           {SOCIAL_LINKS.map((link, index) => (
             <SocialButton key={index} {...link} isEven={index % 2 === 1} />
           ))}
         </div>
 
-        <motion.p
-          className="text-center text-xl font-medium mx-auto mt-20 mb-12 max-w-[83%] text-purple-primary"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.35, delay: 0.3 }}
-        >
-          اگر میخوای برام پیام ارسال کنی، بهترین کار اینه که از بخش بعدی، یعنی
-          ارسال پیام ها دیدن کنی. جای دوری نرو! همین پایینم :)
-        </motion.p>
+        <div className="flex flex-col items-center justify-center my-12">
+          <motion.p
+            className="text-center text-lg md:text-xl font-bold mx-auto max-w-[83%] text-purple-primary mb-4"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.35, delay: 0.3 }}
+          >
+            گام بعدی اینجاست. یک پیام، آغاز تمام همکاری‌ هاست.
+          </motion.p>
+
+          <motion.div
+            className="text-4xl text-purple-primary drop-shadow-lg"
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: [0.3, 1, 0.3],
+              y: [0, 8, 0],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 2,
+              ease: "easeInOut",
+            }}
+          >
+            &#x2193;
+          </motion.div>
+        </div>
       </div>
     </section>
   );
