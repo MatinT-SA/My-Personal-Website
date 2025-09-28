@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export default function SocialButton({ icon: Icon, name, href, isEven }) {
+export default function SocialButton({ icon: SocialIcon, name, href, isEven }) {
   // Define hover background and text colors for each social media
   const hoverColors = {
     Instagram: "rgb(255, 0, 191)",
@@ -25,10 +25,14 @@ export default function SocialButton({ icon: Icon, name, href, isEven }) {
       initial={{ opacity: 0, y: isEven ? 20 : -20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.4 }}
+      transition={{ duration: 0.1 }}
       whileHover={{ width: "200px" }} // Expands to 200px on hover
       aria-label={name}
-      style={{ direction: "ltr" }}
+      style={{
+        direction: "ltr",
+        // 1. Define the custom CSS variable on the element
+        "--brand-color": currentHoverColor,
+      }}
     >
       {/* Icon Container: Changes background and icon color on hover */}
       <div
@@ -37,9 +41,14 @@ export default function SocialButton({ icon: Icon, name, href, isEven }) {
           lineHeight: "60px",
         }}
       >
-        <Icon
-          className={`text-5xl text-shadow-dark-primary transition-colors duration-300 group-hover:text-${currentHoverColor}`}
-        />
+        {/* FIX: Renamed 'Icon' to 'SocialIcon' and added a check to ensure it's defined before rendering */}
+        {SocialIcon && (
+          <SocialIcon
+            // 2. FIX: Use the JIT square bracket notation to reference the CSS variable on group-hover.
+            // This allows the dynamic color to be applied correctly when the group is hovered.
+            className={`text-5xl text-shadow-dark-primary transition-colors duration-300 group-hover:text-[var(--brand-color)]`}
+          />
+        )}
       </div>
 
       {/* Text Span: Appears on hover with brand color */}
@@ -47,7 +56,7 @@ export default function SocialButton({ icon: Icon, name, href, isEven }) {
         className="text-xl font-medium ml-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:ml-5"
         style={{
           lineHeight: "60px",
-          color: currentHoverColor, // Text color is brand color
+          color: currentHoverColor, // Text color is brand color (and always visible as opacity goes from 0 to 1)
         }}
       >
         {name}
