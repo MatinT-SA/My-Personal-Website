@@ -87,7 +87,7 @@ export default function Contact() {
     <section id="contact" className="py-12 my-8 scroll-mt-20">
       <div className="container mx-auto px-4">
         <motion.h2
-          className="main-titles text-center text-3xl font-bold mb-12 text-purple-primary"
+          className="main-titles text-center text-3xl font-bold mb-16 text-purple-primary"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -96,20 +96,20 @@ export default function Contact() {
           راه های ارتباطی
         </motion.h2>
 
-        <div className="flex justify-center flex-wrap gap-y-12 gap-x-10">
+        <div className="flex justify-center flex-wrap gap-y-12 gap-x-12">
           {CONTACT_INFO.map((item, index) => (
             <ContactCard key={index} {...item} />
           ))}
         </div>
 
-        <div className="flex justify-center flex-wrap gap-y-4 my-8">
+        <div className="flex justify-center flex-wrap gap-y-4 my-16">
           {SOCIAL_LINKS.map((link, index) => (
             <SocialButton key={index} {...link} isEven={index % 2 === 1} />
           ))}
         </div>
 
         <motion.p
-          className="text-center text-xl font-medium mx-auto mt-20 mb-12 max-w-[83%] text-purple-primary"
+          className="text-center text-lg font-medium mx-auto mt-20 mb-12 max-w-[83%] text-purple-primary"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
