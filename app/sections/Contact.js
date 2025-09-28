@@ -26,7 +26,7 @@ const CONTACT_INFO = [
   {
     icon: FaPhone,
     title: "شماره تلفن",
-    value: "+98-9334363774",
+    value: "98-9334363774+",
     href: "tel:+98-9334363774",
   },
   {
