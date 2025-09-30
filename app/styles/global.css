@@ -460,6 +460,75 @@ svg path:focus {
 }
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Comment ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+
+@keyframes CommentButton {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+}
+.liquid-button-container {
+  position: relative;
+  width: 200px;
+  padding: 1.5rem 4rem;
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 9999px;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.liquid-button-container:hover .liquid,
+.liquid-button-container:focus .liquid {
+  top: -150px;
+}
+.liquid-button-container span {
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 10;
+  color: #fff;
+  transition: color 0.3s;
+}
+.liquid-button-container .liquid {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  left: 50%;
+  top: 0px;
+  background: #0039fa;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+  transition: 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-50%);
+}
+.liquid-button-container .liquid::before,
+.liquid-button-container .liquid::after {
+  position: absolute;
+  content: "";
+  width: 200%;
+  height: 200%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -75%);
+}
+.liquid-button-container .liquid::before {
+  border-radius: 45%;
+  background: rgba(255, 255, 255, 0.2);
+  animation: CommentButton 6s linear infinite;
+}
+.liquid-button-container .liquid::after {
+  border-radius: 40%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: CommentButton 12s linear infinite;
+}
+
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Responsiveness ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 @media (min-width: 768px) and (max-width: 1024px) {
