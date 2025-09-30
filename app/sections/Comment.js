@@ -38,7 +38,7 @@ const FormInput = ({
 
   // Determines the style for the label and underline
   const activeStyle = "h-full bg-yellow-primary";
-  const inactiveStyle = "h-[2px] bg-gray-400";
+  const inactiveStyle = "h-[2px] bg-yellow-primary";
 
   return (
     <div className="relative w-full py-8 md:py-12 transition-all duration-300">
@@ -84,7 +84,7 @@ const FormInput = ({
         {/* The Floating Label (Managed by shouldFloat state) */}
         <label
           htmlFor={id}
-          className={`absolute right-2 text-xl font-normal text-gray-500 transition-all duration-300 pointer-events-none z-0 
+          className={`absolute right-2 text-xl font-normal text-yellow-primary transition-all duration-300 pointer-events-none z-0 
 						${
               shouldFloat
                 ? "top-[-30px] md:top-[-45px] right-0 text-yellow-primary !text-lg" // Floating position
@@ -188,7 +188,7 @@ export default function CommentForm() {
 
   return (
     <section
-      id="comment-form"
+      id="comment"
       className="py-12 my-8 scroll-mt-20 bg-purple-primary min-h-[85vh]"
     >
       <LiquidButtonStyles /> {/* Inject custom styles for the liquid button */}
