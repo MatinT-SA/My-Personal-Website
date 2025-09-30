@@ -49,9 +49,9 @@ export const FormInput = ({
   const inactiveStyle = "h-[2px] bg-yellow-primary";
 
   return (
-    <div className="relative w-full py-8 md:py-12 transition-all duration-300">
+    <div className="relative w-full py-8 md:py-8 transition-all duration-300">
       <div
-        className={`relative w-full ${isTextarea ? "h-32 md:h-40" : "h-10"}`}
+        className={`relative w-full ${isTextarea ? "h-18 md:h-26" : "h-10"}`}
       >
         {/* The Input/Textarea Element */}
         {isTextarea ? (
@@ -92,7 +92,7 @@ export const FormInput = ({
         {/* The Floating Label (Managed by shouldFloat state) */}
         <label
           htmlFor={id}
-          className={`absolute right-2 text-xl font-normal text-yellow-primary transition-all duration-300 pointer-events-none z-0 
+          className={`absolute right-2 text-lg font-normal text-yellow-primary transition-all duration-300 pointer-events-none z-0 
             ${
               shouldFloat
                 ? "top-[-30px] md:top-[-45px] right-0 text-yellow-primary !text-lg" // Floating position

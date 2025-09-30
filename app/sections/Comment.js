@@ -5,11 +5,7 @@ import { motion } from "framer-motion";
 import { LiquidButton } from "../components/comment/LiquidButton";
 import { FormInput } from "../components/comment/FormInput.js";
 
-// تعریف FormInput حذف شده و در فایل FormInput.jsx قرار گرفته است.
-
-// --- 3. Main CommentForm Component ---
 export default function CommentForm() {
-  // Frame motion variant for the form rows
   const fadeInVariant = {
     offscreen: { opacity: 0, y: 30 },
     onscreen: {
@@ -26,7 +22,7 @@ export default function CommentForm() {
     >
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-center text-3xl font-bold mb-12 text-white"
+          className="text-center text-3xl font-bold mb-3 text-white"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -39,7 +35,7 @@ export default function CommentForm() {
           action="https://formsubmit.co/matin.taherzadeh.mmtsa@gmail.com"
           autoComplete="off"
           method="POST"
-          className="max-w-4xl mx-auto"
+          className="max-w-6xl mx-auto"
         >
           {/* Hidden field for form subject */}
           <input
@@ -56,7 +52,7 @@ export default function CommentForm() {
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-x-10"
+            className="grid grid-cols-1 md:grid-cols-2 gap-x-8"
           >
             <FormInput id="name" label="نام" name="name" />
             <FormInput id="familyname" label="نام خانوادگی" name="lastName" />
@@ -69,7 +65,7 @@ export default function CommentForm() {
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-x-10"
+            className="grid grid-cols-1 md:grid-cols-2 gap-x-8"
           >
             <FormInput
               id="CommentEmail"
