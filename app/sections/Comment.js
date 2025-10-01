@@ -1,11 +1,19 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { LiquidButton } from "../components/comment/LiquidButton";
+import { LiquidButton } from "../components/comment/LiquidButton.js";
 import { FormInput } from "../components/comment/FormInput.js";
 
-export default function CommentForm() {
+export default function Comment() {
+  const [currentUrl, setCurrentUrl] = useState("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setCurrentUrl(window.location.href);
+    }
+  }, []); // Empty dependency array ensures it runs once after mount
+
   const fadeInVariant = {
     offscreen: { opacity: 0, y: 30 },
     onscreen: {
@@ -18,11 +26,11 @@ export default function CommentForm() {
   return (
     <section
       id="comment"
-      className="py-12 scroll-mt-20 bg-purple-primary min-h-[85vh]"
+      className="py-12 scroll-mt-20 min-h-screen bg-purple-primary font-inter"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-7xl">
         <motion.h2
-          className="text-center text-3xl font-bold mb-3 text-white"
+          className="text-center text-3xl font-extrabold mb-10 text-white drop-shadow-lg"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -35,16 +43,15 @@ export default function CommentForm() {
           action="https://formsubmit.co/matin.taherzadeh.mmtsa@gmail.com"
           autoComplete="off"
           method="POST"
-          className="max-w-6xl mx-auto"
+          className="max-w-6xl mx-auto p-8"
         >
-          {/* Hidden field for form subject */}
           <input
             type="hidden"
             name="_subject"
             value="ایمیل جدید از قسمت ارسال پیام های سایت شخصی متین طاهرزاده"
           />
-          {/* Disable auto-redirect after submit */}
-          <input type="hidden" name="_next" value={window.location.href} />
+          <input type="hidden" name="_next" value={currentUrl} />
+          <input type="hidden" name="_captcha" value="false" />
 
           {/* 1. Name and Last Name Row */}
           <motion.div
@@ -80,12 +87,11 @@ export default function CommentForm() {
               label="شماره تلفن"
               type="tel"
               name="phoneNumber"
-              pattern="^\+?([0-9\s-]{10,})$" // Simplified regex for phone number validation
+              pattern="^\+?([0-9\s-]{10,})$"
               customValidationMessage="شماره تلفن معتبر وارد نمایید"
             />
           </motion.div>
 
-          {/* 3. Message Textarea Row */}
           <motion.div
             variants={fadeInVariant}
             initial="offscreen"
@@ -104,8 +110,8 @@ export default function CommentForm() {
             />
           </motion.div>
 
-          {/* 4. Submit Button - Now using the imported LiquidButton component */}
-          <div className="flex justify-center mt-16">
+          {/* 4. Submit Button using LiquidButton component */}
+          <div className="flex justify-center mt-12">
             <LiquidButton>ارسال پیام</LiquidButton>
           </div>
         </form>

@@ -10,9 +10,12 @@ import React from "react";
  */
 export const LiquidButton = ({ children, type = "submit" }) => {
   return (
-    <button type={type} className="liquid-button-container group">
-      <span className="flex items-center gap-3 justify-center">{children}</span>
-      <div className="liquid"></div>
+    <button
+      type={type}
+      className="liquid-button-container transition duration-300 ease-in-out hover:scale-[1.02]"
+    >
+      <span>{children}</span>
+      <div className="liquid">{/* Wave effect container */}</div>
     </button>
   );
 };
