@@ -12,7 +12,7 @@ export default function Comment() {
     if (typeof window !== "undefined") {
       setCurrentUrl(window.location.href);
     }
-  }, []); // Empty dependency array ensures it runs once after mount
+  }, []);
 
   const fadeInVariant = {
     offscreen: { opacity: 0, y: 30 },
@@ -26,11 +26,11 @@ export default function Comment() {
   return (
     <section
       id="comment"
-      className="py-12 scroll-mt-20 min-h-screen bg-purple-primary font-inter"
+      className="py-12 scroll-mt-20 h-full bg-purple-primary font-inter"
     >
       <div className="container mx-auto px-4 max-w-7xl">
         <motion.h2
-          className="text-center text-3xl font-extrabold mb-10 text-white drop-shadow-lg"
+          className="text-center text-3xl font-extrabold text-white drop-shadow-lg"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -43,7 +43,7 @@ export default function Comment() {
           action="https://formsubmit.co/matin.taherzadeh.mmtsa@gmail.com"
           autoComplete="off"
           method="POST"
-          className="max-w-6xl mx-auto p-8"
+          className="max-w-6xl mx-auto p-4"
         >
           <input
             type="hidden"
@@ -59,7 +59,7 @@ export default function Comment() {
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-x-8"
+            className="grid grid-cols-1 md:grid-cols-2 gap-x-6"
           >
             <FormInput id="name" label="نام" name="name" />
             <FormInput id="familyname" label="نام خانوادگی" name="lastName" />
@@ -111,7 +111,7 @@ export default function Comment() {
           </motion.div>
 
           {/* 4. Submit Button using LiquidButton component */}
-          <div className="flex justify-center mt-12">
+          <div className="flex justify-center">
             <LiquidButton>ارسال پیام</LiquidButton>
           </div>
         </form>

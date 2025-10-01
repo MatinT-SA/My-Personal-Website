@@ -15,7 +15,7 @@ export const LiquidButton = ({ children, type = "submit" }) => {
       className="liquid-button-container transition duration-300 ease-in-out hover:scale-[1.02]"
     >
       <span>{children}</span>
-      <div className="liquid">{/* Wave effect container */}</div>
+      <div className="liquid"></div>
     </button>
   );
 };
