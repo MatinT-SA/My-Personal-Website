@@ -62,11 +62,12 @@ export const FormInput = ({
         name={name}
         type={isTextarea ? undefined : type}
         required={required}
+        d
         pattern={pattern}
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        // Styles: full width, transparent, large font (1.8rem approx text-xl), purple text
-        className={`w-full bg-transparent text-purple-primary text-xl px-2 placeholder-transparent focus:outline-none transition-all duration-300 relative z-10 ${
+        // Styles: Added leading-none and py-1 for better vertical centering in the input field
+        className={`w-full bg-transparent text-purple-primary text-lg px-2 py-1 leading-none placeholder-transparent focus:outline-none transition-all duration-300 relative z-10 ${
           isTextarea ? "h-full resize-none pt-2" : "h-10"
         }`}
         placeholder={label} // Important for ARIA/Accessibility
@@ -91,7 +92,7 @@ export const FormInput = ({
         className={`absolute bottom-0 left-0 block w-full bg-yellow-400 transition-all duration-500 rounded-sm pointer-events-none origin-bottom`}
         // Sets the animated height: 100% for textarea, 40px for input, 2px (base line) when not floating
         style={{
-          height: shouldFloat ? (isTextarea ? "90%" : "40px") : "2px",
+          height: shouldFloat ? (isTextarea ? "80%" : "40px") : "2px",
         }}
       ></span>
 
@@ -101,10 +102,10 @@ export const FormInput = ({
       <label
         htmlFor={id}
         // Tailwind classes matching the legacy CSS positioning and color
-        className={`absolute right-0 top-0 transition-all duration-300 pointer-events-none px-2 z-20 ${
+        className={`absolute right-0 top-0 transition-all duration-500 pointer-events-none px-2 z-20 ${
           shouldFloat
-            ? "text-sm text-yellow-400 -translate-y-4" // Floating state (Pushed up more for clearer visual separation)
-            : "text-xl text-yellow-400 translate-y-[28px]" // Default state (line-height 40px equivalent)
+            ? "text-sm text-yellow-400" // Floating state (Pushed up more for clearer visual separation)
+            : "text-xl text-yellow-400 translate-y-[36px]" // Default state (line-height 40px equivalent)
         }`}
       >
         {label}
