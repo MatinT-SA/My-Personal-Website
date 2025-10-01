@@ -83,8 +83,15 @@ const SOCIAL_LINKS = [
 ];
 
 export default function Contact() {
+  const hanldeScrollToComment = () => {
+    const commentSection = document.getElementById("comment");
+    if (commentSection) {
+      commentSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section id="contact" className="py-12 my-8 scroll-mt-20">
+    <section id="contact" className="pt-12 mt-8 scroll-mt-20">
       <div className="container mx-auto px-4">
         <motion.h2
           className="main-titles text-center text-3xl font-bold mb-16 text-purple-primary"
@@ -120,7 +127,8 @@ export default function Contact() {
           </motion.p>
 
           <motion.div
-            className="text-4xl text-purple-primary drop-shadow-lg"
+            onClick={hanldeScrollToComment}
+            className="text-4xl text-purple-primary drop-shadow-lg cursor-pointer select-none"
             initial={{ opacity: 0 }}
             animate={{
               opacity: [0.3, 1, 0.3],

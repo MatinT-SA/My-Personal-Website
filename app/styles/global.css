@@ -460,6 +460,96 @@ svg path:focus {
 }
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Comment ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+
+@keyframes CommentButton {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+}
+
+.liquid-button-container {
+  position: relative;
+  text-decoration: none;
+  width: 200px; /* Fixed width */
+  padding: 1.5rem 2rem; /* Reduced padding for better fit */
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #4c1d95; /* Tailwind purple-800 */
+  cursor: pointer;
+  z-index: 10;
+  margin: 4rem auto 0; /* Centered position */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* Liquid Element for the Wave */
+.liquid-button-container .liquid {
+  position: absolute;
+  width: 250px; /* Wider wave */
+  height: 250px;
+  left: 50%;
+  top: -120px; /* Position wave to be visible at the bottom */
+  transform: translateX(-50%);
+  background: #0039fa; /* Vibrant blue liquid color */
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+  transition: 0.5s; /* speed */
+  z-index: 0;
+  filter: blur(5px);
+}
+
+/* Hover Effect: Spread the Liquid */
+.liquid-button-container:hover .liquid {
+  top: -150px; /* Position when fully covering the button */
+}
+
+/* Content layer above the liquid */
+.liquid-button-container > span {
+  font-size: 1.25rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  color: #fff; /* White text color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* Ensure text doesn't interfere with button click */
+}
+
+/* Pseudo-elements for the wave shape and animation */
+.liquid-button-container .liquid::before,
+.liquid-button-container .liquid::after {
+  position: absolute;
+  content: "";
+  width: 200%;
+  height: 200%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -75%);
+}
+
+.liquid-button-container .liquid::before {
+  border-radius: 45%;
+  background: rgba(20, 20, 20, 1);
+  animation: CommentButton 5s linear infinite;
+}
+
+.liquid-button-container .liquid::after {
+  border-radius: 40%;
+  background: rgba(20, 20, 20, 0.5);
+  animation: CommentButton 10s linear infinite;
+}
+
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Responsiveness ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 @media (min-width: 768px) and (max-width: 1024px) {
