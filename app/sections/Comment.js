@@ -26,7 +26,7 @@ export default function Comment() {
   return (
     <section
       id="comment"
-      className="py-12 scroll-mt-20 h-full bg-purple-primary font-inter"
+      className="py-15 scroll-mt-20 h-full bg-purple-primary font-inter"
     >
       <div className="container mx-auto px-4 max-w-7xl">
         <motion.h2
