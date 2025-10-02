@@ -546,6 +546,45 @@ svg path:focus {
 }
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Footer ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+
+@keyframes shakeFooter {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-7px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  75% {
+    transform: translateY(-1px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.footer-shake {
+  animation: shakeFooter 2s ease-in-out infinite;
+}
+
+.footer-inner {
+  transform: translateY(6rem);
+  transition: transform 0.4s ease-in-out;
+}
+
+.footer-outer:hover .footer-inner {
+  transform: translateY(1rem);
+}
+
+.footer-outer:hover .footer-shake {
+  animation: none;
+}
+
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Responsiveness ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 @media (min-width: 768px) and (max-width: 1024px) {
