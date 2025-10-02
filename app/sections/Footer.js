@@ -44,13 +44,13 @@ export default function Footer({ isDarkMode, onToggle, onReset }) {
       <div className="footer-outer relative h-40 overflow-hidden">
         <footer
           data-theme={themeAttr}
-          className={`footer-hidden relative mx-auto w-[90%] max-w-6xl h-full rounded-t-xl p-6 grid grid-cols-[1fr_2fr_1fr] items-center text-center tracking-wide
+          className={`footer-hidden relative mx-auto w-[100%] max-w-6xl h-30 rounded-xl grid grid-cols-[2fr_1fr] items-center text-center tracking-wide
             ${
               isDarkMode ? "bg-[#1c1c1c] text-white" : "bg-[#001f3f] text-white"
             }`}
         >
           {/* Links */}
-          <div className="footer-links flex flex-col items-center gap-2"></div>
+          {/* <div className="footer-links flex flex-col items-center gap-2"></div> */}
 
           {/* Copyright */}
           <div className="footer-copyright text-sm border-x-2 border-[#138091] px-2">
