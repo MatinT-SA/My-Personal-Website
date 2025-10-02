@@ -1,4 +1,5 @@
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
+import { SITE_VERSION } from "../config";
 
 const CustomFooterStyles = () => (
   <style jsx global>{`
@@ -27,13 +28,13 @@ const CustomFooterStyles = () => (
     }
 
     .footer-outer:hover .footer-hidden {
-      transform: translateY(0); /* Fully reveal */
+      transform: translateY(1rem); /* Fully reveal */
       animation: none;
     }
   `}</style>
 );
 
-export default function Footer({ isDarkMode, onToggle, onReset, siteVersion }) {
+export default function Footer({ isDarkMode, onToggle, onReset }) {
   const themeAttr = isDarkMode ? "dark" : "light";
 
   return (
@@ -43,41 +44,18 @@ export default function Footer({ isDarkMode, onToggle, onReset, siteVersion }) {
       <div className="footer-outer relative h-40 overflow-hidden">
         <footer
           data-theme={themeAttr}
-          className={`footer-hidden relative mx-auto w-[90%] max-w-5xl h-40 rounded-t-xl p-6 grid grid-cols-3 items-center text-center tracking-wide
+          className={`footer-hidden relative mx-auto w-[90%] max-w-6xl h-full rounded-t-xl p-6 grid grid-cols-[1fr_2fr_1fr] items-center text-center tracking-wide
             ${
               isDarkMode ? "bg-[#1c1c1c] text-white" : "bg-[#001f3f] text-white"
             }`}
         >
           {/* Links */}
-          <div className="footer-links flex flex-col items-center gap-2">
-            <a
-              href="https://github.com/MatinT-SA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 hover:text-[#ff8000] transition"
-            >
-              <span>
-                <AiFillGithub className="text-xl" />
-              </span>
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/matin-taherzadeh-sa/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 hover:text-[#ff8000] transition"
-            >
-              <span>
-                <AiFillLinkedin className="text-xl" />
-              </span>
-              LinkedIn
-            </a>
-          </div>
+          <div className="footer-links flex flex-col items-center gap-2"></div>
 
           {/* Copyright */}
           <div className="footer-copyright text-sm border-x-2 border-[#138091] px-2">
             <p>
-              © {new Date().getFullYear()}{" "}
+              © {new Date().getFullYear()} - تمامی حقوق این سایت به{" "}
               <a
                 href="https://www.matintaherzadeh.ir/"
                 target="_blank"
@@ -85,11 +63,11 @@ export default function Footer({ isDarkMode, onToggle, onReset, siteVersion }) {
                 className="text-[#ff8000] font-bold transition-colors"
               >
                 Matin Taherzadeh
-              </a>
-              . All Rights Reserved.
+              </a>{" "}
+              تعلق دارد.
             </p>
             <span className="mt-1 inline-block text-xs font-mono opacity-70">
-              v{siteVersion}
+              v{SITE_VERSION}
             </span>
           </div>
 
