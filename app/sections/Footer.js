@@ -14,7 +14,7 @@ export default function Footer() {
                 href="https://www.matintaherzadeh.ir"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="text-amber-100 font-bold transition-colors hover:text-yellow-primary"
+                className="text-amber-100 font-bold transition-colors hover:text-yellow-primary tracking-wider"
               >
                 matintaherzadeh.ir
               </a>{" "}
