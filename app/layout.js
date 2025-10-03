@@ -1,3 +1,4 @@
+import Header from "./components/header/Header";
 import "./styles/global.css";
 
 export const metadata = {
@@ -13,6 +14,7 @@ export default function RootLayout({ children }) {
           bg-gradient-to-r from-white to-[#ffe6ff] 
           overflow-x-hidden text-black font-shabnam`}
       >
+        <Header />
         {children}
       </body>
     </html>
