@@ -57,8 +57,8 @@ export const FormInput = ({
         pattern={pattern}
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        className={`w-full bg-transparent text-purple-primary text-lg px-2 py-1 leading-none placeholder-transparent focus:outline-none transition-all duration-300 relative z-10 ${
-          isTextarea ? "h-full resize-none pt-4" : "h-10"
+        className={`w-full bg-transparent text-purple-primary text-lg px-2 my-1 leading-none placeholder-transparent focus:outline-none transition-all duration-300 relative z-10 ${
+          isTextarea ? "h-full resize-none pt-4" : "h-full"
         }`}
         placeholder={label}
         rows={isTextarea ? 4 : undefined}
@@ -85,7 +85,7 @@ export const FormInput = ({
         className={`absolute right-0 top-0 transition-all duration-500 pointer-events-none px-2 z-20 ${
           shouldFloat
             ? "text-sm text-yellow-400"
-            : "text-xl text-yellow-400 translate-y-[36px]"
+            : "text-xl text-yellow-400 translate-y-[30px]"
         }`}
       >
         {label}
