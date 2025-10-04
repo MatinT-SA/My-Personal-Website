@@ -66,6 +66,14 @@ export const FormInput = ({
         onBlur={handleBlur}
         onInvalid={handleInvalid}
         onInput={(e) => e.target.setCustomValidity("")}
+        // onKeyDown={(e) => {
+        //   if (isTextarea && e.key === "Tab") {
+        //     e.preventDefault();
+        //     e.target.form?.elements[
+        //       Array.prototype.indexOf.call(e.target.form, e.target) + 1
+        //     ]?.focus();
+        //   }
+        // }}
       />
 
       <span

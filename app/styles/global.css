@@ -520,7 +520,8 @@ svg path:focus {
   transition: all 0.3s ease;
 }
 
-.liquid-button-container:hover {
+.liquid-button-container:hover,
+.liquid-button-container:focus {
   box-shadow: 0 0 15px rgba(0, 191, 255, 0.6), 0 0 30px rgba(135, 206, 250, 0.4),
     0 0 60px rgba(173, 216, 230, 0.3);
 }
@@ -534,16 +535,16 @@ svg path:focus {
   transform: translateX(-50%);
   background: #0039fa;
   box-shadow: inset 0 0 40px rgba(0, 153, 255, 0.8),
-    /* bright core glow */ inset 0 0 80px rgba(0, 191, 255, 0.6),
-    /* mid glow */ inset 0 0 120px rgba(135, 206, 250, 0.4),
-    /* soft outer glow */ 0 0 40px rgba(0, 153, 255, 0.7),
-    /* outer streak glow */ 0 0 80px rgba(0, 191, 255, 0.5); /* subtle wide glow */
+    inset 0 0 80px rgba(0, 191, 255, 0.6),
+    inset 0 0 120px rgba(135, 206, 250, 0.4), 0 0 40px rgba(0, 153, 255, 0.7),
+    0 0 80px rgba(0, 191, 255, 0.5);
   transition: 0.5s;
   z-index: 0;
   filter: blur(3px);
 }
 
-.liquid-button-container:hover .liquid {
+.liquid-button-container:hover .liquid,
+.liquid-button-container:focus .liquid {
   top: -170px;
 }
 
