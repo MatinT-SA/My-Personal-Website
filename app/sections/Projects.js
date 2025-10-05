@@ -111,7 +111,6 @@ const Projects = forwardRef(function Projects(props, ref) {
   }, []);
 
   const handleNext = () => {
-    // Moves to the next set of items by INCREMENTING the index
     setIsSliding(true);
     setStartIndex((prevIndex) =>
       Math.min(prevIndex + 1, PROJECTS.length - visibleProjects)
@@ -123,7 +122,6 @@ const Projects = forwardRef(function Projects(props, ref) {
   };
 
   const handlePrev = () => {
-    // Moves to the previous set of items by DECREMENTING the index
     setIsSliding(true);
     setStartIndex((prevIndex) => Math.max(prevIndex - 1, 0));
     clearTimeout(slidingTimerRef.current);
