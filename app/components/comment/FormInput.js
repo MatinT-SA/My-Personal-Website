@@ -2,29 +2,28 @@ import React, { useState } from "react";
 
 /**
  * Renders a form input field (Input or Textarea) with a floating label effect and custom HTML5 validation.
- * This component is designed for use in text-based forms (e.g. name, email, message).
- * @param {Object} props
+ * This component is now a CONTROLLED COMPONENT, meaning it relies on the parent component
+ * (Comment.js) to manage its 'value' and 'onChange' state.
+ * * @param {Object} props
  * @param {string} props.id - A unique identifier for the input/textarea and its label.
  * @param {string} props.label - The label text which will float (e.g. "Email*").
- * @param {string} [props.type="text"] - The input type (text, email, tel, etc.).
- * @param {string} props.name - The field name used when submitting form data.
- * @param {boolean} [props.required=false] - Whether the field is required.
  * @param {boolean} [props.isTextarea=false] - If true, a textarea will be rendered.
- * @param {string|null} [props.pattern=null] - A regex pattern for input validation.
- * @param {string} props.customValidationMessage - Custom error message used for validation.
+ * @param {string} props.value - The current value, controlled by the parent. (REQUIRED)
+ * @param {function} props.onChange - The handler function to update the parent state. (REQUIRED)
+ * @param {Object} [props.rest] - All other standard HTML input attributes (name, type, required, pattern, etc.)
  */
 
 export const FormInput = ({
   id,
   label,
-  name,
-  type = "text",
-  required = false,
   isTextarea = false,
-  pattern,
   customValidationMessage,
+  // Capture all other props including name, value, onChange, type, required, pattern
+  ...rest
 }) => {
-  const [value, setValue] = useState("");
+  // Use the 'value' prop from the parent component, not internal state.
+  const value = rest.value || "";
+
   const [isFocused, setIsFocused] = useState(false);
   const shouldFloat = isFocused || value;
 
@@ -50,32 +49,26 @@ export const FormInput = ({
     >
       <InputComponent
         id={id}
-        name={name}
-        type={isTextarea ? undefined : type}
-        required={required}
-        d
-        pattern={pattern}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
+        // CRITICAL FIX: Spread ALL remaining props including name, value, onChange, etc.
+        {...rest}
+        // Set attributes for styling and behavior
+        type={isTextarea ? undefined : rest.type || "text"}
         className={`w-full bg-transparent text-purple-primary text-lg px-2 my-1 leading-none placeholder-transparent focus:outline-none transition-all duration-300 relative z-10 ${
           isTextarea ? "h-full resize-none pt-4" : "h-full"
         }`}
         placeholder={label}
         rows={isTextarea ? 4 : undefined}
+        // Focus and Blur handlers
         onFocus={() => setIsFocused(true)}
         onBlur={handleBlur}
         onInvalid={handleInvalid}
-        onInput={(e) => e.target.setCustomValidity("")}
-        // onKeyDown={(e) => {
-        //   if (isTextarea && e.key === "Tab") {
-        //     e.preventDefault();
-        //     e.target.form?.elements[
-        //       Array.prototype.indexOf.call(e.target.form, e.target) + 1
-        //     ]?.focus();
-        //   }
-        // }}
+        onInput={(e) => {
+          e.target.setCustomValidity("");
+          // Note: The main onChange handler is spread via {...rest} from the parent.
+        }}
       />
 
+      {/* Style Spans (no change) */}
       <span
         className={`absolute bottom-0 left-0 block w-full bg-white/30 transition-all duration-500 rounded-sm pointer-events-none`}
         style={{ height: "2px" }}
