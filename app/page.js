@@ -14,6 +14,7 @@ import ProjectsPageButton from "./components/projects/ProjectsPageButton";
 import ProjectsPopup from "./components/projects/ProjectsPopup";
 import Loader from "./components/Loader";
 import { AnimatePresence } from "framer-motion";
+import GoToTopButton from "./components/GoToTopButton";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -95,6 +96,8 @@ export default function Home() {
         activeSectionId={activeSectionId}
         onButtonClick={() => setIsPopupOpen(true)}
       />
+
+      <GoToTopButton aboutMeRef={aboutMeRef} />
 
       <AnimatePresence>
         {loading && <Loader />}
