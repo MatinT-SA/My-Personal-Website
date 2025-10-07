@@ -12,7 +12,7 @@ export const LiquidButton = ({ children, type = "submit" }) => {
   return (
     <button
       type={type}
-      className="liquid-button-container transition duration-300 ease-in-out hover:scale-[1.02]"
+      className="liquid-button-container transition duration-300 ease-in-out"
     >
       <span>{children}</span>
       <div className="liquid"></div>
