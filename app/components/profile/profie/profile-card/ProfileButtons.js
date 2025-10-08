@@ -19,7 +19,7 @@ export default function ProfileButtons() {
           )
         }
       >
-        در اینستا فالوم کن
+        سابقه کاری
       </Button>
     </div>
   );
