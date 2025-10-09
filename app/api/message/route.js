@@ -2,44 +2,32 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 export async function POST(request) {
-  // IMPORTANT: For production, ensure you have set EMAIL_USER and EMAIL_PASS environment variables
-  // (e.g., in a .env.local file or your deployment platform settings).
-
   try {
     const data = await request.json();
-    // Destructure all five expected fields from the client
     const { name, familyname, email, phonenumber, CommentMessage } = data;
 
-    // Basic Validation: Ensure required fields are present
     if (!email || !CommentMessage) {
       return NextResponse.json(
-        { message: "Missing required fields (Email or Message)" },
-        { status: 400 } // Bad Request
+        { message: "ایمیل و متن پیام الزامی است" },
+        { status: 400 }
       );
     }
 
-    // Configure Email Transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER, // SENDER: The account used to login and send
-        pass: process.env.EMAIL_PASS, // CREDENTIAL: The App Password or API Key
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
-    // Define Email Content
     const senderFullName = `${name || "Unknown"} ${familyname || ""}`.trim();
 
     const mailOptions = {
-      // 1. Set the FROM display name to the commenter's name, but use the SERVER email for authentication.
       from: `"${senderFullName}" <${process.env.EMAIL_USER}>`,
-
-      // 2. Add replyTo. When you hit 'Reply', your email client will use the commenter's email address.
       replyTo: email,
-
-      // RECEIVER: Set to the same account as the SENDER (matin.taherzadeh.mmtsa@gmail.com)
       to: process.env.EMAIL_USER,
-      subject: `New Message from ${senderFullName} on Your Portfolio`,
+      subject: `New Message from ${senderFullName} on my personal website`,
       text: `
         Name: ${name || "N/A"}
         Family Name: ${familyname || "N/A"}
@@ -55,18 +43,16 @@ export async function POST(request) {
       `,
     };
 
-    // Send the Email
     await transporter.sendMail(mailOptions);
 
     return NextResponse.json(
-      { message: "Message sent successfully!" },
-      { status: 200 } // OK
+      { message: "با موفقیت ارسال شد" },
+      { status: 200 }
     );
   } catch (error) {
     console.error("Email sending error:", error);
-    // Return a generic 500 status on internal failure
     return NextResponse.json(
-      { message: "Failed to send message due to a server error." },
+      { message: "عدم ارسام به علت خطای سروری" },
       { status: 500 }
     );
   }
