@@ -10,17 +10,11 @@ export default function ProfileButtons() {
         </Button>
       </Link>
 
-      <Button
-        className="bg-purple-primary text-blue-light border border-blue-light rounded-sm hover:bg-blue-light hover:text-purple-primary hover:border-purple-primary"
-        onClick={() =>
-          window.open(
-            "https://www.instagram.com/matin_taherzadeh_sa/",
-            "_blank"
-          )
-        }
-      >
-        سابقه کاری
-      </Button>
+      <Link href="/experience">
+        <Button className="bg-purple-primary text-blue-light border border-blue-light rounded-sm hover:bg-blue-light hover:text-purple-primary hover:border-purple-primary">
+          سابقه کاری
+        </Button>
+      </Link>
     </div>
   );
 }
