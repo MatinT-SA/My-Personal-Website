@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react"; // Removed unused useEffect
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import toast, { Toaster } from "react-hot-toast";
 import { LiquidButton } from "../components/comment/LiquidButton.js";
 import { FormInput } from "../components/comment/FormInput.js";
 
@@ -13,7 +14,7 @@ export default function Comment() {
     phonenumber: "",
     CommentMessage: "",
   });
-  const [submissionStatus, setSubmissionStatus] = useState(null); // 'submitting', 'success', 'error'
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -26,9 +27,8 @@ export default function Comment() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmissionStatus("submitting");
+    setIsSubmitting(true);
 
-    // The formData state keys (name, familyname, etc.) already match the required payload keys.
     const payload = formData;
 
     try {
@@ -41,8 +41,11 @@ export default function Comment() {
       });
 
       if (response.ok) {
-        setSubmissionStatus("success");
-        // Clear the form
+        toast.success("پیام شما با موفقیت ارسال شد!", {
+          duration: 3000,
+          position: "bottom-right",
+        });
+
         setFormData({
           name: "",
           familyname: "",
@@ -51,17 +54,24 @@ export default function Comment() {
           CommentMessage: "",
         });
       } else {
-        setSubmissionStatus("error");
-        // Log the error response from the server (e.g., validation failure)
-        console.error("API response error:", await response.json());
+        const errorData = await response.json();
+        const errorMessage =
+          errorData.message || "خطا در ارسال پیام. لطفا دوباره تلاش کنید.";
+        toast.error(errorMessage, {
+          duration: 3000,
+          position: "bottom-right",
+        });
+        console.error("API response error:", errorData);
       }
     } catch (error) {
-      setSubmissionStatus("error");
+      toast.error("خطا در ارسال پیام", {
+        duration: 4000,
+        position: "bottom-right",
+      });
       console.error("Fetch failed:", error);
+    } finally {
+      setIsSubmitting(false);
     }
-
-    // Clear status message after 5 seconds
-    setTimeout(() => setSubmissionStatus(null), 5000);
   };
 
   const fadeInVariant = {
@@ -78,6 +88,34 @@ export default function Comment() {
       id="comment"
       className="py-15 scroll-mt-20 h-full bg-purple-primary font-inter"
     >
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          success: {
+            style: {
+              marginBottom: "1.5rem",
+              marginLeft: "1.5rem",
+              color: "text-purple-primary",
+              borderRadius: "10px",
+              padding: ".75rem 1.25rem",
+              fontSize: "1.2rem",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
+            },
+          },
+          error: {
+            style: {
+              marginBottom: "1.5rem",
+              marginLeft: "1.5rem",
+              borderRadius: "10px",
+              color: "red",
+              padding: ".75rem 1.25rem",
+              fontSize: "1.2rem",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
+            },
+          },
+        }}
+      />
+
       <div className="container mx-auto px-4 max-w-7xl">
         <motion.h2
           className="text-center text-3xl font-extrabold text-white drop-shadow-lg"
@@ -94,7 +132,6 @@ export default function Comment() {
           onSubmit={handleSubmit}
           className="max-w-6xl mx-auto p-4"
         >
-          {/* 1. Name and Last Name Row */}
           <motion.div
             variants={fadeInVariant}
             initial="offscreen"
@@ -105,20 +142,19 @@ export default function Comment() {
             <FormInput
               id="name"
               label="نام"
-              name="name" // Matches formData.name
+              name="name"
               onChange={handleInputChange}
               value={formData.name}
             />
             <FormInput
               id="familyname"
               label="نام خانوادگی"
-              name="familyname" // Matches formData.familyname
+              name="familyname"
               onChange={handleInputChange}
               value={formData.familyname}
             />
           </motion.div>
 
-          {/* 2. Email and Phone Row */}
           <motion.div
             variants={fadeInVariant}
             initial="offscreen"
@@ -131,7 +167,7 @@ export default function Comment() {
               id="CommentEmail"
               label="ایمیل*"
               type="email"
-              name="email" // Matches formData.email
+              name="email"
               required
               onChange={handleInputChange}
               value={formData.email}
@@ -141,7 +177,7 @@ export default function Comment() {
               id="phonenumber"
               label="شماره تلفن"
               type="tel"
-              name="phonenumber" // Matches formData.phonenumber
+              name="phonenumber"
               pattern="^\+?([0-9\s-]{10,})$"
               onChange={handleInputChange}
               value={formData.phonenumber}
@@ -160,7 +196,7 @@ export default function Comment() {
             <FormInput
               id="CommentMessage"
               label="متن پیام*"
-              name="CommentMessage" // Matches formData.CommentMessage
+              name="CommentMessage"
               required
               isTextarea
               onChange={handleInputChange}
@@ -169,37 +205,9 @@ export default function Comment() {
             />
           </motion.div>
 
-          {/* Submission Status Message */}
-          {submissionStatus && (
-            <p
-              className={`text-center mt-4 font-bold transition-colors duration-300 ${
-                submissionStatus === "submitting"
-                  ? "text-yellow-400"
-                  : submissionStatus === "success"
-                  ? "text-neon-green"
-                  : "text-red-500"
-              }`}
-            >
-              {submissionStatus === "submitting" && "در حال ارسال پیام..."}
-              {submissionStatus === "success" &&
-                "پیام شما با موفقیت ارسال شد! ✅"}
-              {submissionStatus === "error" &&
-                "خطا در ارسال پیام. لطفاً دوباره تلاش کنید. ❌"}
-            </p>
-          )}
-
-          {/* 4. Submit Button using LiquidButton component */}
-          <div
-            className="flex justify-center"
-            // The LiquidButton should handle the disabled state visually based on the status, but the submit type handles form submission
-          >
-            <LiquidButton
-              type="submit"
-              disabled={submissionStatus === "submitting"}
-            >
-              {submissionStatus === "submitting"
-                ? "در حال ارسال..."
-                : "ارسال پیام"}
+          <div className="flex justify-center">
+            <LiquidButton type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "در حال ارسال..." : "ارسال پیام"}
             </LiquidButton>
           </div>
         </form>
