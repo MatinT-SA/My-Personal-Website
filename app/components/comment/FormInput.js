@@ -18,22 +18,17 @@ export const FormInput = ({
   label,
   isTextarea = false,
   customValidationMessage,
-  // Capture all other props including name, value, onChange, type, required, pattern
   ...rest
 }) => {
-  // Use the 'value' prop from the parent component, not internal state.
   const value = rest.value || "";
-
   const [isFocused, setIsFocused] = useState(false);
   const shouldFloat = isFocused || value;
 
   const handleBlur = (e) => {
-    e.target.setCustomValidity("");
     setIsFocused(false);
   };
 
   const handleInvalid = (e) => {
-    e.target.setCustomValidity("");
     if (customValidationMessage) {
       e.target.setCustomValidity(customValidationMessage);
     }
@@ -49,22 +44,18 @@ export const FormInput = ({
     >
       <InputComponent
         id={id}
-        // CRITICAL FIX: Spread ALL remaining props including name, value, onChange, etc.
         {...rest}
-        // Set attributes for styling and behavior
         type={isTextarea ? undefined : rest.type || "text"}
         className={`w-full bg-transparent text-purple-primary text-lg px-2 my-1 leading-none placeholder-transparent focus:outline-none transition-all duration-300 relative z-10 ${
           isTextarea ? "h-full resize-none pt-4" : "h-full"
         }`}
         placeholder={label}
         rows={isTextarea ? 4 : undefined}
-        // Focus and Blur handlers
         onFocus={() => setIsFocused(true)}
         onBlur={handleBlur}
         onInvalid={handleInvalid}
         onInput={(e) => {
           e.target.setCustomValidity("");
-          // Note: The main onChange handler is spread via {...rest} from the parent.
         }}
       />
 
