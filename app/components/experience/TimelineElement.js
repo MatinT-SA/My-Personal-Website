@@ -36,12 +36,10 @@ const TimelineElement = ({ date, title, company, points, iconBg, index }) => {
   // 3. Logic for Alternating Sides
   const isOdd = index % 2 !== 0;
 
-  // --- REVISED: Date positioning logic ---
-  // The element is positioned absolutely within the parent timeline container (w-full).
-  // On desktop, the date is positioned right up against the center line (right-1/2 or left-1/2).
+  // --- Date positioning logic ---
   const dateAlignmentClasses = isOdd
-    ? "md:left-1/2 md:text-left md:pl-6" // Card is on the right (order-3), Date is on the left
-    : "md:right-1/2 md:text-right md:pr-6"; // Card is on the left (order-1), Date is on the right
+    ? "md:left-1/2 md:text-left md:pl-6" // Card is on the right, Date is on the left
+    : "md:right-1/2 md:text-right md:pr-6"; // Card is on the left, Date is on the right
 
   // CSS Classes for Card
   const cardBaseClasses =
@@ -100,10 +98,9 @@ const TimelineElement = ({ date, title, company, points, iconBg, index }) => {
 
       {/* 4. Corrected: Separately positioned date element */}
       <div
-        // w-1/2 ensures it takes up exactly half the width
-        // absolute positioning pinned to either left-1/2 or right-1/2
-        // padding (pl-6 or pr-6) creates the visual gap from the center line
-        className={`md:block absolute w-1/2 top-3 hidden text-gray-600 font-medium whitespace-nowrap ${dateAlignmentClasses}`}
+        // 🚨 CRITICAL CHANGE HERE: top-1/2 and -translate-y-1/2 vertically center the date with the icon.
+        // It's removed from the flow on mobile with 'hidden md:block'.
+        className={`hidden md:block absolute w-1/2 top-1/2 -translate-y-1/2 text-gray-600 font-medium whitespace-nowrap ${dateAlignmentClasses}`}
       >
         <p className="text-sm text-gray-700">{date}</p>
       </div>
