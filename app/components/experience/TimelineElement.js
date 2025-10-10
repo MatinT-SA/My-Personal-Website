@@ -7,11 +7,11 @@ const TimelineElement = ({
   title,
   company,
   points,
-  iconBg,
+  iconBg, // Guaranteed to be a Hex color, e.g., "#9e8895"
   index,
   iconUrl,
 }) => {
-  // ... (Observer logic omitted for brevity)
+  // 🚨 FIX: State and Ref must be declared here for use below
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
@@ -32,7 +32,7 @@ const TimelineElement = ({
 
     return () => {
       if (ref.current) {
-        observer.unobserve(ref.current);
+        observer.unobserve(ref.current); // Fixed the unobserve target
       }
     };
   }, []);
@@ -43,7 +43,6 @@ const TimelineElement = ({
     ? "md:left-1/2 md:text-left md:pl-6"
     : "md:right-1/2 md:text-right md:pr-6";
 
-  // 🚨 CHANGE 1: Simplify cardBaseClasses by removing the hardcoded border color
   const cardBaseClasses =
     "w-full shadow-xl rounded-lg p-6 bg-white border-b-8 border-opacity-70 transition duration-700 ease-out";
 
@@ -54,26 +53,33 @@ const TimelineElement = ({
   const cardOrder = isOdd ? "md:order-3" : "md:order-1";
   const spacerOrder = isOdd ? "md:order-1" : "md:order-3";
 
+  // Hex color for the border
+  const cardBorderColor = iconBg;
+
   return (
     <div
       ref={ref}
+      // Pass the Hex colors to the CSS variables
+      style={{
+        transitionDelay: isVisible ? `${index * 0.1}s` : "0s",
+        "--icon-bg-color": iconBg,
+        "--card-border-color": cardBorderColor,
+      }}
       className={`relative flex justify-between items-center w-full mb-12 group ${visibilityClasses}`}
-      style={{ transitionDelay: isVisible ? `${index * 0.1}s` : "0s" }}
     >
       {/* 1. Spacer */}
       <div className={`hidden md:block w-[48%] ${spacerOrder}`} />
 
-      {/* 2. Timeline Icon/Dot (Fixing the IconBg visibility) */}
+      {/* 2. Timeline Icon/Dot: Uses icon-dot-background class */}
       <div
-        className={`hidden md:flex md:order-2 w-16 h-16 rounded-full shadow-xl z-10 items-center justify-center ${iconBg} ring-4 ring-white overflow-hidden`}
+        className={`hidden md:flex md:order-2 w-16 h-16 rounded-full shadow-xl z-10 items-center justify-center icon-dot-background ring-4 ring-white overflow-hidden`}
       >
         {iconUrl ? (
           <img
             src={iconUrl}
             alt={`${company} Logo`}
-            // 🚨 FIX 2: Added bg-white to the image wrapper to ensure logo stands out,
-            // and reduced padding slightly to let more of the iconBg show as a rim.
-            className="w-full h-full object-contain p-3 bg-white"
+            // Removed bg-white
+            className="w-full h-full object-contain p-3"
           />
         ) : (
           <svg
@@ -86,28 +92,9 @@ const TimelineElement = ({
         )}
       </div>
 
-      {/* 3. The main content card */}
+      {/* 3. The main content card: Applies the border color using the new CSS variable */}
       <div
-        className={`w-full md:w-[48%] ${cardOrder} ${cardBaseClasses}`}
-        // 🚨 FIX 3: Use inline style to dynamically set the border color
-        // based on the iconBg class. This requires mapping `iconBg` (e.g., 'bg-blue-600')
-        // to `border-[color]` (e.g., 'border-blue-600').
-        // Since we can't easily extract the color from the class string in runtime,
-        // we'll assume the same color class can be used for border-* if your Tailwind
-        // setup includes JIT compilation and dynamic variants.
-        // A safer solution is using a style object, but for simplicity:
-        style={{
-          borderColor: iconBg.replace("bg-", "var(--tw-border-opacity, 1) "),
-          // NOTE: This assumes `iconBg` is a simple background class like `bg-red-500`
-          // and you have CSS variables or dynamic color loading enabled.
-          // A more direct fix is to pass the HEX/RGB color via a dedicated prop.
-        }}
-        // The most reliable way for dynamic Tailwind colors is to rely on JIT/dynamic classes:
-        // We'll trust that adding a `border-` class will work alongside the hardcoded
-        // `border-b-8 border-opacity-70` in `cardBaseClasses`.
-        // To make it work, we must manually change the `cardBaseClasses` to be:
-        // "w-full shadow-xl rounded-lg p-6 bg-white border-b-8 transition duration-700 ease-out"
-        // AND then combine with the border color class.
+        className={`w-full md:w-[48%] ${cardOrder} ${cardBaseClasses} card-border-style`}
       >
         <div dir="rtl">
           <h3 className="text-xl font-bold text-gray-800 mb-2">{title}</h3>

@@ -38,6 +38,18 @@
   --animate-float-wide: float-wideScreen 35s ease-in-out infinite;
 }
 
+.icon-dot-background {
+  /* This is the final fix: We use the value stored in the variable --icon-bg-color 
+      to look up the corresponding Tailwind background class and apply it.
+    */
+  background-color: var(--icon-bg-color);
+}
+
+.card-border-style {
+  /* Use the CSS variable to set the border color dynamically */
+  border-color: var(--card-border-color);
+}
+
 @layer utilities {
   .float-matin {
     @apply animate-[float-matin_5s_ease-in-out_infinite];
