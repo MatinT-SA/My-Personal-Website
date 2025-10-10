@@ -5,7 +5,8 @@ export const jobData = [
     date: "مهر ۱۳۹۶ - در حال حاضر",
     title: "طراح و توسعه‌دهنده وب (فریلنسر)",
     company: "پروژه‌های مستقل (Freelance)",
-    iconBg: "#9e8895", // matintaherzadeh color
+    iconBg: "#9e8895",
+    iconUrl: "/images/experience/matintaherzadeh.png",
     points: [
       "تداوم فعالیت به عنوان توسعه‌دهنده وب فریلنسر با تخصص در ساخت وب‌سایت‌های داینامیک و واکنش‌گرا.",
       "استفاده از طیف گسترده‌ای از فناوری‌ها شامل ASP.NET MVC و Core، ReactJS، MERN Stack، JavaScript، C#، Bootstrap و ThreeJS.",
@@ -19,6 +20,7 @@ export const jobData = [
     title: "توسعه‌دهنده فول استک",
     company: "myadegaran",
     iconBg: "#78eb9a",
+    iconUrl: "/images/experience/myadegaran.png",
     points: [
       "به عنوان توسعه‌دهنده اصلی وردپرس به مدت حدود یک سال و نیم، مسئولیت کامل مدیریت و بهینه‌سازی پلتفرم‌ها را بر عهده داشتم.",
       "این نقش نیازمند مهارت‌های فنی بالا و توانایی سازگاری و برتری در محیط‌های مختلف بود.",
@@ -31,6 +33,7 @@ export const jobData = [
     title: "نویسنده محتوا (Content Writer)",
     company: "yorkbuilding",
     iconBg: "#e3e6e4",
+    iconUrl: "/images/experience/yorkbuilding.png",
     points: [
       "در یک تجربه کوتاه یک ماهه به عنوان نویسنده محتوای فریلنس برای شرکت‌های کانادایی مبلمان و لوله‌کشی، محتوای متقاعدکننده را مطابق با استانداردهای صنعت تدوین کردم.",
       "ایجاد کپی‌های سئو فرندلی برای افزایش آگاهی از برند و تقویت تعامل با مشتریان.",
@@ -42,7 +45,8 @@ export const jobData = [
     date: "شهریور ۱۳۹۷ - شهریور ۱۳۹۸",
     title: "معلم زبان انگلیسی",
     company: "موسسه زبان پارسیان فرهنگ",
-    iconBg: "#d3dbe8", // parsianFarhang color
+    iconBg: "#d3dbe8",
+    iconUrl: "/images/experience/parsianFarhang.png",
     points: [
       "آموزش زبان انگلیسی به زبان‌آموزان مبتدی و متوسط با تعهد و تخصص در موسسه زبان پارسیان فرهنگ برای حدود یک سال.",
     ],
