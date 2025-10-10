@@ -2,28 +2,23 @@
 
 import React, { useState, useRef, useEffect } from "react";
 
-/**
- * Custom Timeline Element component.
- * Features: Responsive layout, animated visibility on scroll, and alternating sides.
- */
 const TimelineElement = ({ date, title, company, points, iconBg, index }) => {
-  // 1. Setup Intersection Observer state
+  // ... (Intersection Observer state and logic remain the same)
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
-  // 2. Observer logic for scroll visibility (simulating Framer Motion's 'whileInView')
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(entry.target); // Stop observing once visible
+          observer.unobserve(entry.target);
         }
       },
       {
-        root: null, // viewport
+        root: null,
         rootMargin: "0px",
-        threshold: 0.1, // 10% visible
+        threshold: 0.1,
       }
     );
 
@@ -33,21 +28,26 @@ const TimelineElement = ({ date, title, company, points, iconBg, index }) => {
 
     return () => {
       if (ref.current) {
-        // Ensure observer is disconnected on component unmount
         observer.unobserve(ref.current);
       }
     };
   }, []);
 
-  // 3. Logic for Alternating Sides (on medium screens and up)
-  // Index 0, 2, 4... will be on one side, Index 1, 3, 5... on the other.
+  // 3. Logic for Alternating Sides
   const isOdd = index % 2 !== 0;
 
-  // CSS Classes for Animation and Alternating
-  const cardBaseClasses =
-    "w-full shadow-xl rounded-lg p-6 bg-white border-b-4 border-r-4 border-l-4 border-opacity-70 transition duration-700 ease-out";
+  // --- REVISED: Date positioning logic ---
+  // The element is positioned absolutely within the parent timeline container (w-full).
+  // On desktop, the date is positioned right up against the center line (right-1/2 or left-1/2).
+  const dateAlignmentClasses = isOdd
+    ? "md:left-1/2 md:text-left md:pl-6" // Card is on the right (order-3), Date is on the left
+    : "md:right-1/2 md:text-right md:pr-6"; // Card is on the left (order-1), Date is on the right
 
-  // Animation classes (simulating the smooth scroll effect)
+  // CSS Classes for Card
+  const cardBaseClasses =
+    "w-full shadow-xl rounded-lg p-6 bg-white border-b-8 border-opacity-70 border-purple-primary transition duration-700 ease-out";
+
+  // Animation classes
   const visibilityClasses = isVisible
     ? "opacity-100 translate-y-0"
     : "opacity-0 translate-y-12";
@@ -60,7 +60,6 @@ const TimelineElement = ({ date, title, company, points, iconBg, index }) => {
     <div
       ref={ref}
       className={`relative flex justify-between items-center w-full mb-12 group ${visibilityClasses}`}
-      // Staggering the reveal using transition delay
       style={{ transitionDelay: isVisible ? `${index * 0.1}s` : "0s" }}
     >
       {/* 1. Spacer (Empty element to push the card to the opposite side) */}
@@ -82,11 +81,9 @@ const TimelineElement = ({ date, title, company, points, iconBg, index }) => {
 
       {/* 3. The main content card */}
       <div
-        // w-[48%] on desktop, full width on mobile. Alternates order on desktop.
         className={`w-full md:w-[48%] ${cardOrder} ${cardBaseClasses} ${iconBg}`}
       >
         <div dir="rtl">
-          <p className="text-gray-500 text-sm mb-1">{date}</p>
           <h3 className="text-xl font-bold text-gray-800 mb-2">{title}</h3>
           <p className="text-purple-primary font-medium mb-4">{company}</p>
 
@@ -99,6 +96,16 @@ const TimelineElement = ({ date, title, company, points, iconBg, index }) => {
             ))}
           </ul>
         </div>
+      </div>
+
+      {/* 4. Corrected: Separately positioned date element */}
+      <div
+        // w-1/2 ensures it takes up exactly half the width
+        // absolute positioning pinned to either left-1/2 or right-1/2
+        // padding (pl-6 or pr-6) creates the visual gap from the center line
+        className={`md:block absolute w-1/2 top-3 hidden text-gray-600 font-medium whitespace-nowrap ${dateAlignmentClasses}`}
+      >
+        <p className="text-sm text-gray-700">{date}</p>
       </div>
     </div>
   );

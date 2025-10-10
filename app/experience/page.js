@@ -1,37 +1,28 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import { jobData } from "../src/constants/experience";
+import Button from "../components/Button";
 import TimelineElement from "../components/experience/TimelineElement";
-
-const Link = ({ children, href }) => (
-  <a href={href} className="inline-block">
-    {children}
-  </a>
-);
+import { jobData } from "../src/constants/experience";
+import Link from "next/link";
 
 const ExperiencePage = () => {
-  // Define the background style object
   const backgroundStyle = {
     backgroundImage: "linear-gradient(to right, #fff, #ffe6ff 80%)",
   };
 
   return (
     <section
-      dir="rtl"
-      className="min-h-screen p-6 sm:p-10"
-      style={backgroundStyle} // Apply the custom style here
+      className="min-h-screen py-6 px-1 sm:py-10 sm:px-2"
+      style={backgroundStyle}
     >
-      {/* Header and Back Button */}
-      <div className="max-w-7xl mx-auto pb-10 flex flex-col sm:flex-row items-center justify-between">
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 sm:mb-0">
+      <div className="max-w-7xl mx-auto pb-10 grid sm:grid-row grid-cols-[7fr_1fr] items-center justify-center">
+        <h1 className="text-4xl sm:text-5xl flex justify-center font-extrabold text-purple-primary mb-6 sm:mb-0">
           سابقه کاری
         </h1>
         <Link href="/">
-          {/* Styling the link to look like a clean button */}
-          <button className="px-6 py-2 bg-purple-primary text-blue-light rounded-full shadow-lg hover:bg-blue-light hover:text-purple-primary transition duration-300 transform hover:scale-105">
+          <Button className="bg-purple-primary text-blue-light hover:bg-blue-light hover:text-purple-primary transform hover:scale-105">
             بازگشت به خانه
-          </button>
+          </Button>
         </Link>
       </div>
 
@@ -39,10 +30,7 @@ const ExperiencePage = () => {
       <div className="max-w-7xl mx-auto">
         <div className="relative wrap overflow-hidden p-10 h-full">
           {/* Vertical Line in the Center (The spine of the timeline) */}
-          <div
-            className="border-2 border-purple-primary absolute border-opacity-20 h-full right-1/2 rounded-full hidden md:block"
-            style={{ borderStyle: "dotted" }}
-          ></div>
+          <div className="border-2 border-purple-primary absolute border-opacity-20 h-full right-1/2 rounded-full hidden md:block"></div>
 
           {/* The timeline items */}
           {jobData.map((job, index) => (
