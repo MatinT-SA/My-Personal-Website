@@ -40,8 +40,8 @@ const TimelineElement = ({
   const isOdd = index % 2 !== 0;
 
   const dateAlignmentClasses = isOdd
-    ? "md:left-1/2 md:text-left md:pl-6"
-    : "md:right-1/2 md:text-right md:pr-6";
+    ? "md:left-1/2 md:text-left md:pl-12"
+    : "md:right-1/2 md:text-right md:pr-12";
 
   const cardBaseClasses =
     "w-full shadow-xl rounded-lg p-6 bg-white border-b-8 border-opacity-70 transition duration-700 ease-out";
@@ -50,7 +50,7 @@ const TimelineElement = ({
     ? "opacity-100 translate-y-0"
     : "opacity-0 translate-y-12";
 
-  const cardOrder = isOdd ? "md:order-3" : "md:order-1";
+  const cardOrder = isOdd ? "md:order-3 mr-2" : "md:order-1 ml-2";
   const spacerOrder = isOdd ? "md:order-1" : "md:order-3";
 
   // Hex color for the border
@@ -68,7 +68,7 @@ const TimelineElement = ({
       className={`relative flex justify-between items-center w-full mb-12 group ${visibilityClasses}`}
     >
       {/* 1. Spacer */}
-      <div className={`hidden md:block w-[48%] ${spacerOrder}`} />
+      <div className={`hidden md:block w-[49%] ${spacerOrder}`} />
 
       {/* 2. Timeline Icon/Dot: Uses icon-dot-background class */}
       <div
@@ -115,7 +115,7 @@ const TimelineElement = ({
       <div
         className={`hidden md:block absolute w-1/2 top-1/2 -translate-y-1/2 text-gray-600 font-medium whitespace-nowrap ${dateAlignmentClasses}`}
       >
-        <p className="text-sm text-gray-700">{date}</p>
+        <p className="text-md text-gray-700">{date}</p>
       </div>
     </div>
   );
