@@ -42,8 +42,8 @@ const ExperiencePage = () => {
       {/* Footer Text */}
       <div className="max-w-7xl mx-auto text-center mt-10 p-4 text-gray-500 text-sm">
         <p>
-          این سوابق به ترتیب زمانی معکوس (جدیدترین به قدیمی‌ترین) نمایش داده
-          شده‌اند.
+          این سوابق به ترتیب زمانی معکوس (جدیدترین به قدیمی‌ ترین) نمایش داده
+          شده‌ اند.
         </p>
       </div>
     </section>
