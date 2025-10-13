@@ -1,3 +1,5 @@
+import Link from "next/link";
+import Button from "../components/Button";
 import { SITE_VERSION } from "../config";
 
 export default function Footer() {
@@ -7,7 +9,12 @@ export default function Footer() {
         <footer
           className={`footer-inner relative bg-purple-primary text-white mx-auto w-[95%] max-w-5xl h-20 rounded-xl flex items-center tracking-wide`}
         >
-          <div className="text-md px-2 grid grid-cols-[3fr_1fr] text-center w-full">
+          <div className="text-md px-2 grid grid-cols-[1fr_2fr_1fr] text-center w-full items-center justify-center">
+            <Link href="/experience">
+              <Button className="bg-purple-primary text-blue-light border border-blue-light rounded-sm hover:bg-blue-light hover:text-purple-primary hover:border-purple-primary mx-auto">
+                سابقه کاری
+              </Button>
+            </Link>
             <p>
               © {new Date().getFullYear()} - تمامی حقوق این سایت به{" "}
               <a
