@@ -1,41 +1,30 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef } from "react";
+import { motion } from "framer-motion"; // 🚨 1. Import motion
 
 const TimelineElement = ({
   date,
   title,
   company,
   points,
-  iconBg, // Guaranteed to be a Hex color, e.g., "#9e8895"
+  iconBg, // Hex color
   index,
   iconUrl,
 }) => {
-  // 🚨 FIX: State and Ref must be declared here for use below
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
+  // Define animation variants for the slide-up/fade-in effect
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+        delay: index * 0.1, // Stagger delay based on index
       },
-      { root: null, rootMargin: "0px", threshold: 0.1 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current); // Fixed the unobserve target
-      }
-    };
-  }, []);
+    },
+  };
 
   const isOdd = index % 2 !== 0;
 
@@ -46,10 +35,6 @@ const TimelineElement = ({
   const cardBaseClasses =
     "w-full shadow-xl rounded-lg p-6 bg-white border-b-8 border-opacity-70 transition duration-700 ease-out";
 
-  const visibilityClasses = isVisible
-    ? "opacity-100 translate-y-0"
-    : "opacity-0 translate-y-12";
-
   const cardOrder = isOdd ? "md:order-3 mr-2" : "md:order-1 ml-2";
   const spacerOrder = isOdd ? "md:order-1" : "md:order-3";
 
@@ -57,15 +42,19 @@ const TimelineElement = ({
   const cardBorderColor = iconBg;
 
   return (
-    <div
-      ref={ref}
-      // Pass the Hex colors to the CSS variables
+    // 🚨 2. Replace the outer <div> with <motion.div>
+    <motion.div
+      // 🚨 3. Framer Motion properties for animation
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible" // Triggers animation when element enters view
+      viewport={{ once: true, amount: 0.1 }} // Animates only once
+      // Pass the Hex colors via style prop (using CSS Variables)
       style={{
-        transitionDelay: isVisible ? `${index * 0.1}s` : "0s",
         "--icon-bg-color": iconBg,
         "--card-border-color": cardBorderColor,
       }}
-      className={`relative flex justify-between items-center w-full mb-12 group ${visibilityClasses}`}
+      className={`relative flex justify-between items-center w-full mb-12 group`}
     >
       {/* 1. Spacer */}
       <div className={`hidden md:block w-[49%] ${spacerOrder}`} />
@@ -78,7 +67,6 @@ const TimelineElement = ({
           <img
             src={iconUrl}
             alt={`${company} Logo`}
-            // Removed bg-white
             className="w-full h-full object-contain p-3"
           />
         ) : (
@@ -117,7 +105,7 @@ const TimelineElement = ({
       >
         <p className="text-md text-gray-700">{date}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

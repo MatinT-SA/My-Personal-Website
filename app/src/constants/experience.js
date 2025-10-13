@@ -2,7 +2,7 @@ export const jobData = [
   {
     id: 5,
     date: "مهر ۱۳۹۶ - در حال حاضر",
-    title: "طراح و توسعه‌ دهنده وب (فریلنسر)",
+    title: "طراح و توسعه‌ دهنده وب",
     company: "پروژه‌ های مستقل (Freelance)",
     iconBg: "#9e8895",
     iconUrl: "/images/experience/matintaherzadeh.png",
@@ -44,7 +44,7 @@ export const jobData = [
   {
     id: 3,
     date: "دی ۱۴۰۱ - اسفند ۱۴۰۱",
-    title: "نویسنده محتوا (Content Writer)",
+    title: "نویسنده محتوا",
     company: "yorkbuilding",
     iconBg: "#e3e6e4",
     iconUrl: "/images/experience/yorkbuilding.png",
