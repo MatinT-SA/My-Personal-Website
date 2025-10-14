@@ -14,7 +14,7 @@ export default function SkillsList({
           className="flex items-center justify-center py-2 text-md font-medium text-dark-primary"
           style={{
             opacity: 0,
-            transition: "opacity 120ms linear",
+            transition: "opacity 100ms linear",
             willChange: "opacity, transform",
           }}
         >
