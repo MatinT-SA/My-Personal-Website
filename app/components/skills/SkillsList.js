@@ -12,7 +12,7 @@ export default function SkillsList({
         <li
           key={baseIndex + i}
           ref={(el) => registerItem(baseIndex + i, el)}
-          className="flex items-center justify-center py-2 text-md font-medium text-dark-primary opacity-100 lg:opacity-0 lg:will-change-[opacity,transform]"
+          className="flex items-center justify-center py-2 text-md font-medium text-dark-primary opacity-100 xl:opacity-0 lg:will-change-[opacity,transform]"
           style={{
             transition: "opacity 100ms linear",
           }}
