@@ -227,13 +227,13 @@ export default function Skills() {
       className="relative scroll-mt-24 mx-12 my-16 rounded-[300px_15px] bg-[color:var(--color-blue-light-transparent)] p-6"
     >
       <h2 className="mb-12 text-center text-3xl font-extrabold text-purple-primary">
-                مهارت ها      {" "}
+        مهارت ها
       </h2>
 
       <div
         className="
             flex flex-row items-center justify-around gap-8 
-            max-lg:flex-col max-lg:items-center max-lg:gap-12 
+            max-lg:flex-col max-lg:items-center max-lg:gap-4
         "
       >
         <SkillsList
@@ -242,7 +242,7 @@ export default function Skills() {
           registerItem={registerItem}
           className="flex-1 max-lg:order-2 max-lg:w-full"
         />
-        <div className="flex justify-center relative max-lg:order-first">
+        <div className="hidden xl:flex xl:justify-center relative max-xl:order-first">
           <SkillsCircle data={circleData} onSliceClick={handleSliceClick} />
           <div
             onClick={handleShowAllClick}
