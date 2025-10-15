@@ -6,7 +6,7 @@ export default function SkillsList({
   registerItem,
 }) {
   return (
-    <ul className="space-y-4 text-right">
+    <ul className="space-y-4 text-center">
       {skills.map((skill, i) => (
         <li
           key={baseIndex + i}

@@ -264,7 +264,7 @@ export default function Skills() {
       </div>
 
       {/* Custom cursor (glow) - absolutely positioned inside container */}
-      <SkillsGlowCursor containerRef={containerRef} />
+      <SkillsGlowCursor />
     </section>
   );
 }
