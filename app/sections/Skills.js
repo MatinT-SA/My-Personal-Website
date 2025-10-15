@@ -15,10 +15,6 @@ const SkillsCircle = dynamic(
 const HIGHLIGHT_RADIUS = 260;
 const FALL_OFF = 1.0;
 
-// =========================================================
-// 🎯 FINAL FIX: DATA DEFINITIONS MUST BE HERE
-// =========================================================
-
 const skillsLeft = [
   "آشنا به زبان برنامه نویسی CSharp",
   "آشنا به Tailwind, Bootstrap, SASS",
@@ -67,10 +63,6 @@ const skillCategoryMap = {
   "طراحی سایت واکنش گرا": "Frontend",
 };
 
-// =========================================================
-// END OF DATA DEFINITIONS
-// =========================================================
-
 export default function Skills() {
   const containerRef = useRef(null);
   const cursorRef = useRef(null);
@@ -85,7 +77,7 @@ export default function Skills() {
     ("ontouchstart" in window || navigator.maxTouchPoints > 0);
 
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [showAll, setShowAll] = useState(false); // --- Handlers ---
+  const [showAll, setShowAll] = useState(false);
 
   const handleSliceClick = useCallback((categoryName) => {
     setSelectedCategory((prevCategory) =>
@@ -139,10 +131,9 @@ export default function Skills() {
       const skillCategory = skillCategoryMap[allSkills[idx]];
       const isSelected = selectedCategory === skillCategory;
 
-      let glowOpacity = 0; // Default to invisible (for desktop if cursor is far)
+      let glowOpacity = 0;
 
       if (runGlowLogic) {
-        // Desktop-only Mouse Glow Calculation
         const dx = pos.x - cx;
         const dy = pos.y - cy;
         const dist = Math.sqrt(dx * dx + dy * dy);
@@ -209,7 +200,7 @@ export default function Skills() {
         if (el) el.style.opacity = "0";
       });
     }
-  }, [isTouchDevice, selectedCategory, showAll]); // --- Effects ---
+  }, [isTouchDevice, selectedCategory, showAll]);
 
   useEffect(() => {
     computePositions();
@@ -235,48 +226,39 @@ export default function Skills() {
       onMouseLeave={isTouchDevice ? undefined : handleMouseLeave}
       className="relative scroll-mt-24 mx-12 my-16 rounded-[300px_15px] bg-[color:var(--color-blue-light-transparent)] p-6"
     >
-           {" "}
       <h2 className="mb-12 text-center text-3xl font-extrabold text-purple-primary">
                 مهارت ها      {" "}
       </h2>
-            {/* Layout: FLEXBOX for guaranteed single-row desktop layout */}   
-       {" "}
+
       <div
         className="
             flex flex-row items-center justify-around gap-8 
             max-lg:flex-col max-lg:items-center max-lg:gap-12 
         "
       >
-               {" "}
         <SkillsList
           skills={skillsLeft}
           baseIndex={0}
           registerItem={registerItem}
           className="flex-1 max-lg:order-2 max-lg:w-full"
         />
-               {" "}
         <div className="flex justify-center relative max-lg:order-first">
-                   {" "}
-          <SkillsCircle data={circleData} onSliceClick={handleSliceClick} />   
-               {" "}
+          <SkillsCircle data={circleData} onSliceClick={handleSliceClick} />
           <div
             onClick={handleShowAllClick}
             className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer font-bold text-center text-sky-900 transition-opacity duration-300"
           >
-                        {showAll ? "پنهان همه" : "نمایش همه"}         {" "}
+            {showAll ? "پنهان همه" : "نمایش همه"}
           </div>
-                 {" "}
         </div>
-               {" "}
         <SkillsList
           skills={skillsRight}
           baseIndex={skillsLeft.length}
           registerItem={registerItem}
           className="flex-1 max-lg:order-3 max-lg:w-full"
         />
-             {" "}
       </div>
-            {!isTouchDevice && <SkillsGlowCursor cursorRef={cursorRef} />}   {" "}
+      {!isTouchDevice && <SkillsGlowCursor cursorRef={cursorRef} />}
     </section>
   );
 }

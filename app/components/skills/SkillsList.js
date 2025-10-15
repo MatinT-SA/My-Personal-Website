@@ -7,8 +7,7 @@ export default function SkillsList({
   className = "",
 }) {
   return (
-    <ul className={`space-y-4 text-center lg:text-right ${className}`}>
-           {" "}
+    <ul className={`space-y-4 text-center ${className}`}>
       {skills.map((skill, i) => (
         <li
           key={baseIndex + i}
@@ -18,10 +17,9 @@ export default function SkillsList({
             transition: "opacity 100ms linear",
           }}
         >
-                    {skill}       {" "}
+          {skill}
         </li>
       ))}
-         {" "}
     </ul>
   );
 }
