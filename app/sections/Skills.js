@@ -96,7 +96,7 @@ export default function Skills() {
     itemRefs.current[index] = el;
     if (el) {
       el.style.opacity = "0";
-      el.style.transition = "opacity 120ms linear";
+      el.style.transition = "opacity 100ms linear";
     }
   }, []);
 
