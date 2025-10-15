@@ -15,6 +15,10 @@ const SkillsCircle = dynamic(
 const HIGHLIGHT_RADIUS = 260;
 const FALL_OFF = 1.0;
 
+// =========================================================
+// 🎯 FINAL FIX: DATA DEFINITIONS MUST BE HERE
+// =========================================================
+
 const skillsLeft = [
   "آشنا به زبان برنامه نویسی CSharp",
   "آشنا به Tailwind, Bootstrap, SASS",
@@ -37,7 +41,6 @@ const skillsRight = [
   "طراحی سایت واکنش گرا",
 ];
 
-// Data for the SkillsCircle component
 const circleData = [
   { name: "Frontend", value: 7, color: "#3b82f6" },
   { name: "Backend", value: 3, color: "#22c55e" },
@@ -45,7 +48,6 @@ const circleData = [
   { name: "Other", value: 4, color: "#a855f7" },
 ];
 
-// Map each skill string to its category
 const skillCategoryMap = {
   "آشنا به زبان برنامه نویسی CSharp": "Backend",
   "آشنا به Tailwind, Bootstrap, SASS": "Other",
@@ -65,6 +67,10 @@ const skillCategoryMap = {
   "طراحی سایت واکنش گرا": "Frontend",
 };
 
+// =========================================================
+// END OF DATA DEFINITIONS
+// =========================================================
+
 export default function Skills() {
   const containerRef = useRef(null);
   const cursorRef = useRef(null);
@@ -73,12 +79,13 @@ export default function Skills() {
   const rafRef = useRef(null);
   const lastPos = useRef({ x: 0, y: 0 });
   const isInside = useRef(false);
+
   const isTouchDevice =
     typeof window !== "undefined" &&
     ("ontouchstart" in window || navigator.maxTouchPoints > 0);
 
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [showAll, setShowAll] = useState(false);
+  const [showAll, setShowAll] = useState(false); // --- Handlers ---
 
   const handleSliceClick = useCallback((categoryName) => {
     setSelectedCategory((prevCategory) =>
@@ -94,15 +101,12 @@ export default function Skills() {
 
   const registerItem = useCallback((index, el) => {
     itemRefs.current[index] = el;
-    if (el) {
-      el.style.opacity = "0";
-      el.style.transition = "opacity 100ms linear";
-    }
   }, []);
 
   const computePositions = useCallback(() => {
     const cont = containerRef.current;
-    if (!cont) return;
+    if (!cont || isTouchDevice) return;
+
     const contRect = cont.getBoundingClientRect();
     positions.current = itemRefs.current.map((el) => {
       if (!el) return null;
@@ -112,59 +116,67 @@ export default function Skills() {
         y: r.top + r.height / 2 - contRect.top,
       };
     });
-  }, []);
+  }, [isTouchDevice]);
 
   const tick = useCallback(() => {
     const cont = containerRef.current;
     if (!cont) return;
-    const { x: cx, y: cy } = lastPos.current;
 
-    if (cursorRef.current) {
-      cursorRef.current.style.left = `${cx}px`;
-      cursorRef.current.style.top = `${cy}px`;
-      cursorRef.current.style.opacity = isInside.current ? "1" : "0";
-    }
+    const runGlowLogic = !isTouchDevice && !selectedCategory && !showAll;
+
+    // Get mouse position only if we are doing the glow effect
+    const { x: cx, y: cy } = runGlowLogic ? lastPos.current : { x: 0, y: 0 };
 
     const radius = HIGHLIGHT_RADIUS;
     const base = 0;
     const max = 1;
-
     const allSkills = [...skillsLeft, ...skillsRight];
 
     positions.current.forEach((pos, idx) => {
       const el = itemRefs.current[idx];
       if (!el || !pos) return;
 
-      const skillString = allSkills[idx];
-      const skillCategory = skillCategoryMap[skillString];
-
+      const skillCategory = skillCategoryMap[allSkills[idx]];
       const isSelected = selectedCategory === skillCategory;
 
-      const dx = pos.x - cx;
-      const dy = pos.y - cy;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      let t = Math.max(0, (radius - dist) / radius);
-      t = Math.pow(t, FALL_OFF);
-      const glowOpacity = base + (max - base) * t;
+      let glowOpacity = 0; // Default to invisible (for desktop if cursor is far)
 
-      // New logic: Check if showAll is true first, otherwise check selectedCategory, then use glow
+      if (runGlowLogic) {
+        // Desktop-only Mouse Glow Calculation
+        const dx = pos.x - cx;
+        const dy = pos.y - cy;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        let t = Math.max(0, (radius - dist) / radius);
+        t = Math.pow(t, FALL_OFF);
+        glowOpacity = base + (max - base) * t;
+      }
+
+      // --- Final Opacity Logic ---
       let finalOpacity;
-      if (showAll) {
-        finalOpacity = max;
+      if (isTouchDevice) {
+        // Mobile: If showAll or selected, force opacity 1. Otherwise, let CSS win.
+        if (showAll || isSelected) {
+          finalOpacity = max;
+        } else {
+          return; // Let CSS (opacity-100) control standard visibility
+        }
+      } else if (showAll) {
+        finalOpacity = max; // Desktop: show all if clicked
       } else if (isSelected) {
-        finalOpacity = max;
+        finalOpacity = max; // Desktop: highlight selected category
       } else {
-        finalOpacity = glowOpacity;
+        finalOpacity = glowOpacity; // Desktop: use mouse glow
       }
 
       el.style.opacity = String(finalOpacity);
     });
 
     rafRef.current = null;
-  }, [selectedCategory, showAll, skillCategoryMap]);
+  }, [selectedCategory, showAll, isTouchDevice]);
 
   const handleMouseMove = useCallback(
     (e) => {
+      if (isTouchDevice) return;
       const cont = containerRef.current;
       if (!cont) return;
       const rect = cont.getBoundingClientRect();
@@ -173,7 +185,7 @@ export default function Skills() {
         rafRef.current = requestAnimationFrame(tick);
       }
     },
-    [tick]
+    [tick, isTouchDevice]
   );
 
   const handleMouseEnter = useCallback(() => {
@@ -181,7 +193,6 @@ export default function Skills() {
     isInside.current = true;
     const cont = containerRef.current;
     if (cont) cont.style.cursor = "none";
-    if (cursorRef.current) cursorRef.current.style.opacity = "1";
     if (selectedCategory || showAll) {
       tick();
     }
@@ -192,25 +203,18 @@ export default function Skills() {
     isInside.current = false;
     const cont = containerRef.current;
     if (cont) cont.style.cursor = "auto";
-    if (cursorRef.current) cursorRef.current.style.opacity = "0";
 
     if (!selectedCategory && !showAll) {
       itemRefs.current.forEach((el) => {
         if (el) el.style.opacity = "0";
       });
     }
-  }, [isTouchDevice, selectedCategory, showAll]);
+  }, [isTouchDevice, selectedCategory, showAll]); // --- Effects ---
 
   useEffect(() => {
     computePositions();
     const onResize = () => computePositions();
     window.addEventListener("resize", onResize);
-
-    if (isTouchDevice) {
-      itemRefs.current.forEach((el) => {
-        if (el) el.style.opacity = "1";
-      });
-    }
 
     return () => {
       window.removeEventListener("resize", onResize);
@@ -218,7 +222,6 @@ export default function Skills() {
     };
   }, [computePositions, isTouchDevice]);
 
-  // Use a dedicated useEffect to run the tick function when state changes
   useEffect(() => {
     tick();
   }, [selectedCategory, showAll, tick]);
@@ -227,44 +230,53 @@ export default function Skills() {
     <section
       id="skills"
       ref={containerRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseMove={isTouchDevice ? undefined : handleMouseMove}
+      onMouseEnter={isTouchDevice ? undefined : handleMouseEnter}
+      onMouseLeave={isTouchDevice ? undefined : handleMouseLeave}
       className="relative scroll-mt-24 mx-12 my-16 rounded-[300px_15px] bg-[color:var(--color-blue-light-transparent)] p-6"
     >
+           {" "}
       <h2 className="mb-12 text-center text-3xl font-extrabold text-purple-primary">
-        مهارت ها
+                مهارت ها      {" "}
       </h2>
-
-      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-8">
-        {/* Left */}
+            {/* Layout: FLEXBOX for guaranteed single-row desktop layout */}   
+       {" "}
+      <div
+        className="
+            flex flex-row items-center justify-around gap-8 
+            max-lg:flex-col max-lg:items-center max-lg:gap-12 
+        "
+      >
+               {" "}
         <SkillsList
           skills={skillsLeft}
           baseIndex={0}
           registerItem={registerItem}
+          className="flex-1 max-lg:order-2 max-lg:w-full"
         />
-
-        {/* Center */}
-        <div className="flex justify-center relative">
-          <SkillsCircle data={circleData} onSliceClick={handleSliceClick} />
+               {" "}
+        <div className="flex justify-center relative max-lg:order-first">
+                   {" "}
+          <SkillsCircle data={circleData} onSliceClick={handleSliceClick} />   
+               {" "}
           <div
             onClick={handleShowAllClick}
             className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer font-bold text-center text-sky-900 transition-opacity duration-300"
           >
-            {showAll ? "پنهان همه" : "نمایش همه"}
+                        {showAll ? "پنهان همه" : "نمایش همه"}         {" "}
           </div>
+                 {" "}
         </div>
-
-        {/* Right */}
+               {" "}
         <SkillsList
           skills={skillsRight}
           baseIndex={skillsLeft.length}
           registerItem={registerItem}
+          className="flex-1 max-lg:order-3 max-lg:w-full"
         />
+             {" "}
       </div>
-
-      {/* Custom cursor (glow) - absolutely positioned inside container */}
-      <SkillsGlowCursor />
+            {!isTouchDevice && <SkillsGlowCursor cursorRef={cursorRef} />}   {" "}
     </section>
   );
 }
