@@ -9,12 +9,12 @@ import Footer from "./sections/Footer";
 import HomeSection from "./sections/HomeSection";
 import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
-import GithubRepositoryButton from "./components/projects/GithubRepositoryButton";
-import ProjectsPageButton from "./components/projects/ProjectsPageButton";
-import ProjectsPopup from "./components/projects/ProjectsPopup";
-import Loader from "./components/Loader";
+import GithubRepositoryButton from "../components/projects/GithubRepositoryButton";
+import ProjectsPageButton from "../components/projects/ProjectsPageButton";
+import ProjectsPopup from "../components/projects/ProjectsPopup";
+import Loader from "../components/Loader";
 import { AnimatePresence } from "framer-motion";
-import GoToTopButton from "./components/GoToTopButton";
+import GoToTopButton from "../components/GoToTopButton";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
