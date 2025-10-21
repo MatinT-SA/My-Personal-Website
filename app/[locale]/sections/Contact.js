@@ -13,8 +13,9 @@ import {
   FaTelegramPlane,
   FaFacebookF,
 } from "react-icons/fa";
-import ContactCard from "../components/contact/ContactCard";
-import SocialButton from "../components/contact/SocialButton";
+
+import ContactCard from "@/app/components/contact/ContactCard";
+import SocialButton from "@/app/components/contact/SocialButton";
 
 const CONTACT_INFO = [
   {

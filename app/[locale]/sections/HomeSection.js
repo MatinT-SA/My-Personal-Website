@@ -1,5 +1,5 @@
-import Navigation from "../components/navigation/Navigation";
-import ProfileCard from "../components/profile/profie/profile-card/ProfileCard";
+import Navigation from "@/app/components/navigation/Navigation";
+import ProfileCard from "@/app/components/profile/profie/profile-card/ProfileCard";
 
 export default function HomeSection() {
   return (

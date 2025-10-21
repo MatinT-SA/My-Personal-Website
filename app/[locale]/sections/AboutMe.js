@@ -2,8 +2,9 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import AboutMeText from "../components/about-me/AboutMeText";
-import AboutMeImage from "../components/about-me/AboutMeImage";
+
+import AboutMeText from "@/app/components/about-me/AboutMeText";
+import AboutMeImage from "@/app/components/about-me/AboutMeImage";
 
 export default function AboutMe() {
   return (
