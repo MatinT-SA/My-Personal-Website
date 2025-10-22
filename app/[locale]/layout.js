@@ -1,6 +1,6 @@
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import Header from "../components/header/Header";
-import "./styles/global.css";
+import "@/app/styles/global.css";
 import { routing } from "../src/i18n/routing";
 import { notFound } from "next/navigation";
 
