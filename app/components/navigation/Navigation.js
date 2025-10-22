@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import SocialLinks from "../profile/profie/profile-card/SocialLinks";
 import NavLinks from "./NavLinks";
+import { useTranslations } from "next-intl";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,8 +13,10 @@ export default function Navigation() {
   const [activeSection, setActiveSection] = useState("home");
   const navRef = useRef(null);
 
+  const t = useTranslations("home");
+
   const links = [
-    { id: "home", label: "خانه" },
+    { id: "home", label: t("nav.home") },
     { id: "about-me", label: "درباره من" },
     { id: "skills", label: "مهارت ها" },
     { id: "projects", label: "نمونه کارها" },

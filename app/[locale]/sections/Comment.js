@@ -3,8 +3,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import toast, { Toaster } from "react-hot-toast";
-import { LiquidButton } from "../components/comment/LiquidButton.js";
-import { FormInput } from "../components/comment/FormInput.js";
+
+import { LiquidButton } from "@/app/components/comment/LiquidButton.js";
+import { FormInput } from "@/app/components/comment/FormInput.js";
 
 export default function Comment() {
   const [formData, setFormData] = useState({

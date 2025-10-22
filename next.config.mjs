@@ -3,6 +3,6 @@ import createNextIntlPlugin from "next-intl/plugin";
 /** @type {import('next').NextConfig} */
 const nextConfig = {};
 
-const withnextIntl = createNextIntlPlugin();
+const withNextIntl = createNextIntlPlugin("./app/src/i18n/request.js");
 
-export default withnextIntl(nextConfig);
+export default withNextIntl(nextConfig);

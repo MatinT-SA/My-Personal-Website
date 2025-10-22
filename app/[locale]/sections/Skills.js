@@ -2,11 +2,12 @@
 
 import { useRef, useEffect, useCallback, useState } from "react";
 import dynamic from "next/dynamic";
-import SkillsList from "../components/skills/SkillsList";
-import SkillsGlowCursor from "../components/skills/SkillsGlowCursor";
+
+import SkillsList from "@/app/components/skills/SkillsList";
+import SkillsGlowCursor from "@/app/components/skills/SkillsGlowCursor";
 
 const SkillsCircle = dynamic(
-  () => import("../components/skills/SkillsCircle"),
+  () => import("@/app/components/skills/SkillsCircle"),
   {
     ssr: false,
   }

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Button from "../components/Button";
-import { SITE_VERSION } from "../config";
+import Button from "@/app/components/Button";
+import { SITE_VERSION } from "@/app/config";
 
 export default function Footer() {
   return (

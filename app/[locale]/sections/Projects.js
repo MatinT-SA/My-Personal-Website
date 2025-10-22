@@ -4,7 +4,8 @@ import { useState, useRef, useEffect, forwardRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Script from "next/script";
-import WistiaVideo from "../components/projects/WistiaVideo";
+
+import WistiaVideo from "@/app/components/projects/WistiaVideo";
 
 const PROJECTS = [
   {
