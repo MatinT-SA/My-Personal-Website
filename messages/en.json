@@ -1,7 +1,5 @@
 {
   "home": {
-    "nav": {
-      "home": "Home"
-    }
+    "navHome": "Home"
   }
 }

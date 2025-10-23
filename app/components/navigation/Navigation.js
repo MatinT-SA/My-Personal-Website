@@ -16,7 +16,7 @@ export default function Navigation() {
   const t = useTranslations("home");
 
   const links = [
-    { id: "home", label: t("nav.home") },
+    { id: "home", label: t("navHome") },
     { id: "about-me", label: "درباره من" },
     { id: "skills", label: "مهارت ها" },
     { id: "projects", label: "نمونه کارها" },
