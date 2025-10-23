@@ -1,7 +1,7 @@
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import Header from "../components/header/Header";
 import "@/app/styles/global.css";
-import { routing } from "../src/i18n/routing";
+import { routing } from "../../i18n/routing";
 import { notFound } from "next/navigation";
 
 export const metadata = {
@@ -20,7 +20,7 @@ export default async function RootLayout({ children, params }) {
     <html lang="fa" dir="rtl" className="scroll-smooth">
       <body
         className={`antialiased 
-          bg-gradient-to-r from-white to-[#ffe6ff] 
+          bg-linear-to-r from-white to-[#ffe6ff] 
           overflow-x-hidden text-black font-shabnam`}
       >
         <NextIntlClientProvider>
