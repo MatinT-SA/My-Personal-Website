@@ -1,4 +1,7 @@
 {
+  "experience": {
+    "returnHome": "بازگشت به خانه"
+  },
   "home": {
     "navHome": "خانه"
   }

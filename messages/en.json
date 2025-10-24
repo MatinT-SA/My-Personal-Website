@@ -1,4 +1,7 @@
 {
+  "experience": {
+    "returnHome": "Return home"
+  },
   "home": {
     "navHome": "Home"
   }
