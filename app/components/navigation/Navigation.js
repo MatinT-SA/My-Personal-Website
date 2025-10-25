@@ -1,10 +1,11 @@
+// app/components/header/Navigation.js
 "use client";
 
 import { useEffect, useRef, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import SocialLinks from "../profile/profie/profile-card/SocialLinks";
 import NavLinks from "./NavLinks";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,6 +15,8 @@ export default function Navigation() {
   const navRef = useRef(null);
 
   const t = useTranslations("home");
+  const locale = useLocale();
+  const isLTR = locale === "en";
 
   const links = [
     { id: "home", label: t("navHome") },
@@ -108,24 +111,30 @@ export default function Navigation() {
       aria-label="Primary navigation"
       style={{ scrollBehavior: "smooth" }}
     >
-      {/* Hamburger button */}
+      {/* Hamburger button: Now controlled by LTR/RTL */}
       {!isMenuVisible && (
         <button
           type="button"
           onClick={openMenu}
-          className="block mx-auto p-5 text-center w-12 h-12 text-dark-primary hamburger:hidden"
+          // Use conditional class to position the button on the left for LTR
+          className={`block mx-auto p-5 text-center w-12 h-12 text-dark-primary hamburger:hidden ${
+            isLTR ? "mr-auto" : "ml-auto"
+          }`}
           aria-label="Open menu"
         >
           <FaBars className="w-8 h-8" />
         </button>
       )}
 
-      {/* Close button */}
+      {/* Close button: Flip position for LTR */}
       {isMenuVisible && (
         <button
           type="button"
           onClick={closeMenu}
-          className="fixed top-6 right-6 z-50 text-white"
+          // Flip 'right-6' to 'left-6' for LTR
+          className={`fixed top-6 z-50 text-white ${
+            isLTR ? "left-6" : "right-6"
+          }`}
           aria-label="Close menu"
         >
           <FaTimes className="w-5 h-5" />
@@ -137,7 +146,14 @@ export default function Navigation() {
         <ul
           className={`mainMenu list-none fixed inset-0 z-40 flex flex-col justify-center items-center bg-purple-primary text-white
             transform transition-transform duration-300 ease-in-out
-            ${isMenuOpen ? "translate-x-0" : "translate-x-full"}
+            // FLIP THE SLIDE DIRECTION based on isLTR
+            ${
+              isMenuOpen
+                ? "translate-x-0"
+                : isLTR
+                ? "-translate-x-full" // LTR: slide off to the left
+                : "translate-x-full" // RTL: slide off to the right
+            }
           `}
         >
           <NavLinks
@@ -154,8 +170,8 @@ export default function Navigation() {
         </ul>
       )}
 
-      {/* Desktop menu */}
-      <ul className="hidden hamburger:flex hamburger:flex-row gap-0 hamburger:items-center hamburger:justify-between hamburger:mr-10 hamburger:w-full">
+      {/* Desktop menu: Changed mr-10 to me-10 */}
+      <ul className="hidden hamburger:flex hamburger:flex-row gap-0 hamburger:items-center hamburger:justify-between hamburger:me-10 hamburger:w-full">
         <NavLinks
           links={links}
           activeSection={activeSection}

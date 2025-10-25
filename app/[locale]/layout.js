@@ -1,7 +1,13 @@
+// app/[locale]/layout.js - The Final Wrapper (Modified)
+
 import { routing } from "../../i18n/routing";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
+// ✅ Import the Header component (now used here exclusively)
 import Header from "../components/header/Header";
+
+// ✅ Import the RootLayout (HTML Shell)
+import RootLayout from "../layout";
 
 const getMessages = async (locale) => {
   try {
@@ -21,9 +27,17 @@ export default async function LocalizedLayout({ children, params }) {
 
   const messages = await getMessages(locale);
 
+  // 💡 Determine direction based on locale
+  const direction = locale === "fa" ? "rtl" : "ltr";
+
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      {children}
-    </NextIntlClientProvider>
+    // ✅ Wrap content in RootLayout, passing locale and direction (fixes flipping)
+    <RootLayout lang={locale} dir={direction}>
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        {/* ✅ RENDER THE SINGLE HEADER HERE: Fixes double header and translation access */}
+        <Header />
+        {children}
+      </NextIntlClientProvider>
+    </RootLayout>
   );
 }
