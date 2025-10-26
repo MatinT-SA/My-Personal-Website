@@ -3,6 +3,7 @@
     "returnHome": "Return home"
   },
   "home": {
+    "navAboutMe": "About me",
     "navHome": "Home"
   }
 }
