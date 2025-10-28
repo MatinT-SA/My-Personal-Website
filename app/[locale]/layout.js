@@ -8,6 +8,7 @@ import Header from "../components/header/Header";
 
 // ✅ Import the RootLayout (HTML Shell)
 import RootLayout from "../layout";
+import { setRequestLocale } from "next-intl/server";
 
 const getMessages = async (locale) => {
   try {
@@ -17,6 +18,10 @@ const getMessages = async (locale) => {
     notFound();
   }
 };
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export default async function LocalizedLayout({ children, params }) {
   const { locale } = params;
@@ -29,6 +34,8 @@ export default async function LocalizedLayout({ children, params }) {
 
   // 💡 Determine direction based on locale
   const direction = locale === "fa" ? "rtl" : "ltr";
+
+  setRequestLocale(locale);
 
   return (
     // ✅ Wrap content in RootLayout, passing locale and direction (fixes flipping)

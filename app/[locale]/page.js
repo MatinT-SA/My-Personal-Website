@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, use } from "react";
 import AboutMe from "./sections/AboutMe";
 import Comment from "./sections/Comment";
 import Contact from "./sections/Contact";
@@ -15,10 +15,13 @@ import ProjectsPopup from "../components/projects/ProjectsPopup";
 import Loader from "../components/Loader";
 import { AnimatePresence } from "framer-motion";
 import GoToTopButton from "../components/GoToTopButton";
+import { setRequestLocale } from "next-intl/server";
 
-export default function Home() {
+export default function Home({ params }) {
   const [loading, setLoading] = useState(true);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const { locale } = use(params);
+  setRequestLocale(locale);
 
   useEffect(() => {
     const handleLoad = () => setLoading(false);
