@@ -9,6 +9,7 @@ import Header from "../components/header/Header";
 // ✅ Import the RootLayout (HTML Shell)
 import RootLayout from "../layout";
 import { setRequestLocale } from "next-intl/server";
+import LocaleSwitcher from "../components/LocaleSwitcher";
 
 const getMessages = async (locale) => {
   try {
@@ -44,6 +45,7 @@ export default async function LocalizedLayout({ children, params }) {
         {/* ✅ RENDER THE SINGLE HEADER HERE: Fixes double header and translation access */}
         <Header />
         {children}
+        <LocaleSwitcher />
       </NextIntlClientProvider>
     </RootLayout>
   );
