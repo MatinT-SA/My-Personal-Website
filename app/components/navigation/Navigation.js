@@ -23,8 +23,8 @@ export default function Navigation() {
     { id: "about-me", label: t("navAboutMe") },
     { id: "skills", label: t("navSkills") },
     { id: "projects", label: t("navProjects") },
-    { id: "contact", label: "راه های ارتباطی" },
-    { id: "comment", label: "ارسال پیام" },
+    { id: "contact", label: t("navContact") },
+    { id: "comment", label: t("navComment") },
   ];
 
   // Sticky nav logic

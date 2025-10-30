@@ -4,6 +4,8 @@
   },
   "home": {
     "navAboutMe": "درباره من",
+    "navComment": "ارسال پیام",
+    "navContact": "راه های ارتباطی",
     "navHome": "خانه",
     "navProjects": "نمونه کارها",
     "navSkills": "مهارت ها"

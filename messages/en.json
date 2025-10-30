@@ -4,8 +4,10 @@
   },
   "home": {
     "navAboutMe": "About me",
+    "navComment": "Send Message",
+    "navContact": "Contact Info",
     "navHome": "Home",
-    "navProjects": "Portfolio",
+    "navProjects": "Projects",
     "navSkills": "Skills"
   }
 }
