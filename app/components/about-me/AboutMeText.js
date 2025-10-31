@@ -1,22 +1,24 @@
 import { FiDownload } from "react-icons/fi";
 import TypedHeading from "./TypedHeading";
+import { useTranslations } from "next-intl";
 
 export default function AboutMeText() {
+  const t = useTranslations("AboutMe");
+
   return (
     <div className="p-4 sm:pl-0 sm:pr-20 py-4">
       <TypedHeading />
 
       <p className="text-base sm:text-lg text-gray-700 leading-relaxed sm:leading-12">
-        فارغ‌التحصیل کارشناسی مهندسی کامپیوتر (نرم‌افزار) از دانشگاه آزاد کرج.
+        {t("text1")}
         <br />
-        سابقه تدریس زبان انگلیسی به مدت یک سال در موسسه زبان.
+        {t("text2")}
         <br />
-        تسلط بر زبان برنامه‌نویسی جاوااسکریپت و کتابخانه React و تجربه کار با C#
-        و وردپرس، آشنایی با Next.js.
+        {t("text3")}
         <br />
-        یادگیری TypeScript از اهداف اصلی در آینده نزدیک است.
+        {t("text4")}
         <br />
-        علاقه‌مند به یادگیری، مسئولیت‌پذیر، منظم و سخت‌کوش.
+        {t("text5")}
       </p>
 
       <div className="mt-8 flex justify-center">
