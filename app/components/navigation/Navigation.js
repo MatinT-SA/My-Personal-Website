@@ -20,7 +20,7 @@ export default function Navigation() {
 
   const links = [
     { id: "home", label: t("navHome") },
-    { id: "about-me", label: "درباره من" },
+    { id: "about-me", label: t("navAboutMe") },
     { id: "skills", label: "مهارت ها" },
     { id: "projects", label: "نمونه کارها" },
     { id: "contact", label: "راه های ارتباطی" },
