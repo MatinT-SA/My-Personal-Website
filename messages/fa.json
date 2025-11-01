@@ -4,6 +4,8 @@
   },
   "home": {
     "navAboutMe": "درباره من",
-    "navHome": "خانه"
+    "navHome": "خانه",
+    "navProjects": "نمونه کارها",
+    "navSkills": "مهارت ها"
   }
 }

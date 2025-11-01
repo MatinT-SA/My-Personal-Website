@@ -21,8 +21,8 @@ export default function Navigation() {
   const links = [
     { id: "home", label: t("navHome") },
     { id: "about-me", label: t("navAboutMe") },
-    { id: "skills", label: "مهارت ها" },
-    { id: "projects", label: "نمونه کارها" },
+    { id: "skills", label: t("navSkills") },
+    { id: "projects", label: t("navProjects") },
     { id: "contact", label: "راه های ارتباطی" },
     { id: "comment", label: "ارسال پیام" },
   ];

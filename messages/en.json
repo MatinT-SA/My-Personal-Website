@@ -4,6 +4,8 @@
   },
   "home": {
     "navAboutMe": "About me",
-    "navHome": "Home"
+    "navHome": "Home",
+    "navProjects": "Portfolio",
+    "navSkills": "Skills"
   }
 }
