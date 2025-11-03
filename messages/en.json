@@ -9,5 +9,9 @@
     "navHome": "Home",
     "navProjects": "Projects",
     "navSkills": "Skills"
+  },
+  "profile": {
+    "info_name": "Matin Taherzadeh",
+    "info_role": "Front-End Developer"
   }
 }

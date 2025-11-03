@@ -3,13 +3,11 @@ import ProfileCard from "@/app/components/profile/profie/profile-card/ProfileCar
 
 export default function HomeSection() {
   return (
-    <>
-      <Navigation />
-      <section id="home" className="w-full scroll-mt-52">
-        <div className="w-full">
-          <ProfileCard />
-        </div>
-      </section>
-    </>
+    <section id="home" className="w-full scroll-mt-52">
+      <div className="w-full">
+        <Navigation />
+        <ProfileCard />
+      </div>
+    </section>
   );
 }
