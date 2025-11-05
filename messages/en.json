@@ -1,8 +1,10 @@
 {
   "AboutMe": {
+    "button_resume": "Download Resume",
     "heading1": "Welcome to my website",
     "heading2": "I am Matin Taherzadeh",
     "heading3": "Front-end developer",
+    "resume": "Download Resume",
     "text1": "Bachelor's degree in Computer Engineering (Software) from KIAU.",
     "text2": "One year of experience teaching English at a language institute.",
     "text3": "Proficiency in JavaScript programming language and React library, experience with C# and WordPress, familiarity with Next.js.",

@@ -27,7 +27,7 @@ export default function AboutMeText() {
           download
           className="relative px-8 py-4 text-lg font-bold text-blue-light bg-purple-primary rounded-full transition-all duration-300 ease-in-out hover:text-purple-primary hover:bg-blue-300 hover:shadow-lg flex items-center gap-2 hover:gap-3.5"
         >
-          دانلود رزومه
+          {t("button_resume")}
           <FiDownload className="w-5 h-5" />
         </a>
       </div>
