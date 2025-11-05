@@ -1,4 +1,9 @@
 {
+  "AboutMe": {
+    "heading1": "Welcome to my website",
+    "heading2": "I am Matin Taherzadeh",
+    "heading3": "Front-end developer"
+  },
   "experience": {
     "returnHome": "Return home"
   },

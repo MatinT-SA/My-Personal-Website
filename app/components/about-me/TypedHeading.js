@@ -2,17 +2,15 @@
 
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
+import { useTranslations } from "use-intl";
 
 export default function TypedHeading() {
+  const t = useTranslations("AboutMe");
   const el = useRef(null);
 
   useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: [
-        "به وب سایت من خوش آمدید",
-        "من متین طاهرزاده هستم",
-        "توسعه دهنده فرانت‌اند",
-      ],
+      strings: [t("heading1"), t("heading2"), t("heading3")],
       typeSpeed: 40,
       backSpeed: 30,
       backDelay: 1000,
