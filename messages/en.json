@@ -11,6 +11,8 @@
     "navSkills": "Skills"
   },
   "profile": {
+    "button_experience": "Work Experience",
+    "button_message": "Send Message",
     "info_name": "Matin Taherzadeh",
     "info_role": "Front-End Developer"
   }
