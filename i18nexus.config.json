@@ -1,0 +1,9 @@
+{
+  "project_id": "rruuWqlkGGF0Bfk7o3yrDg",
+  "format": "json",
+  "locales": ["fa", "en"],
+  "output": {
+    "path": "./messages"
+  },
+  "confirmed": false
+}
