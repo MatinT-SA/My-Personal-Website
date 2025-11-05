@@ -9,5 +9,9 @@
     "navHome": "خانه",
     "navProjects": "نمونه کارها",
     "navSkills": "مهارت ها"
+  },
+  "profile": {
+    "info_name": "متین طاهرزاده",
+    "info_role": "توسعه‌دهنده فرانت‌اند"
   }
 }
