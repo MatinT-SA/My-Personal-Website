@@ -27,5 +27,11 @@
     "button_message": "Send Message",
     "info_name": "Matin Taherzadeh",
     "info_role": "Front-End Developer"
+  },
+  "skills": {
+    "csharp": "Familiar with the CSharp programming language",
+    "hide_all": "Hide all",
+    "show_all": "Show all",
+    "title": "Skills"
   }
 }
