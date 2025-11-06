@@ -30,8 +30,22 @@
   },
   "skills": {
     "csharp": "Familiar with the CSharp programming language",
+    "database": "Proficient in SQL Server and MySQL",
+    "github": "Proficient in Git & GitHub",
     "hide_all": "Hide all",
+    "html": "Proficient in HTML and CSS",
+    "javascript": "Proficient in JavaScript",
+    "mern": "MERN Stack development",
+    "nextjs": "Familiar with Next.js",
+    "react": "Proficient in the React library",
+    "redux": "Familiar with Redux",
+    "responsiveness": "Responsive web design",
+    "seo": "Familiar with SEO concepts",
     "show_all": "Show all",
-    "title": "Skills"
+    "supabase": "Introduction to Supabase",
+    "tailwind": "Familiar with Tailwind, Bootstrap, SASS",
+    "threejs": "Familiar with ThreeJS",
+    "title": "Skills",
+    "wordpress": "Experience with WordPress"
   }
 }

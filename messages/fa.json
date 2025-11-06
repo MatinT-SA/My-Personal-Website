@@ -30,8 +30,22 @@
   },
   "skills": {
     "csharp": "آشنا به زبان برنامه نویسی سی‌شارپ",
+    "database": "تسلط کافی به SQL Server و MySQL",
+    "github": "تسلط کافی به گیت و گیت‌هاب",
     "hide_all": "پنهان همه",
+    "html": "مسلط به HTML و CSS",
+    "javascript": "مسلط به جاوااسکریپت",
+    "mern": "برنامه نویسی MERN Stack",
+    "nextjs": "آشنا به نکست‌جی‌اس",
+    "react": "مسلط به کتابخانه ری‌اکت",
+    "redux": "آشنا به ریداکس",
+    "responsiveness": "طراحی سایت واکنش گرا",
+    "seo": "آشنا با مفاهیم سئو",
     "show_all": "نمایش همه",
-    "title": "مهارت ها"
+    "supabase": "آشنایی با سوپابیس",
+    "tailwind": "آشنا به Tailwind, Bootstrap, SASS",
+    "threejs": "آشنا با ThreeJS",
+    "title": "مهارت ها",
+    "wordpress": "سابقه کار با وردپرس"
   }
 }

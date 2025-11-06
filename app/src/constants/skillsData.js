@@ -1,24 +1,24 @@
 export const getSkillsData = (t) => {
   const skillsLeft = [
     t("csharp"),
-    "آشنا به Tailwind, Bootstrap, SASS",
-    "آشنا به Redux",
-    "تسلط کافی به SQL Server و MySQL",
-    "سابقه کار با وردپرس",
-    "تسلط کافی به Git و GitHub",
-    "آشنا با مفاهیم SEO",
+    t("tailwind"),
+    t("redux"),
+    t("database"),
+    t("wordpress"),
+    t("github"),
+    t("seo"),
     "RESTful API",
   ];
 
   const skillsRight = [
-    "تسلط کافی به زبان برنامه نویسی JavaScript",
-    "مسلط به HTML و CSS",
-    "مسلط به کتابخانه ReactJS",
-    "برنامه نویسی MERN Stack",
-    "آشنا به Next.js",
-    "آشنا با ThreeJS",
-    "آشنا با کتابخانه jQuery",
-    "طراحی سایت واکنش گرا",
+    t("javascript"),
+    t("html"),
+    t("react"),
+    t("mern"),
+    t("nextjs"),
+    t("threejs"),
+    t("supabase"),
+    t("responsiveness"),
   ];
 
   const circleData = [
@@ -29,7 +29,7 @@ export const getSkillsData = (t) => {
   ];
 
   const skillCategoryMap = {
-    "آشنا به زبان برنامه نویسی CSharp": "Backend",
+    "آشنا به زبان برنامه نویسی سی‌شارپ": "Backend",
     "آشنا به Tailwind, Bootstrap, SASS": "Other",
     "آشنا به Redux": "Other",
     "تسلط کافی به SQL Server و MySQL": "Databases",
