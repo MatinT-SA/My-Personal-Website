@@ -25,7 +25,7 @@ export function generateStaticParams() {
 }
 
 export default async function LocalizedLayout({ children, params }) {
-  const { locale } = params;
+  const { locale } = await params;
 
   if (!routing.locales.includes(locale)) {
     notFound();

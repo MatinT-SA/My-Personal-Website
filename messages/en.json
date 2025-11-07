@@ -29,8 +29,17 @@
     "info_role": "Front-End Developer"
   },
   "projects": {
-    "stelix_website": "My first project with Next.js alongside React and Tailwind CSS, originally for our previous client Stelix. This website is fully responsive and built on professional coding principles for a hotel suite booking system.",
-    "title": "Projects"
+    "banklist": "A banking platform with a customer website and a responsive employee web app, built in JS for managing transactions with a smooth UI, advanced filters, and practical use of array methods",
+    "findish": "This project is a fully responsive recipe application developed using pure JavaScript (Vanilla JS) and SASS, allowing users to search, discover, and add various recipes to their list",
+    "goal_tracker": "A responsive React web app for tracking goals based on their prioritization. The app has a progress bar to display the status of completed goals and is coded using React Hooks and advanced concepts like forwardRef",
+    "rateflicks": "A fully responsive React application for movie rating. Features include searching for movies and displaying based on ratings. Capabilities such as search, data fetching from API. I have also used react-spinners and react-toastify",
+    "stelix": "A full-stack project using React, Vite, React Query, Supabase, and many other technologies. A hotel reception system that includes authentication, reservation management, CRUD operations, advanced forms, and an analytical dashboard",
+    "stelix_website": "My first project with Next.js alongside React and Tailwindcss, originally the client site for our previous project, Stelix. This website is fully responsive and built on professional coding principles for a hotel suite booking system",
+    "telenote": "A complete social network web app developed using MERN. Users can create accounts and share their activities and moments with others. Features include CRUD operations, liking, commenting, advanced search, and pagination",
+    "title": "Projects",
+    "track_map": "A responsive web app that allows users to track and record their activities based on their current location or any desired place using various APIs like Big Data Cloud and OpenStreetMap for accurate and interactive maps",
+    "travex": "A responsive project with React using useReducer and Context API for state management. An interactive map using leaflet. Tools such as Datepicker, React-toastify, react-router-dom for a pleasant user experience",
+    "zesty": "Responsive web app for ordering food from restaurants using React + Vite. This app also utilizes Three.js and Redux Toolkit, providing a delightful user experience"
   },
   "skills": {
     "csharp": "Familiar with the CSharp programming language",
