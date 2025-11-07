@@ -110,7 +110,7 @@ const Projects = forwardRef(function Projects(props, ref) {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="main-titles text-center text-3xl font-bold mb-12 text-purple-primary"
         >
-          نمونه کارها
+          {t("title")}
         </motion.h2>
 
         <div id="accordion" className="panel relative flex justify-center">

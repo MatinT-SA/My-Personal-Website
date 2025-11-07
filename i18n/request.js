@@ -2,8 +2,8 @@ import { getRequestConfig } from "next-intl/server";
 import { routing } from "./routing";
 
 const messagesMap = {
-  fa: () => import("../messages/fa.json"),
-  en: () => import("../messages/en.json"),
+  fa: () => import("@/messages/fa.json"),
+  en: () => import("@/messages/en.json"),
 };
 
 export default getRequestConfig(async ({ locale }) => {
