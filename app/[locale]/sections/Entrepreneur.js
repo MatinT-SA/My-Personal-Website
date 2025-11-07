@@ -3,42 +3,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-
-const QUOTES = [
-  {
-    id: 1,
-    author: "Alan Turing",
-    quote:
-      "گاهی اوقات افرادی که هیچکس تصور نمی کند بتوانند کاری انجام دهند، کارهایی را انجام می دهند که هیچکس نمی تواند تصور کند.",
-    image: "/images/AlanTuring-optimized.webp",
-    alt: "Alan Turing",
-    bg: "linear-gradient(45deg, #3503ad, #f7308c)",
-    shadow: "0px 0px 7px 4px rgba(0, 0, 0, 0.5)",
-  },
-  {
-    id: 2,
-    author: "Bill Gates",
-    quote:
-      "جشن گرفتن موفقیت خوب است، اما از آن مهم ‌تر، توجه کردن به درس‌ هایی است که از شکست می ‌گیریم.",
-    image: "/images/BillGates1.webp",
-    alt: "Bill Gates",
-    bg: "linear-gradient(45deg, #ccff00, #09afff)",
-    shadow: "0px 0px 15px 7px rgba(0, 0, 0, 0.8)",
-  },
-  {
-    id: 3,
-    author: "Margaret Hamilton",
-    quote:
-      'هیچوقت نباید از گفتن "نمی دانم" یا "نمی فهمم" یا پرسش سوالات "احمقانه"، ترسید چون هیچ سوالی احمقانه نیست.',
-    image: "/images/MargaretHamilton-optimized.webp",
-    alt: "Margaret Hamilton",
-    bg: "linear-gradient(45deg, #e91e63, #ffeb3b)",
-    shadow: "0px 0px 7px 4px rgba(0, 0, 0, 0.5)",
-  },
-];
+import { getQuotesData } from "@/app/src/constants/quotesData";
+import { useTranslations } from "next-intl";
 
 export default function Entrepreneur() {
   const [hoveredCard, setHoveredCard] = useState(null);
+
+  const t = useTranslations("entrepreneur");
+  const QUOTES = getQuotesData(t);
 
   const handleMouseEnter = (id) => {
     setHoveredCard(id);
@@ -65,7 +37,7 @@ export default function Entrepreneur() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          سخنان نوابغ دنیای کامپیوتر
+          {t("title")}
         </motion.h2>
 
         {QUOTES.map((quote) => (

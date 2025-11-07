@@ -494,8 +494,12 @@ svg path:focus {
   text-align: center;
   -webkit-text-stroke: 1px black;
   color: #f7d73f;
-  font-family: Cursive;
+  font-family: "Shabnam", Cursive, sans-serif;
   text-shadow: 4px 4px 5px #d4af37;
+}
+
+.author-name:lang(en) {
+  font-family: Cursive, sans-serif;
 }
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
