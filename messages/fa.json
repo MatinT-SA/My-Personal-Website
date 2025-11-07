@@ -60,5 +60,11 @@
     "threejs": "آشنا با ThreeJS",
     "title": "مهارت ها",
     "wordpress": "سابقه کار با وردپرس"
+  },
+  "entrepreneur": {
+    "title": "سخنان نوابغ دنیای کامپیوتر",
+    "alan_turing": "آلن تورینگ",
+    "bill_gates": "بیل گیتس",
+    "margaret_hamilton": "مارگارت همیلتون"
   }
 }

@@ -60,5 +60,11 @@
     "threejs": "Familiar with ThreeJS",
     "title": "Skills",
     "wordpress": "Experience with WordPress"
+  },
+  "entrepreneur": {
+    "title": "Words of Computing Legends",
+    "alan_turing": "Alan Turing",
+    "bill_gates": "Bill Gates",
+    "margaret_hamilton": "Margaret Hamilton"
   }
 }
