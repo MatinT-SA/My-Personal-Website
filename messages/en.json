@@ -28,6 +28,10 @@
     "info_name": "Matin Taherzadeh",
     "info_role": "Front-End Developer"
   },
+  "projects": {
+    "stelix_website": "My first project with Next.js alongside React and Tailwind CSS, originally for our previous client Stelix. This website is fully responsive and built on professional coding principles for a hotel suite booking system.",
+    "title": "Projects"
+  },
   "skills": {
     "csharp": "Familiar with the CSharp programming language",
     "database": "Proficient in SQL Server and MySQL",
