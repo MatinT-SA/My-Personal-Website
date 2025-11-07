@@ -5,6 +5,8 @@ import dynamic from "next/dynamic";
 
 import SkillsList from "@/app/components/skills/SkillsList";
 import SkillsGlowCursor from "@/app/components/skills/SkillsGlowCursor";
+import { useTranslations } from "next-intl";
+import { getSkillsData } from "@/app/src/constants/skillsData";
 
 const SkillsCircle = dynamic(
   () => import("@/app/components/skills/SkillsCircle"),
@@ -16,54 +18,6 @@ const SkillsCircle = dynamic(
 const HIGHLIGHT_RADIUS = 260;
 const FALL_OFF = 1.0;
 
-const skillsLeft = [
-  "آشنا به زبان برنامه نویسی CSharp",
-  "آشنا به Tailwind, Bootstrap, SASS",
-  "آشنا به Redux",
-  "تسلط کافی به SQL Server و MySQL",
-  "سابقه کار با وردپرس",
-  "تسلط کافی به Git و GitHub",
-  "آشنا با مفاهیم SEO",
-  "RESTful API",
-];
-
-const skillsRight = [
-  "تسلط کافی به زبان برنامه نویسی JavaScript",
-  "مسلط به HTML و CSS",
-  "مسلط به کتابخانه ReactJS",
-  "برنامه نویسی MERN Stack",
-  "آشنا به Next.js",
-  "آشنا با ThreeJS",
-  "آشنا با کتابخانه jQuery",
-  "طراحی سایت واکنش گرا",
-];
-
-const circleData = [
-  { name: "Frontend", value: 7, color: "#3b82f6" },
-  { name: "Backend", value: 3, color: "#22c55e" },
-  { name: "Databases", value: 1, color: "#facc15" },
-  { name: "Other", value: 4, color: "#a855f7" },
-];
-
-const skillCategoryMap = {
-  "آشنا به زبان برنامه نویسی CSharp": "Backend",
-  "آشنا به Tailwind, Bootstrap, SASS": "Other",
-  "آشنا به Redux": "Other",
-  "تسلط کافی به SQL Server و MySQL": "Databases",
-  "سابقه کار با وردپرس": "Other",
-  "تسلط کافی به Git و GitHub": "Other",
-  "آشنا با مفاهیم SEO": "Other",
-  "RESTful API": "Backend",
-  "تسلط کافی به زبان برنامه نویسی JavaScript": "Frontend",
-  "مسلط به HTML و CSS": "Frontend",
-  "مسلط به کتابخانه ReactJS": "Frontend",
-  "برنامه نویسی MERN Stack": "Backend",
-  "آشنا به Next.js": "Frontend",
-  "آشنا با ThreeJS": "Frontend",
-  "آشنا با کتابخانه jQuery": "Frontend",
-  "طراحی سایت واکنش گرا": "Frontend",
-};
-
 export default function Skills() {
   const containerRef = useRef(null);
   const cursorRef = useRef(null);
@@ -72,6 +26,10 @@ export default function Skills() {
   const rafRef = useRef(null);
   const lastPos = useRef({ x: 0, y: 0 });
   const isInside = useRef(false);
+
+  const t = useTranslations("skills");
+  const { skillsLeft, skillsRight, circleData, skillCategoryMap } =
+    getSkillsData(t);
 
   const isTouchDevice =
     typeof window !== "undefined" &&
@@ -228,7 +186,7 @@ export default function Skills() {
       className="relative scroll-mt-24 mx-12 my-16 rounded-[150px_10px] lg:rounded-[300px_15px] bg-[color:var(--color-blue-light-transparent)] p-6"
     >
       <h2 className="mb-12 text-center text-3xl font-extrabold text-purple-primary">
-        مهارت ها
+        {t("title")}
       </h2>
 
       <div
@@ -249,7 +207,7 @@ export default function Skills() {
             onClick={handleShowAllClick}
             className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer font-bold text-center text-sky-900 transition-opacity duration-300"
           >
-            {showAll ? "پنهان همه" : "نمایش همه"}
+            {showAll ? t("hide_all") : t("show_all")}
           </div>
         </div>
         <SkillsList
