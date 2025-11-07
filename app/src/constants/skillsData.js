@@ -1,25 +1,30 @@
 export const getSkillsData = (t) => {
-  const skillsLeft = [
-    t("csharp"),
-    t("tailwind"),
-    t("redux"),
-    t("database"),
-    t("wordpress"),
-    t("github"),
-    t("seo"),
-    "RESTful API",
+  const skillKeysLeft = [
+    "csharp",
+    "tailwind",
+    "redux",
+    "database",
+    "wordpress",
+    "github",
+    "seo",
+    "restapi",
   ];
 
-  const skillsRight = [
-    t("javascript"),
-    t("html"),
-    t("react"),
-    t("mern"),
-    t("nextjs"),
-    t("threejs"),
-    t("supabase"),
-    t("responsiveness"),
+  const skillKeysRight = [
+    "javascript",
+    "html",
+    "react",
+    "mern",
+    "nextjs",
+    "threejs",
+    "supabase",
+    "responsiveness",
   ];
+
+  const skillsLeft = skillKeysLeft.map((key) =>
+    key === "restapi" ? "RESTful API" : t(key)
+  );
+  const skillsRight = skillKeysRight.map((key) => t(key));
 
   const circleData = [
     { name: "Frontend", value: 7, color: "#3b82f6" },
@@ -29,23 +34,31 @@ export const getSkillsData = (t) => {
   ];
 
   const skillCategoryMap = {
-    "آشنا به زبان برنامه نویسی سی‌شارپ": "Backend",
-    "آشنا به Tailwind, Bootstrap, SASS": "Other",
-    "آشنا به Redux": "Other",
-    "تسلط کافی به SQL Server و MySQL": "Databases",
-    "سابقه کار با وردپرس": "Other",
-    "تسلط کافی به Git و GitHub": "Other",
-    "آشنا با مفاهیم SEO": "Other",
-    "RESTful API": "Backend",
-    "تسلط کافی به زبان برنامه نویسی JavaScript": "Frontend",
-    "مسلط به HTML و CSS": "Frontend",
-    "مسلط به کتابخانه ReactJS": "Frontend",
-    "برنامه نویسی MERN Stack": "Backend",
-    "آشنا به Next.js": "Frontend",
-    "آشنا با ThreeJS": "Frontend",
-    "آشنا با کتابخانه jQuery": "Frontend",
-    "طراحی سایت واکنش گرا": "Frontend",
+    csharp: "Backend",
+    tailwind: "Other",
+    redux: "Other",
+    database: "Databases",
+    wordpress: "Other",
+    github: "Other",
+    seo: "Other",
+    restapi: "Backend",
+
+    javascript: "Frontend",
+    html: "Frontend",
+    react: "Frontend",
+    mern: "Backend",
+    nextjs: "Frontend",
+    threejs: "Frontend",
+    supabase: "Databases",
+    responsiveness: "Frontend",
   };
 
-  return { skillsLeft, skillsRight, circleData, skillCategoryMap };
+  return {
+    skillsLeft,
+    skillsRight,
+    circleData,
+    skillCategoryMap,
+    skillKeysLeft,
+    skillKeysRight,
+  };
 };

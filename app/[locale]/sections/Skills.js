@@ -10,9 +10,7 @@ import { getSkillsData } from "@/app/src/constants/skillsData";
 
 const SkillsCircle = dynamic(
   () => import("@/app/components/skills/SkillsCircle"),
-  {
-    ssr: false,
-  }
+  { ssr: false }
 );
 
 const HIGHLIGHT_RADIUS = 260;
@@ -28,8 +26,14 @@ export default function Skills() {
   const isInside = useRef(false);
 
   const t = useTranslations("skills");
-  const { skillsLeft, skillsRight, circleData, skillCategoryMap } =
-    getSkillsData(t);
+  const {
+    skillsLeft,
+    skillsRight,
+    circleData,
+    skillCategoryMap,
+    skillKeysLeft,
+    skillKeysRight,
+  } = getSkillsData(t);
 
   const isTouchDevice =
     typeof window !== "undefined" &&
@@ -75,19 +79,21 @@ export default function Skills() {
 
     const runGlowLogic = !isTouchDevice && !selectedCategory && !showAll;
 
-    // Get mouse position only if we are doing the glow effect
     const { x: cx, y: cy } = runGlowLogic ? lastPos.current : { x: 0, y: 0 };
 
     const radius = HIGHLIGHT_RADIUS;
     const base = 0;
     const max = 1;
+
     const allSkills = [...skillsLeft, ...skillsRight];
+    const allSkillKeys = [...skillKeysLeft, ...skillKeysRight];
 
     positions.current.forEach((pos, idx) => {
       const el = itemRefs.current[idx];
       if (!el || !pos) return;
 
-      const skillCategory = skillCategoryMap[allSkills[idx]];
+      const skillKey = allSkillKeys[idx];
+      const skillCategory = skillCategoryMap[skillKey];
       const isSelected = selectedCategory === skillCategory;
 
       let glowOpacity = 0;
@@ -101,28 +107,35 @@ export default function Skills() {
         glowOpacity = base + (max - base) * t;
       }
 
-      // --- Final Opacity Logic ---
       let finalOpacity;
       if (isTouchDevice) {
-        // Mobile: If showAll or selected, force opacity 1. Otherwise, let CSS win.
         if (showAll || isSelected) {
           finalOpacity = max;
         } else {
-          return; // Let CSS (opacity-100) control standard visibility
+          return;
         }
       } else if (showAll) {
-        finalOpacity = max; // Desktop: show all if clicked
+        finalOpacity = max;
       } else if (isSelected) {
-        finalOpacity = max; // Desktop: highlight selected category
+        finalOpacity = max;
       } else {
-        finalOpacity = glowOpacity; // Desktop: use mouse glow
+        finalOpacity = glowOpacity;
       }
 
       el.style.opacity = String(finalOpacity);
     });
 
     rafRef.current = null;
-  }, [selectedCategory, showAll, isTouchDevice]);
+  }, [
+    selectedCategory,
+    showAll,
+    isTouchDevice,
+    skillsLeft,
+    skillsRight,
+    skillKeysLeft,
+    skillKeysRight,
+    skillCategoryMap,
+  ]);
 
   const handleMouseMove = useCallback(
     (e) => {
@@ -143,9 +156,7 @@ export default function Skills() {
     isInside.current = true;
     const cont = containerRef.current;
     if (cont) cont.style.cursor = "none";
-    if (selectedCategory || showAll) {
-      tick();
-    }
+    if (selectedCategory || showAll) tick();
   }, [isTouchDevice, selectedCategory, showAll, tick]);
 
   const handleMouseLeave = useCallback(() => {
@@ -191,8 +202,8 @@ export default function Skills() {
 
       <div
         className="
-            flex flex-row items-center justify-around gap-8 
-            max-lg:flex-col max-lg:items-center max-lg:gap-4
+          flex flex-row items-center justify-around gap-8 
+          max-lg:flex-col max-lg:items-center max-lg:gap-4
         "
       >
         <SkillsList
@@ -201,6 +212,7 @@ export default function Skills() {
           registerItem={registerItem}
           className="flex-1 max-lg:order-2 max-lg:w-full"
         />
+
         <div className="hidden xl:flex xl:justify-center relative max-xl:order-first">
           <SkillsCircle data={circleData} onSliceClick={handleSliceClick} />
           <div
@@ -210,6 +222,7 @@ export default function Skills() {
             {showAll ? t("hide_all") : t("show_all")}
           </div>
         </div>
+
         <SkillsList
           skills={skillsRight}
           baseIndex={skillsLeft.length}
@@ -217,6 +230,7 @@ export default function Skills() {
           className="flex-1 max-lg:order-3 max-lg:w-full"
         />
       </div>
+
       {!isTouchDevice && <SkillsGlowCursor cursorRef={cursorRef} />}
     </section>
   );
