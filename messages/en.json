@@ -102,5 +102,18 @@
       "facebook": "Facebook"
     },
     "cta": "The next step is here. A message is the beginning of all collaborations."
+  },
+  "comment": {
+    "title": "Send Message",
+    "name": "First Name",
+    "lastname": "Last Name",
+    "email": "*Email",
+    "phonenumber": "Phone Number",
+    "message": "*Your Message",
+    "submit_button": "Send Message",
+    "isSubmitting": "Sending...",
+    "success_message": "Your message has been sent successfully",
+    "error_message": "Error sending message. Please try again.",
+    "error_message2": "Error sending message"
   }
 }

@@ -6,6 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 import { LiquidButton } from "@/app/components/comment/LiquidButton.js";
 import { FormInput } from "@/app/components/comment/FormInput.js";
+import { useTranslations } from "next-intl";
 
 export default function Comment() {
   const [formData, setFormData] = useState({
@@ -16,6 +17,8 @@ export default function Comment() {
     CommentMessage: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const t = useTranslations("comment");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -42,7 +45,7 @@ export default function Comment() {
       });
 
       if (response.ok) {
-        toast.success("پیام شما با موفقیت ارسال شد!", {
+        toast.success(t("success_message"), {
           duration: 3000,
           position: "bottom-right",
         });
@@ -56,8 +59,7 @@ export default function Comment() {
         });
       } else {
         const errorData = await response.json();
-        const errorMessage =
-          errorData.message || "خطا در ارسال پیام. لطفا دوباره تلاش کنید.";
+        const errorMessage = errorData.message || t("error_message");
         toast.error(errorMessage, {
           duration: 3000,
           position: "bottom-right",
@@ -65,7 +67,7 @@ export default function Comment() {
         console.error("API response error:", errorData);
       }
     } catch (error) {
-      toast.error("خطا در ارسال پیام", {
+      toast.error(t("error_message2"), {
         duration: 4000,
         position: "bottom-right",
       });
@@ -98,8 +100,9 @@ export default function Comment() {
               marginLeft: "1.5rem",
               color: "text-purple-primary",
               borderRadius: "10px",
-              padding: ".75rem 1.25rem",
-              fontSize: "1.2rem",
+              padding: ".5rem 1rem",
+              fontSize: "1rem",
+              maxWidth: "400px",
               boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
             },
           },
@@ -111,6 +114,7 @@ export default function Comment() {
               color: "red",
               padding: ".75rem 1.25rem",
               fontSize: "1.2rem",
+              maxWidth: "400px",
               boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
             },
           },
@@ -125,7 +129,7 @@ export default function Comment() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          ارسال پیام
+          {t("title")}
         </motion.h2>
 
         <form
@@ -142,14 +146,14 @@ export default function Comment() {
           >
             <FormInput
               id="name"
-              label="نام"
+              label={`${t("name")}`}
               name="name"
               onChange={handleInputChange}
               value={formData.name}
             />
             <FormInput
               id="familyname"
-              label="نام خانوادگی"
+              label={`${t("lastname")}`}
               name="familyname"
               onChange={handleInputChange}
               value={formData.familyname}
@@ -166,7 +170,7 @@ export default function Comment() {
           >
             <FormInput
               id="CommentEmail"
-              label="ایمیل*"
+              label={`${t("email")}`}
               type="email"
               name="email"
               required
@@ -176,7 +180,7 @@ export default function Comment() {
             />
             <FormInput
               id="phonenumber"
-              label="شماره تلفن"
+              label={`${t("phonenumber")}`}
               type="tel"
               name="phonenumber"
               pattern="^\+?([0-9\s-]{10,})$"
@@ -196,7 +200,7 @@ export default function Comment() {
           >
             <FormInput
               id="CommentMessage"
-              label="متن پیام*"
+              label={`${t("message")}`}
               name="CommentMessage"
               required
               isTextarea
@@ -208,7 +212,7 @@ export default function Comment() {
 
           <div className="flex justify-center">
             <LiquidButton type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "در حال ارسال..." : "ارسال پیام"}
+              {isSubmitting ? t("isSubmitting") : t("submit_button")}
             </LiquidButton>
           </div>
         </form>
