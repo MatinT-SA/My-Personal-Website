@@ -502,6 +502,10 @@ svg path:focus {
   font-family: Cursive, sans-serif;
 }
 
+.author-name:lang(fa) {
+  -webkit-text-stroke: 1px rgb(80, 80, 0);
+}
+
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Comment ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */

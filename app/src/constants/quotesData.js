@@ -2,9 +2,8 @@ export const getQuotesData = (t) => {
   const QUOTES = [
     {
       id: 1,
-      author: t("alan_turing"),
-      quote:
-        "گاهی اوقات افرادی که هیچکس تصور نمی کند بتوانند کاری انجام دهند، کارهایی را انجام می دهند که هیچکس نمی تواند تصور کند.",
+      author: t("quotes.alan_turing.name"),
+      quote: t("quotes.alan_turing.text"),
       image: "/images/AlanTuring-optimized.webp",
       alt: "Alan Turing",
       bg: "linear-gradient(45deg, #3503ad, #f7308c)",
@@ -12,9 +11,8 @@ export const getQuotesData = (t) => {
     },
     {
       id: 2,
-      author: t("bill_gates"),
-      quote:
-        "جشن گرفتن موفقیت خوب است، اما از آن مهم ‌تر، توجه کردن به درس‌ هایی است که از شکست می ‌گیریم.",
+      author: t("quotes.bill_gates.name"),
+      quote: t("quotes.bill_gates.text"),
       image: "/images/BillGates1.webp",
       alt: "Bill Gates",
       bg: "linear-gradient(45deg, #ccff00, #09afff)",
@@ -22,9 +20,8 @@ export const getQuotesData = (t) => {
     },
     {
       id: 3,
-      author: t("margaret_hamilton"),
-      quote:
-        'هیچوقت نباید از گفتن "نمی دانم" یا "نمی فهمم" یا پرسش سوالات "احمقانه"، ترسید چون هیچ سوالی احمقانه نیست.',
+      author: t("quotes.margaret_hamilton.name"),
+      quote: t("quotes.margaret_hamilton.text"),
       image: "/images/MargaretHamilton-optimized.webp",
       alt: "Margaret Hamilton",
       bg: "linear-gradient(45deg, #e91e63, #ffeb3b)",
