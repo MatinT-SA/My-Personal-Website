@@ -11,17 +11,9 @@ export default getRequestConfig(async ({ locale }) => {
     ? locale
     : routing.defaultLocale;
 
-  let messages = {};
-  try {
-    const messagesModule = await messagesMap[finalLocale]();
-    messages = messagesModule.default;
-  } catch (error) {
-    console.error(`Failed to load messages for locale: ${finalLocale}`, error);
-    messages = {};
-  }
-
+  const messagesModule = await messagesMap[finalLocale]();
   return {
     locale: finalLocale,
-    messages: messages,
+    messages: messagesModule.default,
   };
 });
