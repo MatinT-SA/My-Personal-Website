@@ -62,6 +62,20 @@
     "wordpress": "Experience with WordPress"
   },
   "entrepreneur": {
-    "title": "Words of Computing Legends"
+    "title": "Words of Computing Legends",
+    "quotes": {
+      "alan_turing": {
+        "name": "Alan Turing",
+        "text": "Sometimes it is the people who no one imagines anything of who do the things that no one can imagine"
+      },
+      "bill_gates": {
+        "name": "Bill Gates",
+        "text": "It's fine to celebrate success, but it is more important to heed the lessons of failure"
+      },
+      "margaret_hamilton": {
+        "name": "Margaret Hamilton",
+        "text": "Don't be afraid to say \"I don't understand\" or to ask \"stupid\" questions, because there are no stupid questions"
+      }
+    }
   }
 }
