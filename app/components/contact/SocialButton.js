@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useLocale } from "next-intl";
+import { motion, useAnimation } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 
 export default function SocialButton({
   icon: SocialIcon,
@@ -11,22 +11,26 @@ export default function SocialButton({
   label,
   isEven,
 }) {
-  const locale = useLocale();
-  const isRtl = locale === "fa";
+  const textRef = useRef(null);
+  const [textWidth, setTextWidth] = useState(0);
+
+  useEffect(() => {
+    if (textRef.current) {
+      setTextWidth(textRef.current.offsetWidth + 16);
+    }
+  }, []);
 
   return (
     <motion.a
       href={href}
       target="_blank"
       rel="noopener"
-      className={`group relative flex items-center w-[60px] h-[60px] mx-[30px] rounded-full bg-yellow-primary shadow-lg cursor-pointer overflow-hidden transition-all duration-300 ease-out ${
-        isRtl ? "flex-row-reverse" : "flex-row"
-      }`}
+      className="group relative flex items-center w-[60px] mx-[30px] rounded-full bg-yellow-primary shadow-lg cursor-pointer overflow-hidden transition-all ease-out"
       initial={{ opacity: 0, y: isEven ? 20 : -20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.1 }}
-      whileHover={{ width: 200 }}
+      whileHover={{ width: 80 + textWidth }}
       aria-label={name}
       style={{ "--brand-color": color }}
     >
@@ -39,9 +43,8 @@ export default function SocialButton({
 
       {/* Text */}
       <span
-        className={`ml-2 flex items-center font-medium text-2xl opacity-0 transition-all duration-300 whitespace-nowrap group-hover:opacity-100 ${
-          isRtl ? "mr-2 ml-0" : ""
-        }`}
+        ref={textRef}
+        className="ml-2 flex items-center font-medium text-2xl opacity-0 transition-all duration-300 whitespace-nowrap group-hover:opacity-100"
         style={{ color }}
       >
         {label}
