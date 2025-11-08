@@ -1,89 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  FaEnvelope,
-  FaPhone,
-  FaMapMarkerAlt,
-  FaInstagram,
-  FaTwitter,
-  FaGithub,
-  FaLinkedin,
-  FaWhatsapp,
-  FaTelegramPlane,
-  FaFacebookF,
-} from "react-icons/fa";
 
 import ContactCard from "@/app/components/contact/ContactCard";
 import SocialButton from "@/app/components/contact/SocialButton";
-
-const CONTACT_INFO = [
-  {
-    icon: FaMapMarkerAlt,
-    title: "محل اقامت",
-    value: "ایران، کرج",
-    href: "#",
-  },
-  {
-    icon: FaPhone,
-    title: "شماره تلفن",
-    value: "98-9334363774+",
-    href: "tel:+98-9334363774",
-  },
-  {
-    icon: FaEnvelope,
-    title: "ایمیل",
-    value: "matin.taherzadeh.mmtsa@gmail.com",
-    href: "mailto:matin.taherzadeh.mmtsa@gmail.com",
-  },
-];
-
-const SOCIAL_LINKS = [
-  {
-    name: "Instagram",
-    icon: FaInstagram,
-    color: "rgb(255, 0, 191)",
-    href: "https://www.instagram.com/matin_taherzadeh_sa/",
-  },
-  {
-    name: "Twitter",
-    icon: FaTwitter,
-    color: "rgb(86, 154, 243)",
-    href: "https://twitter.com/MatinT_SA",
-  },
-  {
-    name: "Github",
-    icon: FaGithub,
-    color: "rgb(255, 123, 0)",
-    href: "https://github.com/MatinT-SA",
-  },
-  {
-    name: "LinkedIn",
-    icon: FaLinkedin,
-    color: "rgb(0, 0, 204)",
-    href: "https://www.linkedin.com/in/matin-taherzadeh-sa",
-  },
-  {
-    name: "WhatsApp",
-    icon: FaWhatsapp,
-    color: "rgb(37, 211, 102)",
-    href: "https://api.whatsapp.com/send?phone=989334363774&text=hi%20Matin.%20how%20are%20you%3F",
-  },
-  {
-    name: "Telegram",
-    icon: FaTelegramPlane,
-    color: "#0088cc",
-    href: "https://t.me/Matin_T_1999",
-  },
-  {
-    name: "Facebook",
-    icon: FaFacebookF,
-    color: "#316ff6",
-    href: "https://www.facebook.com/MatinTaherzadehShA/",
-  },
-];
+import { useTranslations } from "next-intl";
+import { getContactData } from "@/app/src/constants/contactData";
 
 export default function Contact() {
+  const t = useTranslations("contact");
+  const { CONTACT_INFO, SOCIAL_LINKS } = getContactData(t);
+
   const hanldeScrollToComment = () => {
     const commentSection = document.getElementById("comment");
     if (commentSection) {
@@ -101,7 +28,7 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          راه های ارتباطی
+          {t("title")}
         </motion.h2>
 
         <div className="flex justify-center flex-wrap gap-y-12 gap-x-12">

@@ -1,52 +1,50 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLocale } from "next-intl";
 
-export default function SocialButton({ icon: SocialIcon, name, href, isEven }) {
-  const hoverColors = {
-    Instagram: "rgb(255, 0, 191)",
-    Twitter: "rgb(86, 154, 243)",
-    Github: "rgb(255, 123, 0)",
-    LinkedIn: "rgb(0, 0, 204)",
-    WhatsApp: "rgb(37, 211, 102)",
-    Telegram: "#0088cc",
-    Facebook: "#316ff6",
-  };
-
-  const currentHoverColor = hoverColors[name] || "transparent";
+export default function SocialButton({
+  icon: SocialIcon,
+  name,
+  href,
+  color,
+  label,
+  isEven,
+}) {
+  const locale = useLocale();
+  const isRtl = locale === "fa";
 
   return (
     <motion.a
       href={href}
       target="_blank"
       rel="noopener"
-      className="relative flex items-center w-[60px] h-[60px] mx-[30px] rounded-full bg-yellow-primary shadow-lg cursor-pointer transition-all duration-300 ease-out group overflow-hidden"
+      className={`group relative flex items-center w-[60px] h-[60px] mx-[30px] rounded-full bg-yellow-primary shadow-lg cursor-pointer overflow-hidden transition-all duration-300 ease-out ${
+        isRtl ? "flex-row-reverse" : "flex-row"
+      }`}
       initial={{ opacity: 0, y: isEven ? 20 : -20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.1 }}
-      whileHover={{ width: "200px" }}
+      whileHover={{ width: 200 }}
       aria-label={name}
-      style={{
-        direction: "ltr",
-        "--brand-color": currentHoverColor,
-      }}
+      style={{ "--brand-color": color }}
     >
-      <div className="flex justify-center items-center h-[60px] w-[60px] bg-yellow-primary rounded-full transition-all duration-300 ease-out shrink-0">
+      {/* Icon */}
+      <div className="flex justify-center items-center w-[60px] h-[60px] rounded-full bg-yellow-primary transition-colors duration-300 ease-out shrink-0">
         {SocialIcon && (
-          <SocialIcon
-            className={`text-4xl text-shadow-dark-primary transition-colors duration-300 group-hover:text-[var(--brand-color)]`}
-          />
+          <SocialIcon className="text-4xl text-black transition-colors duration-300 group-hover:text-[var(--brand-color)]" />
         )}
       </div>
 
+      {/* Text */}
       <span
-        className="text-2xl flex justify-center items-center font-medium ml-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:ml-2 whitespace-nowrap"
-        style={{
-          color: currentHoverColor,
-        }}
+        className={`ml-2 flex items-center font-medium text-2xl opacity-0 transition-all duration-300 whitespace-nowrap group-hover:opacity-100 ${
+          isRtl ? "mr-2 ml-0" : ""
+        }`}
+        style={{ color }}
       >
-        {name}
+        {label}
       </span>
     </motion.a>
   );
