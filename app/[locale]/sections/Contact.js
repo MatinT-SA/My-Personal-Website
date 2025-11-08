@@ -51,7 +51,7 @@ export default function Contact() {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.35, delay: 0.3 }}
           >
-            گام بعدی اینجاست. یک پیام، آغاز تمام همکاری‌ هاست.
+            {t("cta")}
           </motion.p>
 
           <motion.div
