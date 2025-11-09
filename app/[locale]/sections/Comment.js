@@ -30,6 +30,13 @@ export default function Comment() {
   };
 
   const handleSubmit = async (e) => {
+    const form = e.target;
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -176,7 +183,7 @@ export default function Comment() {
               required
               onChange={handleInputChange}
               value={formData.email}
-              customValidationMessage="برای دریافت پاسخ، باید ایمیل معتبر وارد شود"
+              customValidationMessage={`${t("valid_email_message")}`}
             />
             <FormInput
               id="phonenumber"
@@ -184,9 +191,10 @@ export default function Comment() {
               type="tel"
               name="phonenumber"
               pattern="^\+?([0-9\s-]{10,})$"
+              title={`${t("valid_phone_message")}`}
               onChange={handleInputChange}
               value={formData.phonenumber}
-              customValidationMessage="شماره تلفن معتبر وارد نمایید"
+              customValidationMessage={`${t("valid_phone_message")}`}
             />
           </motion.div>
 
