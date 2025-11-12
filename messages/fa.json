@@ -118,5 +118,11 @@
     "error_message2": "خطا در ارسال پیام",
     "valid_email_message": "برای دریافت پاسخ، باید ایمیل معتبر وارد شود",
     "valid_phone_message": "شماره تلفن معتبر وارد نمایید"
+  },
+  "footer": {
+    "rights_reserved": "- تمامی حقوق این سایت به",
+    "righs_reserved_rest": "تعلق دارد.",
+    "site_version": "نسخه سایت",
+    "button_experience": "سابقه کاری"
   }
 }

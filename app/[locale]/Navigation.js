@@ -3,8 +3,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import SocialLinks from "../profile/profie/profile-card/SocialLinks";
-import NavLinks from "./NavLinks";
+import SocialLinks from "../components/profile/profie/profile-card/SocialLinks";
+import NavLinks from "../components/navigation/NavLinks";
 import { useTranslations, useLocale } from "next-intl";
 
 export default function Navigation() {

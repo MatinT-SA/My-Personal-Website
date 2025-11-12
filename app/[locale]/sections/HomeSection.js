@@ -1,4 +1,4 @@
-import Navigation from "@/app/components/navigation/Navigation";
+import Navigation from "@/app/[locale]/Navigation";
 import ProfileCard from "@/app/components/profile/profie/profile-card/ProfileCard";
 
 export default function HomeSection() {
