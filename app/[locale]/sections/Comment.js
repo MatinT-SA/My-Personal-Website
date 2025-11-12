@@ -6,7 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 import { LiquidButton } from "@/app/components/comment/LiquidButton.js";
 import { FormInput } from "@/app/components/comment/FormInput.js";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function Comment() {
   const [formData, setFormData] = useState({
@@ -19,6 +19,9 @@ export default function Comment() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const t = useTranslations("comment");
+  const locale = useLocale();
+  const isRTL = locale === "fa";
+  const dir = isRTL ? "rtl" : "ltr";
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -140,6 +143,7 @@ export default function Comment() {
         </motion.h2>
 
         <form
+          dir={isRTL ? "rtl" : "ltr"}
           autoComplete="off"
           onSubmit={handleSubmit}
           className="max-w-6xl mx-auto p-4"
@@ -157,6 +161,7 @@ export default function Comment() {
               name="name"
               onChange={handleInputChange}
               value={formData.name}
+              dir={dir}
             />
             <FormInput
               id="familyname"
@@ -164,6 +169,7 @@ export default function Comment() {
               name="familyname"
               onChange={handleInputChange}
               value={formData.familyname}
+              dir={dir}
             />
           </motion.div>
 
@@ -184,17 +190,21 @@ export default function Comment() {
               onChange={handleInputChange}
               value={formData.email}
               customValidationMessage={`${t("valid_email_message")}`}
+              dir={dir}
             />
             <FormInput
               id="phonenumber"
               label={`${t("phonenumber")}`}
               type="tel"
               name="phonenumber"
-              pattern="^\+?([0-9\s-]{10,})$"
-              title={`${t("valid_phone_message")}`}
+              inputMode="numeric"
+              pattern="^(?:\+?\d{10,15}|0\d{9,14}|\d{10,14})$"
+              title={t("valid_phone_message")}
+              required
               onChange={handleInputChange}
               value={formData.phonenumber}
-              customValidationMessage={`${t("valid_phone_message")}`}
+              customValidationMessage={t("valid_phone_message")}
+              dir={dir}
             />
           </motion.div>
 
@@ -215,6 +225,7 @@ export default function Comment() {
               onChange={handleInputChange}
               value={formData.CommentMessage}
               customValidationMessage="لطفا متن پیام را وارد کنید"
+              dir={dir}
             />
           </motion.div>
 
