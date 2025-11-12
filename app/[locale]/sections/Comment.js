@@ -197,11 +197,13 @@ export default function Comment() {
               label={`${t("phonenumber")}`}
               type="tel"
               name="phonenumber"
-              pattern="^\+?([0-9\s-]{10,})$"
-              title={`${t("valid_phone_message")}`}
+              inputMode="numeric"
+              pattern="^(?:\+?\d{10,15}|0\d{9,14}|\d{10,14})$"
+              title={t("valid_phone_message")}
+              required
               onChange={handleInputChange}
               value={formData.phonenumber}
-              customValidationMessage={`${t("valid_phone_message")}`}
+              customValidationMessage={t("valid_phone_message")}
               dir={dir}
             />
           </motion.div>

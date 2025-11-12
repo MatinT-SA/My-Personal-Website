@@ -36,6 +36,16 @@ export const FormInput = ({
 
   const handleInput = (e) => {
     e.target.setCustomValidity("");
+
+    // 🧠 Only sanitize numeric input if it's a phone number field
+    if (rest.type === "tel") {
+      e.target.value = e.target.value.replace(/[^0-9+\s-]/g, "");
+    }
+
+    // Trigger parent onChange if provided
+    if (rest.onChange) {
+      rest.onChange(e);
+    }
   };
 
   return (
