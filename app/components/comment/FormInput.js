@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 
 /**
- * Renders a form input field (Input or Textarea) with a floating label effect and custom HTML5 validation.
- * This component is now a CONTROLLED COMPONENT, meaning it relies on the parent component
- * (Comment.js) to manage its 'value' and 'onChange' state.
- * * @param {Object} props
- * @param {string} props.id - A unique identifier for the input/textarea and its label.
- * @param {string} props.label - The label text which will float (e.g. "Email*").
- * @param {boolean} [props.isTextarea=false] - If true, a textarea will be rendered.
- * @param {string} props.value - The current value, controlled by the parent. (REQUIRED)
- * @param {function} props.onChange - The handler function to update the parent state. (REQUIRED)
- * @param {Object} [props.rest] - All other standard HTML input attributes (name, type, required, pattern, etc.)
+ * Controlled form input field (input or textarea) with floating label and custom HTML5 validation.
+ *
+ * Props:
+ * @param {string} id - Unique identifier for the input/textarea and its label.
+ * @param {string} label - Label text (e.g., "Email*").
+ * @param {boolean} [isTextarea=false] - If true, renders a textarea instead of an input.
+ * @param {string} value - The current value (controlled by the parent).
+ * @param {function} onChange - Callback to update parent state.
+ * @param {string} [customValidationMessage] - Custom message for invalid input.
+ * @param {string} [dir="ltr"|"rtl"] - Text direction (for bilingual layouts).
+ * @param {...object} rest - Standard input attributes (type, name, required, etc.)
  */
 
 export const FormInput = ({
@@ -18,15 +19,14 @@ export const FormInput = ({
   label,
   isTextarea = false,
   customValidationMessage,
+  dir = "ltr",
   ...rest
 }) => {
-  const value = rest.value || "";
   const [isFocused, setIsFocused] = useState(false);
+  const value = rest.value || "";
   const shouldFloat = isFocused || value;
 
-  const handleBlur = (e) => {
-    setIsFocused(false);
-  };
+  const InputComponent = isTextarea ? "textarea" : "input";
 
   const handleInvalid = (e) => {
     if (customValidationMessage) {
@@ -34,51 +34,62 @@ export const FormInput = ({
     }
   };
 
-  const InputComponent = isTextarea ? "textarea" : "input";
+  const handleInput = (e) => {
+    e.target.setCustomValidity("");
+  };
 
   return (
     <div
-      className={`relative pt-6 pb-2 mb-8 h-auto ${
+      className={`relative pt-6 pb-2 mb-8 transition-all duration-300 ${
         isTextarea ? "min-h-[120px]" : "h-[75px]"
-      } transition-all duration-300`}
+      }`}
+      dir={dir}
     >
       <InputComponent
         id={id}
         {...rest}
+        dir={dir}
         type={isTextarea ? undefined : rest.type || "text"}
-        className={`w-full bg-transparent text-purple-primary text-lg px-2 my-1 leading-none placeholder-transparent focus:outline-none transition-all duration-300 relative z-10 ${
-          isTextarea ? "h-full resize-none pt-4" : "h-full"
-        }`}
+        className={`
+          w-full bg-transparent text-purple-primary text-lg px-2 my-2 leading-none
+          placeholder-transparent focus:outline-none transition-all duration-300 relative z-10
+          ${isTextarea ? "h-full resize-none pt-4" : "h-full"}
+          ${dir === "rtl" ? "text-right" : "text-left"}
+        `}
         placeholder={label}
         rows={isTextarea ? 4 : undefined}
         onFocus={() => setIsFocused(true)}
-        onBlur={handleBlur}
+        onBlur={() => setIsFocused(false)}
         onInvalid={handleInvalid}
-        onInput={(e) => {
-          e.target.setCustomValidity("");
-        }}
+        onInput={handleInput}
       />
 
-      {/* Style Spans (no change) */}
+      {/* Underline background */}
       <span
-        className={`absolute bottom-0 left-0 block w-full bg-white/30 transition-all duration-500 rounded-sm pointer-events-none`}
+        className="absolute bottom-0 left-0 block w-full bg-white/30 transition-all duration-500 rounded-sm pointer-events-none"
         style={{ height: "2px" }}
       ></span>
 
+      {/* Animated yellow underline */}
       <span
-        className={`absolute bottom-0 left-0 block w-full bg-yellow-400 transition-all duration-500 rounded-sm pointer-events-none origin-bottom`}
+        className="absolute bottom-0 left-0 block w-full bg-yellow-400 transition-all duration-500 rounded-sm pointer-events-none origin-bottom"
         style={{
           height: shouldFloat ? (isTextarea ? "80%" : "40px") : "2px",
         }}
       ></span>
 
+      {/* Floating label */}
       <label
         htmlFor={id}
-        className={`absolute right-0 top-0 transition-all duration-500 pointer-events-none px-2 z-20 ${
-          shouldFloat
-            ? "text-sm text-yellow-400"
-            : "text-xl text-yellow-400 translate-y-[30px]"
-        }`}
+        className={`
+          absolute top-0 px-2 z-20 pointer-events-none transition-all duration-500
+          ${dir === "rtl" ? "right-0 text-right" : "left-0 text-left"}
+          ${
+            shouldFloat
+              ? "text-sm text-yellow-400"
+              : "text-xl text-yellow-400 translate-y-[30px]"
+          }
+        `}
       >
         {label}
       </label>
