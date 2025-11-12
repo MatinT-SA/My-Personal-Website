@@ -105,7 +105,7 @@ export default function Entrepreneur() {
                     transitionDelay: "0.5s",
                   }}
                 >
-                  بخوان
+                  {t("read_more")}
                 </span>
               </motion.div>
 
