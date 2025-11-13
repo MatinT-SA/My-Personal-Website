@@ -1,22 +1,20 @@
-// app/components/header/Navigation.js
 "use client";
 
 import { useEffect, useRef, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import SocialLinks from "../components/profile/profie/profile-card/SocialLinks";
 import NavLinks from "../components/navigation/NavLinks";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 
-export default function Navigation() {
+export default function Navigation({ dir }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const navRef = useRef(null);
 
+  const navRef = useRef(null);
   const t = useTranslations("home");
-  const locale = useLocale();
-  const isLTR = locale === "en";
+  const isLTR = dir === "ltr";
 
   const links = [
     { id: "home", label: t("navHome") },
@@ -27,15 +25,14 @@ export default function Navigation() {
     { id: "comment", label: t("navComment") },
   ];
 
-  // Sticky nav logic
+  // Sticky nav
   useEffect(() => {
     const handleScroll = () => {
       const headerEl = document.querySelector("header");
       const headerHeight = headerEl ? headerEl.offsetHeight : 0;
       const scrollY = window.scrollY || window.pageYOffset;
-
-      if (!navRef.current) return;
       const navEl = navRef.current;
+      if (!navEl) return;
       const nextEl = navEl.nextElementSibling;
 
       if (scrollY > headerHeight) {
@@ -54,14 +51,12 @@ export default function Navigation() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
-      if (navRef.current) {
-        const nextEl = navRef.current.nextElementSibling;
-        if (nextEl) nextEl.style.paddingTop = "";
-      }
+      if (navRef.current?.nextElementSibling)
+        navRef.current.nextElementSibling.style.paddingTop = "";
     };
   }, []);
 
-  // Highlight active nav link on scroll
+  // Active section tracking
   useEffect(() => {
     const sections = Array.from(document.querySelectorAll("section[id]"));
     if (!sections.length) return;
@@ -74,31 +69,27 @@ export default function Navigation() {
           rect.bottom > window.innerHeight / 2
         );
       });
-
       if (current) setActiveSection(current.id);
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const openMenu = () => {
+    setIsMenuVisible(true);
+    setTimeout(() => setIsMenuOpen(true), 10);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    setTimeout(() => setIsMenuVisible(false), 300);
+  };
 
   const handleClick = (id) => {
     setActiveSection(id);
     closeMenu();
-  };
-
-  // Open menu
-  const openMenu = () => {
-    setIsMenuVisible(true); // keep menu mounted
-    setTimeout(() => setIsMenuOpen(true), 10); // trigger slide-in
-  };
-
-  // Close menu
-  const closeMenu = () => {
-    setIsMenuOpen(false); // trigger slide-out
-    setTimeout(() => setIsMenuVisible(false), 300); // unmount after animation
   };
 
   return (
@@ -109,29 +100,25 @@ export default function Navigation() {
         isFixed ? "fixed top-0 left-0 w-full z-50 shadow-lg" : "relative"
       }`}
       aria-label="Primary navigation"
-      style={{ scrollBehavior: "smooth" }}
     >
-      {/* Hamburger button: Now controlled by LTR/RTL */}
+      {/* Hamburger (mobile) */}
       {!isMenuVisible && (
         <button
           type="button"
           onClick={openMenu}
-          // Use conditional class to position the button on the left for LTR
-          className={`block mx-auto p-5 text-center w-12 h-12 text-dark-primary hamburger:hidden ${
-            isLTR ? "mr-auto" : "ml-auto"
-          }`}
+          className={`block mx-auto p-5 text-center w-12 h-12 text-dark-primary hamburger:hidden 
+            ${isLTR ? "mr-auto" : "ml-auto"}`}
           aria-label="Open menu"
         >
           <FaBars className="w-8 h-8" />
         </button>
       )}
 
-      {/* Close button: Flip position for LTR */}
+      {/* Close (mobile) */}
       {isMenuVisible && (
         <button
           type="button"
           onClick={closeMenu}
-          // Flip 'right-6' to 'left-6' for LTR
           className={`fixed top-6 z-50 text-white ${
             isLTR ? "left-6" : "right-6"
           }`}
@@ -141,20 +128,18 @@ export default function Navigation() {
         </button>
       )}
 
-      {/* Main menu (mobile) */}
+      {/* Mobile menu */}
       {isMenuVisible && (
         <ul
           className={`mainMenu list-none fixed inset-0 z-40 flex flex-col justify-center items-center bg-purple-primary text-white
             transform transition-transform duration-300 ease-in-out
-            // FLIP THE SLIDE DIRECTION based on isLTR
             ${
               isMenuOpen
                 ? "translate-x-0"
                 : isLTR
-                ? "-translate-x-full" // LTR: slide off to the left
-                : "translate-x-full" // RTL: slide off to the right
-            }
-          `}
+                ? "-translate-x-full"
+                : "translate-x-full"
+            }`}
         >
           <NavLinks
             links={links}
@@ -162,16 +147,17 @@ export default function Navigation() {
             onClick={handleClick}
             variant="mobile"
           />
-
-          {/* Social links at the bottom for mobile */}
           <li className="mt-5">
             <SocialLinks isMenuOpen={isMenuOpen} />
           </li>
         </ul>
       )}
 
-      {/* Desktop menu: Changed mr-10 to me-10 */}
-      <ul className="hidden hamburger:flex hamburger:flex-row gap-0 hamburger:items-center hamburger:justify-between hamburger:me-10 hamburger:w-full">
+      {/* Desktop menu */}
+      <ul
+        className={`hidden hamburger:flex hamburger:flex-row gap-0 hamburger:items-center hamburger:justify-between w-full
+          ${isLTR ? "mr-10" : "ml-10"}`}
+      >
         <NavLinks
           links={links}
           activeSection={activeSection}

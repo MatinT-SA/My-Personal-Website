@@ -1,21 +1,18 @@
-// app/[locale]/layout.js - The Final Wrapper (Modified)
-
 import { routing } from "../../i18n/routing";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
-// ✅ Import the Header component (now used here exclusively)
-import Header from "../components/header/Header";
 
-// ✅ Import the RootLayout (HTML Shell)
-import RootLayout from "../layout";
-import { setRequestLocale } from "next-intl/server";
+import Header from "../components/header/Header";
+import Navigation from "./Navigation";
 import LocaleSwitcher from "../components/LocaleSwitcher";
+
+import { setRequestLocale } from "next-intl/server";
 
 const getMessages = async (locale) => {
   try {
     const messagesModule = await import(`../../messages/${locale}.json`);
     return messagesModule.default;
-  } catch (error) {
+  } catch {
     notFound();
   }
 };
@@ -25,7 +22,7 @@ export function generateStaticParams() {
 }
 
 export default async function LocalizedLayout({ children, params }) {
-  const { locale } = await params;
+  const { locale } = params;
 
   if (!routing.locales.includes(locale)) {
     notFound();
@@ -33,20 +30,24 @@ export default async function LocalizedLayout({ children, params }) {
 
   const messages = await getMessages(locale);
 
-  // 💡 Determine direction based on locale
   const direction = locale === "fa" ? "rtl" : "ltr";
 
   setRequestLocale(locale);
 
   return (
-    // ✅ Wrap content in RootLayout, passing locale and direction (fixes flipping)
-    <RootLayout lang={locale} dir={direction}>
-      <NextIntlClientProvider locale={locale} messages={messages}>
-        {/* ✅ RENDER THE SINGLE HEADER HERE: Fixes double header and translation access */}
-        <Header />
-        {children}
-        <LocaleSwitcher />
-      </NextIntlClientProvider>
-    </RootLayout>
+    <html lang={locale} dir={direction} className="scroll-smooth">
+      <body
+        className={`antialiased
+          bg-linear-to-r from-white to-[#ffe6ff]
+          overflow-x-hidden text-black font-shabnam`}
+      >
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Header />
+          <Navigation dir={direction} />
+          {children}
+          <LocaleSwitcher />
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }
