@@ -118,5 +118,11 @@
     "error_message2": "Error sending message",
     "valid_email_message": "A valid email is required to receive a response",
     "valid_phone_message": "Please enter a valid phone number"
+  },
+  "footer": {
+    "rights_reserved": "- All rights reserved to",
+    "righs_reserved_rest": "",
+    "site_version": "Site Version",
+    "button_experience": "Work Experience"
   }
 }
