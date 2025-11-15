@@ -21,18 +21,15 @@ export default function Home() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
-    const handleLoad = () => setLoading(false);
-    const timeoutId = setTimeout(handleLoad, 5000);
-    if (typeof window !== "undefined") {
-      window.addEventListener("load", handleLoad);
+    if (document.readyState === "complete") {
+      setLoading(false);
+      return;
     }
 
-    return () => {
-      clearTimeout(timeoutId);
-      if (typeof window !== "undefined") {
-        window.removeEventListener("load", handleLoad);
-      }
-    };
+    const handleDone = () => setLoading(false);
+    window.addEventListener("load", handleDone);
+
+    return () => window.removeEventListener("load", handleDone);
   }, []);
 
   const homeRef = useRef(null);
