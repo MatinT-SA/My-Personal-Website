@@ -1,10 +1,11 @@
 import ProfileCard from "@/app/components/profile/profie/profile-card/ProfileCard";
+import Navigation from "../Navigation";
 
 export default function HomeSection() {
   return (
     <section id="home" className="w-full scroll-mt-52">
       <div className="w-full">
-        {/* <Navigation /> */}
+        <Navigation />
         <ProfileCard />
       </div>
     </section>

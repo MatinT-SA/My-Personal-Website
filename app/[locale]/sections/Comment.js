@@ -200,7 +200,6 @@ export default function Comment() {
               inputMode="numeric"
               pattern="^(?:\+?\d{10,15}|0\d{9,14}|\d{10,14})$"
               title={t("valid_phone_message")}
-              required
               onChange={handleInputChange}
               value={formData.phonenumber}
               customValidationMessage={t("valid_phone_message")}
