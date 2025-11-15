@@ -43,7 +43,7 @@ export default async function LocalizedLayout({ children, params }) {
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />
-          <Navigation dir={direction} />
+          {/* <Navigation dir={direction} /> */}
           {children}
           <LocaleSwitcher />
         </NextIntlClientProvider>
