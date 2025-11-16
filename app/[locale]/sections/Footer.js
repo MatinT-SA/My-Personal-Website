@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { Link, useRouter, usePathname } from "@/i18n/routing";
 import Button from "@/app/components/Button";
 import Loader from "@/app/components/Loader";
 import { SITE_VERSION } from "@/app/config";
@@ -10,8 +9,10 @@ import { useTranslations } from "next-intl";
 
 export default function Footer() {
   const t = useTranslations("footer");
+
   const router = useRouter();
   const pathname = usePathname();
+
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -59,7 +60,7 @@ export default function Footer() {
         <footer className="footer-inner relative bg-purple-primary text-white mx-auto w-[95%] max-w-5xl h-20 rounded-xl flex items-center tracking-wide">
           <div className="text-md px-2 grid grid-cols-[1fr_2fr_1fr] text-center w-full items-center justify-center">
             {/* Experience button */}
-            <Link href="/experience" passHref>
+            <Link href="/experience">
               <Button
                 onClick={(e) => {
                   e.preventDefault();
@@ -76,7 +77,6 @@ export default function Footer() {
               © {new Date().getFullYear()} {t("rights_reserved")}{" "}
               <Link
                 href="/"
-                passHref
                 onClick={(e) => {
                   e.preventDefault();
                   handleNavigation("/");

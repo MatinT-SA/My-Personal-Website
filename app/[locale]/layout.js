@@ -1,9 +1,8 @@
-import { routing } from "../../i18n/routing";
-import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "../../i18n/routing";
 
 import Header from "../components/header/Header";
-import Navigation from "./Navigation";
 import LocaleSwitcher from "../components/LocaleSwitcher";
 
 import { setRequestLocale } from "next-intl/server";
