@@ -1,68 +1,63 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion } from "framer-motion"; // 🚨 1. Import motion
+import React from "react";
+import { motion } from "framer-motion";
 
 const TimelineElement = ({
   date,
   title,
   company,
   points,
-  iconBg, // Hex color
+  iconBg,
   index,
   iconUrl,
+  locale, // pass this from ExperiencePageClient
 }) => {
-  // Define animation variants for the slide-up/fade-in effect
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.7,
-        ease: "easeOut",
-        delay: index * 0.1, // Stagger delay based on index
-      },
+      transition: { duration: 0.7, ease: "easeOut", delay: index * 0.1 },
     },
   };
 
-  const isOdd = index % 2 !== 0;
+  const isOdd = index % 2 !== 0; // keep original logic for Persian zigzag
 
-  const dateAlignmentClasses = isOdd
-    ? "md:left-1/2 md:text-left md:pl-12"
-    : "md:right-1/2 md:text-right md:pr-12";
-
+  // Card & spacer layout classes
   const cardBaseClasses =
     "w-full shadow-xl rounded-lg p-6 bg-white border-b-8 border-opacity-70 transition duration-700 ease-out";
-
   const cardOrder = isOdd ? "md:order-3 mr-2" : "md:order-1 ml-2";
   const spacerOrder = isOdd ? "md:order-1" : "md:order-3";
-
-  // Hex color for the border
   const cardBorderColor = iconBg;
 
+  // Date alignment
+  const dateAlignmentClasses =
+    locale === "fa"
+      ? isOdd
+        ? "md:left-1/2 md:text-left md:pl-12"
+        : "md:right-1/2 md:text-right md:pr-12"
+      : isOdd
+      ? "md:right-1/2 md:text-right md:pr-12"
+      : "md:left-1/2 md:text-left md:pl-12";
+
   return (
-    // 🚨 2. Replace the outer <div> with <motion.div>
     <motion.div
-      // 🚨 3. Framer Motion properties for animation
       variants={cardVariants}
       initial="hidden"
-      whileInView="visible" // Triggers animation when element enters view
-      viewport={{ once: true, amount: 0.1 }} // Animates only once
-      // Pass the Hex colors via style prop (using CSS Variables)
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
       style={{
         "--icon-bg-color": iconBg,
         "--card-border-color": cardBorderColor,
       }}
-      className={`relative flex justify-between items-center w-full mb-12 group`}
+      className="relative flex justify-between items-center w-full mb-12 group"
     >
-      {/* 1. Spacer */}
+      {/* Spacer */}
       <div className={`hidden md:block w-[49%] ${spacerOrder}`} />
 
-      {/* 2. Timeline Icon/Dot: Uses icon-dot-background class */}
-      <div
-        className={`hidden md:flex md:order-2 w-16 h-16 rounded-full shadow-xl z-10 items-center justify-center icon-dot-background ring-4 ring-white overflow-hidden`}
-      >
+      {/* Timeline dot/icon */}
+      <div className="hidden md:flex md:order-2 w-16 h-16 rounded-full shadow-xl z-10 items-center justify-center icon-dot-background ring-4 ring-white overflow-hidden">
         {iconUrl ? (
           <img
             src={iconUrl}
@@ -80,15 +75,15 @@ const TimelineElement = ({
         )}
       </div>
 
-      {/* 3. The main content card: Applies the border color using the new CSS variable */}
+      {/* Main card */}
       <div
         className={`w-full md:w-[48%] ${cardOrder} ${cardBaseClasses} card-border-style`}
       >
-        <div dir="rtl">
+        {/* Force text direction based on locale */}
+        <div dir={locale === "fa" ? "rtl" : "ltr"}>
           <h3 className="text-xl font-bold text-gray-800 mb-2">{title}</h3>
           <p className="text-purple-primary font-medium mb-4">{company}</p>
 
-          {/* List of points (Responsibilities) */}
           <ul className="my-3 list-disc pr-5 space-y-2 text-sm text-slate-600">
             {points.map((point, idx) => (
               <li key={idx} className="leading-relaxed">
@@ -99,7 +94,7 @@ const TimelineElement = ({
         </div>
       </div>
 
-      {/* 4. Separately positioned date element */}
+      {/* Date */}
       <div
         className={`hidden md:block absolute w-1/2 top-1/2 -translate-y-1/2 text-gray-600 font-medium whitespace-nowrap ${dateAlignmentClasses}`}
       >
