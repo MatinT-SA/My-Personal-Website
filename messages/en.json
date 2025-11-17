@@ -14,6 +14,7 @@
   "experience": {
     "returnHome": "Return home",
     "title": "Work Experience",
+    "below_text": "These experiences are displayed in reverse chronological order (from newest to oldest).",
     "parsian_farhang": {
       "date": "September 2018 – September 2019",
       "title": "Persian Farhang Language Instructor",

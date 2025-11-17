@@ -34,10 +34,7 @@ export default function ExperiencePageClient() {
       </div>
 
       <div className="max-w-7xl mx-auto text-center mt-10 p-4 text-gray-500 text-sm">
-        <p>
-          این سوابق به ترتیب زمانی معکوس (جدیدترین به قدیمی‌ ترین) نمایش داده
-          شده‌اند.
-        </p>
+        <p>{t("below_text")}</p>
       </div>
     </section>
   );
