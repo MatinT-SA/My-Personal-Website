@@ -41,7 +41,7 @@ export default async function LocalizedLayout({ children, params }) {
           overflow-x-hidden text-black font-shabnam`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <Header />
+          {/* <Header /> */}
           {/* <Navigation dir={direction} /> */}
           {children}
           <LocaleSwitcher />

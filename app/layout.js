@@ -1,4 +1,6 @@
+// app/layout.js (RootLayout)
 import "@/app/styles/global.css";
+import Header from "./components/header/Header";
 
 export const metadata = {
   title: "Matin Taherzadeh - متین طاهرزاده",
@@ -6,5 +8,16 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  return <>{children}</>;
+  return (
+    <html lang="fa">
+      <body
+        className="antialiased
+          bg-linear-to-r from-white to-[#ffe6ff]
+          overflow-x-hidden text-black font-shabnam"
+      >
+        <Header />
+        {children}
+      </body>
+    </html>
+  );
 }
