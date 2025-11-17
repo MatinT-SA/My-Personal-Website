@@ -3,7 +3,6 @@
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import GoToTopButton from "../components/GoToTopButton";
-import Loader from "../components/Loader";
 import GithubRepositoryButton from "../components/projects/GithubRepositoryButton";
 import ProjectsPageButton from "../components/projects/ProjectsPageButton";
 import ProjectsPopup from "../components/projects/ProjectsPopup";
@@ -17,20 +16,7 @@ import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-  useEffect(() => {
-    if (document.readyState === "complete") {
-      setLoading(false);
-      return;
-    }
-
-    const handleDone = () => setLoading(false);
-    window.addEventListener("load", handleDone);
-
-    return () => window.removeEventListener("load", handleDone);
-  }, []);
 
   const homeRef = useRef(null);
   const aboutMeRef = useRef(null);
@@ -97,7 +83,6 @@ export default function Home() {
       <GoToTopButton aboutMeRef={aboutMeRef} />
 
       <AnimatePresence>
-        {loading && <Loader />}
         {isPopupOpen && <ProjectsPopup onClose={() => setIsPopupOpen(false)} />}
       </AnimatePresence>
     </main>
