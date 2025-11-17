@@ -2,18 +2,19 @@
 
 import Button from "@/app/components/Button";
 import TimelineElement from "@/app/components/experience/TimelineElement";
-import { jobData } from "@/app/src/constants/experience";
+import { getJobData } from "@/app/src/constants/experience";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
 export default function ExperiencePageClient() {
   const t = useTranslations("experience");
+  const jobData = getJobData(t);
 
   return (
     <section className="min-h-screen py-6 px-1 sm:py-10 sm:px-2">
       <div className="max-w-7xl mx-auto pb-10 grid sm:grid-row grid-cols-[7fr_1fr] items-center justify-center">
         <h1 className="text-4xl sm:text-5xl flex justify-center font-extrabold text-purple-primary mb-6 sm:mb-0">
-          سابقه کاری
+          {t("title")}
         </h1>
 
         <Link href="/">

@@ -12,7 +12,14 @@
     "text5": "Interested in learning, responsible, organized, and hardworking."
   },
   "experience": {
-    "returnHome": "Return home"
+    "returnHome": "Return home",
+    "title": "Work Experience",
+    "parsian_farhang": {
+      "date": "September 2018 – September 2019",
+      "title": "Persian Farhang Language Instructor",
+      "company": "Parsian Farhang Language Institute",
+      "points": "Taught English to beginner and intermediate learners for approximately one year, demonstrating dedication and expertise at Parsian Farhang Language Institute."
+    }
   },
   "home": {
     "navAboutMe": "About me",

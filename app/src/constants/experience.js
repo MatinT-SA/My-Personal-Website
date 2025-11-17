@@ -1,4 +1,4 @@
-export const jobData = [
+export const getJobData = (t) => [
   {
     id: 5,
     date: "مهر ۱۳۹۶ - در حال حاضر",
@@ -56,13 +56,11 @@ export const jobData = [
 
   {
     id: 1,
-    date: "شهریور ۱۳۹۷ - شهریور ۱۳۹۸",
-    title: "معلم زبان انگلیسی",
-    company: "موسسه زبان پارسیان فرهنگ",
+    date: t("parsian_farhang.date"),
+    title: t("parsian_farhang.title"),
+    company: t("parsian_farhang.company"),
     iconBg: "#d3dbe8",
     iconUrl: "/images/experience/parsianFarhang.png",
-    points: [
-      "آموزش زبان انگلیسی به زبان‌ آموزان مبتدی و متوسط با تعهد و تخصص در موسسه زبان پارسیان فرهنگ برای حدود یک سال.",
-    ],
+    points: [t("parsian_farhang.points")],
   },
 ];
