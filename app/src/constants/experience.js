@@ -1,57 +1,48 @@
 export const getJobData = (t) => [
   {
     id: 5,
-    date: "مهر ۱۳۹۶ - در حال حاضر",
-    title: "طراح و توسعه‌ دهنده وب",
-    company: "پروژه‌ های مستقل (Freelance)",
+    date: t("freelance.date"),
+    title: t("freelance.title"),
+    company: t("freelance.company"),
     iconBg: "#9e8895",
     iconUrl: "/images/experience/matintaherzadeh.png",
     points: [
-      "تداوم فعالیت به عنوان توسعه‌ دهنده وب فریلنسر با تخصص در ساخت وبسایت‌ های داینامیک و واکنشگرا.",
-      "استفاده از طیف گسترده ای از فناوری‌ ها شامل ASP.NET MVC و Core، ReactJS، MERN Stack، JavaScript، Tailwindcss, Bootstrap و ThreeJS.",
-      "ارائه راه‌حل‌ های سفارشی و با کیفیت بالا برای نیازهای مشتریان در جامعه فریلنسری.",
+      t("freelance.points.1"),
+      t("freelance.points.2"),
+      t("freelance.points.3"),
     ],
   },
-
   {
     id: 4,
-    date: "اردیبهشت ۱۴۰۴ - خرداد ۱۴۰۴",
-    title: "کارآموز توسعه دهنده فرانت‌اند",
-    company: "روشن",
+    date: t("roshan.date"),
+    title: t("roshan.title"),
+    company: t("roshan.company"),
     iconBg: "#facc15",
     iconUrl: "/images/experience/roshan.png",
     points: [
-      'کار بر روی توسعه فرانت‌اند پروژه "آوا" با مصرف مستقیم API های بک‌اند برای نمایش و دریافت داده‌ ها در رابط کاربری.',
-      "ساخت کامپوننت‌ های UI واکنشگرا با استفاده از HTML، CSS، JavaScript، React و Redux برای مدیریت وضعیت (State) در صورت نیاز.",
-      "کسب تجربه عملی در یکپارچه‌ سازی فرانت‌اند با سرویس‌ های بک‌اند در طول این دوره کارآموزی ۲۵۰ ساعته.",
-      "شرکت در جلسات منظم پیشرفت آنلاین و ارائه گزارش کار به منتور دوره در سراسر مدت کارآموزی.",
+      t("roshan.points.1"),
+      t("roshan.points.2"),
+      t("roshan.points.3"),
+      t("roshan.points.4"),
     ],
   },
-
   {
     id: 2,
-    date: "آبان ۱۴۰۱ - اردیبهشت ۱۴۰۳",
-    title: "توسعه‌ دهنده فول استک",
-    company: "myadegaran",
+    date: t("myadegaran.date"),
+    title: t("myadegaran.title"),
+    company: t("myadegaran.company"),
     iconBg: "#78eb9a",
     iconUrl: "/images/experience/myadegaran.png",
-    points: [
-      "به عنوان توسعه‌ دهنده اصلی وردپرس به مدت حدود یک سال و نیم، مسئولیت کامل مدیریت و بهینه‌ سازی پلتفرم‌ ها را بر عهده داشتم.",
-      "این نقش نیازمند مهارت‌ های فنی بالا و توانایی سازگاری و برتری در محیط‌ های مختلف بود.",
-    ],
+    points: [t("myadegaran.points.1"), t("myadegaran.points.2")],
   },
-
   {
     id: 3,
-    date: "دی ۱۴۰۱ - اسفند ۱۴۰۱",
-    title: "نویسنده محتوا",
-    company: "yorkbuilding",
+    date: t("york_building.date"),
+    title: t("york_building.title"),
+    company: t("york_building.company"),
     iconBg: "#e3e6e4",
     iconUrl: "/images/experience/yorkbuilding.png",
-    points: [
-      "در یک تجربه کوتاه یک ماهه به عنوان نویسنده محتوای فریلنس برای شرکت‌ های کانادایی مبلمان و لوله‌ کشی، محتوای متقاعد کننده را مطابق با استانداردهای صنعت تدوین کردم.",
-      "ایجاد کپی‌ های سئو فرندلی برای افزایش آگاهی از برند و تقویت تعامل با مشتریان.",
-    ],
+    points: [t("york_building.points.1"), t("york_building.points.2")],
   },
 
   {

@@ -19,6 +19,45 @@
       "title": "Persian Farhang Language Instructor",
       "company": "Parsian Farhang Language Institute",
       "points": "Taught English to beginner and intermediate learners for approximately one year, demonstrating dedication and expertise at Parsian Farhang Language Institute."
+    },
+    "york_building": {
+      "date": "December 2022 – March 2023",
+      "title": "Content Writer",
+      "company": "yorkbuilding",
+      "points": {
+        "1": "In a short one-month freelance experience, I created persuasive content for Canadian furniture and plumbing companies in line with industry standards.",
+        "2": "Produced SEO-friendly copy to increase brand awareness and strengthen customer engagement."
+      }
+    },
+    "myadegaran": {
+      "date": "November 2022 – May 2023",
+      "title": "Full Stack Developer",
+      "company": "myadegaran",
+      "points": {
+        "1": "As the lead WordPress developer for approximately one and a half years, I was fully responsible for managing and optimizing the platforms.",
+        "2": "This role required advanced technical skills and the ability to adapt and excel in different environments."
+      }
+    },
+    "roshan": {
+      "date": "May 2025 – June 2025",
+      "title": "Frontend Developer Intern",
+      "company": "Roshan",
+      "points": {
+        "1": "Worked on the frontend development of the \"Ava\" project, consuming backend APIs directly to display and retrieve data in the user interface.",
+        "2": "Built responsive UI components using HTML, CSS, JavaScript, React, and Redux for state management when needed.",
+        "3": "Gained hands-on experience integrating the frontend with backend services during this 250-hour internship.",
+        "4": "Participated in regular online progress meetings and submitted reports to the course mentor throughout the internship."
+      }
+    },
+    "freelance": {
+      "date": "October 2017 – Present",
+      "title": "Web Designer & Developer",
+      "company": "Freelance Projects",
+      "points": {
+        "1": "Continued working as a freelance web developer specializing in dynamic and responsive websites.",
+        "2": "Used a wide range of technologies including ASP.NET MVC & Core, ReactJS, MERN Stack, JavaScript, TailwindCSS, Bootstrap, and ThreeJS.",
+        "3": "Delivered custom, high-quality solutions for client needs in the freelance community."
+      }
     }
   },
   "home": {
