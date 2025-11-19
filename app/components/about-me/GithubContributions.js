@@ -1,12 +1,8 @@
-// app/components/about-me/GithubContributions.js
 "use client";
 
-// Changed to a NAMED import: { GitHubCalendar }
 import { GitHubCalendar } from "react-github-calendar";
-// Note: The casing (GitHubCalendar vs GithubCalendar) is also crucial.
 
 const GITHUB_USERNAME = "MatinT-SA";
-// ... (rest of your logic for selectLastHalfYear remains the same)
 
 export default function GithubContributions({ data }) {
   return (
@@ -14,9 +10,14 @@ export default function GithubContributions({ data }) {
       <h3 className="text-xl font-semibold mb-4 text-purple-primary">
         GitHub Contributions
       </h3>
-      <GitHubCalendar // 👈 Component name now matches the import
+
+      <GitHubCalendar
         username={GITHUB_USERNAME}
-        // ... (rest of props)
+        blockSize={10}
+        blockMargin={2}
+        fontSize={12}
+        color="#7D5A9B"
+        responsive
       />
     </div>
   );
