@@ -20,26 +20,25 @@ const customTheme = {
 export default function GithubCalendarGraph({ username }) {
   return (
     <>
-      {/* STYLE OVERRIDE 
-         Forces the Month and Day labels to use your specific blue #a8c6de 
-      */}
+      {/* TEXT COLOR OVERRIDE (Confirmed Working) */}
       <style jsx global>{`
         .github-calendar-graph text {
           fill: #a8c6de !important;
           font-size: 12px;
+          user-select: none;
         }
       `}</style>
 
       {/* SCROLLABLE WRAPPER 
-         - overflow-x-auto: Enables the ONE horizontal scrollbar
-         - we REMOVED padding here to prevent double scrollbars
+         - w-full: Takes full width, relies on parent container for overflow handling
       */}
-      <div className="overflow-x-auto w-full custom-scrollbar">
-        {/* FIXED WIDTH CONTAINER
-           - min-w-[720px]: Forces content width > card width to trigger scroll
-           - p-4: Padding is applied INSIDE the scrolling element
+      <div className="w-full">
+        {/* FIXED WIDTH CONTAINER & PADDING
+           - min-w-[620px]: Ensures horizontal space for the calendar
+           - pt-6: Increased padding top for visual separation (your requested "margin-top")
+           - pb-4 px-6: Retains existing bottom and horizontal padding
         */}
-        <div className="min-w-[720px] p-4 github-calendar-graph">
+        <div className="min-w-[620px] pt-6 pb-4 px-6 github-calendar-graph">
           <GitHubCalendar
             username={username}
             blockSize={12}
@@ -54,7 +53,7 @@ export default function GithubCalendarGraph({ username }) {
               const count = activity.count;
               const date = activity.date;
 
-              // Logic: "1 contribution" vs "5 contributions"
+              // Correct text formatting (e.g., "3 contributions on 2024-05-12")
               const label =
                 count === 0
                   ? "No contributions"
@@ -63,7 +62,12 @@ export default function GithubCalendarGraph({ username }) {
               return React.cloneElement(block, {
                 "data-tooltip-id": "my-github-tooltip",
                 "data-tooltip-content": `${label} on ${date}`,
-                children: null, // Hide default children (titles) to fix native tooltip showing up
+
+                // CRITICAL FIXES for Tooltip Content
+                // Explicitly remove all competing native tooltip attributes.
+                title: "",
+                "aria-label": "", // Remove aria-label which some browsers use for tooltips
+                children: null,
               });
             }}
           />
