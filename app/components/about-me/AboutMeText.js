@@ -1,3 +1,5 @@
+"use client";
+
 import { FiDownload } from "react-icons/fi";
 import TypedHeading from "./TypedHeading";
 import { useTranslations } from "next-intl";

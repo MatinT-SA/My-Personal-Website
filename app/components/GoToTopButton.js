@@ -8,16 +8,9 @@ const GoToTopButton = ({ aboutMeRef }) => {
   const thresholdRef = useRef(0);
 
   useEffect(() => {
-    if (aboutMeRef && aboutMeRef.current) {
-      const topPosition =
-        aboutMeRef.current.getBoundingClientRect().top + window.scrollY;
-
-      thresholdRef.current = topPosition - 100;
-
-      toggleVisibility();
-    }
-
+    // 1. DEFINE the function first
     const toggleVisibility = () => {
+      // 👈 Moved to the top!
       if (window.scrollY > thresholdRef.current) {
         setIsVisible(true);
       } else {
@@ -25,10 +18,21 @@ const GoToTopButton = ({ aboutMeRef }) => {
       }
     };
 
+    if (aboutMeRef && aboutMeRef.current) {
+      const topPosition =
+        aboutMeRef.current.getBoundingClientRect().top + window.scrollY;
+
+      thresholdRef.current = topPosition - 100;
+
+      // 2. THEN CALL the function
+      toggleVisibility(); // 👈 Now this call works correctly
+    }
+
+    // 3. Register the event listener
     window.addEventListener("scroll", toggleVisibility);
 
     return () => window.removeEventListener("scroll", toggleVisibility);
-  }, [aboutMeRef]);
+  }, [aboutMeRef]); // Note: You might want to include toggleVisibility in dependencies if it were not defined inside useEffect, but it's fine here.
 
   const scrollToTop = () => {
     window.scrollTo({
