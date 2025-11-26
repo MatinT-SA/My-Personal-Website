@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl"; // Import useTranslations
 import React from "react";
 import { GitHubCalendar } from "react-github-calendar";
 import { Tooltip as ReactTooltip } from "react-tooltip";
@@ -18,6 +19,9 @@ const customTheme = {
 };
 
 export default function GithubCalendarGraph({ username }) {
+  // Initialize translations hook
+  const t = useTranslations("AboutMe");
+
   return (
     <>
       {/* TEXT COLOR OVERRIDE (Confirmed Working) */}
@@ -48,22 +52,36 @@ export default function GithubCalendarGraph({ username }) {
             renderBlock={(block, activity) => {
               // Ensure count is a number, falling back to 0
               const count = Number(activity.count ?? 0);
-              const date = activity.date;
+              const date = activity.date; // e.g., "2024-11-26"
 
               let contributionText = "";
 
               if (count === 0) {
-                contributionText = "No contributions";
+                // Use translation for zero contributions
+                contributionText = t("no_contribution");
               } else {
-                // *** FINAL FIX: Simplified, explicit string construction ***
-                // Aggressively force String() conversion on count and manually concatenate.
-                const plural = count === 1 ? "" : "s";
-                contributionText = `${String(count)} contribution${plural}`;
+                // Use translation for contributions with count.
+                // We use the 'other' key for plural/singular logic in next-intl.
+                contributionText = t("contributions", { count: count });
               }
 
-              const finalContent = `${contributionText} on ${date}`;
+              // CRITICAL RTL FIX:
+              // 1. Force the date itself to be LTR using \u200e (Left-to-Right Mark).
+              // 2. Wrap the entire final string in LTR marks to establish LTR order for numbers/dates.
+              // The translation must only contain the words, e.g., "on" or "در"
+              const finalContent =
+                "\u200e" +
+                contributionText +
+                " " +
+                t("on_date") +
+                " \u200e" +
+                date +
+                "\u200e";
 
-              // No more complex string extraction needed, just simple substitution.
+              // In fa.json, you need to define:
+              // "contributions": "{count, plural, one {# contribution} other {# contributions}}",
+              // "no_contribution": "بدون مشارکت",
+              // "on_date": "در تاریخ" (This will be placed between the count/text and the date)
 
               return React.cloneElement(block, {
                 "data-tooltip-id": "my-github-tooltip",
