@@ -33,11 +33,7 @@ export default function GithubCalendarGraph({ username }) {
          - w-full: Takes full width, relies on parent container for overflow handling
       */}
       <div className="w-full">
-        {/* FIXED WIDTH CONTAINER & PADDING
-           - min-w-[620px]: Ensures horizontal space for the calendar
-           - pt-6: Increased padding top for visual separation (your requested "margin-top")
-           - pb-4 px-6: Retains existing bottom and horizontal padding
-        */}
+        {/* FIXED WIDTH CONTAINER & PADDING */}
         <div className="min-w-[620px] pt-6 pb-4 px-6 github-calendar-graph">
           <GitHubCalendar
             username={username}
@@ -50,24 +46,35 @@ export default function GithubCalendarGraph({ username }) {
             toolTip={false}
             // Inject Custom Tooltip Data
             renderBlock={(block, activity) => {
-              const count = activity.count;
+              // Ensure count is a number, falling back to 0
+              const count = Number(activity.count ?? 0);
               const date = activity.date;
 
-              // Correct text formatting (e.g., "3 contributions on 2024-05-12")
-              const label =
-                count === 0
-                  ? "No contributions"
-                  : `${count} contribution${count > 1 ? "s" : ""}`;
+              let contributionText = "";
+
+              if (count === 0) {
+                contributionText = "No contributions";
+              } else {
+                // *** FINAL FIX: Simplified, explicit string construction ***
+                // Aggressively force String() conversion on count and manually concatenate.
+                const plural = count === 1 ? "" : "s";
+                contributionText = `${String(count)} contribution${plural}`;
+              }
+
+              const finalContent = `${contributionText} on ${date}`;
+
+              // No more complex string extraction needed, just simple substitution.
 
               return React.cloneElement(block, {
                 "data-tooltip-id": "my-github-tooltip",
-                "data-tooltip-content": `${label} on ${date}`,
 
-                // CRITICAL FIXES for Tooltip Content
-                // Explicitly remove all competing native tooltip attributes.
+                // Set the custom tooltip content to the reliable string
+                "data-tooltip-content": finalContent,
+
+                // CRITICAL FIX: Explicitly set the native title/aria-label to empty.
                 title: "",
-                "aria-label": "", // Remove aria-label which some browsers use for tooltips
-                children: null,
+                "aria-label": "",
+                children: null, // Remove the original children (which includes the conflicting <title> tag)
               });
             }}
           />
