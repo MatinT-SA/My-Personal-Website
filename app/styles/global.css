@@ -50,6 +50,16 @@
   fill: #a8c6de !important;
 }
 
+[dir="rtl"] .calendar-wrapper {
+  /* Set this to the minimum width that looked good in the English version (e.g., 580px) */
+  min-width: 580px !important;
+}
+
+.react-activity-calendar__legend-colors:lang(fa) {
+  margin-right: auto;
+  margin-left: 0 !important;
+}
+
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Experience page ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */

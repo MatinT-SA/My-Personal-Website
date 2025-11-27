@@ -24,7 +24,7 @@ export default function GithubCalendarGraph({ username }) {
   return (
     <>
       <div className="w-full">
-        <div className="min-w-[620px] pt-6 pb-4 px-6 github-calendar-graph calendar-wrapper">
+        <div className="min-w-[580px] pt-6 pb-4 px-6 github-calendar-graph calendar-wrapper">
           <GitHubCalendar
             username={username}
             blockSize={12}
