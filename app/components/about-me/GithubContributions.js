@@ -18,16 +18,12 @@ export default function GithubContributions({ data }) {
         GitHub Contributions
       </h3>
 
-      {/* OUTER CARD CONTAINER 
-         - overflow-hidden: Critical to stop double scrollbars on the card itself
-         - w-full max-w-xl: Defines the card size
-      */}
-      <div className="w-full max-w-xl bg-[#2D1B69] rounded-xl shadow-lg border border-purple-500/30 overflow-hidden relative min-h-[160px]">
+      <div className="w-full max-w-xl bg-[#2D1B69] rounded-xl shadow-lg border border-purple-500/30 overflow-hidden relative min-h-40">
         {isLoading ? (
           <div className="flex justify-center items-center h-40">
             {/* Loading Spinner */}
             <svg
-              className="animate-spin h-8 w-8 text-[#a8c6de]"
+              className="animate-spin h-8 w-8 text-blue-light"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
