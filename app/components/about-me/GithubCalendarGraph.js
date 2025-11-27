@@ -31,6 +31,13 @@ export default function GithubCalendarGraph({ username }) {
             blockMargin={4}
             fontSize={14}
             theme={customTheme}
+            labels={{
+              totalCount: `{{count}} ${t("calendar_contributions_text")}`,
+              legend: {
+                less: t("calendar_less"),
+                more: t("calendar_more"),
+              },
+            }}
             colorScheme="dark"
             toolTip={false}
             renderBlock={(block, activity) => {

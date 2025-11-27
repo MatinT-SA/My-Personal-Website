@@ -13,7 +13,11 @@
     "contribution_title": "مشارکت‌ های گیت‌هاب",
     "no_contribution": "بدون مشارکت",
     "on_date": "در تاریخ",
-    "contributions": "{count} مشارکت"
+    "contributions": "{count} مشارکت",
+
+    "calendar_less": "کمتر",
+    "calendar_more": "بیشتر",
+    "calendar_contributions_text": "مشارکت در سال گذشته"
   },
   "experience": {
     "returnHome": "بازگشت به خانه",

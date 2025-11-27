@@ -13,7 +13,11 @@
     "contribution_title": "GitHub Contributions",
     "no_contribution": "No contributions",
     "on_date": "on",
-    "contributions": "{count, plural, one {# contribution} other {# contributions}}"
+    "contributions": "{count, plural, one {# contribution} other {# contributions}}",
+
+    "calendar_less": "Less",
+    "calendar_more": "More",
+    "calendar_contributions_text": "contributions in the last year"
   },
   "experience": {
     "returnHome": "Return home",
