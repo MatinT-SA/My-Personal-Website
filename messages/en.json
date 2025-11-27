@@ -10,6 +10,7 @@
     "text3": "Proficiency in JavaScript programming language and React library, experience with C# and WordPress, familiarity with Next.js.",
     "text4": "Learning TypeScript is one of the main goals in the near future.",
     "text5": "Interested in learning, responsible, organized, and hardworking.",
+    "contribution_title": "GitHub Contributions",
     "no_contribution": "No contributions",
     "on_date": "on",
     "contributions": "{count, plural, one {# contribution} other {# contributions}}"

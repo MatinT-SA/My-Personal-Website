@@ -44,14 +44,15 @@
 
 .calendar-wrapper * {
   color: #a8c6de !important;
-  /* The !important is critical here to win the battle */
 }
 
-/* 2. SVG TEXT OVERRIDE (for month/day labels)
-   This is still needed because SVG text uses 'fill', not 'color'. */
 .calendar-wrapper .github-calendar-graph text {
   fill: #a8c6de !important;
 }
+
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Experience page ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 
 .icon-dot-background {
   background-color: var(--icon-bg-color);
