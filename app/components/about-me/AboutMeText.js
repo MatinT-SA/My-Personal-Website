@@ -2,10 +2,17 @@
 
 import { FiDownload } from "react-icons/fi";
 import TypedHeading from "./TypedHeading";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function AboutMeText() {
   const t = useTranslations("AboutMe");
+  const locale = useLocale();
+
+  const getResumePath = () => {
+    return `/resume/Matin_Taherzadeh_${locale}.pdf`;
+  };
+
+  const downloadFileName = `Matin Taherzadeh Resume - ${locale.toUpperCase()}.pdf`;
 
   return (
     <div className="p-4 sm:px-20 py-4">
@@ -25,8 +32,8 @@ export default function AboutMeText() {
 
       <div className="mt-8 flex justify-center">
         <a
-          href="/resume/Matin Taherzadeh Resume - 1404-06-03.pdf"
-          download
+          href={getResumePath()}
+          download={downloadFileName}
           className="relative px-8 py-4 text-lg font-bold text-blue-light bg-purple-primary rounded-full transition-all duration-300 ease-in-out hover:text-purple-primary hover:bg-blue-300 hover:shadow-lg flex items-center gap-2 hover:gap-3.5"
         >
           {t("button_resume")}
