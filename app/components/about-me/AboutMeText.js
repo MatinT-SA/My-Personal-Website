@@ -8,6 +8,8 @@ export default function AboutMeText() {
   const t = useTranslations("AboutMe");
   const locale = useLocale();
 
+  const downloadApiPath = `/api/resume?locale=${locale}`;
+
   const getResumePath = () => {
     return `/resume/Matin_Taherzadeh_${locale}.pdf`;
   };
@@ -32,8 +34,7 @@ export default function AboutMeText() {
 
       <div className="mt-8 flex justify-center">
         <a
-          href={getResumePath()}
-          download={downloadFileName}
+          href={downloadApiPath}
           className="relative px-8 py-4 text-lg font-bold text-blue-light bg-purple-primary rounded-full transition-all duration-300 ease-in-out hover:text-purple-primary hover:bg-blue-300 hover:shadow-lg flex items-center gap-2 hover:gap-3.5"
         >
           {t("button_resume")}
