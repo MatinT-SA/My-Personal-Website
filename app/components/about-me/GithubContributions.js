@@ -15,7 +15,7 @@ export default function GithubContributions({ data }) {
   }, []);
 
   return (
-    <div className="mt-8 flex flex-col items-center w-full">
+    <div className="mt-0.5 flex flex-col items-center w-full">
       <div className="w-full max-w-xl bg-[#2D1B69] rounded-xl shadow-lg border border-purple-500/30 overflow-hidden relative min-h-40">
         {/* --- NEW HEADER SECTION with Official GitHub Icon --- */}
         <div className="flex items-center pt-4 pl-6 pr-6">
