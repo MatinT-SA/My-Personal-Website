@@ -44,14 +44,25 @@
 
 .calendar-wrapper * {
   color: #a8c6de !important;
-  /* The !important is critical here to win the battle */
 }
 
-/* 2. SVG TEXT OVERRIDE (for month/day labels)
-   This is still needed because SVG text uses 'fill', not 'color'. */
 .calendar-wrapper .github-calendar-graph text {
   fill: #a8c6de !important;
 }
+
+[dir="rtl"] .calendar-wrapper {
+  /* Set this to the minimum width that looked good in the English version (e.g., 580px) */
+  min-width: 580px !important;
+}
+
+.react-activity-calendar__legend-colors:lang(fa) {
+  margin-right: auto;
+  margin-left: 0 !important;
+}
+
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Experience page ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 
 .icon-dot-background {
   background-color: var(--icon-bg-color);

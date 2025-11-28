@@ -24,13 +24,20 @@ export default function GithubCalendarGraph({ username }) {
   return (
     <>
       <div className="w-full">
-        <div className="min-w-[620px] pt-6 pb-4 px-6 github-calendar-graph calendar-wrapper">
+        <div className="min-w-[580px] pt-6 pb-4 px-6 github-calendar-graph calendar-wrapper">
           <GitHubCalendar
             username={username}
-            blockSize={12}
+            blockSize={11}
             blockMargin={4}
             fontSize={14}
             theme={customTheme}
+            labels={{
+              totalCount: `{{count}} ${t("calendar_contributions_text")}`,
+              legend: {
+                less: t("calendar_less"),
+                more: t("calendar_more"),
+              },
+            }}
             colorScheme="dark"
             toolTip={false}
             renderBlock={(block, activity) => {
