@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
 import { motion } from "framer-motion";
-import toast, { Toaster } from "react-hot-toast";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
-import { LiquidButton } from "@/app/components/comment/LiquidButton.js";
 import { FormInput } from "@/app/components/comment/FormInput.js";
-import { useTranslations, useLocale } from "next-intl";
+import { LiquidButton } from "@/app/components/comment/LiquidButton.js";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function Comment() {
   const [formData, setFormData] = useState({
@@ -101,36 +101,6 @@ export default function Comment() {
       id="comment"
       className="py-15 scroll-mt-20 h-full bg-purple-primary font-inter"
     >
-      <Toaster
-        position="bottom-right"
-        toastOptions={{
-          success: {
-            style: {
-              marginBottom: "1.5rem",
-              marginLeft: "1.5rem",
-              color: "text-purple-primary",
-              borderRadius: "10px",
-              padding: ".5rem 1rem",
-              fontSize: "1rem",
-              maxWidth: "400px",
-              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
-            },
-          },
-          error: {
-            style: {
-              marginBottom: "1.5rem",
-              marginLeft: "1.5rem",
-              borderRadius: "10px",
-              color: "red",
-              padding: ".75rem 1.25rem",
-              fontSize: "1.2rem",
-              maxWidth: "400px",
-              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
-            },
-          },
-        }}
-      />
-
       <div className="container mx-auto px-4 max-w-7xl">
         <motion.h2
           className="text-center text-3xl font-extrabold text-white drop-shadow-lg"

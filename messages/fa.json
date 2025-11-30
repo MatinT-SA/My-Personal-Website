@@ -17,7 +17,12 @@
 
     "calendar_less": "کمتر",
     "calendar_more": "بیشتر",
-    "calendar_contributions_text": "مشارکت در سال گذشته"
+    "calendar_contributions_text": "مشارکت در سال گذشته",
+
+    "download_in_progress": "در حال دانلود...",
+    "download_success": "دانلود با موفقیت انجام شد",
+    "download_error": "فایل پیدا نشد",
+    "network_error": "خطای شبکه، لطفا دوباره تلاش کنید"
   },
   "experience": {
     "returnHome": "بازگشت به خانه",

@@ -8,10 +8,7 @@ const AboutMeTextClient = dynamic(
   { ssr: false }
 );
 
-const AboutMeClient = forwardRef(function AboutMeClient(
-  { children, githubData },
-  ref
-) {
+const AboutMeClient = forwardRef(function AboutMeClient({ children }, ref) {
   return (
     <section
       id="about-me"
