@@ -6,7 +6,7 @@ import { Toaster } from "react-hot-toast";
 
 import useSectionObserver from "@/lib/hooks/useSectionObserver";
 
-import GoToTopButton from "../components/GoToTopButton";
+import GoToTopButton from "../components/layout/GoToTopButton";
 import GithubRepositoryButton from "../components/projects/GithubRepositoryButton";
 import ProjectsPageButton from "../components/projects/ProjectsPageButton";
 import ProjectsPopup from "../components/projects/ProjectsPopup";

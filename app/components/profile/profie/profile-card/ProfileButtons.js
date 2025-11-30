@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@/i18n/routing";
-import Button from "../../../Button";
+import Button from "../../../ui/Button";
 import { useTranslations } from "next-intl";
 
 export default function ProfileButtons() {
