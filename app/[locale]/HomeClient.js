@@ -1,11 +1,15 @@
 "use client";
 
 import { AnimatePresence } from "framer-motion";
-import { useEffect, useRef, useState } from "react"; // 👈 Ensure all hooks are imported
+import { useEffect, useRef, useState } from "react";
+import { Toaster } from "react-hot-toast";
+
 import GoToTopButton from "../components/GoToTopButton";
 import GithubRepositoryButton from "../components/projects/GithubRepositoryButton";
 import ProjectsPageButton from "../components/projects/ProjectsPageButton";
 import ProjectsPopup from "../components/projects/ProjectsPopup";
+import AboutMeClient from "../components/about-me/AboutMeClient";
+
 import Comment from "./sections/Comment";
 import Contact from "./sections/Contact";
 import Entrepreneur from "./sections/Entrepreneur";
@@ -13,11 +17,8 @@ import Footer from "./sections/Footer";
 import HomeSection from "./sections/HomeSection";
 import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
-import AboutMeClient from "../components/about-me/AboutMeClient";
 
-// We now accept the server-rendered content (aboutMeServerContent) and server data (githubData) as props
 export default function HomeClient({ aboutMeServerContent, githubData }) {
-  // 👇👇👇 THESE LINES WERE MISSING/OMITTED IN THE PREVIOUS SNIPPET 👇👇👇
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const homeRef = useRef(null);
@@ -65,10 +66,39 @@ export default function HomeClient({ aboutMeServerContent, githubData }) {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [allRefs]);
-  // 👆👆👆 END OF MISSING/OMITTED CODE 👆👆👆
 
   return (
     <main>
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          success: {
+            style: {
+              marginBottom: "1.5rem",
+              marginLeft: "1.5rem",
+              color: "text-purple-primary",
+              borderRadius: "10px",
+              padding: ".5rem 1rem",
+              fontSize: "1rem",
+              maxWidth: "400px",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
+            },
+          },
+          error: {
+            style: {
+              marginBottom: "1.5rem",
+              marginLeft: "1.5rem",
+              borderRadius: "10px",
+              color: "red",
+              padding: ".75rem 1.25rem",
+              fontSize: "1.2rem",
+              maxWidth: "400px",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
+            },
+          },
+        }}
+      />
+
       <HomeSection ref={homeRef} />
 
       <AboutMeClient ref={aboutMeRef} githubData={githubData}>
