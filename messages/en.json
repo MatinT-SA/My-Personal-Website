@@ -17,7 +17,12 @@
 
     "calendar_less": "Less",
     "calendar_more": "More",
-    "calendar_contributions_text": "contributions in the last year"
+    "calendar_contributions_text": "contributions in the last year",
+
+    "download_in_progress": "Downloading...",
+    "download_success": "Download completed successfully",
+    "download_error": "File not found",
+    "network_error": "Network error, please try again"
   },
   "experience": {
     "returnHome": "Return home",
