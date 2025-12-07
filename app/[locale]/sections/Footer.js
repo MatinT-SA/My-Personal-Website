@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { Link, useRouter, usePathname } from "@/i18n/routing";
-import Button from "@/app/components/Button";
-import Loader from "@/app/components/Loader";
+import Button from "@/app/components/ui/Button";
+import Loader from "@/app/components/ui/Loader";
 import { SITE_VERSION } from "@/app/config";
 import { useTranslations } from "next-intl";
 

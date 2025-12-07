@@ -2,7 +2,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "../../i18n/routing";
 
-import LocaleSwitcher from "../components/LocaleSwitcher";
+import LocaleSwitcher from "../components/layout/LocaleSwitcher";
 
 import { setRequestLocale } from "next-intl/server";
 

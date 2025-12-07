@@ -15,7 +15,7 @@ export default function GithubRepositoryButton({ activeSectionId }) {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -30, opacity: 0 }}
           transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
-          className="fixed top-1/3 left-0 z-[10000]"
+          className="fixed top-1/3 left-0 z-10000"
         >
           <Link
             href="https://github.com/MatinT-SA?tab=repositories"

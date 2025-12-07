@@ -1,6 +1,6 @@
 "use client";
 
-import Loader from "@/app/components/Loader";
+import Loader from "@/app/components/ui/Loader";
 
 export default function Loading() {
   return <Loader />;

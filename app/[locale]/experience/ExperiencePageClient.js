@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/app/components/Button";
+import Button from "@/app/components/ui/Button";
 import TimelineElement from "@/app/components/experience/TimelineElement";
 import { getJobData } from "@/app/src/constants/experience";
 import { useLocale, useTranslations } from "next-intl";

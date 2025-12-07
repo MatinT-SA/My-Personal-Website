@@ -4,8 +4,8 @@ import Link from "next/link";
 export default function Logo() {
   return (
     <Link
-      href="/"
-      className="block w-full max-w-[192px] mx-auto"
+      href="/#home"
+      className="block w-full max-w-48 mx-auto"
       id="logo-header"
     >
       <Image
