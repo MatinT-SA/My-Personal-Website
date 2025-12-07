@@ -3,13 +3,14 @@
 import React, { useState, useEffect } from "react";
 import GithubCalendarGraph from "./GithubCalendarGraph";
 import { useTranslations } from "next-intl";
+import GitHubIcon from "../ui/icons/GitHubIcon";
+import LoadingSpinner from "../ui/icons/LoadingSpinner";
 
 export default function GithubContributions({ data }) {
   const [isLoading, setIsLoading] = useState(true);
   const t = useTranslations("AboutMe");
 
   useEffect(() => {
-    // Simulate loading/hydration delay
     const timer = setTimeout(() => setIsLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
@@ -18,23 +19,8 @@ export default function GithubContributions({ data }) {
     <div className="mt-0.5 flex flex-col items-center w-full">
       <div className="w-full max-w-xl bg-[#2D1B69] rounded-xl shadow-lg border border-purple-500/30 overflow-hidden relative min-h-40">
         {/* --- NEW HEADER SECTION with Official GitHub Icon --- */}
-        <div className="flex items-center pt-4 pl-6 pr-6">
-          {/* Official GitHub Icon (circular shape) */}
-          <div className="p-2 mx-3 rounded-full bg-white/10 text-white/90">
-            <svg
-              className="w-5 h-5"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                // Official GitHub Octocat Path
-                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.8 8.205 11.385.6.11.82-.26.82-.575v-2.19c-3.345.725-4.04-1.61-4.04-1.61-.545-1.38-1.335-1.75-1.335-1.75-1.09-.745.085-.73.085-.73 1.205.085 1.835 1.235 1.835 1.235 1.07 1.835 2.81 1.305 3.495.995.105-.775.415-1.305.76-1.605-2.67-.305-5.46-1.335-5.46-5.92 0-1.31.465-2.385 1.235-3.225-.125-.305-.535-1.525.12-3.18 0 0 1.005-.32 3.3 1.23a11.41 11.41 0 0 1 6 0c2.295-1.55 3.3-1.23 3.3-1.23.655 1.655.245 2.875.12 3.18.77.84 1.235 1.915 1.235 3.225 0 4.595-2.795 5.615-5.475 5.92.425.37.81 1.095.81 2.215v3.26c0 .315.22.69.82.575C20.565 21.8 24 17.31 24 12c0-6.63-5.37-12-12-12z"
-              />
-            </svg>
-          </div>
-
-          {/* Header */}
+        <div className="flex items-center pt-4 px-6">
+          <GitHubIcon />
           <h3 className="text-lg font-semibold text-blue-light grow">
             {t("contribution_title")}
           </h3>
@@ -42,29 +28,7 @@ export default function GithubContributions({ data }) {
 
         {/* --- CONTENT SECTION --- */}
         {isLoading ? (
-          <div className="flex justify-center items-center h-40">
-            {/* Loading Spinner */}
-            <svg
-              className="animate-spin h-8 w-8 text-blue-light"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              ></circle>
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-              ></path>
-            </svg>
-          </div>
+          <LoadingSpinner />
         ) : (
           <GithubCalendarGraph username="MatinT-SA" />
         )}
