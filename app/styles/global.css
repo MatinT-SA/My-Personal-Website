@@ -51,7 +51,6 @@
 }
 
 [dir="rtl"] .calendar-wrapper {
-  /* Set this to the minimum width that looked good in the English version (e.g., 580px) */
   min-width: 580px !important;
 }
 
