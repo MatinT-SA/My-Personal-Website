@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
-    "baseUrl": ".", // Defines the root for path resolution
+    "baseUrl": ".",
     "paths": {
-      // Maps the @/ prefix to the project root
       "@/*": ["./*"]
     }
   }

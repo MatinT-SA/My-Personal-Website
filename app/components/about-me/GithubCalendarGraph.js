@@ -5,21 +5,13 @@ import React from "react";
 import { GitHubCalendar } from "react-github-calendar";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
-
-// Custom Theme Configuration
-const customTheme = {
-  light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
-  dark: [
-    "rgba(255, 255, 255, 0.08)",
-    "#9be9a8",
-    "#40c463",
-    "#30a14e",
-    "#216e39",
-  ],
-};
+import { customTheme } from "@/lib/config/github";
+import { createTooltipBlockRenderer } from "./GithubCalendarTooltipRenderer";
 
 export default function GithubCalendarGraph({ username }) {
   const t = useTranslations("AboutMe");
+
+  const renderBlockWithTooltip = createTooltipBlockRenderer(t);
 
   return (
     <>
@@ -40,35 +32,7 @@ export default function GithubCalendarGraph({ username }) {
             }}
             colorScheme="dark"
             toolTip={false}
-            renderBlock={(block, activity) => {
-              const count = Number(activity.count ?? 0);
-              const date = activity.date;
-
-              let contributionText = "";
-
-              if (count === 0) {
-                contributionText = t("no_contribution");
-              } else {
-                contributionText = t("contributions", { count: count });
-              }
-
-              const finalContent =
-                "\u200e" +
-                contributionText +
-                " " +
-                t("on_date") +
-                " \u200e" +
-                date +
-                "\u200e";
-
-              return React.cloneElement(block, {
-                "data-tooltip-id": "my-github-tooltip",
-                "data-tooltip-content": finalContent,
-                title: "",
-                "aria-label": "",
-                children: null,
-              });
-            }}
+            renderBlock={renderBlockWithTooltip}
           />
         </div>
       </div>
