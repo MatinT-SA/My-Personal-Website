@@ -1,31 +1,23 @@
 "use client";
 
-import { useRef, useEffect, useCallback, useState } from "react";
-import dynamic from "next/dynamic";
+import { useRef, useEffect, useCallback, useState, useMemo } from "react";
 
 import SkillsList from "@/app/components/skills/SkillsList";
 import SkillsGlowCursor from "@/app/components/skills/SkillsGlowCursor";
+import SkillsCircleControl from "@/app/components/skills/SkillsCircleControl";
 import { useTranslations } from "next-intl";
 import { getSkillsData } from "@/app/src/constants/skillsData";
-
-const SkillsCircle = dynamic(
-  () => import("@/app/components/skills/SkillsCircle"),
-  { ssr: false }
-);
-
-const HIGHLIGHT_RADIUS = 260;
-const FALL_OFF = 1.0;
+import { useSkillsGlow } from "@/lib/hooks/useSkillsGlow";
+import { useSkillsMouseHandlers } from "@/lib/hooks/useSkillsMouseHandlers";
 
 export default function Skills() {
   const containerRef = useRef(null);
-  const cursorRef = useRef(null);
   const itemRefs = useRef([]);
   const positions = useRef([]);
-  const rafRef = useRef(null);
-  const lastPos = useRef({ x: 0, y: 0 });
-  const isInside = useRef(false);
 
   const t = useTranslations("skills");
+
+  // Memoize the skills data to prevent recreating on every render
   const {
     skillsLeft,
     skillsRight,
@@ -33,7 +25,7 @@ export default function Skills() {
     skillCategoryMap,
     skillKeysLeft,
     skillKeysRight,
-  } = getSkillsData(t);
+  } = useMemo(() => getSkillsData(t), [t]);
 
   const isTouchDevice =
     typeof window !== "undefined" &&
@@ -41,22 +33,6 @@ export default function Skills() {
 
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showAll, setShowAll] = useState(false);
-
-  const handleSliceClick = useCallback((categoryName) => {
-    setSelectedCategory((prevCategory) =>
-      prevCategory === categoryName ? null : categoryName
-    );
-    setShowAll(false);
-  }, []);
-
-  const handleShowAllClick = useCallback(() => {
-    setShowAll((prevShowAll) => !prevShowAll);
-    setSelectedCategory(null);
-  }, []);
-
-  const registerItem = useCallback((index, el) => {
-    itemRefs.current[index] = el;
-  }, []);
 
   const computePositions = useCallback(() => {
     const cont = containerRef.current;
@@ -73,119 +49,65 @@ export default function Skills() {
     });
   }, [isTouchDevice]);
 
-  const tick = useCallback(() => {
-    const cont = containerRef.current;
-    if (!cont) return;
-
-    const runGlowLogic = !isTouchDevice && !selectedCategory && !showAll;
-
-    const { x: cx, y: cy } = runGlowLogic ? lastPos.current : { x: 0, y: 0 };
-
-    const radius = HIGHLIGHT_RADIUS;
-    const base = 0;
-    const max = 1;
-
-    const allSkills = [...skillsLeft, ...skillsRight];
-    const allSkillKeys = [...skillKeysLeft, ...skillKeysRight];
-
-    positions.current.forEach((pos, idx) => {
-      const el = itemRefs.current[idx];
-      if (!el || !pos) return;
-
-      const skillKey = allSkillKeys[idx];
-      const skillCategory = skillCategoryMap[skillKey];
-      const isSelected = selectedCategory === skillCategory;
-
-      let glowOpacity = 0;
-
-      if (runGlowLogic) {
-        const dx = pos.x - cx;
-        const dy = pos.y - cy;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        let t = Math.max(0, (radius - dist) / radius);
-        t = Math.pow(t, FALL_OFF);
-        glowOpacity = base + (max - base) * t;
-      }
-
-      let finalOpacity;
-      if (isTouchDevice) {
-        if (showAll || isSelected) {
-          finalOpacity = max;
-        } else {
-          return;
-        }
-      } else if (showAll) {
-        finalOpacity = max;
-      } else if (isSelected) {
-        finalOpacity = max;
-      } else {
-        finalOpacity = glowOpacity;
-      }
-
-      el.style.opacity = String(finalOpacity);
-    });
-
-    rafRef.current = null;
-  }, [
+  // Extract glow logic
+  const glowUtils = useSkillsGlow(
+    itemRefs,
+    positions,
+    isTouchDevice,
     selectedCategory,
     showAll,
-    isTouchDevice,
-    skillsLeft,
-    skillsRight,
     skillKeysLeft,
     skillKeysRight,
-    skillCategoryMap,
-  ]);
-
-  const handleMouseMove = useCallback(
-    (e) => {
-      if (isTouchDevice) return;
-      const cont = containerRef.current;
-      if (!cont) return;
-      const rect = cont.getBoundingClientRect();
-      lastPos.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
-      if (!rafRef.current) {
-        rafRef.current = requestAnimationFrame(tick);
-      }
-    },
-    [tick, isTouchDevice]
+    skillCategoryMap
   );
 
-  const handleMouseEnter = useCallback(() => {
-    if (isTouchDevice) return;
-    isInside.current = true;
-    const cont = containerRef.current;
-    if (cont) cont.style.cursor = "none";
-    if (selectedCategory || showAll) tick();
-  }, [isTouchDevice, selectedCategory, showAll, tick]);
+  // Extract mouse handlers
+  const { handleMouseMove, handleMouseEnter, handleMouseLeave } =
+    useSkillsMouseHandlers(
+      containerRef,
+      itemRefs,
+      isTouchDevice,
+      selectedCategory,
+      showAll,
+      glowUtils.tick,
+      glowUtils
+    );
 
-  const handleMouseLeave = useCallback(() => {
-    if (isTouchDevice) return;
-    isInside.current = false;
-    const cont = containerRef.current;
-    if (cont) cont.style.cursor = "auto";
+  const registerItem = useCallback((index, el) => {
+    itemRefs.current[index] = el;
+  }, []);
 
-    if (!selectedCategory && !showAll) {
-      itemRefs.current.forEach((el) => {
-        if (el) el.style.opacity = "0";
-      });
-    }
-  }, [isTouchDevice, selectedCategory, showAll]);
+  const handleSliceClick = useCallback((categoryName) => {
+    setSelectedCategory((prevCategory) =>
+      prevCategory === categoryName ? null : categoryName
+    );
+    setShowAll(false);
+  }, []);
 
+  const handleShowAllToggle = useCallback(() => {
+    setShowAll((prevShowAll) => !prevShowAll);
+    setSelectedCategory(null);
+  }, []);
+
+  // Handle resize events and initial position computation
   useEffect(() => {
-    computePositions();
+    // Compute positions after a small delay to ensure DOM is ready
+    const timer = setTimeout(() => computePositions(), 50);
+
     const onResize = () => computePositions();
     window.addEventListener("resize", onResize);
 
     return () => {
+      clearTimeout(timer);
       window.removeEventListener("resize", onResize);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      glowUtils.cancelRaf();
     };
-  }, [computePositions, isTouchDevice]);
+  }, [computePositions, glowUtils]);
 
+  // Update glow on state changes
   useEffect(() => {
-    tick();
-  }, [selectedCategory, showAll, tick]);
+    glowUtils.tick();
+  }, [selectedCategory, showAll, glowUtils.tick]);
 
   return (
     <section
@@ -213,15 +135,12 @@ export default function Skills() {
           className="flex-1 max-lg:order-2 max-lg:w-full"
         />
 
-        <div className="hidden xl:flex xl:justify-center relative max-xl:order-first">
-          <SkillsCircle data={circleData} onSliceClick={handleSliceClick} />
-          <div
-            onClick={handleShowAllClick}
-            className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer font-bold text-center text-sky-900 transition-opacity duration-300"
-          >
-            {showAll ? t("hide_all") : t("show_all")}
-          </div>
-        </div>
+        <SkillsCircleControl
+          circleData={circleData}
+          onSliceClick={handleSliceClick}
+          onShowAllToggle={handleShowAllToggle}
+          showAll={showAll}
+        />
 
         <SkillsList
           skills={skillsRight}
@@ -231,7 +150,7 @@ export default function Skills() {
         />
       </div>
 
-      {!isTouchDevice && <SkillsGlowCursor cursorRef={cursorRef} />}
+      {!isTouchDevice && <SkillsGlowCursor />}
     </section>
   );
 }
