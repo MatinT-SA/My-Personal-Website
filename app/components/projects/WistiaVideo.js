@@ -1,4 +1,3 @@
-// src/components/projects/WistiaVideo.js
 "use client";
 
 import React from "react";
