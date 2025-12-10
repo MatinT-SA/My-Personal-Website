@@ -17,7 +17,6 @@ export default function Skills() {
 
   const t = useTranslations("skills");
 
-  // Memoize the skills data to prevent recreating on every render
   const {
     skillsLeft,
     skillsRight,
@@ -49,7 +48,6 @@ export default function Skills() {
     });
   }, [isTouchDevice]);
 
-  // Extract glow logic
   const glowUtils = useSkillsGlow(
     itemRefs,
     positions,
@@ -61,7 +59,6 @@ export default function Skills() {
     skillCategoryMap
   );
 
-  // Extract mouse handlers
   const { handleMouseMove, handleMouseEnter, handleMouseLeave } =
     useSkillsMouseHandlers(
       containerRef,
@@ -89,9 +86,7 @@ export default function Skills() {
     setSelectedCategory(null);
   }, []);
 
-  // Handle resize events and initial position computation
   useEffect(() => {
-    // Compute positions after a small delay to ensure DOM is ready
     const timer = setTimeout(() => computePositions(), 50);
 
     const onResize = () => computePositions();
@@ -104,7 +99,6 @@ export default function Skills() {
     };
   }, [computePositions, glowUtils]);
 
-  // Update glow on state changes
   useEffect(() => {
     glowUtils.tick();
   }, [selectedCategory, showAll, glowUtils.tick]);
@@ -116,7 +110,7 @@ export default function Skills() {
       onMouseMove={isTouchDevice ? undefined : handleMouseMove}
       onMouseEnter={isTouchDevice ? undefined : handleMouseEnter}
       onMouseLeave={isTouchDevice ? undefined : handleMouseLeave}
-      className="relative scroll-mt-24 mx-12 my-16 rounded-[150px_10px] lg:rounded-[300px_15px] bg-[color:var(--color-blue-light-transparent)] p-6"
+      className="relative scroll-mt-24 mx-12 my-16 rounded-[150px_10px] lg:rounded-[300px_15px] bg-blue-light-transparent px-6 py-9"
     >
       <h2 className="mb-12 text-center text-3xl font-extrabold text-purple-primary">
         {t("title")}
