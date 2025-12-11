@@ -525,7 +525,9 @@ svg path:focus {
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Entrepreneur ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* Entrepreneur-specific styles moved to app/components/entrepreneur/entrepreneur.module.css */
 
+/* Compatibility alias for backward compatibility (if needed elsewhere) */
 .author-name {
   padding: 0;
   letter-spacing: 2px;

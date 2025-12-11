@@ -1,34 +1,31 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import QuoteCard from "@/app/components/entrepreneur/QuoteCard";
+import styles from "@/app/components/entrepreneur/entrepreneur.module.css";
 import { getQuotesData } from "@/app/src/constants/quotesData";
+import { useQuoteCard } from "@/lib/hooks/useQuoteCard";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { useMemo } from "react";
 
 export default function Entrepreneur() {
-  const [hoveredCard, setHoveredCard] = useState(null);
-
   const t = useTranslations("entrepreneur");
-  const QUOTES = getQuotesData(t);
 
-  const handleMouseEnter = (id) => {
-    setHoveredCard(id);
-  };
+  const QUOTES = useMemo(() => getQuotesData(t), [t]);
 
-  const handleMouseLeave = () => {
-    setHoveredCard(null);
-  };
+  // Use custom hook for quote card hover state
+  const { hoveredCard, handleMouseEnter, handleMouseLeave, isHovered } =
+    useQuoteCard();
 
   return (
     <section
       id="entrepreneur-quotes"
-      className="bg-[rgba(168,198,222,0.2)] rounded-[15px_300px] md:rounded-[15px_150px] sm:rounded-[15px_75px] py-12 my-8 mx-20"
+      className={styles.sectionContainer}
       dir="rtl"
     >
       <div
         id="entrepreneur-quotes-container"
-        className="w-full flex justify-around relative flex-wrap gap-y-12"
+        className={styles.quotesContainer}
       >
         <motion.h2
           className="main-titles text-center text-3xl font-bold mb-12 text-purple-primary w-full"
@@ -41,92 +38,14 @@ export default function Entrepreneur() {
         </motion.h2>
 
         {QUOTES.map((quote) => (
-          <div key={quote.id} className="w-[265px] flex flex-col items-center">
-            <motion.div
-              className="w-full h-[400px] relative bg-black flex justify-center items-center rounded-2xl mx-auto"
-              style={{
-                boxShadow: quote.shadow,
-              }}
-              initial={{ opacity: 0, y: "25%" }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                damping: 10,
-                duration: 0.4,
-              }}
-              viewport={{ once: true, amount: 0.5 }}
-            >
-              <div
-                className="w-1/2 h-full absolute left-0 top-0 pointer-events-none rounded-2xl"
-                style={{
-                  background: quote.bg,
-                  opacity: 0.3,
-                }}
-              />
-
-              <div className="w-full h-full flex justify-center items-center rounded-2xl overflow-hidden absolute">
-                <Image
-                  src={quote.image}
-                  alt={quote.alt}
-                  width={265}
-                  height={400}
-                  quality={75}
-                  priority={false}
-                  className="w-full h-full object-cover rounded-2xl"
-                />
-              </div>
-
-              <motion.div
-                className="w-[50px] h-[50px] absolute right-5 bottom-5 rounded-full cursor-pointer shadow-md"
-                style={{
-                  background: quote.bg,
-                }}
-                onMouseEnter={() => handleMouseEnter(quote.id)}
-                onMouseLeave={handleMouseLeave}
-                animate={{
-                  width: hoveredCard === quote.id ? "100%" : "50px",
-                  height: hoveredCard === quote.id ? "100%" : "50px",
-                  right: hoveredCard === quote.id ? 0 : 20,
-                  bottom: hoveredCard === quote.id ? 0 : 20,
-                  borderRadius: hoveredCard === quote.id ? "5%" : "50%",
-                  opacity: hoveredCard === quote.id ? 0.9 : 1,
-                  boxShadow:
-                    hoveredCard === quote.id
-                      ? "none"
-                      : "0 2px 5px rgba(0, 0, 0, 0.2)",
-                }}
-                transition={{ duration: 0.5 }}
-              >
-                <span
-                  className="flex justify-center items-center text-xs tracking-wide text-white absolute inset-0"
-                  style={{
-                    display: hoveredCard === quote.id ? "none" : "flex",
-                    transitionDelay: "0.5s",
-                  }}
-                >
-                  {t("read_more")}
-                </span>
-              </motion.div>
-
-              <motion.div
-                className="p-5 box-border text-white text-center leading-loose text-lg z-10 pointer-events-none"
-                initial={{ opacity: 0, visibility: "hidden" }}
-                animate={{
-                  opacity: hoveredCard === quote.id ? 1 : 0,
-                  visibility: hoveredCard === quote.id ? "visible" : "hidden",
-                }}
-                transition={{
-                  duration: 0.2,
-                  delay: hoveredCard === quote.id ? 0.5 : 0,
-                }}
-              >
-                {quote.quote}
-              </motion.div>
-            </motion.div>
-
-            <h3 className="author-name mt-4">{quote.author}</h3>
-          </div>
+          <QuoteCard
+            key={quote.id}
+            quote={quote}
+            isHovered={isHovered(quote.id)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            t={t}
+          />
         ))}
       </div>
     </section>
