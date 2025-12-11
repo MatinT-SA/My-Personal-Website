@@ -37,7 +37,7 @@ export default function SocialButton({
       {/* Icon */}
       <div className="flex justify-center items-center w-[60px] h-[60px] rounded-full bg-yellow-primary transition-colors duration-300 ease-out shrink-0">
         {SocialIcon && (
-          <SocialIcon className="text-4xl text-black transition-colors duration-300 group-hover:text-[var(--brand-color)]" />
+          <SocialIcon className="text-4xl text-black transition-colors duration-300 group-hover:text-(--brand-color)" />
         )}
       </div>
 

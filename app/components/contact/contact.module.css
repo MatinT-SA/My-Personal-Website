@@ -1,0 +1,13 @@
+.sectionContainer {
+  padding-top: 3rem;
+  margin-top: 2rem;
+  scroll-margin-top: 5rem;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 4rem;
+  color: var(--color-purple-primary);
+}
