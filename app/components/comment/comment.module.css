@@ -29,8 +29,8 @@
   transition: all 0.3s ease;
 }
 
-.liquidButtonContainer:hover,
-.liquidButtonContainer:focus {
+.liquidButtonContainer:hover:not(:disabled),
+.liquidButtonContainer:focus:not(:disabled) {
   box-shadow: 0 0 15px rgba(0, 191, 255, 0.6), 0 0 30px rgba(135, 206, 250, 0.4),
     0 0 60px rgba(173, 216, 230, 0.3);
 }
@@ -52,8 +52,8 @@
   filter: blur(3px);
 }
 
-.liquidButtonContainer:hover .liquid,
-.liquidButtonContainer:focus .liquid {
+.liquidButtonContainer:hover:not(:disabled) .liquid,
+.liquidButtonContainer:focus:not(:disabled) .liquid {
   top: -170px;
 }
 

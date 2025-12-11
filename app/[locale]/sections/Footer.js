@@ -6,6 +6,7 @@ import Button from "@/app/components/ui/Button";
 import Loader from "@/app/components/ui/Loader";
 import { SITE_VERSION } from "@/app/config";
 import { useTranslations } from "next-intl";
+import styles from "@/app/components/footer/footer.module.css";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -49,15 +50,15 @@ export default function Footer() {
   };
 
   return (
-    <div className="footer-outer relative h-30 overflow-hidden">
+    <div className={`${styles.footerOuter}`}>
       {loading && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-purple-primary/95 backdrop-blur-sm transition-opacity duration-200">
+        <div className="fixed inset-0 z-9999 flex items-center justify-center bg-purple-primary/95 backdrop-blur-sm transition-opacity duration-200">
           <Loader />
         </div>
       )}
 
-      <div className="footer-shake w-full h-full">
-        <footer className="footer-inner relative bg-purple-primary text-white mx-auto w-[95%] max-w-5xl h-20 rounded-xl flex items-center tracking-wide">
+      <div className={styles.footerShake}>
+        <footer className={styles.footerInner}>
           <div className="text-md px-2 grid grid-cols-[1fr_2fr_1fr] text-center w-full items-center justify-center">
             {/* Experience button */}
             <Link href="/experience">
