@@ -1,0 +1,93 @@
+/* Comment/Form Section Styles */
+
+@keyframes CommentButton {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+}
+
+.liquidButtonContainer {
+  position: relative;
+  text-decoration: none;
+  width: 200px;
+  padding: 1rem 2rem;
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: var(--color-purple-primary);
+  cursor: pointer;
+  z-index: 10;
+  margin: 3rem auto 0rem;
+  box-shadow: 0 0 5px rgba(0, 191, 255, 0.4), 0 0 10px rgba(135, 206, 250, 0.3),
+    0 0 20px rgba(173, 216, 230, 0.2);
+  transition: all 0.3s ease;
+}
+
+.liquidButtonContainer:hover,
+.liquidButtonContainer:focus {
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.6), 0 0 30px rgba(135, 206, 250, 0.4),
+    0 0 60px rgba(173, 216, 230, 0.3);
+}
+
+.liquidButtonContainer .liquid {
+  position: absolute;
+  width: 270px;
+  height: 250px;
+  left: 50%;
+  top: -120px;
+  transform: translateX(-50%);
+  background: #0039fa;
+  box-shadow: inset 0 0 40px rgba(0, 153, 255, 0.8),
+    inset 0 0 80px rgba(0, 191, 255, 0.6),
+    inset 0 0 120px rgba(135, 206, 250, 0.4), 0 0 40px rgba(0, 153, 255, 0.7),
+    0 0 80px rgba(0, 191, 255, 0.5);
+  transition: 0.5s;
+  z-index: 0;
+  filter: blur(3px);
+}
+
+.liquidButtonContainer:hover .liquid,
+.liquidButtonContainer:focus .liquid {
+  top: -170px;
+}
+
+.liquidButtonContainer > span {
+  font-size: 1.25rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.liquidButtonContainer .liquid::before,
+.liquidButtonContainer .liquid::after {
+  position: absolute;
+  content: "";
+  width: 200%;
+  height: 200%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -75%);
+}
+
+.liquidButtonContainer .liquid::before {
+  border-radius: 45%;
+  background: rgba(20, 20, 20, 1);
+  animation: CommentButton 5s linear infinite;
+}
+
+.liquidButtonContainer .liquid::after {
+  border-radius: 40%;
+  background: rgba(20, 20, 20, 0.5);
+  animation: CommentButton 10s linear infinite;
+}
