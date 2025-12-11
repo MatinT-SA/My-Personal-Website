@@ -20,7 +20,7 @@ export default function ContactCard({ icon: Icon, title, value, href }) {
           {title}
         </h3>
 
-        <span className="text-yellow-primary text-sm font-medium translate-y-[10px] group-hover:translate-y-0 transition-transform duration-300 group-hover:delay-500">
+        <span className="text-yellow-primary text-sm font-medium translate-y-2.5 group-hover:translate-y-0 transition-transform duration-300 group-hover:delay-500">
           {value}
         </span>
       </div>
