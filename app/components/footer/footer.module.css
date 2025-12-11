@@ -1,0 +1,36 @@
+/* Footer Section Styles */
+
+@keyframes shakeFooter {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-7px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  75% {
+    transform: translateY(-1px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.footerShake {
+  animation: shakeFooter 2s ease-in-out infinite;
+}
+
+.footerInner {
+  transform: translateY(6rem);
+  transition: transform 0.4s ease-in-out;
+}
+
+.footerOuter:hover .footerInner {
+  transform: translateY(1rem);
+}
+
+.footerOuter:hover .footerShake {
+  animation: none;
+}

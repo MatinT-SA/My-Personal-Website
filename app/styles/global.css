@@ -62,30 +62,7 @@
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Experience page ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-
-.icon-dot-background {
-  background-color: var(--icon-bg-color);
-}
-
-.card-border-style {
-  border-color: var(--card-border-color);
-}
-
-@layer utilities {
-  .float-matin {
-    @apply animate-[float-matin_5s_ease-in-out_infinite];
-  }
-
-  @keyframes float-matin {
-    0%,
-    100% {
-      transform: translateY(0.1rem);
-    }
-    50% {
-      transform: translateY(-0.5rem);
-    }
-  }
-}
+/* Experience-specific styles moved to app/components/experience/experience.module.css */
 
 @layer components {
   .glitch-text {
@@ -494,33 +471,12 @@ svg path:focus {
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 /* ⬡⬡⬡⬡≫ Animations Glowy Cursor Skills ≪⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-
-@keyframes glowPulse {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-    filter: blur(8px) brightness(1);
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.05);
-    filter: blur(12px) brightness(1.2);
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-    filter: blur(8px) brightness(1);
-  }
-}
-
-.skills-cursor {
-  animation: glowPulse 2.5s infinite ease-in-out;
-}
+/* Skills-specific styles moved to app/components/skills/skills.module.css */
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Projects ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-
-.shadow-custom-blue {
-  box-shadow: -6px 6px 10px rgba(168, 198, 222, 0.3);
-}
+/* Projects-specific styles moved to app/components/projects/projects.module.css */
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Entrepreneur ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
@@ -552,138 +508,12 @@ svg path:focus {
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Comment ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-
-@keyframes CommentButton {
-  0% {
-    transform: translate(-50%, -75%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -75%) rotate(360deg);
-  }
-}
-
-.liquid-button-container {
-  position: relative;
-  text-decoration: none;
-  width: 200px;
-  padding: 1rem 2rem;
-  display: block;
-  text-align: center;
-  overflow: hidden;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  background: var(--color-purple-primary);
-  cursor: pointer;
-  z-index: 10;
-  margin: 3rem auto 0rem;
-  box-shadow: 0 0 5px rgba(0, 191, 255, 0.4), 0 0 10px rgba(135, 206, 250, 0.3),
-    0 0 20px rgba(173, 216, 230, 0.2);
-
-  transition: all 0.3s ease;
-}
-
-.liquid-button-container:hover,
-.liquid-button-container:focus {
-  box-shadow: 0 0 15px rgba(0, 191, 255, 0.6), 0 0 30px rgba(135, 206, 250, 0.4),
-    0 0 60px rgba(173, 216, 230, 0.3);
-}
-
-.liquid-button-container .liquid {
-  position: absolute;
-  width: 270px;
-  height: 250px;
-  left: 50%;
-  top: -120px;
-  transform: translateX(-50%);
-  background: #0039fa;
-  box-shadow: inset 0 0 40px rgba(0, 153, 255, 0.8),
-    inset 0 0 80px rgba(0, 191, 255, 0.6),
-    inset 0 0 120px rgba(135, 206, 250, 0.4), 0 0 40px rgba(0, 153, 255, 0.7),
-    0 0 80px rgba(0, 191, 255, 0.5);
-  transition: 0.5s;
-  z-index: 0;
-  filter: blur(3px);
-}
-
-.liquid-button-container:hover .liquid,
-.liquid-button-container:focus .liquid {
-  top: -170px;
-}
-
-.liquid-button-container > span {
-  font-size: 1.25rem;
-  font-weight: 700;
-  position: relative;
-  z-index: 1;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
-}
-
-.liquid-button-container .liquid::before,
-.liquid-button-container .liquid::after {
-  position: absolute;
-  content: "";
-  width: 200%;
-  height: 200%;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -75%);
-}
-
-.liquid-button-container .liquid::before {
-  border-radius: 45%;
-  background: rgba(20, 20, 20, 1);
-  animation: CommentButton 5s linear infinite;
-}
-
-.liquid-button-container .liquid::after {
-  border-radius: 40%;
-  background: rgba(20, 20, 20, 0.5);
-  animation: CommentButton 10s linear infinite;
-}
+/* Comment-specific styles moved to app/components/comment/comment.module.css */
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Footer ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-
-@keyframes shakeFooter {
-  0% {
-    transform: translateY(0);
-  }
-  25% {
-    transform: translateY(-7px);
-  }
-  50% {
-    transform: translateY(5px);
-  }
-  75% {
-    transform: translateY(-1px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.footer-shake {
-  animation: shakeFooter 2s ease-in-out infinite;
-}
-
-.footer-inner {
-  transform: translateY(6rem);
-  transition: transform 0.4s ease-in-out;
-}
-
-.footer-outer:hover .footer-inner {
-  transform: translateY(1rem);
-}
-
-.footer-outer:hover .footer-shake {
-  animation: none;
-}
+/* Footer-specific styles moved to app/components/footer/footer.module.css */
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Not Found ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
