@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import styles from "./experience.module.css";
 
 const TimelineElement = ({
   date,
@@ -11,7 +12,7 @@ const TimelineElement = ({
   iconBg,
   index,
   iconUrl,
-  locale, // pass this from ExperiencePageClient
+  locale,
 }) => {
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -57,7 +58,9 @@ const TimelineElement = ({
       <div className={`hidden md:block w-[49%] ${spacerOrder}`} />
 
       {/* Timeline dot/icon */}
-      <div className="hidden md:flex md:order-2 w-16 h-16 rounded-full shadow-xl z-10 items-center justify-center icon-dot-background ring-4 ring-white overflow-hidden">
+      <div
+        className={`hidden md:flex md:order-2 w-16 h-16 rounded-full shadow-xl z-10 items-center justify-center ${styles.iconDotBackground} ring-4 ring-white overflow-hidden`}
+      >
         {iconUrl ? (
           <img
             src={iconUrl}
@@ -77,7 +80,7 @@ const TimelineElement = ({
 
       {/* Main card */}
       <div
-        className={`w-full md:w-[48%] ${cardOrder} ${cardBaseClasses} card-border-style`}
+        className={`w-full md:w-[48%] ${cardOrder} ${cardBaseClasses} ${styles.cardBorderStyle}`}
       >
         {/* Force text direction based on locale */}
         <div dir={locale === "fa" ? "rtl" : "ltr"}>
