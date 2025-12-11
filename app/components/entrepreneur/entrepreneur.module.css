@@ -1,0 +1,50 @@
+.authorName {
+  padding: 0;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  text-align: center;
+  -webkit-text-stroke: 1px black;
+  color: #f7d73f;
+  font-family: "Shabnam", Cursive, sans-serif;
+  text-shadow: 4px 4px 5px #d4af37;
+}
+
+.authorName:lang(en) {
+  font-family: Cursive, sans-serif;
+}
+
+.authorName:lang(fa) {
+  -webkit-text-stroke: 1px rgb(80, 80, 0);
+}
+
+.sectionContainer {
+  background-color: rgba(168, 198, 222, 0.2);
+  border-radius: 15px 300px;
+  padding: 3rem 0;
+  margin: 2rem 5rem;
+}
+
+@media (max-width: 768px) {
+  .sectionContainer {
+    border-radius: 15px 150px;
+    margin: 2rem 5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionContainer {
+    border-radius: 15px 75px;
+    margin: 2rem 5rem;
+  }
+}
+
+.quotesContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
