@@ -1,0 +1,81 @@
+.root {
+  background-color: var(--color-purple-secondary);
+}
+
+.wrapper {
+  padding-top: 0.25rem;
+  padding-bottom: 4rem;
+  min-height: 60vh;
+  background-image: url("/images/profile-card-bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.card {
+  max-width: 24rem; /* keeps the small card size */
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.cover {
+  width: 100%;
+  height: 8rem;
+  border-radius: 0.5rem;
+  margin-bottom: -6rem;
+}
+
+.imageWrapper {
+  position: relative;
+}
+
+.profileImage {
+  border-radius: 50%;
+  border: 8px solid var(--color-purple-tertiary);
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.75);
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out;
+}
+
+.profileImageHover {
+  transform: scale(1.1);
+}
+
+.infoName {
+  color: #fff;
+  font-weight: 700;
+  margin-top: -2.5rem;
+}
+
+.infoRole {
+  color: #fff;
+  margin-top: 0.6rem;
+}
+
+.socialLinks {
+  margin-top: 1.25rem;
+  display: flex;
+  gap: 1rem;
+  color: var(--color-blue-light);
+}
+
+@media (max-width: 48rem) {
+  .card {
+    max-width: 20rem;
+  }
+
+  .infoName {
+    margin-top: -1.5rem;
+    margin-left: 0;
+    font-size: 1.25rem;
+  }
+
+  .cover {
+    height: 6.5rem;
+    margin-bottom: -4.5rem;
+  }
+}
