@@ -593,3 +593,9 @@ svg path:focus {
     animation: var(--animate-float-wide);
   }
 }
+
+@media (min-width: 1900px) {
+  .animate-float-profile {
+    animation: var(--animate-float-xlg);
+  }
+}
