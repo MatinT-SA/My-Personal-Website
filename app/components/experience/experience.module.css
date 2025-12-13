@@ -7,17 +7,3 @@
 .cardBorderStyle {
   border-color: var(--card-border-color);
 }
-
-.floatMatin {
-  animation: float-matin 5s ease-in-out infinite;
-}
-
-@keyframes float-matin {
-  0%,
-  100% {
-    transform: translateY(0.1rem);
-  }
-  50% {
-    transform: translateY(-0.5rem);
-  }
-}

@@ -469,22 +469,6 @@ svg path:focus {
   animation: modal-pop 0.4s cubic-bezier(0.4, 0.8, 0.2, 1) forwards;
 }
 
-/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* ⬡⬡⬡⬡≫ Animations Glowy Cursor Skills ≪⬡⬡⬡⬡ */
-/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* Skills-specific styles moved to app/components/skills/skills.module.css */
-
-/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Projects ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
-/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* Projects-specific styles moved to app/components/projects/projects.module.css */
-
-/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Entrepreneur ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
-/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* Entrepreneur-specific styles moved to app/components/entrepreneur/entrepreneur.module.css */
-
-/* Compatibility alias for backward compatibility (if needed elsewhere) */
 .author-name {
   padding: 0;
   letter-spacing: 2px;
@@ -506,15 +490,19 @@ svg path:focus {
   -webkit-text-stroke: 1px rgb(80, 80, 0);
 }
 
-/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Comment ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
-/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* Comment-specific styles moved to app/components/comment/comment.module.css */
+.float-matin {
+  animation: float-matin 5s ease-in-out infinite;
+}
 
-/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Footer ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
-/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* Footer-specific styles moved to app/components/footer/footer.module.css */
+@keyframes float-matin {
+  0%,
+  100% {
+    transform: translateY(0.1rem);
+  }
+  50% {
+    transform: translateY(-0.5rem);
+  }
+}
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Not Found ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
