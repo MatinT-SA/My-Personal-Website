@@ -81,7 +81,10 @@ const Projects = forwardRef(function Projects(props, ref) {
           {t("title")}
         </motion.h2>
 
-        <div id="accordion" className="panel relative flex justify-center">
+        <div
+          id="accordion"
+          className="panel relative flex justify-center px-2 sm:px-8 md:px-12 lg:px-20"
+        >
           <ProjectControls
             startIndex={startIndex}
             projectsLength={PROJECTS.length}
@@ -91,7 +94,7 @@ const Projects = forwardRef(function Projects(props, ref) {
           />
 
           <motion.div
-            className="w-6xl bg-white shadow-custom-blue rounded-md"
+            className="w-full max-w-6xl bg-white shadow-custom-blue rounded-md"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1.5 }}
