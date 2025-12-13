@@ -9,6 +9,7 @@
 
   /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
   /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Breakpoints ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+  --breakpoint-xs: 22rem; /* 352px */
   --breakpoint-sm: 30rem; /* 480px */
   --breakpoint-md: 48rem; /* 768px */
   --breakpoint-hamburger: 900px;
@@ -31,7 +32,7 @@
   /* ⬡⬡⬡⬡⬡⬡⬡≫ Animation Definitions ≪⬡⬡⬡⬡⬡⬡⬡ */
   /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
   --animate-pic-load: pic-load 300ms ease-in forwards;
-  --animate-float-profile: float-profile 35s ease-in-out infinite;
+  --animate-float-profile: float-profile 10s ease-in-out infinite;
   --animate-float-md: float-md 15s ease-in-out infinite;
   --animate-float-lg: float-lg 35s ease-in-out infinite;
   --animate-float-xlg: float-xlg 45s ease-in-out infinite;
@@ -370,13 +371,13 @@ svg path:focus {
 
 @keyframes float-profile {
   0% {
-    transform: translateX(-40%);
+    transform: translateX(-15%);
   }
   50% {
-    transform: translateX(40%);
+    transform: translateX(15%);
   }
   100% {
-    transform: translateX(-40%);
+    transform: translateX(-15%);
   }
 }
 
