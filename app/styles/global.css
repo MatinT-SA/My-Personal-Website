@@ -11,7 +11,7 @@
   /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Breakpoints ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
   --breakpoint-sm: 30rem; /* 480px */
   --breakpoint-md: 48rem; /* 768px */
-  --breakpoint-hamburger: 867px;
+  --breakpoint-hamburger: 900px;
   --breakpoint-lg: 64rem; /* 1024px */
   --breakpoint-xl: 80rem; /* 1280px */
 
