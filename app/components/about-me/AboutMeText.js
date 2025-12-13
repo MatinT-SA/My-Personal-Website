@@ -8,7 +8,7 @@ export default function AboutMeText() {
   const t = useTranslations("AboutMe");
 
   return (
-    <div className="p-4 sm:px-20 py-4">
+    <div className="p-4 py-4 sm:px-10">
       <TypedHeading />
 
       <p className="text-base sm:text-lg text-gray-700 leading-relaxed sm:leading-12">
