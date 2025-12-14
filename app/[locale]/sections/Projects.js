@@ -50,7 +50,7 @@ const Projects = forwardRef(function Projects(props, ref) {
       setTooltip({
         content: description,
         visible: true,
-        x: rect.left - rect.width / 8,
+        x: rect.left - rect.width / 12,
         y: rect.top - TOOLTIP_HEIGHT - TOOLTIP_GAP,
       });
     }, TOOLTIP_DELAY);
@@ -161,7 +161,7 @@ const Projects = forwardRef(function Projects(props, ref) {
               left: tooltip.x,
               transform: "translateX(-50%)",
             }}
-            className="bg-white text-[#2c1537] text-[13px] p-4 rounded-full shadow-lg z-9999 pointer-events-none w-[400px] text-center"
+            className="bg-white text-purple-secondary text-xs p-2 sm:p-3 md:p-4 rounded-lg sm:xl md:rounded-full shadow-lg z-9999 pointer-events-none w-[300px] sm:w-[360px] md:w-[400px] text-center"
           >
             {tooltip.content}
           </motion.div>
