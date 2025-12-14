@@ -4,7 +4,7 @@ export default function AboutMeSection({ githubData }) {
   return (
     <>
       <AboutMeImageGraphWrapper githubData={githubData} />
-      <div className="flex flex-col w-full "></div>
+      <div className="flex flex-col w-full"></div>
     </>
   );
 }

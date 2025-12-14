@@ -18,7 +18,7 @@ const AboutMeClient = forwardRef(function AboutMeClient({ children }, ref) {
       <div className="flex flex-col w-full md:w-6/12 lg:w-4/12 xl:w-6/12 items-center justify-start">
         {children}
       </div>
-      <div className="flex flex-col w-full md:w-6/12 lg:w-8/12 xl:w-6/12">
+      <div className="flex flex-col w-full sm:w-10/12 md:w-9/12 lg:w-8/12 xl:w-6/12">
         <AboutMeTextClient />
       </div>
     </section>
