@@ -16,7 +16,7 @@ export default function ExperiencePageClient() {
       dir={locale === "fa" ? "rtl" : "ltr"}
       className="min-h-screen py-6 px-1 sm:py-10 sm:px-2"
     >
-      <div className="max-w-7xl mx-auto pb-10 grid sm:grid-row grid-cols-[7fr_1fr] items-center justify-center">
+      <div className="max-w-7xl mx-auto pb-10 flex flex-col gap-5 sm:grid-row xl:grid xl:grid-cols-[7fr_1fr] items-center">
         <h1 className="text-4xl sm:text-5xl flex justify-center font-extrabold text-purple-primary mb-6 sm:mb-0">
           {t("title")}
         </h1>

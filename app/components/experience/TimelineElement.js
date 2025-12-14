@@ -1,8 +1,6 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
-import styles from "./experience.module.css";
 
 const TimelineElement = ({
   date,
@@ -59,7 +57,7 @@ const TimelineElement = ({
 
       {/* Timeline dot/icon */}
       <div
-        className={`hidden md:flex md:order-2 w-16 h-16 rounded-full shadow-xl z-10 items-center justify-center ${styles.iconDotBackground} ring-4 ring-white overflow-hidden`}
+        className={`hidden md:flex md:order-2 w-16 h-16 rounded-full shadow-xl z-10 items-center justify-center bg-(--icon-bg-color) ring-4 ring-white overflow-hidden`}
       >
         {iconUrl ? (
           <img
@@ -80,7 +78,7 @@ const TimelineElement = ({
 
       {/* Main card */}
       <div
-        className={`w-full md:w-[48%] ${cardOrder} ${cardBaseClasses} ${styles.cardBorderStyle}`}
+        className={`w-full md:w-[48%] ${cardOrder} ${cardBaseClasses} border-(--card-border-color)`}
       >
         {/* Force text direction based on locale */}
         <div dir={locale === "fa" ? "rtl" : "ltr"}>
