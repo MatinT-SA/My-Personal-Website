@@ -505,6 +505,47 @@ svg path:focus {
 }
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Footer ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
+
+@keyframes shakeFooter {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-7px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  75% {
+    transform: translateY(-1px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Base class to apply the animation (replaces .footerShake) */
+@media (min-width: 1280px) {
+  .footer-shake-xl {
+    width: 100%;
+    height: 100%;
+    animation: shakeFooter 2s ease-in-out infinite;
+  }
+
+  /* Cancels the animation on hover, but only on XL screens */
+  .group:hover .footer-shake-xl {
+    animation: none;
+  }
+}
+
+/* Stops the animation when the parent element has the 'group' class and is hovered (replaces .footerOuter:hover .footerShake) */
+/* .group:hover .animate-shake-footer {
+  animation: none;
+} */
+
+/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Not Found ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 
