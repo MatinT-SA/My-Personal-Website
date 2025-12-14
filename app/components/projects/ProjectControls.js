@@ -15,7 +15,7 @@ export default function ProjectControls({
         disabled={startIndex === 0}
         className={`
           absolute top-1/2 -translate-y-1/2 z-10 p-2
-          left-1 xs:left-2 sm:left-3 md:left-4 lg:left-5 xl:left-6
+          -left-5 xs:-left-5 sm:left-0 md:left-4 lg:left-5 xl:left-6
           ${
             startIndex === 0
               ? "opacity-0 cursor-default pointer-events-none"
@@ -31,7 +31,7 @@ export default function ProjectControls({
         disabled={startIndex >= projectsLength - visibleProjects}
         className={`
           absolute top-1/2 -translate-y-1/2 z-10 p-2
-          right-1 xs:right-6 sm:right-3 md:right-4 lg:right-5 xl:right-6
+          -right-5 xs:-right-5 sm:right-0 md:right-4 lg:right-5 xl:right-6
           ${
             startIndex >= projectsLength - visibleProjects
               ? "opacity-0 cursor-default pointer-events-none"
