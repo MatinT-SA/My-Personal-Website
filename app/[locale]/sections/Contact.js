@@ -1,29 +1,26 @@
 "use client";
 
-import { useMemo } from "react";
-import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import ContactInfo from "@/app/components/contact/ContactInfo";
+import ScrollCTA from "@/app/components/contact/ScrollCTA";
+import SocialLinks from "@/app/components/contact/SocialLinks";
 import { getContactData } from "@/app/src/constants/contactData";
 import { useContactScroll } from "@/lib/hooks/useContactScroll";
-import ContactInfo from "@/app/components/contact/ContactInfo";
-import SocialLinks from "@/app/components/contact/SocialLinks";
-import ScrollCTA from "@/app/components/contact/ScrollCTA";
-import styles from "@/app/components/contact/contact.module.css";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { useMemo } from "react";
 
 export default function Contact() {
   const t = useTranslations("contact");
 
-  // Memoize contact data to prevent recreation on each render
   const { CONTACT_INFO, SOCIAL_LINKS } = useMemo(() => getContactData(t), [t]);
 
-  // Use custom hook for scroll behavior
   const { handleScrollToComment } = useContactScroll();
 
   return (
-    <section id="contact" className={styles.sectionContainer}>
+    <section id="contact" className="pt-12 mt-8 scroll-mt-20">
       <div className="container mx-auto px-4">
         <motion.h2
-          className={`${styles.sectionTitle}`}
+          className="text-center text-3xl font-bold mb-4 lg:mb-12 text-purple-primary"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

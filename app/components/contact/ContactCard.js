@@ -5,7 +5,7 @@ export default function ContactCard({ icon: Icon, title, value, href }) {
 
   return (
     <motion.div
-      className="relative flex flex-1 max-w-[300px] h-[140px] bg-purple-primary justify-center items-center cursor-pointer m-5 rounded-md text-white overflow-hidden group"
+      className="relative flex flex-1 max-w-[500px] lg:max-w-[300px] h-[140px] bg-purple-primary justify-center items-center cursor-pointer m-5 rounded-md text-white overflow-hidden group"
       initial={{ opacity: 0, y: -50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
