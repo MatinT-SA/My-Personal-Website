@@ -64,7 +64,7 @@ export function getCommentFormFields(t) {
           label: t("message"),
           type: "text",
           required: true,
-          customValidationMessage: "لطفا متن پیام را وارد کنید",
+          customValidationMessage: t("valid_message_message"),
           isTextarea: true,
         },
       ],

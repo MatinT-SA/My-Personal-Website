@@ -177,7 +177,8 @@
     "error_message": "خطا در ارسال پیام. لطفا دوباره تلاش کنید.",
     "error_message2": "خطا در ارسال پیام",
     "valid_email_message": "برای دریافت پاسخ، باید ایمیل معتبر وارد شود",
-    "valid_phone_message": "شماره تلفن معتبر وارد نمایید"
+    "valid_phone_message": "شماره تلفن معتبر وارد نمایید",
+    "valid_message_message": "لطفا متن پیام را وارد کنید"
   },
   "footer": {
     "rights_reserved": "- تمامی حقوق این سایت به",

@@ -177,7 +177,8 @@
     "error_message": "Error sending message. Please try again.",
     "error_message2": "Error sending message",
     "valid_email_message": "A valid email is required to receive a response",
-    "valid_phone_message": "Please enter a valid phone number"
+    "valid_phone_message": "Please enter a valid phone number",
+    "valid_message_message": "Please enter the message text"
   },
   "footer": {
     "rights_reserved": "- All rights reserved to",
