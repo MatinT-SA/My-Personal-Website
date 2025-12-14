@@ -110,7 +110,7 @@ export default function Skills() {
       onMouseMove={isTouchDevice ? undefined : handleMouseMove}
       onMouseEnter={isTouchDevice ? undefined : handleMouseEnter}
       onMouseLeave={isTouchDevice ? undefined : handleMouseLeave}
-      className="relative scroll-mt-24 mx-12 my-16 rounded-[150px_10px] lg:rounded-[300px_15px] bg-blue-light-transparent px-6 py-9"
+      className="relative scroll-mt-24 mx-2 my-8 sm:mx-12 sm:my-16 rounded-lg sm:rounded-[150px_10px] lg:rounded-[300px_15px] bg-blue-light-transparent px-2 py-6 sm:px-6 sm:py-9"
     >
       <h2 className="mb-12 text-center text-3xl font-extrabold text-purple-primary">
         {t("title")}
