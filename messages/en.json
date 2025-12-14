@@ -102,7 +102,7 @@
     "zesty": "Responsive web app for ordering food from restaurants using React + Vite. This app also utilizes Three.js and Redux Toolkit, providing a delightful user experience"
   },
   "skills": {
-    "csharp": "Familiar with the CSharp programming language",
+    "csharp": "Familiar with C#",
     "database": "Proficient in SQL Server and MySQL",
     "github": "Proficient in Git & GitHub",
     "hide_all": "Hide all",
