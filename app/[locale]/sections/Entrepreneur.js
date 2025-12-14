@@ -1,7 +1,6 @@
 "use client";
 
 import QuoteCard from "@/app/components/entrepreneur/QuoteCard";
-import styles from "@/app/components/entrepreneur/entrepreneur.module.css";
 import { getQuotesData } from "@/app/src/constants/quotesData";
 import { useQuoteCard } from "@/lib/hooks/useQuoteCard";
 import { motion } from "framer-motion";
@@ -13,22 +12,17 @@ export default function Entrepreneur() {
 
   const QUOTES = useMemo(() => getQuotesData(t), [t]);
 
-  // Use custom hook for quote card hover state
   const { hoveredCard, handleMouseEnter, handleMouseLeave, isHovered } =
     useQuoteCard();
 
   return (
     <section
-      id="entrepreneur-quotes"
-      className={styles.sectionContainer}
+      className="rounded-4xl lg:rounded-[15px_150px] xl:rounded-[15px_250px] pt-8 py-10 sm:py-20 mx-3 md:mx-5 lg:mx-7 xl:mx-20 my-8 bg-blue-light-transparent"
       dir="rtl"
     >
-      <div
-        id="entrepreneur-quotes-container"
-        className={styles.quotesContainer}
-      >
+      <div className="w-full flex justify-around relative flex-wrap gap-7 sm:gap-3">
         <motion.h2
-          className="main-titles text-center text-3xl font-bold mb-12 text-purple-primary w-full"
+          className="text-center text-3xl font-bold mb-12 text-purple-primary w-full"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

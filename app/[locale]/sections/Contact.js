@@ -23,7 +23,7 @@ export default function Contact() {
     <section id="contact" className={styles.sectionContainer}>
       <div className="container mx-auto px-4">
         <motion.h2
-          className={`main-titles ${styles.sectionTitle}`}
+          className={`${styles.sectionTitle}`}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

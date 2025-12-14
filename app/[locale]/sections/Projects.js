@@ -76,7 +76,7 @@ const Projects = forwardRef(function Projects(props, ref) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="main-titles text-center text-3xl font-bold mb-12 text-purple-primary"
+          className="text-center text-3xl font-bold mb-12 text-purple-primary"
         >
           {t("title")}
         </motion.h2>
