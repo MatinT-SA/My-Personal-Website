@@ -185,5 +185,12 @@
     "righs_reserved_rest": "",
     "site_version": "Site Version",
     "button_experience": "Work Experience"
+  },
+  "seo": {
+    "home": {
+      "title": "Matin Taherzadeh - React/Next.js Frontend Developer",
+      "description": "Frontend Developer specializing in building fast, modern, and dual-language web applications using React 19, Next.js 15, and Tailwind CSS.",
+      "keywords": "Matin Taherzadeh, React Developer, Next.js Developer, Frontend Developer, Tailwind CSS, Web Designer, JavaScript"
+    }
   }
 }

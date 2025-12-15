@@ -1,9 +1,16 @@
 "use client";
 
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
+import LoadingSpinner from "../ui/icons/LoadingSpinner";
 
 export default function SkillsCircle({ data, onSliceClick }) {
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
   const handleSliceClick = useCallback(
     (data, index) => {
       if (onSliceClick) {
@@ -12,6 +19,14 @@ export default function SkillsCircle({ data, onSliceClick }) {
     },
     [onSliceClick]
   );
+
+  if (!hasMounted) {
+    return (
+      <div className="h-[300px] w-[300px] flex items-center justify-center">
+        <LoadingSpinner size="h-10 w-10" color="text-cyan-400" />
+      </div>
+    );
+  }
 
   const tooltipLabelFormatter = (value, name, props) => {
     const categoryName = props.payload.name;

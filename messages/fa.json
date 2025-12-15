@@ -185,5 +185,12 @@
     "righs_reserved_rest": "تعلق دارد.",
     "site_version": "نسخه سایت",
     "button_experience": "سابقه کاری"
+  },
+  "seo": {
+    "home": {
+      "title": "متین طاهرزاده - توسعه دهنده فرانت‌اند متخصص در React و Next.js",
+      "description": "توسعه دهنده فرانت‌اند (Frontend Developer) با تخصص در ساخت اپلیکیشن‌های وب مدرن، سریع و دو زبانه با استفاده از React 19، Next.js 15 و Tailwind CSS.",
+      "keywords": "متین طاهرزاده, توسعه دهنده فرانت اند, برنامه نویس React, برنامه نویس Next.js, Tailwind CSS, طراح وب, جاوا اسکریپت"
+    }
   }
 }
