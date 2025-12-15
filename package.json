@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/font": "^14.2.15",
     "@tailwindcss/cli": "^4.1.11",
     "framer-motion": "^12.23.12",
     "lottie-react": "^2.4.1",
