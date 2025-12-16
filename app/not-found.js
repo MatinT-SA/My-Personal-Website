@@ -10,13 +10,13 @@ export default function NotFound() {
         404
       </h1>
 
-      <p className="text-xl md:text-2xl mb-12 text-contrast-secondary glow-text tracking-widest">
+      <p className="text-xl md:text-2xl mb-12 text-contrast-secondary glow-text tracking-widest text-center">
         SYSTEM ERROR // DATA STREAM INTERRUPTED
       </p>
 
       <Link
         href="/"
-        className="text-lg md:text-xl border-2 border-purple-primary px-6 py-3 tracking-wider 
+        className="text-md xs:text-lg md:text-xl border-2 border-purple-primary px-6 py-3 tracking-wider 
                    transition-all duration-300 
                    hover:bg-purple-primary hover:text-white 
                    hover:shadow-[0_0_15px_rgba(35,30,57,0.5)]"
