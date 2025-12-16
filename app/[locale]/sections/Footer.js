@@ -1,10 +1,10 @@
 "use client";
 
-import Button from "@/app/components/ui/Button";
 import Loader from "@/app/components/ui/Loader";
 import LoadingButton from "@/app/components/ui/LoadingButton";
 import { SITE_VERSION } from "@/app/config";
 import { Link, usePathname, useRouter } from "@/i18n/routing";
+import useNavigateWithLoading from "@/lib/hooks/useNavigationWithLoading";
 import { useTranslations } from "next-intl";
 import { useEffect, useState, useTransition } from "react";
 
@@ -19,7 +19,7 @@ export default function Footer() {
   const pathname = usePathname();
 
   const [loading, setLoading] = useState(false);
-  const [isPending, startTransition] = useTransition();
+  const { isPending, navigate } = useNavigateWithLoading();
 
   const handleExperienceNavigation = () => {
     if (isPending) return;
@@ -87,7 +87,7 @@ export default function Footer() {
               {/* Experience button */}
               <LoadingButton
                 isLoading={isPending}
-                onClick={handleExperienceNavigation}
+                onClick={() => navigate("/experience")}
                 loadingText={t("button_experience_loading")}
                 spinnerSize="h-4 w-4"
                 className="bg-purple-primary text-blue-light border border-blue-light px-5 py-2 rounded-sm hover:bg-blue-light hover:text-purple-primary hover:border-purple-primary mx-auto"
