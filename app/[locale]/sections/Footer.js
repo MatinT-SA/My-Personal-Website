@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Link, useRouter, usePathname } from "@/i18n/routing";
 import Button from "@/app/components/ui/Button";
 import Loader from "@/app/components/ui/Loader";
+import LoadingButton from "@/app/components/ui/LoadingButton";
 import { SITE_VERSION } from "@/app/config";
+import { Link, usePathname, useRouter } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
+import { useEffect, useState, useTransition } from "react";
 
 const customStyles = {
   "--color-purple-primary": "var(--color-purple-primary)",
@@ -18,6 +19,15 @@ export default function Footer() {
   const pathname = usePathname();
 
   const [loading, setLoading] = useState(false);
+  const [isPending, startTransition] = useTransition();
+
+  const handleExperienceNavigation = () => {
+    if (isPending) return;
+
+    startTransition(() => {
+      router.push("/experience");
+    });
+  };
 
   useEffect(() => {
     if (loading) setLoading(false);
@@ -75,17 +85,15 @@ export default function Footer() {
           >
             <div className="text-xs sm:text-sm md:text-base px-2 grid grid-cols-1 gap-1 xs:gap-2 md:grid-cols-[1fr_2.5fr_0.5fr] lg:grid-cols-[1fr_2fr_1fr] text-center w-full items-center justify-center">
               {/* Experience button */}
-              <Link href="/experience">
-                <Button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavigation("/experience");
-                  }}
-                  className="bg-purple-primary text-blue-light border border-blue-light rounded-sm hover:bg-blue-light hover:text-purple-primary hover:border-purple-primary mx-auto"
-                >
-                  {t("button_experience")}
-                </Button>
-              </Link>
+              <LoadingButton
+                isLoading={isPending}
+                onClick={handleExperienceNavigation}
+                loadingText={t("button_experience_loading")}
+                spinnerSize="h-4 w-4"
+                className="bg-purple-primary text-blue-light border border-blue-light px-5 py-2 rounded-sm hover:bg-blue-light hover:text-purple-primary hover:border-purple-primary mx-auto"
+              >
+                {t("button_experience")}
+              </LoadingButton>
 
               {/* Home link */}
               <p>

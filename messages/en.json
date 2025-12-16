@@ -184,7 +184,8 @@
     "rights_reserved": "- All rights reserved to",
     "righs_reserved_rest": "",
     "site_version": "Site Version",
-    "button_experience": "Work Experience"
+    "button_experience": "Work Experience",
+    "button_experience_loading": "Loading..."
   },
   "seo": {
     "home": {
