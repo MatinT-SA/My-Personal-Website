@@ -190,9 +190,13 @@
   },
   "seo": {
     "home": {
-      "title": "Matin Taherzadeh | Experienced Frontend Specialist (React, Next.js)",
-      "description": "6 years experience designing and building stunning, dual-language web applications and portfolios using modern stacks like React, Next.js, and Tailwind CSS.",
-      "keywords": "Matin Taherzadeh, React Developer, Next.js Developer, Frontend Developer, Tailwind CSS, Web Designer, JavaScript"
+      "title": "Matin Taherzadeh | Experienced Frontend Specialist",
+      "description": "Portfolio of Mohammad Matin Taherzadeh Shahabadi. 6 years experience building stunning, dual-language web apps with React, Next.js, and Tailwind CSS.",
+      "keywords": "Matin Taherzadeh, Mohammad Matin Taherzadeh Shahabadi, Shahabadi, Taherzadeh, Matin Developer, Frontend Specialist, Next.js Expert"
+    },
+    "experience": {
+      "title": "Matin Taherzadeh | Work Experience",
+      "description": "Professional timeline and project history of Mohammad Matin Taherzadeh Shah Abadi."
     }
   }
 }
