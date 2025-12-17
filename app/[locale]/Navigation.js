@@ -1,10 +1,10 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import SocialLinks from "../components/profile/profie/profile-card/SocialLinks";
 import NavLinks from "../components/navigation/NavLinks";
-import { useTranslations } from "next-intl";
+import SocialLinks from "../components/profile/profie/profile-card/SocialLinks";
 
 export default function Navigation({ dir }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,17 +27,19 @@ export default function Navigation({ dir }) {
 
   // Sticky nav
   useEffect(() => {
+    const currentNav = navRef.current;
+
     const handleScroll = () => {
       const headerEl = document.querySelector("header");
       const headerHeight = headerEl ? headerEl.offsetHeight : 0;
       const scrollY = window.scrollY || window.pageYOffset;
-      const navEl = navRef.current;
-      if (!navEl) return;
-      const nextEl = navEl.nextElementSibling;
+
+      if (!currentNav) return;
+      const nextEl = currentNav.nextElementSibling;
 
       if (scrollY > headerHeight) {
         setIsFixed(true);
-        if (nextEl) nextEl.style.paddingTop = `${navEl.offsetHeight}px`;
+        if (nextEl) nextEl.style.paddingTop = `${currentNav.offsetHeight}px`;
       } else {
         setIsFixed(false);
         if (nextEl) nextEl.style.paddingTop = "";
@@ -51,8 +53,10 @@ export default function Navigation({ dir }) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
-      if (navRef.current?.nextElementSibling)
-        navRef.current.nextElementSibling.style.paddingTop = "";
+
+      if (currentNav?.nextElementSibling) {
+        currentNav.nextElementSibling.style.paddingTop = "";
+      }
     };
   }, []);
 
