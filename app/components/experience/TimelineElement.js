@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const TimelineElement = ({
   date,
@@ -21,16 +22,14 @@ const TimelineElement = ({
     },
   };
 
-  const isOdd = index % 2 !== 0; // keep original logic for Persian zigzag
+  const isOdd = index % 2 !== 0;
 
-  // Card & spacer layout classes
   const cardBaseClasses =
     "w-full shadow-xl rounded-lg p-6 bg-white border-b-8 border-opacity-70 transition duration-700 ease-out";
   const cardOrder = isOdd ? "md:order-3 mr-2" : "md:order-1 ml-2";
   const spacerOrder = isOdd ? "md:order-1" : "md:order-3";
   const cardBorderColor = iconBg;
 
-  // Date alignment
   const dateAlignmentClasses =
     locale === "fa"
       ? isOdd
@@ -60,10 +59,13 @@ const TimelineElement = ({
         className={`hidden md:flex md:order-2 w-16 h-16 rounded-full shadow-xl z-10 items-center justify-center bg-(--icon-bg-color) ring-4 ring-white overflow-hidden`}
       >
         {iconUrl ? (
-          <img
+          <Image
             src={iconUrl}
             alt={`${company} Logo`}
-            className="w-full h-full object-contain p-3"
+            width={64}
+            height={64}
+            className="object-contain p-3"
+            priority={index < 2}
           />
         ) : (
           <svg

@@ -101,7 +101,7 @@ export default function Skills() {
 
   useEffect(() => {
     glowUtils.tick();
-  }, [selectedCategory, showAll, glowUtils.tick]);
+  }, [selectedCategory, showAll, glowUtils.tick, glowUtils]);
 
   return (
     <section

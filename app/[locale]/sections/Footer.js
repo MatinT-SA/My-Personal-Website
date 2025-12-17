@@ -31,7 +31,7 @@ export default function Footer() {
 
   useEffect(() => {
     if (loading) setLoading(false);
-  }, [pathname]);
+  }, [pathname, loading]);
 
   const handleNavigation = async (href) => {
     const html = document.documentElement;

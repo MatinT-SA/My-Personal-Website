@@ -22,7 +22,7 @@ export default function TypedHeading() {
     });
 
     return () => typed.destroy();
-  }, []);
+  }, [t]);
 
   return (
     <h1 className="mb-12 text-xl sm:text-2xl text-center lg:text-3xl italic font-extrabold bg-clip-text text-transparent bg-linear-to-r from-purple-400 to-purple-700">
