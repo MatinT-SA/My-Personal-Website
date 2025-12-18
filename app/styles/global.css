@@ -51,13 +51,19 @@
   fill: #a8c6de !important;
 }
 
-[dir="rtl"] .calendar-wrapper {
-  min-width: 580px !important;
+.github-calendar-graph > div,
+.react-activity-calendar__container,
+.react-activity-calendar__chart {
+  overflow: visible !important;
+  display: block !important;
+  width: max-content !important;
+  max-width: none !important;
 }
 
-.react-activity-calendar__legend-colors:lang(fa) {
-  margin-right: auto;
-  margin-left: 0 !important;
+.github-calendar-graph svg {
+  overflow: visible !important;
+  width: 100% !important;
+  height: auto !important;
 }
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
