@@ -50,7 +50,7 @@ const Projects = forwardRef(function Projects(props, ref) {
       setTooltip({
         content: description,
         visible: true,
-        x: rect.left - rect.width / 12,
+        x: rect.left - rect.width / 2 + rect.width / 2,
         y: rect.top - TOOLTIP_HEIGHT - TOOLTIP_GAP,
       });
     }, TOOLTIP_DELAY);
