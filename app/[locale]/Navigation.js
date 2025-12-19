@@ -110,8 +110,7 @@ export default function Navigation({ dir }) {
         <button
           type="button"
           onClick={openMenu}
-          className={`block mx-auto p-5 text-center w-12 h-12 text-dark-primary hamburger:hidden 
-            ${isLTR ? "mr-auto" : "ml-auto"}`}
+          className={`flex justify-center items-center mx-auto w-17.5 h-17.5 text-dark-primary hamburger:hidden`}
           aria-label="Open menu"
         >
           <FaBars className="w-8 h-8" />
