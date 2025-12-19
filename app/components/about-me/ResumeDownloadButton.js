@@ -58,7 +58,7 @@ export default function ResumeDownloadButton() {
       className="
         px-8 py-4 text-lg font-bold rounded-full
         text-blue-light bg-purple-primary
-        hover:text-purple-primary hover:bg-blue-300 hover:shadow-lg
+        hover:text-purple-primary hover:bg-blue-300 hover:shadow-lg hover:gap-3.5
       "
     >
       {t("button_resume")}
