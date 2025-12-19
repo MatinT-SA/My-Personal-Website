@@ -46,6 +46,7 @@ export default function GithubCalendarGraph({ username }) {
           backgroundColor: "black",
           borderRadius: "8px",
           padding: "0.5rem 1rem",
+          direction: "rtl",
         }}
       />
     </div>

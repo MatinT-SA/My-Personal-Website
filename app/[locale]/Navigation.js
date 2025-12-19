@@ -135,7 +135,7 @@ export default function Navigation({ dir }) {
       {/* Mobile menu */}
       {isMenuVisible && (
         <ul
-          className={`mainMenu list-none fixed inset-0 z-40 flex flex-col justify-center items-center bg-purple-primary text-white
+          className={`list-none fixed inset-0 z-40 flex flex-col justify-center items-center bg-purple-primary text-white
             transform transition-transform duration-300 ease-in-out
             ${
               isMenuOpen
