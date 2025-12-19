@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, useAnimation } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { useLocale } from "next-intl";
+import { useEffect, useRef, useState } from "react";
 
 export default function SocialButton({
   icon: SocialIcon,
@@ -13,6 +14,8 @@ export default function SocialButton({
 }) {
   const textRef = useRef(null);
   const [textWidth, setTextWidth] = useState(0);
+  const locale = useLocale();
+  const isRTL = locale === "fa";
 
   useEffect(() => {
     if (textRef.current) {
@@ -25,7 +28,9 @@ export default function SocialButton({
       href={href}
       target="_blank"
       rel="noopener"
-      className="group relative flex items-center w-[60px] mx-[30px] rounded-full bg-yellow-primary shadow-lg cursor-pointer overflow-hidden transition-all ease-out"
+      className={`group relative flex items-center w-[60px] mx-[30px] rounded-full bg-yellow-primary ${
+        isRTL ? "gap-3" : ""
+      } shadow-lg cursor-pointer overflow-hidden transition-all ease-out`}
       initial={{ opacity: 0, y: isEven ? 20 : -20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
