@@ -13,6 +13,9 @@ const TimelineElement = ({
   iconUrl,
   locale,
 }) => {
+  const isRTL = locale === "fa";
+  const isOdd = index % 2 !== 0;
+
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -22,22 +25,19 @@ const TimelineElement = ({
     },
   };
 
-  const isOdd = index % 2 !== 0;
-
   const cardBaseClasses =
     "w-full shadow-xl rounded-lg p-6 bg-white border-b-8 border-opacity-70 transition duration-700 ease-out";
-  const cardOrder = isOdd ? "md:order-3 mr-2" : "md:order-1 ml-2";
-  const spacerOrder = isOdd ? "md:order-1" : "md:order-3";
-  const cardBorderColor = iconBg;
 
-  const dateAlignmentClasses =
-    locale === "fa"
-      ? isOdd
-        ? "md:left-1/2 md:text-left md:pl-12"
-        : "md:right-1/2 md:text-right md:pr-12"
-      : isOdd
-      ? "md:right-1/2 md:text-right md:pr-12"
-      : "md:left-1/2 md:text-left md:pl-12";
+  const cardOrder = isOdd ? "md:order-3 md:mr-2" : "md:order-1 md:ml-2";
+  const spacerOrder = isOdd ? "md:order-1" : "md:order-3";
+
+  const dateAlignmentClasses = isRTL
+    ? isOdd
+      ? "md:left-1/2 md:text-left md:pl-12"
+      : "md:right-1/2 md:text-right md:pr-12"
+    : isOdd
+    ? "md:right-1/2 md:text-right md:pr-12"
+    : "md:left-1/2 md:text-left md:pl-12";
 
   return (
     <motion.div
@@ -47,7 +47,6 @@ const TimelineElement = ({
       viewport={{ once: true, amount: 0.1 }}
       style={{
         "--icon-bg-color": iconBg,
-        "--card-border-color": cardBorderColor,
       }}
       className="relative flex justify-between items-center w-full mb-12 group"
     >
@@ -68,26 +67,34 @@ const TimelineElement = ({
             priority={index < 2}
           />
         ) : (
-          <svg
-            className="w-5 h-5 text-white"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path d="M7 3a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-2V4a1 1 0 10-2 0v1H9V4a1 1 0 00-1-1H7zM5 7a1 1 0 011-1h1v1h2V6h2v1h1V6h1a1 1 0 011 1v2H5V7z" />
-          </svg>
+          <div className="w-4 h-4 bg-white rounded-full" />
         )}
       </div>
 
       {/* Main card */}
       <div
-        className={`w-full md:w-[48%] ${cardOrder} ${cardBaseClasses} border-(--card-border-color)`}
+        className={`w-full md:w-[48%] ${cardOrder} ${cardBaseClasses}`}
+        style={{ borderColor: iconBg }}
       >
-        {/* Force text direction based on locale */}
-        <div dir={locale === "fa" ? "rtl" : "ltr"}>
-          <h3 className="text-xl font-bold text-gray-800 mb-2">{title}</h3>
+        <div dir={isRTL ? "rtl" : "ltr"}>
+          {/* MOBILE DATE: Only visible below 768px */}
+          <div className="md:hidden flex items-center mb-6">
+            <span
+              className="px-3 py-1 text-xs font-bold rounded-full text-purple-primary"
+              style={{ backgroundColor: iconBg }}
+            >
+              {date}
+            </span>
+          </div>
+
+          <h3 className="text-xl font-bold text-gray-800 mb-1">{title}</h3>
           <p className="text-purple-primary font-medium mb-4">{company}</p>
 
-          <ul className="my-3 list-disc pr-5 space-y-2 text-sm text-slate-600">
+          <ul
+            className={`my-3 list-disc ${
+              isRTL ? "pr-5" : "pl-5"
+            } space-y-2 text-sm text-slate-600`}
+          >
             {points.map((point, idx) => (
               <li key={idx} className="leading-relaxed">
                 {point}
@@ -97,7 +104,7 @@ const TimelineElement = ({
         </div>
       </div>
 
-      {/* Date */}
+      {/* Desktop Date (Hidden on mobile) */}
       <div
         className={`hidden md:block absolute w-1/2 top-1/2 -translate-y-1/2 text-gray-600 font-medium whitespace-nowrap ${dateAlignmentClasses}`}
       >
