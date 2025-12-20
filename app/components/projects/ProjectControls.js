@@ -13,6 +13,7 @@ export default function ProjectControls({
       <button
         onClick={onPrev}
         disabled={startIndex === 0}
+        aria-label="Previous Projects"
         className={`
           absolute top-1/2 -translate-y-1/2 z-10 p-2
           -left-5 xs:-left-5 sm:left-0 md:left-4 lg:left-5 xl:left-20
@@ -29,6 +30,7 @@ export default function ProjectControls({
       <button
         onClick={onNext}
         disabled={startIndex >= projectsLength - visibleProjects}
+        aria-label="Next Projects"
         className={`
           absolute top-1/2 -translate-y-1/2 z-10 p-2
           -right-5 xs:-right-5 sm:right-0 md:right-4 lg:right-5 xl:right-20
