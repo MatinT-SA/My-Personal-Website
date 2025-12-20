@@ -15,6 +15,7 @@ export default function Logo() {
         height={0}
         className="w-full h-auto object-contain"
         priority
+        fetchPriority="high"
       />
     </Link>
   );
