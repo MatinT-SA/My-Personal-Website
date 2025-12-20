@@ -28,7 +28,7 @@ export default function SocialButton({
       href={href}
       target="_blank"
       rel="noopener"
-      className={`group relative flex items-center w-[60px] mx-[30px] rounded-full bg-yellow-primary ${
+      className={`group relative flex items-center w-[60px] mx-[30px] rounded-full bg-yellow-light ${
         isRTL ? "gap-3" : ""
       } shadow-lg cursor-pointer overflow-hidden transition-all ease-out`}
       initial={{ opacity: 0, y: isEven ? 20 : -20 }}
