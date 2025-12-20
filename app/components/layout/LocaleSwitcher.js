@@ -17,6 +17,7 @@ export default function LocaleSwitcher() {
 
   return (
     <select
+      aria-label="Select Language"
       className="
         fixed bottom-5 left-5 z-50 
         bg-purple-primary text-blue-light 
