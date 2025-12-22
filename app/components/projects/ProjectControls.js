@@ -24,7 +24,7 @@ export default function ProjectControls({
           }
         `}
       >
-        <PrevIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-light hover:text-[#dae7f1]" />
+        <PrevIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 transition duration-200 text-purple-primary hover:text-purple-light hover:drop-shadow-[0_0_10px_var(--color-purple-light)]" />
       </button>
 
       <button
@@ -41,7 +41,7 @@ export default function ProjectControls({
           }
         `}
       >
-        <NextIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-light hover:text-[#dae7f1]" />
+        <NextIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 transition duration-200 text-purple-primary hover:text-purple-light hover:drop-shadow-[0_0_10px_var(--color-purple-light)]" />
       </button>
     </>
   );
