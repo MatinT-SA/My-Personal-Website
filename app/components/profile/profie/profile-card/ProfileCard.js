@@ -42,9 +42,7 @@ export default function ProfileCard() {
       }}
     >
       <div
-        className={`w-full max-w-sm mx-auto my-2 bg-purple-primary shadow-[0_10px_20px_-10px_rgba(0,0,0,0.75)] pt-1 pb-5 flex flex-col items-center relative rounded-md ${
-          isMobile ? "" : "animate-float-profile"
-        }`}
+        className={`w-full max-w-sm mx-auto my-2 bg-purple-primary shadow-[0_10px_20px_-10px_rgba(0,0,0,0.75)] pt-1 pb-5 flex flex-col items-center relative rounded-md max-[550px]:animate-none animate-float-profile`}
       >
         {/* Cover Photo */}
         <div
