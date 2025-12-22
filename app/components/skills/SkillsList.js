@@ -9,8 +9,11 @@ export default function SkillsList({
   className = "",
 }) {
   const observerRef = useRef(null);
+  const itemRefs = useRef([]);
 
   const setupObserver = useCallback(() => {
+    if (typeof window === "undefined") return;
+
     if (observerRef.current) {
       observerRef.current.disconnect();
     }
@@ -30,23 +33,14 @@ export default function SkillsList({
       }
     );
 
-    if (window.innerWidth < 1280) {
-      skills.forEach((_, i) => {
-        const el = itemRefs.current[baseIndex + i];
-        if (el) {
-          observerRef.current.observe(el);
-        }
-      });
-    }
-  }, [skills, baseIndex]);
-
-  const itemRefs = useRef([]);
+    itemRefs.current.forEach((el) => {
+      if (el) observerRef.current.observe(el);
+    });
+  }, []);
 
   useEffect(() => {
     setupObserver();
-
     window.addEventListener("resize", setupObserver);
-
     return () => {
       window.removeEventListener("resize", setupObserver);
       if (observerRef.current) observerRef.current.disconnect();
@@ -56,10 +50,9 @@ export default function SkillsList({
   const handleRef = (el, index) => {
     if (!el) return;
 
-    const fullIndex = baseIndex + index;
-    itemRefs.current[fullIndex] = el;
+    itemRefs.current[index] = el;
 
-    registerItem(fullIndex, el);
+    registerItem(baseIndex + index, el);
 
     if (observerRef.current && window.innerWidth < 1280) {
       observerRef.current.observe(el);
