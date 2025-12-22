@@ -3,11 +3,9 @@ import Navigation from "../Navigation";
 
 export default function HomeSection() {
   return (
-    <section id="home" className="w-full scroll-mt-52">
-      <div className="w-full">
-        <Navigation />
-        <ProfileCard />
-      </div>
+    <section className="w-full">
+      <Navigation />
+      <ProfileCard />
     </section>
   );
 }

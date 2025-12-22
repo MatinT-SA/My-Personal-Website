@@ -67,7 +67,9 @@ export default async function LocalizedLayout({ children, params }) {
           overflow-x-hidden text-black font-shabnam`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
+          <div id="home" className="scroll-mt-52">
+            {children}
+          </div>
           <LocaleSwitcher />
         </NextIntlClientProvider>
       </body>

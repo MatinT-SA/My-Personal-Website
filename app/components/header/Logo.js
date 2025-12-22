@@ -3,7 +3,11 @@ import Link from "next/link";
 
 export default function Logo() {
   return (
-    <Link href="/" className="block w-full max-w-48 mx-auto" id="logo-header">
+    <Link
+      href="/#home"
+      className="block w-full max-w-48 mx-auto"
+      id="logo-header"
+    >
       <Image
         src="/images/matin taherzade logo-02.webp"
         alt="Logo"
