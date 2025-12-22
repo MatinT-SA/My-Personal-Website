@@ -34,7 +34,7 @@ This is the **second generation** of my professional portfolio. It represents a 
 ## ✨ Key Features
 
 - **Full Internationalization (i18n):** Seamlessly switch between **English** and **Persian** with full RTL support.
-- **Lighthouse Optimized:** Near-perfect scores across the board for SEO and Accessibility.
+- **Lighthouse Optimized:** Engineered for high speed and accessibility, achieving top-tier Lighthouse benchmarks.
 - **Modern Refactor:** Complete removal of **jQuery** and **Bootstrap** in favor of high-performance React components.
 
 ## 📊 Lighthouse Scores (Mobile)
