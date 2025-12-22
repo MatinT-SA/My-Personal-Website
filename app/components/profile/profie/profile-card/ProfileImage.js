@@ -1,11 +1,6 @@
 import Image from "next/image";
 
-export default function ProfileImage({
-  onClick,
-  refProp,
-  isMobile,
-  setIsMobile,
-}) {
+export default function ProfileImage({ onClick, refProp, isMobile }) {
   return (
     <div className="relative" onClick={onClick}>
       <Image

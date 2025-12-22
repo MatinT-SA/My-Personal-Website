@@ -66,13 +66,11 @@ export default function ProfileModal({ isOpen, onClose, getTargetRect }) {
     >
       <div
         ref={modalRef}
-        className={`relative shadow-2xl max-w-md w-full overflow-auto animate-modal-pop ${
-          closing ? "" : "rounded-2xl"
-        }`}
+        className={`relative shadow-2xl mx-auto overflow-auto animate-modal-pop 
+    w-[92%] max-w-md max-h-[90vh] ${closing ? "" : "rounded-2xl"}`}
         style={{
-          background: "rgba(168,198,222,0.25)",
+          background: "rgba(168,198,222,0.95)",
           border: "1.5px solid var(--color-purple-tertiary)",
-          maxHeight: "100vh",
           ...modalStyle,
         }}
         onClick={(e) => e.stopPropagation()}
