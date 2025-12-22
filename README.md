@@ -67,8 +67,8 @@ npm run dev
 
 ## 📬 Contact
 
-- **LinkedIn:** [linkedin.com/in/matintaherzadeh](https://www.linkedin.com/in/matintaherzadeh)
-- **Email:** [taherzadehm78@gmail.com](mailto:taherzadehm78@gmail.com)
+- **LinkedIn:** [linkedin.com/in/matin-taherzadeh-sa](https://www.linkedin.com/in/matin-taherzadeh-sa)
+- **Email:** [matin.taherzadeh.mmtsa@gmail.com](mailto:matin.taherzadeh.mmtsa@gmail.com)
 
 ## ⚖️ License
 
