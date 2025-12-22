@@ -1,4 +1,4 @@
-# Matin Taherzadeh | Professional Portfolio V2
+# Matin Taherzadeh | Personal Website V2
 
 <img width="1920" height="921" alt="personal-website" src="https://github.com/user-attachments/assets/9d8752ce-a01b-4eed-90cc-8bed82e70925" />
 
