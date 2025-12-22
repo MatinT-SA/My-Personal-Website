@@ -24,10 +24,7 @@ export default function ProfileCard() {
   };
 
   useEffect(() => {
-    const checkScreenWidth = () => {
-      setIsMobile(window.innerWidth < 550);
-    };
-
+    const checkScreenWidth = () => setIsMobile(window.innerWidth < 550);
     checkScreenWidth();
     window.addEventListener("resize", checkScreenWidth);
     return () => window.removeEventListener("resize", checkScreenWidth);

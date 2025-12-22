@@ -53,10 +53,6 @@ export default function SkillsList({
     itemRefs.current[index] = el;
 
     registerItem(baseIndex + index, el);
-
-    if (observerRef.current && window.innerWidth < 1280) {
-      observerRef.current.observe(el);
-    }
   };
 
   return (
