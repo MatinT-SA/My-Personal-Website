@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Matin Taherzadeh | Professional Portfolio V2
 
-## Getting Started
+<img width="1920" height="921" alt="personal-website" src="https://github.com/user-attachments/assets/9d8752ce-a01b-4eed-90cc-8bed82e70925" />
 
-First, run the development server:
+## 📝 Description
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This is the **second generation** of my professional portfolio. It represents a complete shift from legacy web technologies to a modern, component-driven architecture. This refactor focuses on **maximum performance**, **internationalization (i18n)**, and a refined **UI/UX**.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> [!IMPORTANT]
+> **Branch Evolution:** The legacy version of this site (HTML/CSS/Bootstrap 3) is officially archived in the `v1` branch. The current production-ready code resides in the `main` branch.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🔗 Quick Links
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 🚀 **Live Demo:** [matintaherzadeh.ir](https://matintaherzadeh.ir)
+- 📂 **Legacy Version:** [View v1 Branch](https://github.com/MatinT-SA/My-Personal-Website/tree/v1)
 
-## Learn More
+## 🛠 Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+**Core Framework:**
+- [Next.js 15](https://nextjs.org/) (App Router)
+- [React 19](https://react.dev/)
+- [Next-Intl](https://next-intl-docs.vercel.app/) (Full Multilingual Support)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**UI & Styling:**
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/) & [Lottie React](https://github.com/gamote/lottie-react)
+- [React Icons](https://react-icons.github.io/react-icons/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Data & Integration:**
+- [Recharts](https://recharts.org/)
+- [Nodemailer](https://nodemailer.com/)
+- [React GitHub Calendar](https://github.com/grubersjoe/react-github-calendar)
 
-## Deploy on Vercel
+## ✨ Key Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Full Internationalization (i18n):** Seamlessly switch between **English** and **Persian** with full RTL support.
+- **Lighthouse Optimized:** Near-perfect scores across the board for SEO and Accessibility.
+- **Modern Refactor:** Complete removal of **jQuery** and **Bootstrap** in favor of high-performance React components.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📊 Lighthouse Scores (Mobile)
+
+| Category | Score |
+| :--- | :--- |
+| **Performance** | 🟢 85 |
+| **Accessibility** | 🟢 100 |
+| **Best Practices** | 🟢 96 |
+| **SEO** | 🟢 100 |
+
+## 🚀 Getting Started
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/MatinT-SA/My-Personal-Website.git](https://github.com/MatinT-SA/My-Personal-Website.git)
