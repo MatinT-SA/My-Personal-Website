@@ -1,6 +1,9 @@
+import { useTranslations } from "next-intl";
 import React from "react";
 
 export default function ModalFooter({ onClose, closing }) {
+  const t = useTranslations("profile");
+
   return (
     <div
       className="flex justify-center items-center px-6 py-4"
@@ -15,7 +18,7 @@ export default function ModalFooter({ onClose, closing }) {
         className="bg-red-400 hover:bg-red-500 text-white font-semibold px-6 py-2 rounded-xl shadow-md transition cursor-pointer"
         onClick={!closing ? onClose : undefined}
       >
-        بستن
+        {t("button_close_modal")}
       </button>
     </div>
   );

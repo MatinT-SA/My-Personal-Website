@@ -87,7 +87,8 @@
     "button_message": "Send Message",
     "info_name": "Matin Taherzadeh",
     "info_role": "Front-End Developer",
-    "button_experience_loading": "Loading..."
+    "button_experience_loading": "Loading...",
+    "button_close_modal": "Close"
   },
   "projects": {
     "banklist": "A banking platform with a customer website and a responsive employee web app, built in JS for managing transactions with a smooth UI, advanced filters, and practical use of array methods",
@@ -100,7 +101,10 @@
     "title": "Projects",
     "track_map": "A responsive web app that allows users to track and record their activities based on their current location or any desired place using various APIs like Big Data Cloud and OpenStreetMap for accurate and interactive maps",
     "travex": "A responsive project with React using useReducer and Context API for state management. An interactive map using leaflet. Tools such as Datepicker, React-toastify, react-router-dom for a pleasant user experience",
-    "zesty": "Responsive web app for ordering food from restaurants using React + Vite. This app also utilizes Three.js and Redux Toolkit, providing a delightful user experience"
+    "zesty": "Responsive web app for ordering food from restaurants using React + Vite. This app also utilizes Three.js and Redux Toolkit, providing a delightful user experience",
+    "view_project": "View Projects",
+    "close_button": "Close",
+    "all_projects_text": "To see all my projects, click the button below"
   },
   "skills": {
     "csharp": "Familiar with C#",

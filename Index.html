@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--meta settings-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--seo settings-->
+    <meta name="title" content="MatinTSA - متین طاهرزاده" />
+    <meta
+      name="keywords"
+      content="matin taherzadeh, taherzadeh, taherzade, متین طاهرزاده, طاهرزاده, طراحی سایت"
+    />
+    <meta
+      name="description"
+      content="برنامه نویس و طراح و توسعه دهنده سایت با زبان برنامه نویسی CSharp و فناوری .NET، برنامه نویس React،برنامه نویس MERN Stack, WordPress و محتوا نویس سایت"
+    />
+
+    <!--the open graph prototype-->
+    <meta property="og:title" content="Matin Taherzadeh, متین طاهرزاده" />
+    <meta property="og:type" content="Matin.MatinOnlineShopping" />
+    <meta
+      property="og:url"
+      content="https://www.instagram.com/matin_taherzadeh_sa/"
+    />
+    <meta
+      property="og:image"
+      content="https://scontent-lga3-1.cdninstagram.com/v/t51.2885-19/s320x320/234079959_347354200268646_4029262247721142941_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_ohc=tVBhf9Cz_1wAX_gLjlb&edm=ABfd0MgBAAAA&ccb=7-4&oh=5d51efefde5640b7165fb30de35de5a6&oe=6169A6B2&_nc_sid=7bff83"
+    />
+
+    <!--Apple iOS-->
+    <link rel="apple-touch-icon" href="Content/images/SiteIcon.webp" />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="Content/images/SiteIcon152-152.webp"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="Content/images/SiteIcon.webp"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="167x167"
+      href="Content/images/SiteIcon167-167.webp"
+    />
+
+    <meta
+      property="og:description"
+      content="web designer and developer and CSharp, ASP.NET MVC, WordPress & ReactJS developer"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://matintaherzadeh.ir" />
+
+    <!--Chrome, Firefox and opera title bar color-->
+    <meta name="theme-color" content="#231e39" />
+    <!--windows phone title bar color-->
+    <meta name="msapplication-navbutton-color" content="yes" />
+    <!--safari / iOS title bar color-->
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <!--title-->
+    <title>Matin Taherzadeh - متین طاهرزاده</title>
+
+    <!--links-->
+    <link rel="icon" type="image/png" href="Content/images/favicon.ico" />
+
+    <!-- Preload image and font files -->
+    <link
+      rel="preload"
+      href="Content/images/matin taherzade logo-02.webp"
+      as="image"
+    />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      as="style"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Load main stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="Content/css/MatinTaherzadeh.css" />
+
+    <!-- Font Awesome (loaded asynchronously) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-4BGB4G5VHS"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-4BGB4G5VHS");
+    </script>
+  </head>
+
+  <body>
+    <div class="loader-container">
+      <div class="loader"></div>
+    </div>
+
+    <!-- ***** Welcoming ***** -->
+    <div id="welcome-overlay" class="overlay">
+      <h3>Hold On</h3>
+      <p>
+        Welcome to my website! Are you an English speaker who doesn't understand
+        Persian text? No worries 😉 Just keep scrolling—I’ve got a solution for
+        you!
+      </p>
+      <button id="got-it-button">Got it</button>
+    </div>
+
+    <!-- ***** Home section and header ***** -->
+    <section id="Home">
+      <div class="container-fluid">
+        <div class="row">
+          <header class="header">
+            <div class="header-p col-lg-4 col-md-4 col-sm-4">
+              <p>Matin</p>
+              <p>Taherzadeh</p>
+            </div>
+            <div id="logo-header" class="col-lg-4 col-md-4 col-sm-4">
+              <a href="/"
+                ><img
+                  alt="Logo"
+                  src="Content/images/matin taherzade logo-02.webp"
+              /></a>
+            </div>
+            <div class="header-p col-lg-4 col-md-4 col-sm-4">
+              <p>متین</p>
+              <p>طاهرزاده</p>
+            </div>
+          </header>
+          <nav id="header-nav">
+            <div class="openMenu"><i class="fa fa-bars"></i></div>
+            <ul class="mainMenu">
+              <li class="Home active">
+                <a href="#Home" class="nav-item">خانه</a>
+              </li>
+              <li class="AboutMe">
+                <a href="#AboutMe-anchor" class="nav-item">درباره من</a>
+              </li>
+              <li class="Skills">
+                <a href="#Skills-anchor" class="nav-item">مهارت ها</a>
+              </li>
+              <li class="Resume">
+                <a href="#Resume-anchor" class="nav-item">نمونه کارها</a>
+              </li>
+              <li class="Contact">
+                <a href="#Contact-anchor" class="nav-item">راه های ارتباطی</a>
+              </li>
+              <li class="Comment">
+                <a href="#Comment-anchor" class="nav-item">ارسال پیام</a>
+              </li>
+              <div class="closeMenu"><i class="fa fa-times"></i></div>
+              <li class="icons">
+                <a
+                  href="https://www.instagram.com/matin_taherzadeh_sa/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a
+                  href="https://twitter.com/MatinT_SA"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Twitter, Also known as X"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a
+                  href="https://github.com/MatinT-SA"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="GitHub"
+                  ><i class="fab fa-github"></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/matin-taherzadeh-sa"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="LinkedIn"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </section>
+    <!--end Home section and header-->
+
+    <!-- ***** Matin Pic card profile ***** -->
+    <div id="Matin-Pic" class="container-fluid">
+      <div class="Matin-Picture">
+        <div class="cover-photo">
+          <div class="non-profile"></div>
+          <a title="کلیک کن" data-toggle="modal" href="#MyPicLarge">
+            <img
+              alt="Matin Picture"
+              src="Content/images/Matin-Taherzadeh-portrait.webp"
+              class="profile"
+            />
+          </a>
+        </div>
+        <div class="profile-name">متین طاهرزاده</div>
+        <p class="about">Front-End Developer</p>
+        <button class="msg-btn" onclick="location.href='#Comment-anchor'">
+          ارسال پیام
+        </button>
+        <button
+          onclick="location.href='https://www.instagram.com/matin_taherzadeh_sa/'"
+          class="follow-btn"
+        >
+          در اینستا فالوم کن
+        </button>
+        <div>
+          <a
+            href="https://www.linkedin.com/in/matin-taherzadeh-sa"
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/matin_taherzadeh_sa/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://github.com/MatinT-SA"
+            target="_blank"
+            rel="noopener"
+            aria-label="GitHub"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://twitter.com/MatinT_SA"
+            target="_blank"
+            rel="noopener"
+            aria-label="Twitter, Also known as X"
+            ><i class="fab fa-twitter"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+    <!--end Matin Pic card profile-->
+
+    <!-- ***** Modal for Matin Pic ***** -->
+    <div class="modal fade" id="MyPicLarge" role="MyPicLarge">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+            <h4 class="modal-title">
+              &ltWeb&gt Matin Taherzadeh &lt/Programmer&gt
+            </h4>
+          </div>
+          <div class="modal-body">
+            <img
+              alt="Matin Large portrait picture"
+              src="Content/images/Matin-Taherzadeh-portrait.webp"
+            />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              بستن
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end Modal for Matin Pic-->
+
+    <!-- ***** AboutMe ***** -->
+    <span class="anchor" id="AboutMe-anchor"></span>
+    <section id="AboutMe" class="padding-top-3">
+      <div class="container">
+        <div class="row">
+          <div class="section-1">
+            <div id="AboutMe-image" class="col-md-5 col-sm-5 slide-in fade-in">
+              <img
+                loading="lazy"
+                alt="computer image for large devices"
+                src="Content/images/bg2-com2.webp"
+              />
+              <img
+                loading="lazy"
+                alt="computer image for medium devices"
+                src="Content/images/bg2-com5.webp"
+              />
+            </div>
+
+            <div id="AboutMe-Text" class="col-md-7 col-sm-7 slide-in fade-in">
+              <h1><span class="type"></span></h1>
+              <p>توسعه دهنده وب</p>
+              <p>
+                درود بر شما. محمد متین طاهرزاده شاه آبادی هستم. فارغ التحصیل
+                کارشناسی مهندسی کامپیوتر (نرم افزار) از دانشگاه آزاد کرج.
+                <br />
+                در حوزه وب و توسعه فرانت‌اند سایت فعالیت دارم.<br />
+                سابقه تدریس زبان انگلیسی به مدت یک سال در موسسه زبان.<br />
+                تسلط و تمرکز بر روی زبان برنامه نویسی جاوااسکریپت و کتابخانه
+                ری‌اکت و تجربه کار با سی شارپ و وردپرس.
+                <br />
+                یادگیری تایپ اسکریپت و نکست جی اس، از اهداف اصلی ام در آینده
+                نزدیک است.<br />
+                علاقه مند به یادگیری، مسئولیت پذیر، منظم و سخت کوش.<br />
+              </p>
+              <div class="download-resume">
+                <a
+                  href="Content/resume/Matin Taherzadeh Resume - 1404-05-07.pdf"
+                  class="btn-download"
+                  download
+                >
+                  <i class="fas fa-download"></i> دانلود رزومه
+                </a>
+              </div>
+            </div>
+            <div class="col-xs-12 section-1-image">
+              <img
+                loading="lazy"
+                alt="computer image for extra small devices"
+                src="Content/images/bg2-com.webp"
+                width="598"
+                height="399"
+                class="fade-in slide-in"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--end AboutMe-->
+
+    <!-- ***** skills ***** -->
+    <span class="anchor" id="Skills-anchor"></span>
+    <section id="Skills" class="padding-top-1">
+      <div class="container-fluid">
+        <div class="row">
+          <h2 class="main-titles fade-in-main-titles slide-in-main-titles">
+            مهارت ها
+          </h2>
+          <div class="section-2">
+            <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 section-2-left">
+              <ul>
+                <li class="fade-in-skills slide-in-skills">
+                  آشنا به زبان برنامه نویسی CSharp
+                </li>
+                <li class="fade-in-skills slide-in-skills">
+                  آشنا به Tailwind, Bootstrap, SASS
+                </li>
+                <li class="fade-in-skills slide-in-skills">آشنا به Redux</li>
+                <li class="fade-in-skills slide-in-skills">
+                  تسلط کافی به SQL Server و MySQL
+                </li>
+                <li class="fade-in-skills-le slide-in-skills-le">
+                  سابقه کار با وردپرس
+                </li>
+                <li class="fade-in-skills slide-in-skills">
+                  تسلط کافی به Git و GitHub
+                </li>
+                <li class="fade-in-skills slide-in-skills">
+                  آشنا با مفاهیم SEO
+                </li>
+                <li class="fade-in-skills slide-in-skills">RESTful API</li>
+              </ul>
+            </div>
+            <div class="col-lg-2">
+              <img
+                loading="lazy"
+                width="173"
+                height="540"
+                alt="My Skills Gif"
+                src="Content/images/MySkills3Ed2.webp"
+                class="center-block fade-in-skills slide-in-skills"
+              />
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 section-2-right">
+              <ul>
+                <li class="fade-in-skills slide-in-skills">
+                  تسلط کافی به زبان برنامه نویسی JavaScript
+                </li>
+                <li class="fade-in-skills slide-in-skills">
+                  مسلط به HTML و CSS
+                </li>
+                <li class="fade-in-skills-le slide-in-skills-le">
+                  مسلط به کتابخانه ReactJS
+                </li>
+                <li class="fade-in-skills slide-in-skills">
+                  برنامه نویسی MERN Stack
+                </li>
+                <li class="fade-in-skills slide-in-skills">آشنا به Next.js</li>
+                <li class="fade-in-skills slide-in-skills">آشنا با ThreeJS</li>
+                <li class="fade-in-skills slide-in-skills">
+                  آشنا با کتابخانه jQuery
+                </li>
+                <li class="fade-in-skills slide-in-skills">
+                  طراحی سایت واکنش گرا
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--end skills-->
+
+    <!-- ***** resume ***** -->
+    <div class="more-resume">
+      GitHub
+      <div class="more-resume-hovered">
+        <button>
+          <a href="https://github.com/MatinT-SA?tab=repositories">
+            Click to see all of my projects
+          </a>
+        </button>
+      </div>
+    </div>
+
+    <!-- Fixed trigger div -->
+    <div id="fixed-trigger-modal"></div>
+
+    <div id="modal-trigger-threejs"></div>
+
+    <!-- ThreeJS Modal -->
+    <div id="threejsModal" class="threejs-modal">
+      <div class="threejs-modal-content">
+        <span class="threejs-close">&times;</span>
+        <div class="threejs-modal-content__upper">
+          <h2 class="gradient-3d-text">Step Into My 3D World</h2>
+          <img
+            loading="lazy"
+            src="Content/images/island-portfolio.webp"
+            alt="Portfolio"
+          />
+        </div>
+        <p class="threejs-modal-content-text">
+          Here's the thing I promised. Explore my interactive 3D portfolio.
+          Click below to dive in
+        </p>
+        <a
+          href="https://matint-sa.github.io/ThreeJS-portfolio/"
+          target="_blank"
+          id="threejs-btn"
+          >Explore My 3D Portfolio</a
+        >
+      </div>
+    </div>
+
+    <span class="anchor" id="Resume-anchor"></span>
+    <section id="Resume" class="padding-top-5">
+      <div class="container">
+        <div class="row">
+          <h2 class="main-titles fade-in-main-titles slide-in-main-titles">
+            نمونه کارها
+          </h2>
+
+          <div class="col-lg-12 panel-group fade-in-resume" id="accordion">
+            <div class="panel justify-content-center">
+              <ul id="Resume-items">
+                <li class="panel-title">
+                  <div class="CustomTooltip hidden-md hidden-sm hidden-xs">
+                    اولین پروژه ام با Next.js در کنار React و Tailwindcss که در
+                    اصل سایت مشتری پروژه قبلی ما یعنی Stelix هست. این وبسایت
+                    کاملا ریسپانسیو و مبتنی بر اصول حرفه ای کد نوشته شده که برای
+                    سیستم رزرو سوئیت در هتل میباشد.
+                  </div>
+                  <button
+                    data-toggle="collapse"
+                    data-parent="#accordion"
+                    class="btn btn-Resume-buttons"
+                    href="#Stelix-Website"
+                  >
+                    Stelix Website
+                  </button>
+                </li>
+
+                <li class="panel-title">
+                  <div class="CustomTooltip hidden-md hidden-sm hidden-xs">
+                    یک پروژه فول استک با استفاده از React، Vite، React Query،
+                    Supabase و بسیاری تکنولوژی‌ دیگر. یک سیستم پذیرش هتل که شامل
+                    احراز هویت، مدیریت رزروها، عملیات CRUD، فرم‌های پیشرفته و
+                    داشبورد تحلیلی می‌باشد.
+                  </div>
+                  <button
+                    data-toggle="collapse"
+                    data-parent="#accordion"
+                    class="btn btn-Resume-buttons"
+                    href="#Stelix"
+                  >
+                    Stelix
+                  </button>
+                </li>
+
+                <li class="panel-title">
+                  <div class="CustomTooltip hidden-md hidden-sm hidden-xs">
+                    وب اپ ریسپانسیو برای سفارش غذا از رستوران با استفاده از
+                    React + Vite. این اپ از Three.js و Redux Toolkit نیز بهره
+                    برده و یک تجربه کاربری دلچسب به کاربر می دهد.
+                  </div>
+                  <button
+                    data-toggle="collapse"
+                    data-parent="#accordion"
+                    class="btn btn-Resume-buttons"
+                    href="#Zesty"
+                  >
+                    Zesty
+                  </button>
+                </li>
+
+                <li class="panel-title">
+                  <div class="CustomTooltip hidden-md hidden-sm hidden-xs">
+                    یک پروژه ریسپانسیو با ری‌اکت با استفاده از useReducer و
+                    Context API برای مدیریت کردن state ها. یک نقشه تعاملگرا با
+                    استفاده از leaflet. ابزاری همچون Datepicker, React-toastify,
+                    react-router-dom برای یک تجربه کاربری دلچسب
+                  </div>
+                  <button
+                    data-toggle="collapse"
+                    data-parent="#accordion"
+                    class="btn btn-Resume-buttons"
+                    href="#Travex"
+                  >
+                    Travex
+                  </button>
+                </li>
+
+                <li class="panel-title">
+                  <div class="CustomTooltip hidden-md hidden-sm hidden-xs">
+                    یک اپلیکیشن ری‌اکت برای رتبه‌بندی فیلم ها کاملا ریسپانسیو.
+                    قابلیت جستجوی فیلم‌ها، و نمایش بر اساس رتبه بندی ها. قابلیت
+                    هایی مانند جستجو، واکشی داده‌ها از API. همچنین از
+                    react-spinners و react-toastify استفاده کرده‌ام.
+                  </div>
+                  <button
+                    data-toggle="collapse"
+                    data-parent="#accordion"
+                    class="btn btn-Resume-buttons"
+                    href="#Rateflicks"
+                  >
+                    Rateflicks
+                  </button>
+                </li>
+              </ul>
+
+              <div class="Resume-click-open row">
+                <!-- Stelix Website -->
+                <div id="Stelix-Website" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="Resume-click-open">
+                      <div
+                        class="wistia_responsive_padding"
+                        style="padding: 47.92% 0 0 0; position: relative"
+                      >
+                        <div
+                          class="wistia_responsive_wrapper"
+                          style="
+                            height: 100%;
+                            left: 0;
+                            position: absolute;
+                            top: 0;
+                            width: 100%;
+                          "
+                        >
+                          <iframe
+                            src="https://fast.wistia.net/embed/iframe/tp8e04tq2i?web_component=true&seo=true"
+                            title="stelix-website Video"
+                            allow="autoplay; fullscreen"
+                            allowtransparency="true"
+                            frameborder="0"
+                            scrolling="no"
+                            class="wistia_embed"
+                            name="wistia_embed"
+                            width="100%"
+                            height="100%"
+                          ></iframe>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Stelix -->
+                <div id="Stelix" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="Resume-click-open">
+                      <div
+                        class="wistia_responsive_padding"
+                        style="padding: 47.92% 0 0 0; position: relative"
+                      >
+                        <div
+                          class="wistia_responsive_wrapper"
+                          style="
+                            height: 100%;
+                            left: 0;
+                            position: absolute;
+                            top: 0;
+                            width: 100%;
+                          "
+                        >
+                          <iframe
+                            src="https://fast.wistia.net/embed/iframe/ei6wx8l1ph?web_component=true&seo=true"
+                            title="Stelix Video"
+                            allow="autoplay; fullscreen"
+                            allowtransparency="true"
+                            frameborder="0"
+                            scrolling="no"
+                            class="wistia_embed"
+                            name="wistia_embed"
+                            width="100%"
+                            height="100%"
+                          ></iframe>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Zesty -->
+                <div id="Zesty" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="Resume-click-open">
+                      <div
+                        class="wistia_responsive_padding"
+                        style="padding: 47.5% 0 0 0; position: relative"
+                      >
+                        <div
+                          class="wistia_responsive_wrapper"
+                          style="
+                            height: 100%;
+                            left: 0;
+                            position: absolute;
+                            top: 0;
+                            width: 100%;
+                          "
+                        >
+                          <iframe
+                            src="https://fast.wistia.net/embed/iframe/yug44k97un?web_component=true&seo=true"
+                            title="Zesty Video"
+                            allow="autoplay; fullscreen"
+                            allowtransparency="true"
+                            frameborder="0"
+                            scrolling="no"
+                            class="wistia_embed"
+                            name="wistia_embed"
+                            width="100%"
+                            height="100%"
+                          ></iframe>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Travex -->
+                <div id="Travex" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="Resume-click-open">
+                      <div
+                        class="wistia_responsive_padding"
+                        style="padding: 47.5% 0 0 0; position: relative"
+                      >
+                        <div
+                          class="wistia_responsive_wrapper"
+                          style="
+                            height: 100%;
+                            left: 0;
+                            position: absolute;
+                            top: 0;
+                            width: 100%;
+                          "
+                        >
+                          <iframe
+                            src="https://fast.wistia.net/embed/iframe/yzs3wso7l9?web_component=true&seo=true"
+                            title="Travex Video"
+                            allow="autoplay; fullscreen"
+                            allowtransparency="true"
+                            frameborder="0"
+                            scrolling="no"
+                            class="wistia_embed"
+                            name="wistia_embed"
+                            width="100%"
+                            height="100%"
+                          ></iframe>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Rateflicks -->
+                <div id="Rateflicks" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="Resume-click-open">
+                      <div
+                        class="wistia_responsive_padding"
+                        style="padding: 47.5% 0 0 0; position: relative"
+                      >
+                        <div
+                          class="wistia_responsive_wrapper"
+                          style="
+                            height: 100%;
+                            left: 0;
+                            position: absolute;
+                            top: 0;
+                            width: 100%;
+                          "
+                        >
+                          <iframe
+                            src="https://fast.wistia.net/embed/iframe/1xj3edyvq7?web_component=true&seo=true"
+                            title="Rateflicks Video"
+                            allow="autoplay; fullscreen"
+                            allowtransparency="true"
+                            frameborder="0"
+                            scrolling="no"
+                            class="wistia_embed"
+                            name="wistia_embed"
+                            width="100%"
+                            height="100%"
+                          ></iframe>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Wistia Player Script -->
+                <script src="https://fast.wistia.net/player.js" async></script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--end resume-->
+
+    <!-- ***** entrepreneur-quotes ***** -->
+    <section id="entrepreneur-quotes">
+      <div id="entrepreneur-quotes-container" class="container">
+        <div class="row">
+          <h2 class="main-titles fade-in-main-titles slide-in-main-titles">
+            سخنان نوابغ دنیای کامپیوتر
+          </h2>
+          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 quotes-test">
+            <div class="cards fade-in-entrepreneur slide-in-entrepreneur">
+              <div class="imgBx">
+                <img
+                  loading="lazy"
+                  src="Content/images/AlanTuring-optimized.webp"
+                  alt="Alan Turing"
+                />
+              </div>
+              <div class="overlay"></div>
+              <div class="content">
+                گاهی اوقات افرادی که هیچکس تصور نمی کند بتوانند کاری انجام دهند،
+                کارهایی را انجام می دهند که هیچکس نمی تواند تصور کند.
+              </div>
+            </div>
+            <h3>Alan Turing</h3>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 quotes-test">
+            <div class="cards fade-in-entrepreneur slide-in-entrepreneu">
+              <div class="imgBx">
+                <img
+                  loading="lazy"
+                  src="Content/images/BillGates1.webp"
+                  alt="Bill Gates"
+                />
+              </div>
+              <div class="overlay"></div>
+              <div class="content">
+                جشن گرفتن موفقیت خوب است، اما از آن مهم ‌تر، توجه کردن به درس‌
+                هایی است که از شکست می ‌گیریم.
+              </div>
+            </div>
+            <h3>Bill Gates</h3>
+          </div>
+          <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 quotes-test">
+            <div class="cards fade-in-entrepreneur slide-in-entrepreneu">
+              <div class="imgBx">
+                <img
+                  loading="lazy"
+                  src="Content/images/MargaretHamilton-optimized.webp"
+                  alt="Margaret Hamilton"
+                />
+              </div>
+              <div class="overlay"></div>
+              <div class="content">
+                هیچوقت نباید از گفتن "نمی دانم" یا "نمی فهمم" یا پرسش سوالات
+                "احمقانه"، ترسید چون هیچ سوالی احمقانه نیست.
+              </div>
+            </div>
+            <h3>Margaret Hamilton</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--end entrepreneur-quotes-->
+
+    <!-- ***** contact ***** -->
+    <span class="anchor" id="Contact-anchor"></span>
+    <section id="Contact" class="padding-top-5">
+      <div class="container">
+        <div class="row">
+          <h2 class="main-titles fade-in-main-titles slide-in-main-titles">
+            راه های ارتباطی
+          </h2>
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="Contact-info">
+              <div class="cards-Contact fade-in-contact slide-in-contact">
+                <i class="icon-Contact fas fa-envelope"></i>
+                <a
+                  href="mailto:matin.taherzadeh.mmtsa@gmail.com"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Gmail"
+                >
+                  <div class="card-content">
+                    <h3>ایمیل</h3>
+                    <span>matin.taherzadeh.mmtsa@gmail.com</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="Contact-info">
+              <div class="cards-Contact fade-in-contact slide-in-contact">
+                <i class="icon-Contact fas fa-phone"></i>
+                <a href="tel:+98-9334363774">
+                  <div class="card-content">
+                    <h3>شماره تلفن</h3>
+                    <span>+98-9334363774</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="LastChild-Cards-Contact col-lg-4 col-md-4 col-sm-12 col-xs-12"
+          >
+            <div class="Contact-info">
+              <div class="cards-Contact fade-in-contact slide-in-contact">
+                <i class="icon-Contact fas fa-map-marker-alt"></i>
+                <div class="card-content">
+                  <h3>محل اقامت</h3>
+                  <span>ایران، کرج</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="Down-Contact">
+            <div class="Down-Contact-Button fade-in-contact slide-in-contact">
+              <a
+                href="https://www.instagram.com/matin_taherzadeh_sa/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+              >
+                <div class="Down-Contact-Icon">
+                  <i class="fab fa-instagram"></i>
+                </div>
+                <span>Instagram</span>
+              </a>
+            </div>
+            <div class="Down-Contact-Button fade-in-contact slide-in-contact">
+              <a
+                href="https://twitter.com/MatinT_SA"
+                target="_blank"
+                rel="noopener"
+                aria-label="Twitter, Also known as X"
+              >
+                <div class="Down-Contact-Icon">
+                  <i class="fab fa-twitter"></i>
+                </div>
+                <span>Twitter</span>
+              </a>
+            </div>
+            <div class="Down-Contact-Button fade-in-contact slide-in-contact">
+              <a
+                href="https://github.com/MatinT-SA"
+                target="_blank"
+                rel="noopener"
+                aria-label="GitHub"
+              >
+                <div class="Down-Contact-Icon">
+                  <i class="fab fa-github"></i>
+                </div>
+                <span>Github</span>
+              </a>
+            </div>
+            <div class="Down-Contact-Button fade-in-contact slide-in-contact">
+              <a
+                href="https://www.linkedin.com/in/matin-taherzadeh-sa"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+              >
+                <div class="Down-Contact-Icon">
+                  <i class="fab fa-linkedin"></i>
+                </div>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+            <div class="Down-Contact-Button fade-in-contact slide-in-contact">
+              <a
+                href="https://api.whatsapp.com/send?phone=989334363774&text=hi%20Matin.%20how%20are%20you%3F"
+                target="_blank"
+                rel="noopener"
+                aria-label="WhatsApp"
+              >
+                <div class="Down-Contact-Icon">
+                  <i class="fab fa-whatsapp"></i>
+                </div>
+                <span>WhatsApp</span>
+              </a>
+            </div>
+            <div class="Down-Contact-Button fade-in-contact slide-in-contact">
+              <a
+                href="https://t.me/Matin_T_1999"
+                target="_blank"
+                rel="noopener"
+                aria-label="Telegram"
+              >
+                <div class="Down-Contact-Icon">
+                  <i class="fab fa-telegram"></i>
+                </div>
+                <span>Telegram</span>
+              </a>
+            </div>
+            <div class="Down-Contact-Button fade-in-contact slide-in-contact">
+              <a
+                href="https://www.facebook.com/MatinTaherzadehShA/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+              >
+                <div class="Down-Contact-Icon">
+                  <i class="fab fa-facebook"></i>
+                </div>
+                <span>Facebook</span>
+              </a>
+            </div>
+          </div>
+
+          <p class="fade-in-contact slide-in-contact">
+            اگر میخوای برام پیام ارسال کنی، بهترین کار اینه که از بخش بعدی، یعنی
+            ارسال پیام ها دیدن کنی. جای دوری نرو! همین پایینم :)
+          </p>
+        </div>
+      </div>
+    </section>
+    <!--end contact-->
+
+    <!-- ***** comment ***** -->
+    <span class="anchor" id="Comment-anchor"></span>
+    <section id="Comment" class="padding-top-3">
+      <div class="container">
+        <div class="row">
+          <h2 class="main-titles fade-in-main-titles slide-in-main-titles">
+            ارسال پیام
+          </h2>
+
+          <form
+            action="https://formsubmit.co/matin.taherzadeh.mmtsa@gmail.com"
+            autocomplete="off"
+            method="POST"
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="ایمیل جدید از قسمت ارسال پیام های سایت شخصی متین طاهرزاده"
+            />
+            <div class="Comment-rows fade-in-comment slide-in-comment">
+              <div class="Comment-form">
+                <div class="Comment-InputBox">
+                  <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    autocomplete="off"
+                    placeholder=" "
+                  />
+                  <label for="name" class="Comment-text">نام</label>
+                  <span class="Comment-Line"></span>
+                </div>
+              </div>
+              <div class="Comment-form">
+                <div class="Comment-InputBox">
+                  <input
+                    id="familyname"
+                    type="text"
+                    name="lastName"
+                    placeholder=" "
+                  />
+                  <label for="familyname" class="Comment-text"
+                    >نام خانوادگی</label
+                  >
+                  <span class="Comment-Line"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="Comment-rows fade-in-comment slide-in-comment">
+              <div class="Comment-form">
+                <div class="Comment-InputBox">
+                  <input
+                    id="CommentEmail"
+                    placeholder=" "
+                    type="email"
+                    name="email"
+                    required
+                    autocomplete="on"
+                    oninvalid="this.setCustomValidity('برای دریافت پاسخ، باید ایمیل معتبر وارد شود')"
+                    onchange="try{setCustomValidity('')}catch(e){}"
+                  />
+                  <label for="CommentEmail" class="Comment-text">ایمیل*</label>
+                  <span class="Comment-Line"></span>
+                </div>
+              </div>
+              <div class="Comment-form">
+                <div class="Comment-InputBox">
+                  <input
+                    id="phonenumber"
+                    type="tel"
+                    name="phoneNumber"
+                    pattern="^([0|\+[0-9]{1,5})?([1-9][0-9]{9})$"
+                    onchange="try{setCustomValidity('')}catch(e){}"
+                    oninvalid="this.setCustomValidity('شماره تلفن معتبر وارد نمایید')"
+                    placeholder=" "
+                  />
+                  <label for="phonenumber" class="Comment-text"
+                    >شماره تلفن</label
+                  >
+                  <span class="Comment-Line"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="Comment-rows fade-in-comment slide-in-comment">
+              <div class="Comment-form">
+                <div class="Comment-InputBox textarea">
+                  <textarea
+                    id="CommentMessage"
+                    required
+                    name="message"
+                    oninvalid="this.setCustomValidity('لطفا متن پیام را وارد کنید')"
+                    oninput="this.setCustomValidity('')"
+                  ></textarea>
+                  <label for="CommentMessage" class="Comment-text"
+                    >متن پیام*</label
+                  >
+                  <span class="Comment-Line"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="Comment-form-Button">
+              <button type="submit">
+                <span>ارسال پیام</span>
+                <div class="liquid"></div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!--end comment-->
+
+    <!-- ***** footer ***** -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <ul class="footer-icons">
+            <li>
+              <a
+                href="https://www.facebook.com/MatinTaherzadehShA/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+                ><span class="fab fa-facebook"></span
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://twitter.com/MatinT_SA"
+                target="_blank"
+                rel="noopener"
+                aria-label="Twitter, Also known as X"
+                ><span class="fab fa-twitter"></span
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/MatinT-SA"
+                target="_blank"
+                rel="noopener"
+                aria-label="GitHub"
+                ><span class="fab fa-github"></span
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://api.whatsapp.com/send?phone=989334363774&text=hi%20Matin.%20how%20are%20you%3F"
+                target="_blank"
+                rel="noopener"
+                aria-label="WhatsApp"
+                ><span class="fab fa-whatsapp"></span
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://t.me/Matin_T_1999"
+                target="_blank"
+                rel="noopener"
+                aria-label="Telegram"
+                ><span class="fab fa-telegram"></span
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/matin_taherzadeh_sa/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+                ><span class="fab fa-instagram"></span
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/matin-taherzadeh-sa"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+                ><span class="fab fa-linkedin"></span
+              ></a>
+            </li>
+            <li>
+              <a
+                href="mailto:matin.taherzadeh.mmtsa@gmail.com"
+                target="_blank"
+                rel="noopener"
+                aria-label="Gmail"
+                ><span class="fas fa-envelope"></span
+              ></a>
+            </li>
+            <li>
+              <a href="tel:+98-9334363774" aria-label="PhoneNumber"
+                ><span class="fas fa-phone"></span
+              ></a>
+            </li>
+          </ul>
+          <div class="copyright-matin">
+            2025 &copy - تمامی حقوق این سایت به
+            <a href="/">matintaherzadeh.ir </a>تعلق دارد.
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--end footer-->
+
+    <!--button scroll to top-->
+    <button onclick="topFunction()" id="GoToTopButton" aria-label="Go to Top">
+      <i class="fas fa-angle-double-up"></i>
+    </button>
+
+    <!--scripts-->
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"
+    ></script>
+    <script defer src="Scripts/MatinTaherzadeh.js"></script>
+
+    <!--type.js-->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!--script-->
+    <script>
+      var typed = new Typed(".type", {
+        strings: ["به وب سایت من خوش آمدید!"],
+        typeSpeed: 80,
+        backSpeed: 30,
+        loop: true,
+      });
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": "Person",
+        "name": "Matin Taherzadeh",
+        "url": "https://matintaherzadeh.ir",
+        "image": "https://www.matintaherzadeh.ir/Content/images/favicon.ico",
+        "sameAs": [
+          "https://twitter.com/MatinT_SA",
+          "https://www.instagram.com/matin_taherzadeh_sa/",
+          "https://github.com/MatinT-SA",
+          "https://matintaherzadeh.ir"
+        ]
+      }
+    </script>
+  </body>
+</html>
