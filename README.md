@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Matin Taherzadeh | Personal Website V2
 
-## Getting Started
+<img width="1920" height="921" alt="personal-website" src="https://github.com/user-attachments/assets/9d8752ce-a01b-4eed-90cc-8bed82e70925" />
 
-First, run the development server:
+---
+
+## 📝 Description
+
+This is the **second generation** of my professional portfolio. It represents a complete shift from legacy web technologies to a modern, component-driven architecture. This refactor focuses on **maximum performance**, **internationalization (i18n)**, and a refined **UI/UX**.
+
+> [!IMPORTANT]
+> **Branch Evolution:** The legacy version of this site (HTML/CSS/Bootstrap 3) is officially archived in the `v1` branch. The current production-ready code resides in the `main` branch.
+
+## 🔗 Quick Links
+
+- 🚀 **Live Demo:** [matintaherzadeh.ir](https://matintaherzadeh.ir)
+- 📂 **Legacy Version:** [View v1 Branch](https://github.com/MatinT-SA/My-Personal-Website/tree/v1)
+
+---
+
+## 🚀 Setup
+
+While the project is live, you can run it locally for development:
 
 ```bash
+# Clone the repository
+git clone [https://github.com/MatinT-SA/My-Personal-Website.git](https://github.com/MatinT-SA/My-Personal-Website.git)
+
+# Install dependencies
+npm install
+
+# Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Tech Stack
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+**Core Framework:**
+- [Next.js 15](https://nextjs.org/) (App Router)
+- [React 19](https://react.dev/)
+- [Next-Intl](https://next-intl-docs.vercel.app/) (Full Multilingual Support)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**UI & Styling:**
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/) & [Lottie React](https://github.com/gamote/lottie-react)
+- [React Icons](https://react-icons.github.io/react-icons/)
 
-## Learn More
+**Data & Integration:**
+- [Recharts](https://recharts.org/)
+- [Nodemailer](https://nodemailer.com/)
+- [React GitHub Calendar](https://github.com/grubersjoe/react-github-calendar)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ✨ Key Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Full Internationalization (i18n):** Seamlessly switch between **English** and **Persian** with full RTL support.
+- **Lighthouse Optimized:** Engineered for high speed and accessibility, achieving top-tier Lighthouse benchmarks.
+- **Modern Refactor:** Complete removal of **jQuery** and **Bootstrap** in favor of high-performance React components.
 
-## Deploy on Vercel
+## 📊 Performance & Optimization
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<img width="1920" height="1020" alt="desktop-99-performance" src="https://github.com/user-attachments/assets/3a93b411-4ccc-4840-893c-da5a7042bb23" />
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📬 Contact
+
+- **LinkedIn:** [linkedin.com/in/matin-taherzadeh-sa](https://www.linkedin.com/in/matin-taherzadeh-sa)
+- **Email:** [matin.taherzadeh.mmtsa@gmail.com](mailto:matin.taherzadeh.mmtsa@gmail.com)
+
+## ⚖️ License
+
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for the full text.
+
+---
+*Developed with ❤️ by Matin Taherzadeh*
