@@ -9,7 +9,7 @@ export default function ModalBody() {
         background: "rgba(168,198,222,0.3)",
       }}
     >
-      <div className="relative aspect-3/4 w-full max-w-[280px] lg:w-[354px] lg:max-w-none">
+      <div className="relative aspect-3/4 w-full max-w-[280px] lg:w-[310px] lg:max-w-none">
         <Image
           src="/images/Matin-Taherzadeh-portrait.webp"
           alt="Matin Taherzadeh Enlarged"
