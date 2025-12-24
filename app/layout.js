@@ -1,6 +1,7 @@
 import "@/app/styles/global.css";
 import Header from "./components/header/Header";
 import { THEME_COLOR } from "@/lib/colors";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const viewport = {
   themeColor: THEME_COLOR,
@@ -16,6 +17,7 @@ export default function LocaleLayout({ children, params: { locale } }) {
       >
         <Header locale={locale} />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
