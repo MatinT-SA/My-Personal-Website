@@ -3,9 +3,9 @@
 import { useState } from "react";
 
 import useSectionObserver from "@/lib/hooks/useSectionObserver";
-import FloatingUI from "../components/layout/FloatingUI";
+import FloatingUI from "@app/components/layout/FloatingUI";
 
-import AboutMeClient from "../components/about-me/AboutMeClient";
+import AboutMeClient from "@app/components/about-me/AboutMeClient";
 
 import Comment from "./sections/Comment";
 import Contact from "./sections/Contact";
