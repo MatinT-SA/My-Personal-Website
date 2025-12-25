@@ -67,11 +67,6 @@
   height: auto !important;
 }
 
-/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* ⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Experience page ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
-/* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
-/* Experience-specific styles moved to app/components/experience/experience.module.css */
-
 @layer components {
   .glitch-text {
     position: relative;
@@ -482,10 +477,6 @@ svg path:focus {
   animation-delay: var(--MyPic-delay-time, 0ms);
 }
 
-/* .animate-float-profile {
-  animation: var(--animate-float-profile);
-} */
-
 .modal-pop {
   animation: modal-pop 0.4s cubic-bezier(0.4, 0.8, 0.2, 1) forwards;
 }
@@ -547,7 +538,6 @@ svg path:focus {
   }
 }
 
-/* Base class to apply the animation (replaces .footerShake) */
 @media (min-width: 1280px) {
   .footer-shake-xl {
     width: 100%;
@@ -555,16 +545,10 @@ svg path:focus {
     animation: shakeFooter 2s ease-in-out infinite;
   }
 
-  /* Cancels the animation on hover, but only on XL screens */
   .group:hover .footer-shake-xl {
     animation: none;
   }
 }
-
-/* Stops the animation when the parent element has the 'group' class and is hovered (replaces .footerOuter:hover .footerShake) */
-/* .group:hover .animate-shake-footer {
-  animation: none;
-} */
 
 /* ▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢▣▢ */
 /* ⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡≫ Not Found ≪⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡⬡ */
@@ -628,7 +612,6 @@ svg path:focus {
   }
 }
 
-/* 3. Your existing MD logic */
 @media (min-width: 768px) and (max-width: 1024px) {
   .animate-float-profile {
     animation: var(--animate-float-md);

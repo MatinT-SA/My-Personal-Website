@@ -9,7 +9,7 @@ export default function Logo() {
       id="logo-header"
     >
       <Image
-        src="/images/matin taherzade logo-02.webp"
+        src="/images/logo.webp"
         alt="Logo"
         width={192}
         height={0}

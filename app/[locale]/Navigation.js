@@ -1,10 +1,10 @@
 "use client";
 
+import SocialLinks from "@app/components/contact/SocialLinks";
+import NavLinks from "@app/components/navigation/NavLinks";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import NavLinks from "../components/navigation/NavLinks";
-import SocialLinks from "../components/profile/profie/profile-card/SocialLinks";
 
 export default function Navigation({ dir }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -8,7 +8,7 @@ export default function AboutMeImage() {
   return (
     <div className={IMAGE_WRAPPER_CLASSES}>
       <Image
-        src="/images/matin-taherzadeh-standing-4.png"
+        src="/images/matin-taherzadeh-standing-4.webp"
         alt="Matin Taherzadeh Image"
         width={500}
         height={700}

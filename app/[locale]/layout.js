@@ -1,14 +1,14 @@
+import LocaleSwitcher from "@app/components/layout/LocaleSwitcher";
+import { routing } from "@i18n/routing";
 import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { routing } from "../../i18n/routing";
-import LocaleSwitcher from "../components/layout/LocaleSwitcher";
 
 import { getTranslations } from "next-intl/server";
 
 const getMessages = async (locale) => {
   try {
-    const messagesModule = await import(`../../messages/${locale}.json`);
+    const messagesModule = await import(`@/messages/${locale}.json`);
     return messagesModule.default;
   } catch {
     notFound();

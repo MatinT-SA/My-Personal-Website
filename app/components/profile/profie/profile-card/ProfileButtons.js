@@ -3,8 +3,8 @@
 import LoadingButton from "@/app/components/ui/LoadingButton";
 import { Link } from "@/i18n/routing";
 import useNavigateWithLoading from "@/lib/hooks/useNavigationWithLoading";
+import Button from "@app/components/ui/Button";
 import { useTranslations } from "next-intl";
-import Button from "../../../ui/Button";
 
 export default function ProfileButtons() {
   const t = useTranslations("profile");

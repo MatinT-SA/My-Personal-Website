@@ -1,6 +1,6 @@
+import { getMessages } from "next-intl/server";
 import HomeClient from "./HomeClient";
 import AboutMeSection from "./sections/AboutMe";
-import { getMessages } from "next-intl/server";
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;

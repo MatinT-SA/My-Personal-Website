@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { FiDownload } from "react-icons/fi";
 import { useLocale, useTranslations } from "next-intl";
+import { useState } from "react";
 import toast from "react-hot-toast";
+import { FiDownload } from "react-icons/fi";
 import LoadingButton from "../ui/LoadingButton";
 
 export default function ResumeDownloadButton() {

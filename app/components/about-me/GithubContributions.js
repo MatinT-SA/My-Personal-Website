@@ -1,9 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import GithubCalendarGraph from "./GithubCalendarGraph";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 import GitHubIcon from "../ui/icons/GitHubIcon";
 import LoadingSpinner from "../ui/icons/LoadingSpinner";
+import GithubCalendarGraph from "./GithubCalendarGraph";
 
 export default function GithubContributions() {
   const [isLoading, setIsLoading] = useState(true);
