@@ -13,9 +13,10 @@ export async function generateMetadata({ params }) {
   };
 
   const keywordsString = t("seo.home.keywords");
-  const keywordsArray = keywordsString
-    ? keywordsString.split(",").map((k) => k.trim())
-    : [];
+  const keywordsArray =
+    typeof keywordsString === "string" && keywordsString.length > 0
+      ? keywordsString.split(",").map((k) => k.trim())
+      : [];
 
   return {
     title: t("seo.home.title"),
