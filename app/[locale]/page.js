@@ -7,6 +7,7 @@ export async function generateMetadata({ params }) {
   const messages = await getMessages({ locale });
 
   const t = (key) => {
+    if (!messages) return "";
     return (
       key.split(".").reduce((obj, part) => obj && obj[part], messages) || ""
     );
