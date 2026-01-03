@@ -1,6 +1,6 @@
 "use client";
 
-import SocialLinks from "@app/components/contact/SocialLinks";
+import SocialLinks from "@app/components/profile/profile-card/SocialLinks";
 import NavLinks from "@app/components/navigation/NavLinks";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
